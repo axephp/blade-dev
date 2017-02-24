@@ -5,7 +5,7 @@ namespace Blade\Interfaces\Routing;
 use Exception;
 
 use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\Http\IRequest as Processor;
+use Blade\Interfaces\Http\IRequest as Request;
 
 interface IRouter
 {

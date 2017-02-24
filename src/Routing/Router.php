@@ -4,7 +4,7 @@ namespace Blade\Routing;
 
 use Exception;
 
-use Blade\Interfaces\Container\IContainer as Container;
+use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter;
 use Blade\Interfaces\Routing\IProcessor as Processor;
 
