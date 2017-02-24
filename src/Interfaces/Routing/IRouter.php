@@ -4,9 +4,8 @@ namespace Blade\Routing;
 
 use Exception;
 
-use Blade\Interfaces\Container\IContainer as Container;
-use Blade\Interfaces\Routing\IRouter;
-use Blade\Interfaces\Routing\IProcessor as Processor;
+use Blade\Interfaces\AxE\IAxE as AxE;
+use Blade\Interfaces\Http\IRequest as Processor;
 
 interface IRouter
 {
