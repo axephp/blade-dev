@@ -8,10 +8,7 @@ use Blade\Interfaces\Container\IContainer as Container;
 use Blade\Interfaces\Routing\IRouter;
 use Blade\Interfaces\Routing\IProcessor as Processor;
 
-use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-
-
-class Router implements IRouter
+interface IRouter
 {
 	
 
