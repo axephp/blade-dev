@@ -12,15 +12,6 @@ interface IRouter
 	
 
     /**
-     * All of the verbs supported by the router.
-     *
-     * @var array
-     */
-    public static $verbs = [];
-
-
-
-    /**
      * Create a new Router instance.
      *
      * @param  AxE  $axe
