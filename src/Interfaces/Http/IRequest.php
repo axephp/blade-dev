@@ -6,6 +6,6 @@ namespace Blade\Interfaces\Http;
 interface IRequest
 {
 	
-	public static function get();
+	public static function request();
 
 }
