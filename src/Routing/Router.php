@@ -7,6 +7,7 @@ use Exception;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter;
 use Blade\Interfaces\Routing\IProcessor as Processor;
+use Blade\Interfaces\Http\IRequest as Request;
 
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
