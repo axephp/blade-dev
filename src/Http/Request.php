@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 class Request extends SymfonyRequest implements IRequest
 {
 	
-	public static function get()
+	public static function request()
 	{
 		return parent::createFromGlobals();
 	}
