@@ -4,22 +4,32 @@ namespace Blade\Interfaces\Kernel;
 
 
 use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\Router\IRouter as Router;
-use Blade\Interfaces\Router\IProcessor as Processor;
-
+use Blade\Interfaces\Routing\IRouter as Router;
 
 interface IKernel
 {
-	
+    
+     /**
+     * New HttpKernel instance
+     *
+     * @param AxE
+     * @param Router
+     * @param Processor
+     * @return void
+     */
+    public function __construct(AxE $axe, Router $router);
 
 
-	public function __construct(AxE $axe, Router $router);
+    /**
+     * Check middleware existence
+     *
+     * @param mixed
+     * @return bool
+     */
+    public function hasMiddleware($item);
 
 
-	public function hasMiddleware($item);
-
-
-	/**
+    /**
      * Add a new middleware to beginning of the stack if it does not already exist.
      *
      * @param  string  $middleware
@@ -32,14 +42,26 @@ interface IKernel
      * Add a new middleware to end of the stack if it does not already exist.
      *
      * @param  string  $middleware
-     * @return $this	
+     * @return $this    
      */
     public function pushMiddleware($middleware);
 
 
-	public function boot($request);
+     /**
+     * Boot up the framework
+     *
+     * @param Request
+     * @return void
+     */
+    public function boot($request);
 
 
-	public function axe();
+    /**
+     * Returns AxE instance
+     *
+     * @param null
+     * @return void
+     */
+    public function axe();
 
 }
