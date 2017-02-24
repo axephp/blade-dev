@@ -1,0 +1,17 @@
+{
+    "name": "axephp/blade",
+    "description": "AxE PHP Framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robin Panta",
+            "email": "hacktivistic@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Blade\\": "src/" }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
