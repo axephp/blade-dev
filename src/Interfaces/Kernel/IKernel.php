@@ -13,7 +13,7 @@ interface IKernel
 	
 
 
-	public function __construct(AxE $axe, Router $router, Processor $processor);
+	public function __construct(AxE $axe, Router $router);
 
 
 	public function hasMiddleware($item);
@@ -41,8 +41,5 @@ interface IKernel
 
 
 	public function axe();
-
-
-	public function processor();
 
 }
