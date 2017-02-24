@@ -1,6 +1,6 @@
 <?php
 
-namespace Blade\Routing;
+namespace Blade\Interfaces\Routing;
 
 use Exception;
 
