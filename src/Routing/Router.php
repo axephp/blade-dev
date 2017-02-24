@@ -10,8 +10,6 @@ use Blade\Interfaces\Routing\IProcessor as Processor;
 use Blade\Interfaces\Http\IRequest as Request;
 use Blade\Interfaces\Routing\IRouteList as RouteList;
 
-use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-
 
 class Router implements IRouter
 {
