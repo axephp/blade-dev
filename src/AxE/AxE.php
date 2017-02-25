@@ -163,6 +163,11 @@ class AxE extends Container implements IAxE
     }
 
 
+    public function handle($event, $args = [])
+    {
+        //skip
+    }
+
     /**
      * Set the base path
      *
