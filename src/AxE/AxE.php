@@ -101,7 +101,7 @@ class AxE extends Container implements IAxE
     {
         $this->attendance();
         $this->attendManagers();
-        $this->registerCoreContainerAliases();
+
         if ($basePath) {
             $this->setBasePath($basePath);
         }
@@ -129,8 +129,8 @@ class AxE extends Container implements IAxE
      */
     protected function attendManagers()
     {
-        $this->register(new EventManager($this));
-        $this->register(new RouteManager($this));
+        //$this->register(new EventManager($this));
+        //$this->register(new RouteManager($this));
     }
 
     /**
