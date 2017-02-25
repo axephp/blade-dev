@@ -196,6 +196,36 @@ class Container implements IContainer
 	}
 
 
+    /**
+     * Register an existing instance
+     *
+     * @param  string  $abstract
+     * @param  mixed   $instance
+     * @return void
+     */
+	public function map($provider, $instance)
+	{
+		
+		$provider = $this->trim($provider);
+
+
+		/**
+		* When provider is array, it is assumed that alias is given.
+		* [ alias => provider ];
+		*/
+		if (is_array($provider)) {
+
+			list($alias, $provider) = [key($provider) , current($provider)];
+
+			$this->alias($alias, $provider);
+
+		}
+
+		$this->maps[$provider] = $instance;
+
+	}
+
+
 	/**
      * Register a provider to service class.
      *

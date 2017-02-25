@@ -76,14 +76,6 @@ class AxE extends Container implements IAxE
 
 
     /**
-     * The environment path
-     *
-     * @var string
-     */
-    protected $environmentPath;
-
-
-    /**
      * The config file
      *
      * @var string
@@ -123,8 +115,8 @@ class AxE extends Container implements IAxE
      */
     protected function attendance()
     {
-        $this->instance('axe', $this);
-        $this->instance(Blade\Container\Container::class, $this);
+        $this->map('axe', $this);
+        $this->map(Blade\Container\Container::class, $this);
 
         static::setInstance($this);
     }
@@ -170,5 +162,221 @@ class AxE extends Container implements IAxE
         }
     }
 
+
+    /**
+     * Set the base path
+     *
+     * @param  string  $basePath
+     * @return $this
+     */
+    public function setBasePath($basePath)
+    {
+        $this->basePath = rtrim($basePath, '\/');
+        return $this;
+    }
+
+
+    /**
+     * Get the path to the axe.
+     *
+     * @return string
+     */
+    public function systemPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'system';
+    }
+
+
+    /**
+     * Get the path to the axe.
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return $this->systemPath().DIRECTORY_SEPARATOR.'axe';
+    }
+
+
+    /**
+     * Get the base path
+     *
+     * @return string
+     */
+    public function basePath()
+    {
+        return $this->basePath;
+    }
+
+
+    /**
+     * Get the path to the managers directory
+     *
+     * @return string
+     */
+    public function bootstrapPath()
+    {
+        return $this->systemPath().DIRECTORY_SEPARATOR.'Managers';
+    }
+
+
+    /**
+     * Get the path to the configuration files
+     *
+     * @return string
+     */
+    public function configPath()
+    {
+        return $this->systemPath().DIRECTORY_SEPARATOR.'configs';
+    }
+
+
+    /**
+     * Get the path to the database directory
+     *
+     * @return string
+     */
+    public function databasePath()
+    {
+        return $this->databasePath ?: $this->basePath.DIRECTORY_SEPARATOR.'database';
+    }
+
+
+    /**
+     * Set the database directory
+     *
+     * @param  string  $path
+     * @return $this
+     */
+    public function useDatabasePath($path)
+    {
+        $this->databasePath = $path;
+        return $this;
+    }
+
+
+    /**
+     * Get the path to the language files
+     *
+     * @return string
+     */
+    public function langPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'lang';
+    }
+
+
+    /**
+     * Get the path to the public_html directory
+     *
+     * @return string
+     */
+    public function publicPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'public_html';
+    }
+
+
+    /**
+     * Get the path to the storage directory.
+     *
+     * @return string
+     */
+    public function storagePath()
+    {
+        return $this->storagePath ?: $this->basePath.DIRECTORY_SEPARATOR.'storage';
+    }
+
+
+    /**
+     * Set the storage directory.
+     *
+     * @param  string  $path
+     * @return $this
+     */
+    public function useStoragePath($path)
+    {
+        $this->storagePath = $path;
+        return $this;
+    }
+
+
+    /**
+     * Get the path to the resources directory.
+     *
+     * @return string
+     */
+    public function userPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'user';
+    }
+
+
+    /**
+     * Set the config file
+     *
+     * @param  string  $file
+     * @return $this
+     */
+    public function loadConfig($file)
+    {
+        $this->configFile = $file;
+        return $this;
+    }
+
+
+    /**
+     * Get the config file
+     *
+     * @return string
+     */
+    public function connfigFile()
+    {
+        return $this->environmentFile ?: '.config';
+    }
+
+
+    /**
+     * Get the fully qualified path to the config file
+     *
+     * @return string
+     */
+    public function configFilePath()
+    {
+        return $this->configPath().'/'.$this->configFile();
+    }
+
+
+    /**
+     * Determine if application is in local environment
+     *
+     * @return bool
+     */
+    public function isLocal()
+    {
+        return $this['config'] == 'local';
+    }
+
+
+    /**
+     * Determine if console
+     *
+     * @return bool
+     */
+    public function isConsole()
+    {
+        return php_sapi_name() == 'cli';
+    }
+
+
+    /**
+     * Determine if we are running unit tests
+     *
+     * @return bool
+     */
+    public function isUnitTests()
+    {
+        return $this['config'] == 'testing';
+    }
 
 }
