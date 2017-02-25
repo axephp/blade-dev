@@ -3,7 +3,7 @@
 namespace Blade\Interfaces\Kernel;
 
 
-use Blade\Interfaces\Application\IAxE as AxE;
+use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter as Router;
 
 interface IKernel
