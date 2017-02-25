@@ -7,12 +7,12 @@ use Blade\Interfaces\Http\IRequest;
 
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class Request implements IRequest
+class Request extends SymfonyRequest implements IRequest
 {
 	
 	static function request()
 	{
-		return SymfonyRequest::createFromGlobals();
+		return static::createFromGlobals();
 	}
 
 }
