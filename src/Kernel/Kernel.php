@@ -102,8 +102,8 @@ class Kernel implements IKernel
      */
     public function prependMiddleware($middleware)
     {
-        if (array_search($middleware, $this->middleware) === false) {
-            array_unshift($this->middleware, $middleware);
+        if (array_search($middleware, $this->middlewares) === false) {
+            array_unshift($this->middlewares, $middleware);
         }
 
         return $this;
@@ -118,8 +118,8 @@ class Kernel implements IKernel
      */
     public function pushMiddleware($middleware)
     {
-        if (array_search($middleware, $this->middleware) === false) {
-            $this->middleware[] = $middleware;
+        if (array_search($middleware, $this->middlewares) === false) {
+            $this->middlewares[] = $middleware;
         }
 
         return $this;
@@ -139,7 +139,7 @@ class Kernel implements IKernel
 
 			$this->execute();
 
-			$route = $this->router->route($request, $this->middleware);
+			$route = $this->router->route($request, $this->middlewares);
 
 			$response = $this->axe->process($route);
 
