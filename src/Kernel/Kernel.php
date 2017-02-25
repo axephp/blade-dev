@@ -163,7 +163,7 @@ class Kernel implements IKernel
 	 */
 	protected function execute()
 	{
-		if (!$this->app->executed()) {
+		if (!$this->axe->executed()) {
 			$this->axe->launch($this->managers);
 		}
 		
