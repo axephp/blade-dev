@@ -6,7 +6,7 @@ use Exception;
 use Blade\Interfaces\Kernel\IKernel;
 
 
-use Blade\Interfaces\Application\IAxE as AxE;
+use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter as Router;
 
 use Blade\Exceptions\AxE_Error;

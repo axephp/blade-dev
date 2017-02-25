@@ -1,10 +1,10 @@
 <?php
 
-namespace Blade\Application;
+namespace Blade\AxE;
 
 use ReflectionClass;
 use Exception;
-use Blade\Interfaces\Application\IAxE;
+use Blade\Interfaces\AxE\IAxE;
 use Blade\Container\Container;
 
 
