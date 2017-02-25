@@ -6,15 +6,15 @@ use Exception;
 use Blade\Interfaces\Kernel\IKernel;
 
 
-use Blade\Interfaces\AxE\IAxE as AxE;
+use Blade\Interfaces\Application\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter as Router;
 
 use Blade\Exceptions\AxE_Error;
 
-use Blade\Core\Varer;
-use Blade\Core\Configurer;
-use Blade\Core\Shutter;
-use Blade\Core\Logger;
+use Blade\Application\Core\Varer;
+use Blade\Application\Core\Configurer;
+use Blade\Application\Core\Shutter;
+use Blade\Application\Core\Logger;
 
 
 class Kernel implements IKernel
