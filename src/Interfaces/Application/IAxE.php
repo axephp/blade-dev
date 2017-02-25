@@ -1,6 +1,6 @@
 <?php
 
-namespace Blade\Interfaces\AxE;
+namespace Blade\Interfaces\Application;
 
 
 interface IAxE
