@@ -118,7 +118,7 @@ class AxE extends Container implements IAxE
         $this->map('axe', $this);
         $this->map(Blade\Container\Container::class, $this);
 
-        static::setInstance($this);
+        //static::setInstance($this);
     }
 
 
