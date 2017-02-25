@@ -342,7 +342,7 @@ class Container implements IContainer
 				}
 
 			}else{
-				throw new Exception("Unresolvable Dependency", 1);
+				throw new Exception("Unresolvable Dependency : $dependency->name", 1);
 				
 			}
 
