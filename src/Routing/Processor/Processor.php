@@ -59,7 +59,7 @@ class Processor implements IProcessor
 
 			$request = array_shift($this->requests);
 
-			if (is_dir(Path::process($dir, $request))) {
+			if (!empty($request) && is_dir(Path::process($dir, $request))) {
 
 				//$this->inside($class, $request);
 				var_dump($this->requests);
