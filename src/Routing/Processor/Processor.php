@@ -56,7 +56,7 @@ class Processor implements IProcessor
 
 			if (is_dir(Path::process($dir, $request))) {
 
-				//$this->inside($class, $request);
+				$this->inside($class, $request);
 				var_dump($this->requests);
 				var_dump($request);
 			}
