@@ -3,6 +3,7 @@
 namespace Blade\Routing\Processor;
 
 use Exception;
+use ReflectionClass;
 
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\Processor\IProcessor;
@@ -31,13 +32,13 @@ class Processor implements IProcessor
 	}
 
 
-	public function inside($namespace, $request)
+	public function inside($class, $request)
 	{
 
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
-		if ($file) {
+		if (is_file($file)) {
 
 			$class .= "\\".ucfirst($request);
 
@@ -60,6 +61,7 @@ class Processor implements IProcessor
 				$this->inside($class, $request);
 			}else{
 				// home
+				var_dump("Home");
 			}
 		}	
 	}
