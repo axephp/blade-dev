@@ -8,7 +8,7 @@ use ReflectionClass;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\Processor\IProcessor;
 
-use Blade\Interfaces\Routing\CompiledRoute;
+use Blade\Routing\CompiledRoute;
 
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
