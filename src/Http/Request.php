@@ -22,7 +22,7 @@ class Request extends SymfonyRequest implements IRequest
 
 	public function requests()
 	{
-		$patt = substr(parent::getRequestUri(), 0, strrpos(parent::getRequestUri(), '?'));
+		$patt = explode("?", parent::getRequestUri())[0];
 
 		return explode("/", $patt);
 	}
