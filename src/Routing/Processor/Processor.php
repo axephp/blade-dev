@@ -57,17 +57,18 @@ class Processor implements IProcessor
 
 		}else {
 
-			echo "Puhiyo";
-			/*
 			$request = array_shift($this->requests);
 
 			if (is_dir(Path::process($dir, $request))) {
-				$this->inside($class, $request);
+
+				//$this->inside($class, $request);
+				echo "yup";
+				var_dump($request);
 			}else{
 				// home
 				var_dump("Home");
 			}
-			*/
+			
 		}	
 	}
 
