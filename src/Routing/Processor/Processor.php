@@ -74,6 +74,8 @@ class Processor implements IProcessor
 
 	public function blend($route)
 	{
+		$response = new SymfonyResponse();
+
 		$response->setContent("Successful");
 
 		$response->headers->set('Content-Type', "text/html");
