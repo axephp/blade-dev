@@ -15,4 +15,9 @@ class Request extends SymfonyRequest implements IRequest
 		return static::createFromGlobals();
 	}
 
+	public function uri($value='')
+	{
+		return parent::getUri();
+	}
+
 }
