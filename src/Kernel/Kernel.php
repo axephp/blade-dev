@@ -148,6 +148,8 @@ class Kernel implements IKernel
 
 			$response = $ex->render($request);
 
+		}catch(Exception $ex){
+			echo "Error aao";
 		}
 
 		$this->axe->handle("kernel_booted", [ $request, $response ]);
@@ -168,6 +170,12 @@ class Kernel implements IKernel
 			$this->axe->launch($this->managers);
 		}
 		
+	}
+
+
+	public function end($request, $response)
+	{
+		# code...
 	}
 
 
