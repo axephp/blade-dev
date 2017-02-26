@@ -163,6 +163,13 @@ class AxE extends Container implements IAxE
     }
 
 
+
+    public function process($route)
+    {
+        var_dump($route);
+    }
+
+
     public function handle($event, $args = [])
     {
         //skip
