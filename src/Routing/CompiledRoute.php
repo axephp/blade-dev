@@ -66,14 +66,23 @@ class CompiledRoute implements ICompiledRoute
 		$this->method = $method;
 	}
 
+	public function getMethod()
+	{
+		return $this->method;
+	}
+
 	public function retrieveMiddlewares()
 	{
-		var_dump($this->reflection);
+		if ($this->reflection->hasProperty('middlewares')){
+			$array = $this->reflection->getDefaultProperties()['middlewares'];
+
+			return $array;
+		}
 	}
 
 	public function action()
 	{
-		
+		return $this->params[0].'_'.$this->method;
 	}
 
 }

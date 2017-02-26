@@ -36,6 +36,11 @@ class Processor implements IProcessor
 		}
 
 		$compiled = $this->inside("AxE\\Pages", $request);
+
+		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
+			$route->getRouter()->middleware($key, $value);
+		}
+
 		return $compiled;
 
 	}
@@ -59,10 +64,10 @@ class Processor implements IProcessor
 				$params = $this->requests;
 
 				$compiled = new CompiledRoute($this->axe);
-				$compiled->setReflection($reflection);
 				$compiled->setRequest($current);
 				$compiled->setParameters($params);
 				$compiled->setPath($dir);
+				$compiled->setReflection($reflection);
 
 				return $compiled;
 			}else{

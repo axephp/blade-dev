@@ -247,7 +247,7 @@ class Route implements IRoute
      */
 	public function gatherMiddleware()
 	{
-		return $this->router->middleware($name, $class);
+		return $this->router->getMiddlewares();
 	}
 
 
@@ -348,15 +348,4 @@ class Route implements IRoute
 		return $this->requests();
 	}
 
-
-	/**
-	 * (NEEDS MAINTENANCE) Compile route for current action
-	 *
-	 * @param string
-	 * @return $this
-	 */
-	public function compileRoute($name)
-	{
-		
-	}
 }
