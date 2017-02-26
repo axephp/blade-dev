@@ -44,8 +44,6 @@ class Processor implements IProcessor
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
-		echo "$dir  | $file";
-
 		if (file_exists($file)) {
 
 			$class .= "\\".ucfirst($request);
@@ -58,14 +56,14 @@ class Processor implements IProcessor
 
 			if (!is_null($new)) {
 				$request = [$request, $new];
-				var_dump($request);
-				Path::process($class, $request);	
+				$this->inside($class, $request);	
 			}else{
-				throw new Exception("Error Processing Request", 1);
+				throw new Exception("Error Processing Inside", 1);
 			}
 			
 		}else{
-			throw new Exception("Error Processing Request", 1);
+			var_dump(is_dir($dir));
+			throw new Exception("Error Processing Request Outside : $dir", 1);
 		}
 
 
