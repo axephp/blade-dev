@@ -8,6 +8,8 @@ use ReflectionClass;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\Processor\IProcessor;
 
+use Blade\Interfaces\Routing\CompiledRoute;
+
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class Processor implements IProcessor
@@ -55,7 +57,7 @@ class Processor implements IProcessor
 				$current = $request;
 				$params = $this->requests;
 
-				return []
+				return new CompiledRoute($this->axe);
 
 			}else{
 				throw new Exception("Error Processing Class", 1);
