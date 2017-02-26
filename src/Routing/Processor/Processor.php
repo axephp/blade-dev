@@ -55,6 +55,8 @@ class Processor implements IProcessor
 
 		}else {
 
+			echo "Puhiyo";
+			/*
 			$request = array_shift($this->requests);
 
 			if (is_dir(Path::process($dir, $request))) {
@@ -63,6 +65,7 @@ class Processor implements IProcessor
 				// home
 				var_dump("Home");
 			}
+			*/
 		}	
 	}
 }
