@@ -6,7 +6,7 @@ use Exception;
 
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter;
-use Blade\Interfaces\Routing\IProcessor as Processor;
+use Blade\Interfaces\Routing\Processor\IProcessor as Processor;
 use Blade\Interfaces\Http\IRequest as Request;
 use Blade\Routing\RouteList as RouteList;
 
