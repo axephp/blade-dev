@@ -48,7 +48,7 @@ class Processor implements IProcessor
 
 		}else {
 
-			$request = array_shift($this->requests);
+			$request .= array_shift($this->requests);
 
 			if (empty($request)) {
 				$request = "home"; //$this->axe->config('home_page') ?: "home";
@@ -58,6 +58,7 @@ class Processor implements IProcessor
 
 				//$this->inside($class, $request);
 				var_dump($this->requests);
+				var_dump($this->request);
 			}
 			
 		}	
