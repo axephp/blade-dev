@@ -44,28 +44,20 @@ class Processor implements IProcessor
 
 			$class .= "\\".ucfirst($request);
 
-			if (class_exists($class)) {
-
-				$reflection = new ReflectionClass($class);
-
-				var_dump($reflection);
-
-			}else{
-				//error
-				throw new Exception("Error Processing Request", 1);				
-			}	
+			var_dump($class);
 
 		}else {
 
 			$request = array_shift($this->requests);
 
-			if (!empty($request) && is_dir(Path::process($dir, $request))) {
+			if (empty($request)) {
+				$request = $this->axe->config('home_page') ?: "home";
+			}
+
+			if (is_dir(Path::process($dir, $request))) {
 
 				//$this->inside($class, $request);
 				var_dump($this->requests);
-			}else{
-				// home
-				var_dump("Home");
 			}
 			
 		}	
