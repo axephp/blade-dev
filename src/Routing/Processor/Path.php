@@ -18,7 +18,7 @@ class Path
 			if (is_array($value)) {
 				$output .= DIRECTORY_SEPARATOR.self::process($value);
 			}else{
-				$output .= $value;
+				$output .= DIRECTORY_SEPARATOR.$value;
 			}
 		}
 
