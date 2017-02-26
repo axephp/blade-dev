@@ -77,5 +77,7 @@ class Processor implements IProcessor
 		$response->setContent("Successful");
 
 		$response->headers->set('Content-Type', "text/html");
+
+		return $response;
 	}
 }
