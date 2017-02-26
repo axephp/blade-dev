@@ -51,7 +51,7 @@ class Processor implements IProcessor
 			$request = array_shift($this->requests);
 
 			if (empty($request)) {
-				$request = $this->axe->config('home_page') ?: "home";
+				$request = "home"; //$this->axe->config('home_page') ?: "home";
 			}
 
 			if (is_dir(Path::process($dir, $request))) {
