@@ -151,8 +151,7 @@ class Kernel implements IKernel
 			$this->axe->handle("kernel_booted", [ $request, $response ]);
 
 		}catch(Exception $ex){
-			echo "Error aao";
-			die();
+			die($ex->message);
 		}
 
 		return $response;
