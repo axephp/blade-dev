@@ -27,15 +27,13 @@ class Processor implements IProcessor
 	{
 		$this->requests = $route->requests();
 
-		//$request = array_shift($this->requests);
-
-		var_dump($this->requests);
+		$request = array_shift($this->requests);
 
 		if (empty($request)) {
 			$request = "home"; //$this->axe->config('home_page') ?: "home";
 		}
 
-		//$file = $this->inside("AxE\\Pages", $request);
+		$file = $this->inside("AxE\\Pages", $request);
 
 	}
 
@@ -59,11 +57,10 @@ class Processor implements IProcessor
 			$new = array_shift($this->requests);
 			$request = [$request, $new];
 
-			$this->inside($class, $request);
+			//$this->inside($class, $request);
 			
 		}else{
-			// 
-			echo "samosa";
+			throw new Exception("Error Processing Request", 1);
 		}
 
 
