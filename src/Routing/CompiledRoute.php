@@ -35,7 +35,7 @@ class CompiledRoute implements ICompiledRoute
 
 	public function getReflection()
 	{
-		# code...
+		return $this->reflection;
 	}
 
 }
