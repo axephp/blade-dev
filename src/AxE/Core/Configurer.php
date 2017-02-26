@@ -3,7 +3,7 @@
 namespace Blade\AxE\Core;
 
 use Exception;
-
+use Blade\Interfaces\AxE\IAxE as AxE;
 
 class Configurer // implements ICore
 {
