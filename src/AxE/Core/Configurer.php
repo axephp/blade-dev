@@ -10,7 +10,7 @@ class Configurer // implements ICore
 
 	public function run(AxE $axe)
 	{
-		$axe->resolve(\Blade\Routing\Router::class)->setRoutes(new \Blade\Interfaces\Routing\RouteList());
+		$axe->resolve(\Blade\Routing\Router::class)->setRoutes(new \Blade\Routing\RouteList());
 	}
 
 }
