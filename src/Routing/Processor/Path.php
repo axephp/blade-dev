@@ -22,7 +22,7 @@ class Path
 			}
 		}
 
-		return rtrim($output, DIRECTORY_SEPARATOR);
+		return trim($output, DIRECTORY_SEPARATOR);
 	
 	}
 

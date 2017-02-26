@@ -56,13 +56,13 @@ class Processor implements IProcessor
 
 			if (!is_null($new)) {
 				$request = [$request, $new];
-				$this->inside($class, $request);	
+				var_dump($request);
+				//$this->inside($class, $request);	
 			}else{
 				throw new Exception("Error Processing Inside", 1);
 			}
 			
 		}else{
-			var_dump(is_dir($dir));
 			throw new Exception("Error Processing Request Outside : $dir", 1);
 		}
 
