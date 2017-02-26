@@ -426,7 +426,7 @@ class Router implements IRouter
             $uri = $request->uri();
 
     		if (!in_array($uri, $this->blocked)) {
-    			$route =  (new Route($this->verbs, $request));
+    			$route =  (new Route(self::$verbs, $request));
 	    		$route->setRouter($this);
 
                 $processor = $this->axe->resolve(Processor::class);
