@@ -12,19 +12,13 @@ class Path
 
 	public static function process()
 	{
-		$output = "";
-
-		foreach (func_get_args() as $value) {
-			if (is_array($value)) {
-				$output .= self::process($value);
+		return implode(DIRECTORY_SEPARATOR, array_map(function($data) {
+			if (!is_array($data)) {
+				return $data;
 			}else{
-				$output .= $value.DIRECTORY_SEPARATOR;
+				return implode(DIRECTORY_SEPARATOR, $data);
 			}
-		}
-
-		return $output;
-		//return rtrim($output, DIRECTORY_SEPARATOR);
-	
+		}, func_get_args()));	
 	}
 
 
