@@ -89,7 +89,7 @@ class Route implements IRoute
 	 * @param Router
 	 * @return void
 	 */
-	public function setRoute(Router $router)
+	public function setRouter(Router $router)
 	{
 		$this->router = $router;
 	}
@@ -101,7 +101,7 @@ class Route implements IRoute
 	 * @param null
 	 * @return Router
 	 */
-	public function getRoute()
+	public function getRouter()
 	{
 		return $this->router;
 	}

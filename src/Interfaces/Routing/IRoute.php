@@ -28,7 +28,7 @@ interface IRoute
 	 * @param Router
 	 * @return void
 	 */
-	public function setRoute(Router $router);
+	public function setRouter(Router $router);
 
 
 	/**
@@ -37,7 +37,7 @@ interface IRoute
 	 * @param null
 	 * @return Router
 	 */
-	public function getRoute();
+	public function getRouter();
 
 
 	/**
