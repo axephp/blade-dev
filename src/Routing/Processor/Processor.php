@@ -4,18 +4,19 @@ namespace Blade\Routing\Processor;
 
 use Exception;
 
-use Blade\Interfaces\Container\IContainer as Container;
+use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\Processor\IProcessor;
 
 class Processor implements IProcessor
 {
 	
+	protected $axe;
 
 	protected $requests;
 
-	public function __construct()
+	public function __construct(AxE $axe)
 	{
-		
+		$this->axe = $axe;
 	}
 
 
@@ -33,7 +34,7 @@ class Processor implements IProcessor
 	public function inside($namespace, $request)
 	{
 
-		$dir = Path::process(Path::pagesDir(), $request);
+		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
 		if ($file) {

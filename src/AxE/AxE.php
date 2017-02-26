@@ -318,6 +318,17 @@ class AxE extends Container implements IAxE
 
 
     /**
+     * Get the path to the pages directory
+     *
+     * @return string
+     */
+    public function pagesPath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'pages';
+    }
+
+
+    /**
      * Set the config file
      *
      * @param  string  $file
