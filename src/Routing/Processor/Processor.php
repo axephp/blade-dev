@@ -44,30 +44,25 @@ class Processor implements IProcessor
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
-		if (is_file($file)) {
+		if (file_exists($file)) {
 
 			$class .= "\\".ucfirst($request);
 
 			var_dump($class);
 
-		}else {
-
-			$request = [$request, array_shift($this->requests)];	
-
-			if (is_dir(Path::process($dir, $request))) {
-
-				$this->inside($class, $request);
-
-				echo "<pre>";
-				var_dump($this->requests);
-				var_dump($request);
-				echo "</pre>";
-
-			}else{
-				echo "nope";
-			}
+		}elseif (is_dir($dir)) {
 			
-		}	
+			$new = array_shift($this->requests);
+			$request = [$request, $new];
+
+			$this->inside($class, $request);
+			
+		}else{
+			// 
+			echo "samosa";
+		}
+
+		
 	}
 
 
