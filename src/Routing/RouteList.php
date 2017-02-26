@@ -6,7 +6,7 @@ use Exception;
 class RouteList
 {
 
-	protected list = [];
+	protected $list = [];
 
 
 	public function match()
