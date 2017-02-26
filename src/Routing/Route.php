@@ -62,14 +62,6 @@ class Route implements IRoute
 
 
 	/**
-	 * Route name
-	 *
-	 * @var string
-	 */
-	protected $name;
-
-
-	/**
 	 * New Route Instance
 	 *
 	 * @param array
@@ -203,43 +195,7 @@ class Route implements IRoute
 
 
 	/**
-	 * Set name for this route
-	 *
-	 * @param string
-	 * @return void
-	 */
-	public function setName(string $name)
-	{
-		$this->name = $name;
-	}
-
-
-	/**
-	 * Return name for this route
-	 *
-	 * @param null
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-
-	/**
-	 * Return name for this route (alias)
-	 *
-	 * @param null
-	 * @return string
-	 */
-	public function name()
-	{
-		return $this->getName();
-	}
-
-
-	/**
-     * Register a middleware.
+     * Get middlewares.
      *
      * @param  string  $name
      * @param  string  $class
@@ -252,7 +208,7 @@ class Route implements IRoute
 
 
 	/**
-     * Register a middleware.
+     * Get middlewares
      *
      * @param  string  $name
      * @param  string  $class

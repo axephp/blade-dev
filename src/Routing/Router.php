@@ -208,6 +208,8 @@ class Router implements IRouter
     public function route(Request $request, array $middlewares)
     {
         $this->currentRequest = $request;
+        $this->middlewares[] = $middlewares;
+
         return $this->dispatch($request);
     }
 
@@ -360,9 +362,9 @@ class Router implements IRouter
 
         if ($route) {
         	$this->disableFetch($route);
+            $route = $this->listCompile($route);
         }else{
         	$route = $this->fetch($request);
-            $route->setMethod($request->method());
         }
 
         $this->current = $route;
@@ -428,7 +430,7 @@ class Router implements IRouter
             $uri = $request->uri();
 
     		if (!in_array($uri, $this->blocked)) {
-    			$route =  (new Route(self::$verbs, $request));
+    			$route =  (new Route([$request->method()], $request));
 	    		$route->setRouter($this);
 
                 $processor = $this->axe->resolve(Processor::class);

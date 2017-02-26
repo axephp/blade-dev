@@ -41,6 +41,8 @@ class Processor implements IProcessor
 			$route->getRouter()->middleware($key, $value);
 		}
 
+		$route->setPath(null);
+		
 		return $compiled;
 
 	}
@@ -95,7 +97,7 @@ class Processor implements IProcessor
 
 	public function blend($route)
 	{	
-		var_dump($route->action());
+		$this->suber($route);
 
 		$response = new SymfonyResponse();
 
@@ -104,5 +106,11 @@ class Processor implements IProcessor
 		$response->headers->set('Content-Type', "text/html");
 
 		return $response;
+	}
+
+
+	public function suber($compiled)
+	{
+		var_dump($compiled);
 	}
 }

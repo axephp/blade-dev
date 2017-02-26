@@ -82,7 +82,7 @@ class CompiledRoute implements ICompiledRoute
 
 	public function action()
 	{
-		return $this->params[0].'_'.$this->method;
+		return $this->params[0].'_'.strtolower($this->method);
 	}
 
 }
