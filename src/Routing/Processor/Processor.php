@@ -8,6 +8,8 @@ use ReflectionClass;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\Processor\IProcessor;
 
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+
 class Processor implements IProcessor
 {
 	
@@ -67,5 +69,13 @@ class Processor implements IProcessor
 			}
 			*/
 		}	
+	}
+
+
+	public function blend($route)
+	{
+		$response->setContent("Successful");
+
+		$response->headers->set('Content-Type', "text/html");
 	}
 }

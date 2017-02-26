@@ -167,6 +167,8 @@ class AxE extends Container implements IAxE
     public function process($route)
     {
         var_dump($route);
+
+        return $this->resolve(Blade\Interfaces\Routing\Processor\IProcessor::class)->blend($route);
     }
 
 
