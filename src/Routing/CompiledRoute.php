@@ -6,6 +6,7 @@ use Exception;
 
 use Blade\Interfaces\Container\IContainer as Container;
 use Blade\Interfaces\Routing\ICompiledRoute;
+use Blade\Interfaces\AxE\IAxE as AxE;
 
 
 class CompiledRoute implements ICompiledRoute
@@ -36,6 +37,11 @@ class CompiledRoute implements ICompiledRoute
 	public function getReflection()
 	{
 		return $this->reflection;
+	}
+
+	public function setReflection($reflection)
+	{
+		$this->reflection = $reflection;
 	}
 
 }
