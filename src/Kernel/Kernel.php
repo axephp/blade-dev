@@ -143,16 +143,17 @@ class Kernel implements IKernel
 			$route = $this->router->route($request, $this->middlewares);
 
 			$response = $this->axe->process($route);
+			$this->axe->handle("kernel_booted", [ $request, $response ]);
 
 		}catch(AxE_Error $ex){
 
 			$response = $ex->render($request);
+			$this->axe->handle("kernel_booted", [ $request, $response ]);
 
 		}catch(Exception $ex){
 			echo "Error aao";
+			die();
 		}
-
-		$this->axe->handle("kernel_booted", [ $request, $response ]);
 
 		return $response;
 	}
