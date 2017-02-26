@@ -55,9 +55,14 @@ class Processor implements IProcessor
 		}elseif (is_dir($dir)) {
 			
 			$new = array_shift($this->requests);
-			$request = [$request, $new];
 
-			//$this->inside($class, $request);
+			if (!is_null($new)) {
+				$request = [$request, $new];
+				var_dump($request);
+				Path::process($class, $request);	
+			}else{
+				throw new Exception("Error Processing Request", 1);
+			}
 			
 		}else{
 			throw new Exception("Error Processing Request", 1);

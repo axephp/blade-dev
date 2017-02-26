@@ -13,14 +13,21 @@ class Path
 	public static function process()
 	{
 		$array = [];
-		foreach (func_get_args() as $value) {
-			if (is_array($value)) {
-				static::process($value);
-			}else{
-				$array[] = $value;
+		$output = "";
+
+		$looper = function($array) use($looper) {
+			$a = [];
+			foreach ($array as $value) {
+				if (is_array($value)) {
+					array_merge($a, $looper($value));
+				}else{
+					$a[] = $value;
+				}
 			}
-		}
-		return implode(DIRECTORY_SEPARATOR, $array);
+			return $a;
+		};
+
+		return implode(DIRECTORY_SEPARATOR, $looper(func_get_args()));
 	
 	}
 
