@@ -58,6 +58,7 @@ class Processor implements IProcessor
 				$request = [$request, $new];
 				var_dump($request);
 				//$this->inside($class, $request);	
+				echo Path::process($this->axe->pagesPath(), $request);
 			}else{
 				throw new Exception("Error Processing Inside", 1);
 			}
