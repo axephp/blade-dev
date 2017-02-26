@@ -12,7 +12,15 @@ class Path
 
 	public static function process()
 	{
-		return implode(DIRECTORY_SEPARATOR, func_get_args());
+		$array = [];
+		foreach (func_get_args() as $value) {
+			if (is_array($value)) {
+				static::process($value);
+			}else{
+				$array[] = $value;
+			}
+		}
+		return implode(DIRECTORY_SEPARATOR, $array);
 	
 	}
 

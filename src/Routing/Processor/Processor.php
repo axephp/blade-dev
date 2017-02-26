@@ -29,13 +29,17 @@ class Processor implements IProcessor
 
 		$request = array_shift($this->requests);
 
+		if (empty($request)) {
+			$request = "home"; //$this->axe->config('home_page') ?: "home";
+		}
+
 		$file = $this->inside("AxE\\Pages", $request);
 
 	}
 
 
 	public function inside($class, $request)
-	{
+	{	
 
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
@@ -48,17 +52,19 @@ class Processor implements IProcessor
 
 		}else {
 
-			$request .= array_shift($this->requests);
-
-			if (empty($request)) {
-				$request = "home"; //$this->axe->config('home_page') ?: "home";
-			}
+			$request = [$request, array_shift($this->requests)];	
 
 			if (is_dir(Path::process($dir, $request))) {
 
 				$this->inside($class, $request);
+
+				echo "<pre>";
 				var_dump($this->requests);
 				var_dump($request);
+				echo "</pre>";
+
+			}else{
+				echo "nope";
 			}
 			
 		}	
