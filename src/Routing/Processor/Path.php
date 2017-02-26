@@ -12,22 +12,17 @@ class Path
 
 	public static function process()
 	{
-		$array = [];
 		$output = "";
 
-		$looper = function($array) use($looper) {
-			$a = [];
-			foreach ($array as $value) {
-				if (is_array($value)) {
-					array_merge($a, $looper($value));
-				}else{
-					$a[] = $value;
-				}
+		foreach ($array as $value) {
+			if (is_array($value)) {
+				$output .= DIRECTORY_SEPARATOR.self::process($value);
+			}else{
+				$output .= $value;
 			}
-			return $a;
-		};
+		}
 
-		return implode(DIRECTORY_SEPARATOR, $looper(func_get_args()));
+		return trim($output, DIRECTORY_SEPARATOR);
 	
 	}
 
