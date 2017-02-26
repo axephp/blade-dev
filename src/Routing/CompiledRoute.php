@@ -56,7 +56,7 @@ class CompiledRoute implements ICompiledRoute
 		$this->directory = $path;
 	}
 
-	public function setParameter($params)
+	public function setParameters($params)
 	{
 		$this->params = $params;
 	}
