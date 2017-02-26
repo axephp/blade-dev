@@ -221,13 +221,4 @@ interface IRoute
 	 */
 	public function getRequests();
 
-
-	/**
-	 * (NEEDS MAINTENANCE) Compile route for current action
-	 *
-	 * @param string
-	 * @return $this
-	 */
-	public function compileRoute($name);
-
 }
