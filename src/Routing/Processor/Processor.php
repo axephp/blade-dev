@@ -5,8 +5,7 @@ namespace Blade\Routing\Processor;
 use Exception;
 
 use Blade\Interfaces\Container\IContainer as Container;
-use Blade\Interfaces\Routing\IRouter;
-
+use Blade\Interfaces\Routing\Processor\IProcessor
 
 class Processor implements IProcessor
 {
