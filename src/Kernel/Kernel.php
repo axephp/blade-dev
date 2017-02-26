@@ -11,10 +11,10 @@ use Blade\Interfaces\Routing\IRouter as Router;
 
 use Blade\Exceptions\AxE_Error;
 
-use Blade\Application\Core\Varer;
-use Blade\Application\Core\Configurer;
-use Blade\Application\Core\Shutter;
-use Blade\Application\Core\Logger;
+use Blade\AxE\Core\Varer;
+use Blade\AxE\Core\Configurer;
+use Blade\AxE\Core\Shutter;
+use Blade\AxE\Core\Logger;
 
 
 class Kernel implements IKernel
@@ -44,6 +44,7 @@ class Kernel implements IKernel
 	 */
 	protected $managers = [
 		//Varer::class, Configurer::class, Shutter::class, Logger::class
+		Configurer::class
 	]; 
 
 
