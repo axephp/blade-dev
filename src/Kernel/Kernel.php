@@ -43,7 +43,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $managers = [
-		Varer::class, Configurer::class, Shutter::class, Logger::class
+		//Varer::class, Configurer::class, Shutter::class, Logger::class
 	]; 
 
 
