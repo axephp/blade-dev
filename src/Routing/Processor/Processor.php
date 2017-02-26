@@ -58,7 +58,7 @@ class Processor implements IProcessor
 
 				//$this->inside($class, $request);
 				var_dump($this->requests);
-				var_dump($this->request);
+				var_dump($request);
 			}
 			
 		}	
