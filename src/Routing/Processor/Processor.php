@@ -27,13 +27,15 @@ class Processor implements IProcessor
 	{
 		$this->requests = $route->requests();
 
-		$request = array_shift($this->requests);
+		//$request = array_shift($this->requests);
+
+		var_dump($this->requests);
 
 		if (empty($request)) {
 			$request = "home"; //$this->axe->config('home_page') ?: "home";
 		}
 
-		$file = $this->inside("AxE\\Pages", $request);
+		//$file = $this->inside("AxE\\Pages", $request);
 
 	}
 
@@ -43,6 +45,8 @@ class Processor implements IProcessor
 
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
+
+		echo "$dir  | $file";
 
 		if (file_exists($file)) {
 
@@ -62,7 +66,7 @@ class Processor implements IProcessor
 			echo "samosa";
 		}
 
-		
+
 	}
 
 
