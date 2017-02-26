@@ -16,9 +16,9 @@ class Path
 
 		foreach (func_get_args() as $value) {
 			if (is_array($value)) {
-				$output .= DIRECTORY_SEPARATOR.self::process($value);
+				$output .= self::process($value);
 			}else{
-				$output .= DIRECTORY_SEPARATOR.$value;
+				$output .= $value.DIRECTORY_SEPARATOR;
 			}
 		}
 
