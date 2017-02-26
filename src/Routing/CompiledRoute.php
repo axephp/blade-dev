@@ -19,4 +19,23 @@ class CompiledRoute implements ICompiledRoute
 	 */
 	protected $axe;
 
+	protected $reflection;  // ReflectionClass
+
+	protected $request;    // array
+
+	protected $params;     // array
+
+	protected $directory;  // string
+
+	function __construct(AxE $axe)
+	{
+		$this->axe = $axe;
+	}
+
+
+	public function getReflection()
+	{
+		# code...
+	}
+
 }

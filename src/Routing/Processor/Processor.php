@@ -52,8 +52,10 @@ class Processor implements IProcessor
 			if (class_exists($class)) {
 				
 				$reflection = new ReflectionClass($class);
+				$current = $request;
+				$params = $this->requests;
 
-				var_dump($reflection);
+				return []
 
 			}else{
 				throw new Exception("Error Processing Class", 1);
