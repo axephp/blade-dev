@@ -28,6 +28,8 @@ class CompiledRoute implements ICompiledRoute
 
 	protected $directory;  // string
 
+	protected $method;
+
 	function __construct(AxE $axe)
 	{
 		$this->axe = $axe;
@@ -42,6 +44,36 @@ class CompiledRoute implements ICompiledRoute
 	public function setReflection($reflection)
 	{
 		$this->reflection = $reflection;
+	}
+
+	public function setRequest($request)
+	{
+		$this->request = $request;
+	}
+
+	public function setPath($path)
+	{
+		$this->directory = $path;
+	}
+
+	public function setParameter($params)
+	{
+		$this->params = $params;
+	}
+
+	public function setMethod($method)
+	{
+		$this->method = $method;
+	}
+
+	public function retrieveMiddlewares()
+	{
+		var_dump($this->reflection);
+	}
+
+	public function action()
+	{
+		
 	}
 
 }

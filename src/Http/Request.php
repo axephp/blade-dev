@@ -37,4 +37,8 @@ class Request extends SymfonyRequest implements IRequest
 		parent::getQueryString();  // after ?
 	}
 
+	public function method()
+	{
+		return parent::getMethod();
+	}
 }

@@ -35,7 +35,8 @@ class Processor implements IProcessor
 			$request = "home"; //$this->axe->config('home_page') ?: "home";
 		}
 
-		$file = $this->inside("AxE\\Pages", $request);
+		$compiled = $this->inside("AxE\\Pages", $request);
+		return $compiled;
 
 	}
 
@@ -57,8 +58,13 @@ class Processor implements IProcessor
 				$current = $request;
 				$params = $this->requests;
 
-				return new CompiledRoute($this->axe);
+				$compiled = new CompiledRoute($this->axe);
+				$compiled->setReflection($reflection);
+				$compiled->setRequest($current);
+				$compiled->setParameters($params);
+				$compiled->setPath($dir);
 
+				return $compiled;
 			}else{
 				throw new Exception("Error Processing Class", 1);
 			}
@@ -69,7 +75,7 @@ class Processor implements IProcessor
 
 			if (!is_null($new)) {
 				$request = [$request, $new];
-				$this->inside($class, $request);
+				return $this->inside($class, $request);
 			}else{
 				throw new Exception("Error Processing Request", 1);
 			}
@@ -83,7 +89,9 @@ class Processor implements IProcessor
 
 
 	public function blend($route)
-	{
+	{	
+		var_dump($route->action());
+
 		$response = new SymfonyResponse();
 
 		$response->setContent("Successful");

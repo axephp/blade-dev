@@ -362,7 +362,9 @@ class Router implements IRouter
         	$this->disableFetch($route);
         }else{
         	$route = $this->fetch($request);
+            $route->setMethod($request->method);
         }
+
         $this->current = $route;
 
         $this->axe->map(Route::class, $route);
