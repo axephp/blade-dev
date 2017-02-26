@@ -113,33 +113,6 @@ interface IRoute
 
 
 	/**
-	 * Set name for this route
-	 *
-	 * @param string
-	 * @return void
-	 */
-	public function setName(string $name);
-
-
-	/**
-	 * Return name for this route
-	 *
-	 * @param null
-	 * @return string
-	 */
-	public function getName();
-
-
-	/**
-	 * Return name for this route (alias)
-	 *
-	 * @param null
-	 * @return string
-	 */
-	public function name();
-
-
-	/**
      * Register a middleware.
      *
      * @param  string  $name
