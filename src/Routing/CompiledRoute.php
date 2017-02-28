@@ -134,6 +134,18 @@ class CompiledRoute implements ICompiledRoute
 
 
 	/**
+	 * Set parameters of the compiled route
+	 *
+	 * @param array
+	 * @return void
+	 */
+	public function getParameters($params)
+	{
+		return $this->params;
+	}
+
+
+	/**
 	 * Set method of the compiled route
 	 *
 	 * @param string
@@ -172,7 +184,7 @@ class CompiledRoute implements ICompiledRoute
 		}
 	}
 
-	
+
 	/**
 	 * Return action of the compiled route
 	 *
