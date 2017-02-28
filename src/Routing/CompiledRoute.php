@@ -20,62 +20,149 @@ class CompiledRoute implements ICompiledRoute
 	 */
 	protected $axe;
 
-	protected $reflection;  // ReflectionClass
 
-	protected $request;    // array
+	/**
+	 * The reflection instance
+	 *
+	 * @var Reflection
+	 */
+	protected $reflection;
 
-	protected $params;     // array
 
-	protected $directory;  // string
+	/**
+	 * Array of request
+	 *
+	 * @var array
+	 */
+	protected $request;
 
+
+	/**
+	 * Array of parameters
+	 *
+	 * @var array
+	 */
+	protected $params;
+
+
+	/**
+	 * The directory path
+	 *
+	 * @var string
+	 */
+	protected $directory;
+
+
+	/**
+	 * The method name
+	 *
+	 * @var string
+	 */
 	protected $method;
 
+
+	/**
+	 * New CompiledRoute Instance
+	 *
+	 * @param AxE
+	 * @return AxE
+	 */
 	function __construct(AxE $axe)
 	{
 		$this->axe = $axe;
 	}
 
 
+	/**
+	 * Return reflection for the compiled route
+	 *
+	 * @param null
+	 * @return Reflection
+	 */
 	public function getReflection()
 	{
 		return $this->reflection;
 	}
 
+
+	/**
+	 * Set reflection for the compiled route
+	 *
+	 * @param Reflection
+	 * @return void
+	 */
 	public function setReflection($reflection)
 	{
 		$this->reflection = $reflection;
 	}
 
+
+	/**
+	 * Set request of the compiled route
+	 *
+	 * @param array
+	 * @return void
+	 */
 	public function setRequest($request)
 	{
 		$this->request = $request;
 	}
 
+
+	/**
+	 * Set path of the compiled route
+	 *
+	 * @param string
+	 * @return void
+	 */
 	public function setPath($path)
 	{
 		$this->directory = $path;
 	}
 
+
+	/**
+	 * Set parameters of the compiled route
+	 *
+	 * @param array
+	 * @return void
+	 */
 	public function setParameters($params)
 	{
 		$this->params = $params;
 	}
 
-	public function getParameters()
-	{
-		return $this->params;
-	}
 
+	/**
+	 * Set method of the compiled route
+	 *
+	 * @param string
+	 * @return void
+	 */
 	public function setMethod($method)
 	{
 		$this->method = $method;
 	}
 
+
+	/**
+	 * Return request of the compiled route
+	 *
+	 * @param null
+	 * @return string
+	 */
 	public function getMethod()
 	{
 		return $this->method;
 	}
 
+
+	/**
+	 * Return middlewares of the compiled route
+	 *
+	 * @param null
+	 * @return arrray
+	 */
 	public function retrieveMiddlewares()
 	{
 		if ($this->reflection->hasProperty('middlewares')){
@@ -85,6 +172,13 @@ class CompiledRoute implements ICompiledRoute
 		}
 	}
 
+	
+	/**
+	 * Return action of the compiled route
+	 *
+	 * @param null
+	 * @return string
+	 */
 	public function action()
 	{	
 		if (isset($this->params[0])) {
