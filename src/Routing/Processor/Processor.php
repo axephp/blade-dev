@@ -123,7 +123,7 @@ class Processor implements IProcessor
 
 		$args = $this->prepareParams($parameters, $values);
 
-		var_dump($reflection->getParentCLass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor()));
+		$reflection->getParentCLass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor());
 		$output = $action->invokeArgs($reflection->newInstanceWithoutConstructor(), $args);
 
 		if ($output instanceof CompiledRoute) {
