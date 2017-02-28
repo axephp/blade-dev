@@ -41,8 +41,10 @@ class Processor implements IProcessor
 			$route->getRouter()->middleware($key, $value);
 		}
 
-		$route->setPath(null);
-		
+		$compiled->setMethod($route->method()[0]);
+
+		//$route->setPath(null);
+
 		return $compiled;
 
 	}
@@ -97,11 +99,11 @@ class Processor implements IProcessor
 
 	public function blend($route)
 	{	
-		$this->suber($route);
+		$output = $this->suber($route);
 
 		$response = new SymfonyResponse();
 
-		$response->setContent("Successful");
+		$response->setContent($output);
 
 		$response->headers->set('Content-Type', "text/html");
 
@@ -110,7 +112,62 @@ class Processor implements IProcessor
 
 
 	public function suber($compiled)
+	{	
+		$name = $compiled->action();
+		$reflection = $compiled->getReflection();
+
+		$action = $reflection->getMethod($name);
+
+		$parameters = $action->getParameters();
+		$values = $compiled->getParameters();
+
+		$args = $this->prepareParams($parameters, $values);
+
+		$output = $action->invokeArgs($reflection->newInstanceWithoutConstructor(), $args);
+
+		if ($output instanceof CompiledRoute) {
+			return $this->suber($output);
+		}
+
+		return $output;
+	}
+
+	protected function prepareParams($params, $values)
 	{
-		var_dump($compiled);
+		$args = [];
+		$i = 0;
+		foreach ($params as $key=>$param) {
+			
+			if (!is_null($param->getClass())) {
+				
+				try {
+					$class = $param->getClass();
+					$count = $class->getConstructor()->getNumberOfParameters();
+					$tmp = array_slice($values, $i, $count - $i);
+					if ($count != count($tmp)) {
+						throw new Exception("Error Processing Request", 1);
+					}
+
+					$object = $class->newInstanceArgs($tmp);
+					$args[] = $object;
+					$i += $count;
+				}
+				catch (Exception $e) {
+					throw $e;
+				}
+
+			}else{
+				if ($key == count($params) - 1) {
+					$args[] = array_slice($values, $i);
+				}else{
+					$args[] = $values[$i];
+				}
+			}
+
+		}
+
+		
+
+		return $args;
 	}
 }

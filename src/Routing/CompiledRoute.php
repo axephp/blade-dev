@@ -61,6 +61,11 @@ class CompiledRoute implements ICompiledRoute
 		$this->params = $params;
 	}
 
+	public function getParameters()
+	{
+		return $this->params;
+	}
+
 	public function setMethod($method)
 	{
 		$this->method = $method;
@@ -81,8 +86,20 @@ class CompiledRoute implements ICompiledRoute
 	}
 
 	public function action()
-	{
-		return $this->params[0].'_'.strtolower($this->method);
+	{	
+		if (isset($this->params[0])) {
+			$action = $this->params[0].'_'.strtolower($this->method);
+
+			if ($this->reflection->hasMethod($action)) {
+				$this->request[] = array_shift($this->params);
+				return $action;
+			}elseif ($this->reflection->hasMethod('__arg_'.strtolower($this->method))) {
+				return '__arg_'.strtolower($this->method);
+			}
+		}else {
+			return 'index_'.strtolower($this->method);
+		}
+
 	}
 
 }
