@@ -134,12 +134,12 @@ class CompiledRoute implements ICompiledRoute
 
 
 	/**
-	 * Set parameters of the compiled route
+	 * Get parameters of the compiled route
 	 *
 	 * @param array
 	 * @return void
 	 */
-	public function getParameters($params)
+	public function getParameters()
 	{
 		return $this->params;
 	}
