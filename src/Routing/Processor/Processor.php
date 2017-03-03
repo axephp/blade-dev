@@ -154,12 +154,14 @@ class Processor implements IProcessor
 					$count = $class->getConstructor()->getNumberOfParameters();
 					$tmp = array_slice($values, $i, $count - $i);
 					if ($count != count($tmp)) {
-						throw new Exception("Error Processing Request", 1);
+						$args[] = null;
+						//throw new Exception("Error Processing Request", 1);
+					}else{
+						$object = $class->newInstanceArgs($tmp);
+						$args[] = $object;
+						$i += $count;
 					}
-
-					$object = $class->newInstanceArgs($tmp);
-					$args[] = $object;
-					$i += $count;
+					
 				}
 				catch (Exception $e) {
 					throw $e;

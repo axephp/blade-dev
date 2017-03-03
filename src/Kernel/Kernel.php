@@ -43,8 +43,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $managers = [
-		//Varer::class, Configurer::class, Shutter::class, Logger::class
-		Configurer::class
+		Configurer::class, Shutter::class, Logger::class
 	]; 
 
 
@@ -175,7 +174,7 @@ class Kernel implements IKernel
 
 	public function end($request, $response)
 	{
-		# code...
+		echo "Kei Baaki Xa!";
 	}
 
 

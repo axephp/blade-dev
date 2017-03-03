@@ -12,6 +12,8 @@ class Configurer // implements ICore
 	{
 
 		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
+
+		//TODO: Load configs
 	}
 
 }

@@ -227,6 +227,7 @@ class Router implements IRouter
 
         $this->axe->handle("route_found", [ $route, $request ]);;
 
+        $route = $this->passThroughMiddlewares($route, $request);
         return $route;
     }	
 
@@ -442,6 +443,12 @@ class Router implements IRouter
     			
     		}
     		
+    }
+
+
+    protected function passThroughMiddlewares($route, $response)
+    {
+        var_dump($this->middlewares);
     }
 
 }
