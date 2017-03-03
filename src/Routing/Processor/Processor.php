@@ -99,7 +99,12 @@ class Processor implements IProcessor
 
 	public function blend($route)
 	{	
-		$output = $this->suber($route);
+		if ($route instanceof CompiledRoute) {
+			$output = $this->suber($route);
+		}else{
+			$output = "Custom TODO";
+		}
+		
 
 		$response = new SymfonyResponse();
 
@@ -124,9 +129,10 @@ class Processor implements IProcessor
 		$args = $this->prepareParams($parameters, $values);
 
 		$reflection->getParentCLass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor());
-		$output = $action->invokeArgs($reflection->newInstanceWithoutConstructor(), $args);
+		$object = $reflection->newInstanceWithoutConstructor();
+		$output = $action->invokeArgs($object, $args);
 
-		var_dump($reflection);
+		var_dump($object);
 		
 		if ($output instanceof CompiledRoute) {
 			return $this->suber($output);
