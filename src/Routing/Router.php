@@ -252,7 +252,7 @@ class Router implements IRouter
      */
     public function middleware($name, $class)
     {
-        $this->middleware[$name] = $class;
+        $this->middlewares[$name] = $class;
         return $this;
     }
 
@@ -449,6 +449,7 @@ class Router implements IRouter
     protected function passThroughMiddlewares($route, $response)
     {
         var_dump($this->middlewares);
+
     }
 
 }
