@@ -12,7 +12,7 @@ class Configurer // implements ICore
 	{
 
 		$data = file_get_contents($axe->configFile());
-		$json = json_decode($data);
+		$json = (array)json_decode($data);
 
 		var_dump($json);
 		//$axe->map('config',);
