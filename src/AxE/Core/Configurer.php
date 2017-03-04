@@ -12,6 +12,8 @@ class Configurer // implements ICore
 
 	public function run(AxE $axe) //FileSystem $files)
 	{
+		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
+		
 
 		$data = file_get_contents($axe->configFile());
 		$json = (array)json_decode($data);
