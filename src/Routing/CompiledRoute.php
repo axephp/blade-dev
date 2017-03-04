@@ -109,6 +109,12 @@ class CompiledRoute implements ICompiledRoute
 	}
 
 
+	public function getRequest()
+	{
+		return $this->request;
+	}
+
+
 	/**
 	 * Set path of the compiled route
 	 *
@@ -118,6 +124,11 @@ class CompiledRoute implements ICompiledRoute
 	public function setPath($path)
 	{
 		$this->directory = $path;
+	}
+
+	public function getPath()
+	{
+		return $this->directory;
 	}
 
 

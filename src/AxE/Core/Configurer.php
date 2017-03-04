@@ -11,8 +11,9 @@ class Configurer // implements ICore
 	public function run(AxE $axe)
 	{
 
-		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
-
+		$data = file_get_contents($axe->configFile());
+		var_dump($data);
+		//$axe->map('config',);
 		//TODO: Load configs
 	}
 

@@ -80,7 +80,7 @@ class AxE extends Container implements IAxE
      *
      * @var string
      */
-    protected $configFile = '.config';
+    protected $configFile = 'site.conf';
 
 
     /**
@@ -353,9 +353,9 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function connfigFile()
+    public function configFile()
     {
-        return $this->environmentFile ?: '.config';
+        return $this->configPath().DIRECTORY_SEPARATOR.$this->configFile ?: 'site.conf';
     }
 
 

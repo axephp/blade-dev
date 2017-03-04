@@ -16,7 +16,7 @@ class Shutter // implements ICore
 	public function shutTheAxEUp()
 	{
 		//Things to do when shutting down
-		echo "I'm shutting";
+		//echo "I'm shutting";
 	}
 
 }
