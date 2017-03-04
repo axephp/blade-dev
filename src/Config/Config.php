@@ -3,6 +3,8 @@
 namespace Blade\Config;
 
 use Exception;
+use ArrayAccess;
+
 use Blade\Interfaces\AxE\IAxE as AxE;
 
 class Config implements ArrayAccess// implements ICore
