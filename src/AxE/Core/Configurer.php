@@ -10,7 +10,7 @@ use Blade\Config\Config;
 class Configurer // implements ICore
 {
 
-	public function run(AxE $axe, FileSystem $files)
+	public function run(AxE $axe) //FileSystem $files)
 	{
 
 		$data = file_get_contents($axe->configFile());
