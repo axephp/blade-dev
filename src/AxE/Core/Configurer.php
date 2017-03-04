@@ -12,7 +12,9 @@ class Configurer // implements ICore
 	{
 
 		$data = file_get_contents($axe->configFile());
-		var_dump($data);
+		$json = json_decode($data);
+
+		var_dump($json);
 		//$axe->map('config',);
 		//TODO: Load configs
 	}
