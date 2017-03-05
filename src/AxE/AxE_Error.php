@@ -12,11 +12,10 @@ class AxE_Error extends Exception implements Throwable
 	
 	static function render($request, $ex)
 	{
-		var_dump($ex);
 
-		$error_type = '111'; //$ex->code;
-		$error_title = 'asda'; //$ex->message;
-		$error_msg  = 'asda'; //$ex->file. " - [ line ".$ex->line."]";
+		$error_type = $ex->getCode();
+		$error_title = $ex->getMessage();
+		$error_msg  = $ex->getFile(). " - [ line ".$ex->getLine()."]";
 
 		$base_url = $request->uri();
 
