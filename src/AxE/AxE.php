@@ -116,7 +116,8 @@ class AxE extends Container implements IAxE
     protected function attendance()
     {
 
-        $this->map(['axe' => IAxE::class], $this);
+        $this->map('axe', $this);
+        $this->map(IAxE::class, $this);
         $this->map(Blade\Container\Container::class, $this);
 
         //static::setInstance($this);
