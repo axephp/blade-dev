@@ -20,7 +20,7 @@ class Configurer // implements ICore
 	{
 		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
 
-		$config = New Config($json);
+		$config = New Config($axe);
 
 		foreach ($confs as $file) {
 			$config->loadConf($file);

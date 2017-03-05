@@ -51,7 +51,7 @@ class Config implements ArrayAccess// implements ICore
     		if (file_exists($file)) {
     			$data = file_get_contents(Path::process($this->axe->configPath(), $file));
     			$array = (array)json_decode($data);
-    			array_merge_recursive($this, $data);
+    			array_merge_recursive($this, $array);
     		}else{
     			throw new Exception("Config file '$file' not found.", 1);
     			
