@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 class AxE_Error extends Exception implements Throwable
 {
 	
-	function render($request, $ex)
+	static function render($request, $ex)
 	{
 
 
