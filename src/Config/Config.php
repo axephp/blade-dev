@@ -54,7 +54,7 @@ class Config implements ArrayAccess// implements ICore
 
     			try {
     				$array = (array)json_decode($data);
-    				array_merge_recursive($this, $array);
+    				array_merge_recursive($this->container, $array);
     			} catch (Exception $e) {
     				throw new Exception("Invalid config file detected.", 1);
     			}
