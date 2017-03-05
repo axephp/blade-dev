@@ -5,6 +5,9 @@ namespace Blade\AxE\Core;
 use Exception;
 use Blade\Interfaces\AxE\IAxE as AxE;
 
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+
+
 class Shutter // implements ICore
 {
 
