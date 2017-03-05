@@ -10,12 +10,12 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 class AxE_Error extends Exception implements Throwable
 {
 	
-	static function render($request, $ex)
+	static function render($axe, $request, $ex)
 	{
 
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
-		$error_msg  = str_replace($this->axe->basePath(), strtoupper($this->axe->config('site')->site_name)."://", str_replace("\\", "/", $ex->getFile())). " - [ line ".$ex->getLine()."]";
+		$error_msg  = str_replace($axe->basePath(), strtoupper($axe->config('site')->site_name)."://", str_replace("\\", "/", $ex->getFile())). " - [ line ".$ex->getLine()."]";
 
 		$base_url = $request->uri();
 

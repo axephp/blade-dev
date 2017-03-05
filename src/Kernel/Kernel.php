@@ -147,7 +147,7 @@ class Kernel implements IKernel
 
 		}catch(Throwable $ex){
 
-			$response = AxE_Error::render($request, $ex);
+			$response = AxE_Error::render($this->axe, $request, $ex);
 			$this->axe->handle("kernel_booted", [ $request, $response ]);
 
 		}
