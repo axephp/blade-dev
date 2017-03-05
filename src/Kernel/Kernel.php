@@ -10,7 +10,7 @@ use Blade\Interfaces\Kernel\IKernel;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Interfaces\Routing\IRouter as Router;
 
-use Blade\Exceptions\AxE_Error;
+use Blade\AxE\AxE_Error;
 
 use Blade\AxE\Core\Varer;
 use Blade\AxE\Core\Configurer;
