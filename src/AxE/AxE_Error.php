@@ -18,7 +18,7 @@ $error_msg  = $ex->file. " - [ line ".$ex->line."]";
 
 $base_url = $request->url();
 
-protected $output = <<<PHP
+$output = <<<PHP
 
 ?>
 
@@ -39,5 +39,7 @@ protected $output = <<<PHP
 
 PHP
 	;
+
+	return $output;
 	}
 }
