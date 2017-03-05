@@ -22,7 +22,7 @@ class Shutter // implements ICore
 
 		$error = error_get_last();
 
-		$error_file		= str_replace($this->axe->basePath(), strtoupper(SITE_NAME)."://", str_replace("\\", "/", $error['file']));
+		$error_file		= str_replace($this->axe->basePath(), strtoupper($this->axe->config('site')->site_name)."://", str_replace("\\", "/", $error['file']));
 				
 		$error_title	= $error['message'];
 
@@ -32,7 +32,7 @@ class Shutter // implements ICore
 			$error_msg 		= $error_file. " - [ line ".$error['line']."]";
 		}
 
-		$base_url = $this->axe->resolve('route')->uri();
+		$base_url = $this->axe->resolve('route')->getRequest()->uri();
 
 
 	$output = <<<PHP
