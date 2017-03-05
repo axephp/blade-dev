@@ -25,20 +25,23 @@ class Shutter // implements ICore
 
 		$error = error_get_last();
 
-		$error_file		= str_replace($this->axe->basePath(), strtoupper($this->axe->config('site')->site_name)."://", str_replace("\\", "/", $error['file']));
-				
-		$error_title	= $error['message'];
+		if ($error) {
+			# code...
+		
+			$error_file		= str_replace($this->axe->basePath(), strtoupper($this->axe->config('site')->site_name)."://", str_replace("\\", "/", $error['file']));
+					
+			$error_title	= $error['message'];
 
-		if($error['type'] === 1024 || $error['type'] === 256){
-			$error_msg 		= "User thrown error.";
-		}else{
-			$error_msg 		= $error_file. " - [ line ".$error['line']."]";
-		}
+			if($error['type'] === 1024 || $error['type'] === 256){
+				$error_msg 		= "User thrown error.";
+			}else{
+				$error_msg 		= $error_file. " - [ line ".$error['line']."]";
+			}
 
-		$base_url = ""; //$this->axe->resolve('route')->getRequest()->uri();
+			$base_url = ""; //$this->axe->resolve('route')->getRequest()->uri();
 
 
-	$output = <<<PHP
+			$output = <<<PHP
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,16 +81,16 @@ class Shutter // implements ICore
   </body>
 </html>
 PHP
-	;
+		;
 
-		$response = new SymfonyResponse();
+			$response = new SymfonyResponse();
 
-		$response->setContent($output);
+			$response->setContent($output);
 
-		$response->headers->set('Content-Type', "text/html");
+			$response->headers->set('Content-Type', "text/html");
 
-		$response->send();
-
+			$response->send();
+		}
 	}
 
 }
