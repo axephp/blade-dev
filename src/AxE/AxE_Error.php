@@ -4,10 +4,10 @@ namespace Blade\AxE;
 
 use Exception;
 
-class AxE_Error extends Exception
+class AxE_Error
 {
 	
-	function render()
+	function render($request, $ex)
 	{
 		echo "aao";
 	}
