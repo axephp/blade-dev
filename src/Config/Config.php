@@ -8,7 +8,7 @@ use ArrayAccess;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Routing\Processor\Path;
 
-class Config implements ArrayAccess// implements ICore
+class Config implements ArrayAccess, Serializable// implements ICore
 {
 
 	protected $container;
@@ -65,9 +65,8 @@ class Config implements ArrayAccess// implements ICore
     }
 
 
-    public function __toArray()
-    {
-    		return $this->container;
+     public function __debugInfo() {
+        return $this->container;
     }
 
 
