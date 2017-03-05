@@ -10,7 +10,7 @@ use Blade\Config\Config;
 class Configurer // implements ICore
 {
 
-	protected confs = [
+	protected $confs = [
 		'site.conf',
 		'database.conf',
 		'auth.conf'
