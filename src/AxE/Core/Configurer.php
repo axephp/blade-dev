@@ -19,7 +19,6 @@ class Configurer // implements ICore
 	public function run(AxE $axe)
 	{
 		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
-		//$axe->register('config', Config::class, true);
 
 		$config = New Config($axe);
 
@@ -28,7 +27,6 @@ class Configurer // implements ICore
 		}
 
 		$axe->map('config', $config);
-		var_dump($axe == $axe->resolve(Axe::class));
 	}
 
 }
