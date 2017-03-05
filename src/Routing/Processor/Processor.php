@@ -46,7 +46,7 @@ class Processor implements IProcessor
 
 		//$route->setPath(null);
 */
-		var_dump($this->axe);
+		var_dump($this->axe->resolve('config'));
 
 		//return $compiled;
 
