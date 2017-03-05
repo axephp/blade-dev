@@ -173,7 +173,7 @@ class Kernel implements IKernel
 
 	public function end($request, $response)
 	{
-		echo "Kei Baaki Xa!";
+		//echo "Kei Baaki Xa!";
 	}
 
 
