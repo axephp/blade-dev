@@ -32,6 +32,7 @@ class Processor implements IProcessor
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
+			var_dump($this->axe->resolve('config'));
 			$request = $this->axe->config('site')->home_page ?: "home";
 		}
 
