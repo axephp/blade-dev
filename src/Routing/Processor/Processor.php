@@ -33,12 +33,10 @@ class Processor implements IProcessor
 
 		if (empty($request)) {
 
-			$config = $this->axe->resolve('config')->get('site');
-			var_dump($config);
-			//$request = $this->axe->config('site')->home_page ?: "home";
+			$request = $this->axe->config('site')->home_page ?: "home";
 		}
 
-		/*$compiled = $this->inside("AxE\\Pages", $request);
+		$compiled = $this->inside("AxE\\Pages", $request);
 
 		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
 			$route->getRouter()->middleware($key, $value);
@@ -47,10 +45,8 @@ class Processor implements IProcessor
 		$compiled->setMethod($route->method()[0]);
 
 		//$route->setPath(null);
-*/
-		var_dump($this->axe->resolve('config'));
 
-		//return $compiled;
+		return $compiled;
 
 	}
 

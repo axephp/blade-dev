@@ -115,7 +115,7 @@ class AxE extends Container implements IAxE
      */
     protected function attendance()
     {
-        
+
         $this->map('axe', $this);
         $this->map(Blade\Container\Container::class, $this);
 
@@ -375,7 +375,7 @@ class AxE extends Container implements IAxE
     public function config($offset)
     {  
 
-        //return $this->resolve('config')[$offset];
+        return $this->resolve('config')[$offset];
     }
 
 
