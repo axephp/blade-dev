@@ -14,7 +14,7 @@ class AxE_Error extends Exception implements Throwable
 	{
 
 
-		$error_type = $ex->code;
+		$error_type = '111'; $ex->code;
 		$error_title = $ex->message;
 		$error_msg  = $ex->file. " - [ line ".$ex->line."]";
 

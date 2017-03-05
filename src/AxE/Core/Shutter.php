@@ -22,7 +22,7 @@ class Shutter // implements ICore
 
 		$error = error_get_last();
 
-		$error_file		= str_replace(ABSOLUTE_ROOT_PATH, strtoupper(SITE_NAME)."://", str_replace("\\", "/", $error['file']));
+		$error_file		= str_replace($this->axe->basePath(), strtoupper(SITE_NAME)."://", str_replace("\\", "/", $error['file']));
 				
 		$error_title	= $error['message'];
 
