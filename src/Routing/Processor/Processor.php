@@ -33,7 +33,7 @@ class Processor implements IProcessor
 
 		if (empty($request)) {
 
-			$request = $this->axe->config('site')->home_page ?: "home";
+			$request = explode('/', $this->axe->config('site')->home_page) ?: ["home"];
 		}
 
 		$compiled = $this->inside("AxE\\Pages", $request);
@@ -60,7 +60,7 @@ class Processor implements IProcessor
 		if (file_exists($file)) {
 
 			include_once $file;
-			$class .= "\\".(implode("\\", str_replace("/", "\\", $request)));
+			$class .= "\\".(implode("\\", $request));
 
 			if (class_exists($class)) {
 				
