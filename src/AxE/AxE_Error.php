@@ -16,7 +16,7 @@ $error_type = $ex->code;
 $error_title = $ex->message;
 $error_msg  = $ex->file. " - [ line ".$ex->line."]";
 
-$base_url = $request->url();
+$base_url = $request->uri();
 
 $output = <<<PHP
 
