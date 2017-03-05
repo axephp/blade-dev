@@ -11,7 +11,7 @@ use Blade\Routing\Processor\Path;
 class Config implements ArrayAccess // implements ICore
 {
 
-	protected $container;
+	protected $container = [];
 
 	protected $axe;
 
