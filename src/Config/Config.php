@@ -50,7 +50,7 @@ class Config implements ArrayAccess// implements ICore
     {
     		$fullFile = Path::process($this->axe->configPath(), $file);
     		if (file_exists($fullFile)) {
-    			$data = file_get_contents(fullFile);
+    			$data = file_get_contents($fullFile);
 
     			try {
     				$array = (array)json_decode($data);
