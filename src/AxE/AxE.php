@@ -372,7 +372,8 @@ class AxE extends Container implements IAxE
 
 
     public function config($offset)
-    {
+    {  
+        var_dump($this->resolve('config'));
         return $this->resolve('config')[$offset];
     }
 
