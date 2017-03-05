@@ -28,7 +28,7 @@ class Configurer // implements ICore
 		}
 
 		$axe->map('config', $config);
-		var_dump($axe == $axe->resolve('axe'));
+		var_dump($axe == $axe->resolve(Axe::class));
 	}
 
 }
