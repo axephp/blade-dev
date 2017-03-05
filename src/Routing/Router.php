@@ -450,6 +450,8 @@ class Router implements IRouter
     {
         var_dump($this->middlewares);
 
+        return $route;
+
     }
 
 }
