@@ -255,7 +255,7 @@ class Container implements IContainer
      * @param  array  $parameters
      * @return object
      */
-	public function &resolve(string $name, $parameters = [])
+	public function resolve(string $name, $parameters = [])
 	{
 		
 		/**
