@@ -169,6 +169,7 @@ class Processor implements IProcessor
 					$args[] = array_slice($values, $i);
 				}else{
 					$args[] = $values[$i];
+					$i++;
 				}
 			}
 
