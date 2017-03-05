@@ -370,7 +370,7 @@ class Router implements IRouter
 
         $this->current = $route;
 
-        $this->axe->map(Route::class, $route);
+        $this->axe->map('route', $route);
 
         return $route;
     }
