@@ -70,9 +70,9 @@ class Config implements ArrayAccess // implements ICore
     }
 
 
-     public function __debugInfo() {
+    /* public function __debugInfo() {
         return $this->container;
-    }
+    }*/
 
 
 }
