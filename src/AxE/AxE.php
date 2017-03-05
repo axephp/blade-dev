@@ -133,6 +133,7 @@ class AxE extends Container implements IAxE
         //$this->register(new RouteManager($this));
     }
 
+
     /**
      * Determine if the managers have been executed
      *
@@ -367,6 +368,12 @@ class AxE extends Container implements IAxE
     public function configFilePath()
     {
         return $this->configPath().'/'.$this->configFile();
+    }
+
+
+    public function config($offset)
+    {
+        return $this->resolve('config')[$offset];
     }
 
 

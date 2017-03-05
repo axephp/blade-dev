@@ -19,6 +19,9 @@ class Configurer // implements ICore
 		$json = (array)json_decode($data);
 
 		$config = New Config($json);
+
+		var_dump($config);
+
 		$axe->map('config', $config);
 		
 	}
