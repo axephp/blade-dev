@@ -48,10 +48,16 @@ class Config implements ArrayAccess// implements ICore
 
     public function loadConf($file)
     {
-    		if (file_exists($file)) {
-    			$data = file_get_contents(Path::process($this->axe->configPath(), $file));
-    			$array = (array)json_decode($data);
-    			array_merge_recursive($this, $array);
+    		$fullFile = Path::process($this->axe->configPath(), $file);
+    		if (file_exists($fullFile)) {
+    			$data = file_get_contents(fullFile);
+
+    			try {
+    				$array = (array)json_decode($data);
+    				array_merge_recursive($this, $array);
+    			} catch (Exception $e) {
+    				throw new Exception("Invalid config file detected.", 1);
+    			}
     		}else{
     			throw new Exception("Config file '$file' not found.", 1);
     			
