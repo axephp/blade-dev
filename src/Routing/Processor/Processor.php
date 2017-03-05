@@ -60,7 +60,7 @@ class Processor implements IProcessor
 		if (file_exists($file)) {
 
 			include_once $file;
-			$class .= "\\".(implode("\\", $request));
+			$class .= "\\".(implode("\\", str_replace("/", "\\", $request)));
 
 			if (class_exists($class)) {
 				
