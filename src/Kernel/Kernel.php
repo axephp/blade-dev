@@ -3,6 +3,7 @@
 namespace Blade\Kernel;
 
 use Exception;
+use Throwable;
 use Blade\Interfaces\Kernel\IKernel;
 
 
@@ -149,6 +150,8 @@ class Kernel implements IKernel
 			$response = $ex->render($request);
 			$this->axe->handle("kernel_booted", [ $request, $response ]);
 
+		}catch(Throwable $ex){
+			var_dump($ex);
 		}
 
 		return $response;
