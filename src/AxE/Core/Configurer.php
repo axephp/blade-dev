@@ -29,7 +29,6 @@ class Configurer // implements ICore
 
 		$axe->map('config', $config);
 		
-		$axe->map(AxE::class. $axe);
 	}
 
 }
