@@ -20,6 +20,8 @@ class Configurer // implements ICore
 
 		$config = New Config($json);
 
+		$config['DATABASE'] = include $axe->configPath().DIRECTORY_SEPARATOR.'database.php';
+
 		var_dump($config);
 
 		$axe->map('config', $config);
