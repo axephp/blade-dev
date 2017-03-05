@@ -32,7 +32,7 @@ class Processor implements IProcessor
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
-			$request = "home"; //$this->axe->config('home_page') ?: "home";
+			$request = this->axe->config('site')->home_page ?: "home";
 		}
 
 		$compiled = $this->inside("AxE\\Pages", $request);
@@ -44,6 +44,8 @@ class Processor implements IProcessor
 		$compiled->setMethod($route->method()[0]);
 
 		//$route->setPath(null);
+
+		var_dump($this->axe);
 
 		return $compiled;
 
@@ -132,7 +134,7 @@ class Processor implements IProcessor
 		$object = $reflection->newInstanceWithoutConstructor();
 		$output = $action->invokeArgs($object, $args);
 
-		var_dump($object);
+		//var_dump($object);
 		
 		if ($output instanceof CompiledRoute) {
 			return $this->suber($output);

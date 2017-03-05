@@ -384,7 +384,7 @@ class AxE extends Container implements IAxE
      */
     public function isLocal()
     {
-        return $this['config'] == 'local';
+        return $this->config('site')->environment == 'development';
     }
 
 
@@ -406,7 +406,7 @@ class AxE extends Container implements IAxE
      */
     public function isUnitTests()
     {
-        return $this['config'] == 'testing';
+        return $this->config('site')->environment == 'testing';
     }
 
 }

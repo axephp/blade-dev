@@ -16,7 +16,7 @@ class Configurer // implements ICore
 		'auth.conf'
 	];
 
-	public function run(AxE $axe) //FileSystem $files)
+	public function run(AxE $axe)
 	{
 		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
 
@@ -25,8 +25,6 @@ class Configurer // implements ICore
 		foreach ($this->confs as $file) {
 			$config->loadConf($file);
 		}
-
-		var_dump($config);
 
 		$axe->map('config', $config);
 		
