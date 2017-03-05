@@ -25,7 +25,7 @@ $output = <<<PHP
   <head>
     <meta charset="utf-8">
     <base href="$base_url" />
-    	<title>Error Occured</title>
+    	<title>AxE Error Occured</title>
     	<style type="text/css">
     	*{
 		padding: 0px;
