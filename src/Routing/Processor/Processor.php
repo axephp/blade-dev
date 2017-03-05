@@ -32,7 +32,7 @@ class Processor implements IProcessor
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
-			$request = this->axe->config('site')->home_page ?: "home";
+			$request = $this->axe->config('site')->home_page ?: "home";
 		}
 
 		$compiled = $this->inside("AxE\\Pages", $request);
