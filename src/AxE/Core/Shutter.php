@@ -23,7 +23,7 @@ class Shutter // implements ICore
 	{
 		//Things to do when shutting down
 
-		$error = error_get_last();
+		/*$error = error_get_last();
 
 		if ($error) {
 			# code...
@@ -91,6 +91,6 @@ PHP
 
 			$response->send();
 		}
-	}
+	}*/
 
 }
