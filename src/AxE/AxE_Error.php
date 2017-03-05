@@ -4,7 +4,7 @@ namespace Blade\AxE;
 
 use Exception;
 
-class AxE_Error extends Exception implements Throwable
+class AxE_Error extends Exception
 {
 	
 	function render()
