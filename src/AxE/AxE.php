@@ -158,7 +158,7 @@ class AxE extends Container implements IAxE
         foreach ($managers as $manager) {
 
             $this->handle($manager."_executing", [$this]);
-            $this->resolve($manager)->run($this->resolve(IAxE::class));
+            $this->resolve($manager)->run($this);
             $this->handle($manager."_executed", [$this]);
 
         }
@@ -375,7 +375,7 @@ class AxE extends Container implements IAxE
     public function config($offset)
     {  
 
-        return $this->resolve('config')[$offset];
+        //return $this->resolve('config')[$offset];
     }
 
 
