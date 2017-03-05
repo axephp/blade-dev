@@ -5,6 +5,8 @@ namespace Blade\AxE;
 use Exception;
 use Throwable;
 
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+
 class AxE_Error extends Exception implements Throwable
 {
 	
@@ -40,6 +42,12 @@ $output = <<<PHP
 PHP
 	;
 
-	return $output;
+		$response = new SymfonyResponse();
+
+		$response->setContent($output);
+
+		$response->headers->set('Content-Type', "text/html");
+
+		return $response;
 	}
 }
