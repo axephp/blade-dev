@@ -32,7 +32,7 @@ class Shutter // implements ICore
 			$error_msg 		= $error_file. " - [ line ".$error['line']."]";
 		}
 
-		$base_url = $this->axe->resolve('route')->getRequest()->uri();
+		$base_url = ""; //$this->axe->resolve('route')->getRequest()->uri();
 
 
 	$output = <<<PHP
