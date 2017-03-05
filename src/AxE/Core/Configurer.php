@@ -10,17 +10,21 @@ use Blade\Config\Config;
 class Configurer // implements ICore
 {
 
+	protected confs = [
+		'site.conf',
+		'database.conf',
+		'auth.conf'
+	];
+
 	public function run(AxE $axe) //FileSystem $files)
 	{
 		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
-		
-
-		$data = file_get_contents($axe->configFile());
-		$json = (array)json_decode($data);
 
 		$config = New Config($json);
 
-		$config['DATABASE'] = include $axe->configPath().DIRECTORY_SEPARATOR.'database.php';
+		foreach ($confs as $file) {
+			$config->loadConf($file);
+		}
 
 		var_dump($config);
 
