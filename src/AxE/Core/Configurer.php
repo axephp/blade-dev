@@ -22,7 +22,7 @@ class Configurer // implements ICore
 
 		$config = New Config($axe);
 
-		foreach ($confs as $file) {
+		foreach ($this->confs as $file) {
 			$config->loadConf($file);
 		}
 

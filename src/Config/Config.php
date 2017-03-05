@@ -59,5 +59,10 @@ class Config implements ArrayAccess// implements ICore
     }
 
 
+    public function __toArray()
+    {
+    		return $this->container;
+    }
+
 
 }
