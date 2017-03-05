@@ -8,7 +8,7 @@ use ArrayAccess;
 use Blade\Interfaces\AxE\IAxE as AxE;
 use Blade\Routing\Processor\Path;
 
-class Config implements ArrayAccess, Serializable// implements ICore
+class Config implements ArrayAccess // implements ICore
 {
 
 	protected $container;
