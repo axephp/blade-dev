@@ -206,7 +206,10 @@ class Container implements IContainer
 	public function map($provider, $instance)
 	{
 		
-		$provider = $this->trim($provider);
+		/**
+		 * Checking if alias or provider 
+		 */
+		$provider = $this->resolveProvider($this->trim($provider)); 
 
 
 		/**
