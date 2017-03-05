@@ -97,7 +97,7 @@ class AxE extends Container implements IAxE
      * @param  string|null  $basePath
      * @return void
      */
-    public function __construct($basePath = null)
+    public function __construct(string $basePath = null)
     {
         $this->attendance();
         $this->attendManagers();
@@ -118,7 +118,7 @@ class AxE extends Container implements IAxE
         $this->register(IAxE::class, get_class());
         $this->alias('axe', IAxE::class);
         $this->alias(Blade\Container\Container::class, IAxE::class);
-        $this->map('axe', $this);
+        $this->map(IAxE::class, $this);
 
         //$this->map(Blade\Container\Container::class, $this);
 
