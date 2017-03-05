@@ -45,6 +45,11 @@ class Config implements ArrayAccess // implements ICore
     		return $this[$offset];
     }
 
+    public function __get($offset)
+    {
+    		return $this->get($offset);
+    }
+
 
     public function loadConf($file)
     {
@@ -53,8 +58,8 @@ class Config implements ArrayAccess // implements ICore
     			$data = file_get_contents($fullFile);
 
     			try {
-    				$array = (array)json_decode($data);
-    				$this->container[pathinfo($file)['filename']] = array_merge($this->container, $array);
+    				$array = json_decode($data);
+    				$this->container[pathinfo($file)['filename']] = $array);
     			} catch (Exception $e) {
     				throw new Exception("Invalid config file detected.", 1);
     			}
