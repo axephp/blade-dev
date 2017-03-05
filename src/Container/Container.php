@@ -203,7 +203,7 @@ class Container implements IContainer
      * @param  mixed   $instance
      * @return void
      */
-	public function map($provider, $instance)
+	public function &map($provider, $instance)
 	{
 		
 		$provider = $this->trim($provider);
@@ -255,7 +255,7 @@ class Container implements IContainer
      * @param  array  $parameters
      * @return object
      */
-	public function resolve(string $name, $parameters = [])
+	public function &resolve(string $name, $parameters = [])
 	{
 		
 		/**
