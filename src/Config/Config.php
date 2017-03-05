@@ -59,7 +59,7 @@ class Config implements ArrayAccess // implements ICore
 
     			try {
     				$array = json_decode($data);
-    				$this->container[pathinfo($file)['filename']] = $array);
+    				$this->container[pathinfo($file)['filename']] = $array;
     			} catch (Exception $e) {
     				throw new Exception("Invalid config file detected.", 1);
     			}
