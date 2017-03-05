@@ -44,8 +44,6 @@ class Processor implements IProcessor
 
 		$compiled->setMethod($route->method()[0]);
 
-		//$route->setPath(null);
-
 		return $compiled;
 
 	}
@@ -132,8 +130,6 @@ class Processor implements IProcessor
 		$reflection->getParentCLass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor());
 		$object = $reflection->newInstanceWithoutConstructor();
 		$output = $action->invokeArgs($object, $args);
-
-		//var_dump($object);
 		
 		if ($output instanceof CompiledRoute) {
 			return $this->suber($output);
