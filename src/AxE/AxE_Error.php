@@ -12,7 +12,7 @@ class AxE_Error extends Exception implements Throwable
 	
 	static function render($request, $ex)
 	{
-
+		var_dump($ex);
 
 		$error_type = '111'; //$ex->code;
 		$error_title = 'asda'; //$ex->message;
@@ -26,7 +26,7 @@ $output = <<<PHP
   <head>
     <meta charset="utf-8">
     <base href="$base_url" />
-    	<title>Error Occured></title>
+    	<title>Error Occured</title>
     	<style type="text/css">
     	*{
 		padding: 0px;

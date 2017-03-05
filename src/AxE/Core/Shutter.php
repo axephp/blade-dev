@@ -47,7 +47,7 @@ class Shutter // implements ICore
   <head>
     <meta charset="utf-8">
     <base href="$base_url" />
-    	<title>Error Occured | <?=SITE_NAME?></title>
+    	<title>Error Occured</title>
     	<style type="text/css">
     	*{
 		padding: 0px;
