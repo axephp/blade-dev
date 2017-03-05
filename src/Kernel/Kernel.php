@@ -149,8 +149,6 @@ class Kernel implements IKernel
 			$response = $ex->render($request);
 			$this->axe->handle("kernel_booted", [ $request, $response ]);
 
-		}catch(Exception $ex){
-			die($ex->getMessage());
 		}
 
 		return $response;
