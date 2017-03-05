@@ -20,7 +20,7 @@ class Configurer // implements ICore
 	{
 		$axe->resolve(\Blade\Interfaces\Routing\IRouter::class)->setRoutes(new \Blade\Routing\RouteList());
 		$axe->register('config', Config::class, true);
-		
+
 		$config = New Config($axe);
 
 		foreach ($this->confs as $file) {
@@ -29,6 +29,7 @@ class Configurer // implements ICore
 
 		$axe->map('config', $config);
 		
+		$this->map(AxE::class. $axe);
 	}
 
 }
