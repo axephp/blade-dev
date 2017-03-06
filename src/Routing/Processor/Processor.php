@@ -150,6 +150,14 @@ class Processor implements IProcessor
 		return $output;
 	}
 
+
+	/**
+	 * Prepare request parameters
+	 *
+	 * @param array
+	 * @param array
+	 * @return array
+	 */
 	protected function prepareParams($params, $values)
 	{
 		$args = [];
