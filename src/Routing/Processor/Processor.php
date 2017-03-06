@@ -24,6 +24,7 @@ class Processor implements IProcessor
 		$this->axe = $axe;
 	}
 
+
 	/**
 	 * Content compilation
 	 *
@@ -120,6 +121,12 @@ class Processor implements IProcessor
 	}
 
 
+	/**
+	 * Sub Page Processing
+	 *
+	 * @param CompiledRoute
+	 * @return mixed
+	 */
 	public function suber($compiled)
 	{	
 		$name = $compiled->action();
