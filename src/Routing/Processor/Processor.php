@@ -24,7 +24,12 @@ class Processor implements IProcessor
 		$this->axe = $axe;
 	}
 
-
+	/**
+	 * Content compilation
+	 *
+	 * @param Route
+	 * @return CompiledRoute
+	 */
 	public function compile($route)
 	{
 		$this->requests = $route->requests();
