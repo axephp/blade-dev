@@ -55,6 +55,13 @@ class Processor implements IProcessor
 	}
 
 
+	/**
+	 * Process inside the page
+	 *
+	 * @param string
+	 * @param array
+	 * @return CompiledRoute
+	 */
 	public function inside($class, $request)
 	{	
 
