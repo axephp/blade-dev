@@ -109,6 +109,12 @@ class Processor implements IProcessor
 	}
 
 
+	/**
+	 * Blend Page
+	 *
+	 * @param CompiledRoute
+	 * @return mixed
+	 */
 	public function blend($route)
 	{	
 		if ($route instanceof CompiledRoute) {
