@@ -15,11 +15,25 @@ class Request extends SymfonyRequest implements IRequest
 		return static::createFromGlobals();
 	}
 
+
+	/**
+	 * URI
+	 *
+	 * @param string
+	 * @return string
+	 */
 	public function uri($value='')
 	{
 		return parent::getUri();
 	}
 
+
+	/**
+	 * URI breakdown for requests
+	 *
+	 * @param null
+	 * @return array
+	 */
 	public function requests()
 	{
 		$patt = trim(explode("?", parent::getRequestUri())[0], '/');
@@ -27,9 +41,16 @@ class Request extends SymfonyRequest implements IRequest
 		return explode("/", $patt);
 	}
 
+
+	/**
+	 * Identify Scheme : HTTP or HTTPS
+	 *
+	 * @param null
+	 * @return string
+	 */
 	public function scheme()
 	{
-		return parent:: getScheme();  //http | https
+		return parent:: getScheme();
 	}
 
 	public function query()
