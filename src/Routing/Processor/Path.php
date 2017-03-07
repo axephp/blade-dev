@@ -9,7 +9,12 @@ use Blade\Interfaces\Routing\Processor\IProcessor;
 
 class Path
 {
-
+	/**
+	 * Process request path
+	 *
+	 * @param null
+	 * @return string
+	 */
 	public static function process()
 	{
 		return implode(DIRECTORY_SEPARATOR, array_map(function($data) {
