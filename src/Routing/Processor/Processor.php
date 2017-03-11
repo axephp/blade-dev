@@ -146,7 +146,7 @@ class Processor implements IProcessor
 
 		$args = $this->prepareParams($parameters, $values);
 
-		$reflection->getParentCLass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor());
+		$reflection->getParentClass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor());
 		$object = $reflection->newInstanceWithoutConstructor();
 		$output = $action->invokeArgs($object, $args);
 		
