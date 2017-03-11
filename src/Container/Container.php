@@ -74,6 +74,25 @@ class Container implements IContainer
 
 
 	/**
+     * Determine if the given type has been mapped.
+     *
+     * @param  string  $provider
+     * @return bool
+     */
+	public function isMapped(string $provider)
+	{
+
+		/**
+		 * Checking if alias or provider 
+		 */
+		$provider = $this->resolveProvider($this->trim($name)); 
+
+		return isset($this->maps[$provider]);
+
+	}
+
+
+	/**
      * Register/Bind a provider to service class. (alias)
      *
      * @param  mixed  $provider
