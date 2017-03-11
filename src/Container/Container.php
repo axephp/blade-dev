@@ -74,6 +74,20 @@ class Container implements IContainer
 
 
 	/**
+     * Register/Bind a provider to service class. (alias)
+     *
+     * @param  mixed  $provider
+     * @param  string $content
+     * @param  bool   $shared
+     * @return void
+     */
+	public function bind($provider, string $content = null, bool $singleton = true)
+	{
+		return $this->register($provider, $content, $singleton);
+	}
+
+
+	/**
      * Determine if the given type has been aliased.
      *
      * @param  string  $provider
@@ -86,7 +100,6 @@ class Container implements IContainer
 		return isset($this->aliases[$alias]);
 
 	}
-
 
 
 	/**
@@ -123,7 +136,6 @@ class Container implements IContainer
 	}
 
 
-
 	/**
      * Assign alias to a type provider.
      *
@@ -142,7 +154,6 @@ class Container implements IContainer
 	}
 
 
-
 	/**
      * Trims the trailing slashes in class names.
      *
@@ -155,9 +166,8 @@ class Container implements IContainer
 	}
 
 
-
 	/**
-     * Register a provider to service class.
+     * Register/Bind a provider to service class.
      *
      * @param  mixed  $provider
      * @param  string $content
