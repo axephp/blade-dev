@@ -85,7 +85,8 @@ class Processor implements IProcessor
 				$compiled->setPath($dir);
 				$compiled->setReflection($reflection);
 
-				return $compiled
+				return $compiled;
+				
 			}else{
 				throw new Exception("Error Processing Class", 1);
 			}
