@@ -206,6 +206,21 @@ class Container implements IContainer
 	}
 
 
+	/**
+	 * Unregister the registered provider
+	 *
+	 * @param mixed
+	 * @return void
+	 */
+	public function unregister($provider)
+	{
+		$provider = $this->trim($provider);
+
+		$this->binds[$provider] = null;
+
+	}
+
+
     /**
      * Register an existing instance
      *
