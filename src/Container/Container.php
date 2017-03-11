@@ -76,10 +76,10 @@ class Container implements IContainer
 	/**
      * Determine if the given type has been mapped.
      *
-     * @param  string  $provider
+     * @param  string  $name
      * @return bool
      */
-	public function isMapped(string $provider)
+	public function isMapped(string $name)
 	{
 
 		/**
