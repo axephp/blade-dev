@@ -4,15 +4,14 @@ namespace Blade\Kernel;
 
 use Exception;
 use Throwable;
-use Blade\Interfaces\Kernel\IKernel;
+use Blade\Interfaces\Kernel\Kernel as IKernel;
 
 
-use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\Routing\IRouter as Router;
+use Blade\Interfaces\AxE\AxE;
+use Blade\Interfaces\Routing\Router;
 
 use Blade\AxE\AxE_Error;
 
-use Blade\AxE\Core\Varer;
 use Blade\AxE\Core\Configurer;
 use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
@@ -173,7 +172,9 @@ class Kernel implements IKernel
 
 	public function end($request, $response)
 	{
-		//echo "Kei Baaki Xa!";
+		$this->axe->resolve(\Blade\Log\Log::class)->save($request);
+
+		// For Caching $response can be used
 	}
 
 

@@ -3,8 +3,8 @@
 namespace Blade\Events;
 
 use Blade\AxE\Manager;
-use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\AxE\IManager;
+use Blade\Interfaces\AxE\AxE;
+use Blade\Interfaces\AxE\Manager as IManager;
 
 class EventManager extends Manager implements IManager
 {

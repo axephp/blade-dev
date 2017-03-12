@@ -4,9 +4,9 @@ namespace Blade\Routing;
 
 use Exception;
 
-use Blade\Interfaces\Container\IContainer as Container;
-use Blade\Interfaces\Routing\ICompiledRoute;
-use Blade\Interfaces\AxE\IAxE as AxE;
+use Blade\Interfaces\Container\Container;
+use Blade\Interfaces\Routing\CompiledRoute as ICompiledRoute;
+use Blade\Interfaces\AxE\AxE;
 
 
 class CompiledRoute implements ICompiledRoute

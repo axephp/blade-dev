@@ -4,11 +4,11 @@ namespace Blade\Routing;
 
 use Exception;
 
-use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\Routing\IRouter;
-use Blade\Interfaces\Routing\Processor\IProcessor as Processor;
-use Blade\Interfaces\Http\IRequest as Request;
-use Blade\Routing\RouteList as RouteList;
+use Blade\Interfaces\AxE\AxE;
+use Blade\Interfaces\Routing\Router as IRouter;
+use Blade\Interfaces\Routing\Processor\Processor;
+use Blade\Interfaces\Http\Request;
+use Blade\Routing\RouteList;
 
 
 class Router implements IRouter

@@ -3,8 +3,7 @@
 namespace Blade\Events;
 
 use Blade\AxE\Manager;
-use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\AxE\IManager;
+use Blade\Interfaces\AxE\AxE;
 use Blade\Routing\Processor\Path;
 
 class Trigger

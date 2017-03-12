@@ -5,8 +5,8 @@ namespace Blade\Routing\Processor;
 use Exception;
 use ReflectionClass;
 
-use Blade\Interfaces\AxE\IAxE as AxE;
-use Blade\Interfaces\Routing\Processor\IProcessor;
+use Blade\Interfaces\AxE\AxE;
+use Blade\Interfaces\Routing\Processor\Processor as Processor;
 
 use Blade\Routing\CompiledRoute;
 

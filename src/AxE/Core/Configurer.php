@@ -3,11 +3,11 @@
 namespace Blade\AxE\Core;
 
 use Exception;
-use Blade\Interfaces\AxE\IAxE as AxE;
+use Blade\Interfaces\AxE\AxE;
 
 use Blade\Config\Config;
 
-class Configurer // implements ICore
+class Configurer
 {
 
 	protected $confs = [

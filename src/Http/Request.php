@@ -3,7 +3,7 @@
 namespace Blade\Http;
 
 use Exception;
-use Blade\Interfaces\Http\IRequest;
+use Blade\Interfaces\Http\Request as IRequest;
 
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
@@ -61,5 +61,10 @@ class Request extends SymfonyRequest implements IRequest
 	public function method()
 	{
 		return parent::getMethod();
+	}
+
+	public function ip()
+	{
+		parent::getClientIP();
 	}
 }

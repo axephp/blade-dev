@@ -4,10 +4,10 @@ namespace Blade\Routing;
 
 use Exception;
 
-use Blade\Interfaces\Routing\IRouter as Router;
-use Blade\Interfaces\Routing\IPath as Path;
-use Blade\Interfaces\Routing\ICompiledRoute as CompileRoute;
-use Blade\Interfaces\Routing\IRoute;
+use Blade\Interfaces\Routing\Router;
+use Blade\Interfaces\Routing\Path;
+use Blade\Interfaces\Routing\CompiledRoute;
+use Blade\Interfaces\Routing\Route as IRoute;
 
 class Route implements IRoute
 {

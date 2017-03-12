@@ -4,7 +4,7 @@ namespace Blade\Container;
 
 use ReflectionClass;
 use Exception;
-use Blade\Interfaces\Container\IContainer;
+use Blade\Interfaces\Container\Container as IContainer;
 
 class Container implements IContainer
 {

@@ -5,10 +5,10 @@ namespace Blade\Config;
 use Exception;
 use ArrayAccess;
 
-use Blade\Interfaces\AxE\IAxE as AxE;
+use Blade\Interfaces\AxE\AxE;
 use Blade\Routing\Processor\Path;
 
-class Config implements ArrayAccess // implements ICore
+class Config implements ArrayAccess
 {
 
 	protected $container = [];

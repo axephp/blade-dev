@@ -4,7 +4,7 @@ namespace Blade\AxE;
 
 use ReflectionClass;
 use Exception;
-use Blade\Interfaces\AxE\IAxE;
+use Blade\Interfaces\AxE\AxE as IAxE;
 use Blade\Container\Container;
 
 
@@ -187,7 +187,7 @@ class AxE extends Container implements IAxE
 
     public function process($route)
     {
-        return $this->resolve(\Blade\Interfaces\Routing\Processor\IProcessor::class)->blend($route);
+        return $this->resolve(\Blade\Interfaces\Routing\Processor\Processor::class)->blend($route);
     }
 
 
@@ -195,6 +195,12 @@ class AxE extends Container implements IAxE
     {
         $eventer = $this->resolve('event');
         $eventer->fire($event, $args);
+    }
+
+    public function log($log, $args = [])
+    {
+        $eventer = $this->resolve('log');
+        $eventer->log($log, $args);
     }
 
     /**
