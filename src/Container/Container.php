@@ -332,7 +332,7 @@ class Container implements IContainer
 		if (class_exists($class)) {
 			$reflection = new ReflectionClass($class);
 		}else{
-			throw new Exception("Provider for '$name' not found", 1);
+			throw new Exception("Provider for '$name' as '$class' not found", 1);
 		}
 
 		
