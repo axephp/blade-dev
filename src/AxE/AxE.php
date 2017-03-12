@@ -170,7 +170,14 @@ class AxE extends Container implements IAxE
 
     public function addManager($manager)
     {
-        $this->managers[] = $this->trim($manager);
+        if (is_array($manager)) {
+            foreach ($manager as $man) {
+                $this->managers[] = $this->trim($man);
+            }
+        }else{
+            $this->managers[] = $this->trim($manager);
+        }
+        
     }
 
 
