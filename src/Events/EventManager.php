@@ -13,6 +13,7 @@ class EventManager extends Manager implements IManager
 	{
 		
 		$axe->register(\Blade\Events\Trigger::class);
+		$axe->alias('event', \Blade\Events\Trigger::class);
 		
 	}
 }
