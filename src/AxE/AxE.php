@@ -245,7 +245,7 @@ class AxE extends Container implements IAxE
      */
     public function bootstrapPath()
     {
-        return $this->systemPath().DIRECTORY_SEPARATOR.'Managers';
+        return $this->systemPath().DIRECTORY_SEPARATOR.$this->path().DIRECTORY_SEPARATOR.'Managers';
     }
 
 
