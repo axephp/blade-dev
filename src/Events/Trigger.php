@@ -45,7 +45,7 @@ class Trigger
 		
 	}
 
-	protected function log(EventItem $event)
+	protected function log(EventLogItem $event)
 	{
 		$data = serialize($event);
 
