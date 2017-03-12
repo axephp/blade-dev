@@ -11,5 +11,8 @@ use Blade\Container\Container;
 
 class Manager implements IManager
 {
-
+	public function run()
+	{
+		
+	}
 }
