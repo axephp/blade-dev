@@ -19,19 +19,18 @@ class Configurer // implements ICore
 	public function run(AxE $axe)
 	{
 		$config = New Config($axe);
-		$axe->map('config', $config);
-		
-		$axeConfig = require_once($axe->configFile());
-		$axe->addManager($axeConfig['managers']);
-
-		var_dump($axeConfig);
-
-		
 
 		foreach ($this->confs as $file) {
 			$config->loadConf($file);
 		}
 
+		$axe->map('config', $config);
+
+
+		$axeConfig = require_once($axe->configFile());
+		$axe->addManager($axeConfig['managers']);
+
+		var_dump($axe);
 		
 	}
 
