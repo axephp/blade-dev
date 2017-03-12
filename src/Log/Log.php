@@ -10,6 +10,7 @@ use Blade\AxE\AxE_Error;
 
 use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
+use Blade\Routing\Processor\Path;
 
 use Blade\Interfaces\Log\Log as ILog;
 
