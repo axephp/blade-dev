@@ -21,10 +21,6 @@ class Configurer // implements ICore
 		$config = New Config($axe);
 		$axeConfig = require_once($axe->configFile());
 
-		foreach ($axeConfig['providers'] as $provider => $content) {
-			$axe->register($provider, $content);
-		}
-
 		foreach ($axeConfig['aliases'] as $alias => $provider) {
 			$axe->alias($alias, $provider);
 		}
