@@ -1,7 +1,7 @@
 <?php
 
 namespace Blade\Interfaces\AxE;
-use IAxE as AxE;
+use Blade\Interfaces\AxE\IAxE as AxE;
 
 
 interface IManager
