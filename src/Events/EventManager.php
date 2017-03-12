@@ -12,8 +12,9 @@ class EventManager extends Manager implements IManager
 	function run(AxE $axe)
 	{
 		
-		$axe->register(\Blade\Events\Trigger::class);
-		$axe->alias('event', \Blade\Events\Trigger::class);
+		$events = $axe->resolve('eventManager')->events;
+		
+		var_dump($events);
 		
 	}
 }
