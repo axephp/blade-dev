@@ -161,7 +161,7 @@ class AxE extends Container implements IAxE
 
             $this->handle("executing->".$manager, [$this]);
             $this->resolve($manager)->run($this);
-            $this->loadedManagers[] = $manager
+            $this->loadedManagers[] = $manager;
             $this->handle("executed->".$manager, [$this]);
 
         }
