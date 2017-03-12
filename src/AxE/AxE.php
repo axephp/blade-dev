@@ -274,7 +274,7 @@ class AxE extends Container implements IAxE
      */
     public function managersPath()
     {
-        return $this->path().DIRECTORY_SEPARATOR.'Managers';
+        return $this->appPath().DIRECTORY_SEPARATOR.'Managers';
     }
 
 
