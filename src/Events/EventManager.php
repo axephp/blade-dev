@@ -13,8 +13,6 @@ class EventManager extends Manager implements IManager
 	{
 		
 		$events = $axe->resolve('eventManager')->events;
-		
-		var_dump($events);
-		
+
 	}
 }
