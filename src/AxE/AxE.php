@@ -267,7 +267,7 @@ class AxE extends Container implements IAxE
      */
     public function databasePath()
     {
-        return $this->databasePath ?: $this->basePath.DIRECTORY_SEPARATOR.'database';
+        return $this->databasePath ?: $this->storagePath().DIRECTORY_SEPARATOR.'database';
     }
 
 
