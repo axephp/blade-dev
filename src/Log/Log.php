@@ -1,6 +1,6 @@
 <?php
 
-namespace Blade\Kernel;
+namespace Blade\Log;
 
 use Exception;
 use Throwable;
@@ -12,7 +12,7 @@ use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
 
 
-class Log // implements IKernel
+class Log implements ILog
 {
 	
 	protected $axe;

@@ -5,8 +5,9 @@ namespace Blade\Events;
 use Blade\AxE\Manager;
 use Blade\Interfaces\AxE\AxE;
 use Blade\Routing\Processor\Path;
+use Blade\Interfaces\Events\Trigger as ITrigger;
 
-class Trigger
+class Trigger implements ITrigger
 {
 	
 	protected $axe;
