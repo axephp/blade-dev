@@ -6,7 +6,7 @@ use ReflectionClass;
 use Exception;
 use Blade\Interfaces\AxE\AxE as IAxE;
 use Blade\Container\Container;
-use Blade\Interfaces\Routing\CompiledRoute;
+use Blade\Interfaces\Routing\Route;
 
 
 class AxE extends Container implements IAxE
@@ -195,10 +195,10 @@ class AxE extends Container implements IAxE
     /**
      * Blend page
      *
-     * @param  CompiledRoute
+     * @param  Route
      * @return void
      */
-    public function process(CompiledRoute $route)
+    public function process(Route $route)
     {
         return $this->resolve(\Blade\Interfaces\Routing\Processor\Processor::class)->blend($route);
     }
