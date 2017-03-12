@@ -6,6 +6,6 @@ namespace Blade\Interfaces\AxE;
 interface IManager
 {
 
-	function run();
+	function run(AxE $axe);
 
 }
