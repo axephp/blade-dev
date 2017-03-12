@@ -10,10 +10,13 @@ use Blade\Routing\Processor\Path;
 class Trigger
 {
 	
+	protected $axe;
+
 	protected $logFile;
 
-	function __construct()
+	function __construct(AxE $axe)
 	{
+		$this->axe = $axe;
 		$this->logFile = Path::process($axe->storagePath(), 'logs', 'events.log');
 	}
 
