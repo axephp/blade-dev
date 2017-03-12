@@ -48,7 +48,7 @@ class AxE extends Container implements IAxE
      *
      * @var array
      */
-    protected $managers = [];
+    protected $managers = [ 'eventManager', 'routeManager'];
 
 
     /**
@@ -56,7 +56,7 @@ class AxE extends Container implements IAxE
      *
      * @var array
      */
-    protected $loadedProviders = [];
+    protected $loadedManagers = [];
 
 
     /**
@@ -84,14 +84,6 @@ class AxE extends Container implements IAxE
 
 
     /**
-     * The application namespace.
-     *
-     * @var string
-     */
-    protected $namespace;
-
-
-    /**
      * Create a new AxE application
      *
      * @param  string|null  $basePath
@@ -100,7 +92,7 @@ class AxE extends Container implements IAxE
     public function __construct(string $basePath = null)
     {
         $this->attendance();
-        $this->attendManagers();
+        $this->attendImportantManagers();
 
         if ($basePath) {
             $this->setBasePath($basePath);
@@ -123,11 +115,11 @@ class AxE extends Container implements IAxE
 
 
     /**
-     * Register all of the base service providers.
+     * Register important managers
      *
      * @return void
      */
-    protected function attendManagers()
+    protected function attendImportantManagers()
     {   
         if (class_exists(\AxE\Managers\EventManager::class)) {
             $this->map('eventManager', new \AxE\Managers\EventManager($this));
@@ -164,11 +156,13 @@ class AxE extends Container implements IAxE
     public function launch(array $managers)
     {
         $this->executed = true;
-        foreach ($managers as $manager) {
 
-            $this->handle($manager."_executing", [$this]);
+        foreach (array_merge($managers, $this->managers) as $manager) {
+
+            $this->handle("executing->".$manager, [$this]);
             $this->resolve($manager)->run($this);
-            $this->handle($manager."_executed", [$this]);
+            $this->loadedManagers[] = $manager
+            $this->handle("executed->".$manager, [$this]);
 
         }
     }
