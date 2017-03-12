@@ -132,7 +132,7 @@ class AxE extends Container implements IAxE
         if (class_exists(\App\Managers\RouteManager::class)) {
             $this->map('routeManager', new \App\Managers\RouteManager($this));
         }else{
-            $this->map('routeManager', new \AxE\Routing\RouteManager($this));
+            $this->map('routeManager', new \Blade\Routing\RouteManager($this));
         }
     
     }
