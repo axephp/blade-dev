@@ -119,7 +119,6 @@ class AxE extends Container implements IAxE
         $this->map('axe', $this);
         $this->map(Blade\Container\Container::class, $this);
 
-        //static::setInstance($this);
     }
 
 
@@ -130,8 +129,8 @@ class AxE extends Container implements IAxE
      */
     protected function attendManagers()
     {
-        //$this->register(new EventManager($this));
-        //$this->register(new RouteManager($this));
+        $this->register(new EventManager($this));
+        $this->register(new RouteManager($this));
     }
 
 
