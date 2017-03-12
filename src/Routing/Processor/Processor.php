@@ -42,7 +42,7 @@ class Processor implements IProcessor
 			$request = explode('/', $this->axe->config('site')->home_page) ?: ["home"];
 		}
 
-		$compiled = $this->inside("AxE\\Pages", $request);
+		$compiled = $this->inside("User\\Pages", $request);
 
 		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
 			$route->getRouter()->middleware($key, $value);
