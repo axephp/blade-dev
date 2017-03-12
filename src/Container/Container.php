@@ -208,9 +208,9 @@ class Container implements IContainer
 			$provider = $this->trim($provider);
 		}
 
-		$content = $this->trim($content);
-
-
+		if (!is_null($content)) {
+			$content = $this->trim($content);
+		}
 
 		/**
 		* When provider is array, it is assumed that alias is given.
