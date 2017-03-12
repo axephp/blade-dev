@@ -119,9 +119,9 @@ class Processor implements IProcessor
 	public function blend($route)
 	{	
 		if ($route instanceof CompiledRoute) {
-			$axe_PageBody = $this->suber($route);
+			$output = $this->suber($route);
 		}else{
-			$axe_PageBody = "Custom TODO";
+			$output = "Custom TODO";
 		}
 		
 
