@@ -19,6 +19,8 @@ class Configurer // implements ICore
 	public function run(AxE $axe)
 	{
 		$config = New Config($axe);
+		$axe->map('config', $config);
+		
 		$axeConfig = require_once($axe->configFile());
 
 		foreach ($axeConfig['aliases'] as $alias => $provider) {
@@ -28,8 +30,6 @@ class Configurer // implements ICore
 		foreach ($this->confs as $file) {
 			$config->loadConf($file);
 		}
-
-		$axe->map('config', $config);
 
 		$axe->addManager($axeConfig['managers']);
 		
