@@ -53,7 +53,7 @@ class Config implements ArrayAccess
 
     public function loadConf($file)
     {
-    		$fullFile = Path::process($this->axe->configPath(), $file);
+    		$fullFile = Path::process($this->axe->configsPath(), $file);
     		if (file_exists($fullFile)) {
     			$data = file_get_contents($fullFile);
 
