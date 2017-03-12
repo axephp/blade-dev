@@ -135,11 +135,11 @@ class Container implements IContainer
 
 		$output = array_keys($this->aliases, $provider);
 
-		if (is_string($output)) {
-			return $output;
+		if (count($output) == 1) {
+			return $output[0];
 		}
 
-		return $output;
+		return (sort($output));
 
 	}
 
