@@ -139,7 +139,9 @@ class Container implements IContainer
 			return $output[0];
 		}
 
-		return (sort($output));
+		sort($output);
+
+		return $output;
 
 	}
 
