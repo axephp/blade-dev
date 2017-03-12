@@ -172,6 +172,12 @@ class AxE extends Container implements IAxE
     }
 
 
+    /**
+     * Add Manager
+     *
+     * @param  mixed
+     * @return void
+     */
     public function addManager($manager)
     {
         if (is_array($manager)) {
@@ -185,12 +191,25 @@ class AxE extends Container implements IAxE
     }
 
 
-    public function process($route)
+    /**
+     * Blend page
+     *
+     * @param  CompiledRoute
+     * @return void
+     */
+    public function process(CompiledRoute $route)
     {
         return $this->resolve(\Blade\Interfaces\Routing\Processor\IProcessor::class)->blend($route);
     }
 
 
+    /**
+     * Triggers Event
+     *
+     * @param string
+     * @param array
+     * @return void
+     */
     public function trigger($event, $args = [])
     {
         $eventer = $this->resolve('event');
@@ -262,6 +281,17 @@ class AxE extends Container implements IAxE
     public function configPath()
     {
         return $this->systemPath().DIRECTORY_SEPARATOR.'configs';
+    }
+
+
+    /**
+     * Get the path to logs
+     *
+     * @return string
+     */
+    public function logPath()
+    {
+        return $this->storagePath().DIRECTORY_SEPARATOR.'logs';
     }
 
 
@@ -347,13 +377,79 @@ class AxE extends Container implements IAxE
 
 
     /**
+     * Get the path to the events directory
+     *
+     * @return string
+     */
+    public function eventPath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'events';
+    }
+
+
+    /**
+     * Get the path to the middlewares directory
+     *
+     * @return string
+     */
+    public function middlewarePath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'middlewares';
+    }
+
+
+    /**
+     * Get the path to the models directory
+     *
+     * @return string
+     */
+    public function modelPath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'models';
+    }
+
+
+    /**
      * Get the path to the pages directory
      *
      * @return string
      */
-    public function pagesPath()
+    public function pagePath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'pages';
+    }
+
+
+    /**
+     * Get the path to the resources directory
+     *
+     * @return string
+     */
+    public function resourcePath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'resources';
+    }
+
+
+    /**
+     * Get the path to the themes directory
+     *
+     * @return string
+     */
+    public function themePath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'themes';
+    }
+
+
+    /**
+     * Get the path to tests
+     *
+     * @return string
+     */
+    public function testPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'tests';
     }
 
 
