@@ -51,12 +51,10 @@ class Trigger
 
 		$old = $this->old();
 
-		$new[] = $event;
+		$all[] = $event;
 
 		if ($old) {
 			$all = array_merge($old, $new);
-		}else{
-			$all = $old;
 		}
 
 		return file_put_contents($this->logFile, json_encode($all));
