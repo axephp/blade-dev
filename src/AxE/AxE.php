@@ -153,7 +153,7 @@ class AxE extends Container implements IAxE
      * @param  array  $managers
      * @return void
      */
-    public function launch(array $managers = "")
+    public function launch(array $managers = [])
     {
         $this->executed = true;
 
