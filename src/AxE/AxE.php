@@ -189,10 +189,17 @@ class AxE extends Container implements IAxE
 
     public function trigger($event, $args = [])
     {
-        $action = explode("->", $event)[0];
-        $sender = explode("->", $event)[1];
+        $action = $event;
+        $sender = "";
+
+        if (strpos($event, '->') !== false) {
+            $action = explode("->", $event)[0];
+            $sender = explode("->", $event)[1];
+        }
 
         $eventer = $this->resolve('eventManager');
+
+        $eventer->fire($action, $sender, $args);
     }
 
     /**
