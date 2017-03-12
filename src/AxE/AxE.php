@@ -123,7 +123,7 @@ class AxE extends Container implements IAxE
     {   
         if (class_exists(\AxE\Managers\EventManager::class)) {
             $this->map('eventManager', new \AxE\Managers\EventManager($this));
-            $this->resolve(eventManager)->run($this);
+            $this->resolve('eventManager')->run($this);
         }else{
             throw new Exception("Manager 'EventManager' not found.", 1);
         }
