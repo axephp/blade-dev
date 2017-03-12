@@ -88,7 +88,7 @@ class Processor implements IProcessor
 				return $compiled;
 				
 			}else{
-				throw new Exception("Error Processing Class", 1);
+				throw new Exception("Error Processing Class '$class' ", 1);
 			}
 
 		}elseif (is_dir($dir)) {
