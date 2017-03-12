@@ -8,6 +8,8 @@ use Blade\Interfaces\AxE\Manager as IManager;
 
 class RouteManager extends Manager implements IManager
 {
+
+	public $events = [];
 	
 	function run(AxE $axe)
 	{
