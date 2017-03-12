@@ -320,7 +320,7 @@ class Container implements IContainer
 
 
 		// If Already exists, return that.
-		if (isset($this->maps[$provider])) {
+		if (isset($this->maps[$provider]) && !is_null($this->maps[$provider])) {
 			return $this->maps[$provider];
 		}
 
