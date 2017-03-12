@@ -133,7 +133,7 @@ class Container implements IContainer
 		if(!in_array($provider, $this->aliases))
 			return $provider;
 
-		$output = array_keys($provider, $this->aliases);
+		$output = array_keys($this->aliases, $provider);
 
 		if (is_string($output)) {
 			return $output;

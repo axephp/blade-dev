@@ -35,8 +35,6 @@ class Configurer // implements ICore
 
 		$axe->map('config', $config);
 
-
-		
 		$axe->addManager($axeConfig['managers']);
 		
 	}
