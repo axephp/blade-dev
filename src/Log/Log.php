@@ -11,6 +11,7 @@ use Blade\AxE\AxE_Error;
 use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
 
+use Blade\Interfaces\Log\Log as ILog;
 
 class Log implements ILog
 {
