@@ -124,6 +124,7 @@ class Processor implements IProcessor
 			$output = "Custom TODO";
 		}
 		
+		var_dump($output);
 
 		$response = new SymfonyResponse();
 
