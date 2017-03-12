@@ -159,10 +159,10 @@ class AxE extends Container implements IAxE
 
         foreach (array_merge_recursive($managers, $this->managers) as $manager) {
 
-            $this->handle("executing->".$manager, [$this]);
+            $this->trigger("executing->".$manager, [$this]);
             $this->resolve($manager)->run($this);
             $this->loadedManagers[] = $manager;
-            $this->handle("executed->".$manager, [$this]);
+            $this->trigger("executed->".$manager, [$this]);
 
         }
     }
@@ -187,9 +187,12 @@ class AxE extends Container implements IAxE
     }
 
 
-    public function handle($event, $args = [])
+    public function trigger($event, $args = [])
     {
-        //skip
+        $action = explode("->", $event)[0];
+        $sender = explode("->", $event)[1];
+
+        $eventer = $this->resolve('eventManager');
     }
 
     /**

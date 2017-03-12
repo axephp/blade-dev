@@ -225,7 +225,7 @@ class Router implements IRouter
         # Checking and resolving of routes
         $route = $this->findRoute($request);
 
-        $this->axe->handle("route_found", [ $route, $request ]);;
+        $this->axe->trigger("route_found", [ $route, $request ]);;
 
         $route = $this->passThroughMiddlewares($route, $request);
         return $route;

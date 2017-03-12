@@ -41,7 +41,7 @@ $output = <<<PHP
 		font-family: Consolas;
 		margin-top: 100px;
 		margin-bottom: 20px;
-		font-size: 52px;
+		font-size: 58px;
 		color: #ff3300;
 	}
 
