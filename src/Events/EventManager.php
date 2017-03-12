@@ -8,6 +8,8 @@ use Blade\Interfaces\AxE\Manager as IManager;
 
 class EventManager extends Manager implements IManager
 {
+
+	public $events = [];
 	
 	function run(AxE $axe)
 	{
