@@ -65,7 +65,7 @@ class Processor implements IProcessor
 	public function inside($class, $request)
 	{	
 
-		$dir = Path::process($this->axe->pagesPath(), $request);
+		$dir = Path::process($this->axe->pagePath(), $request);
 		$file = Path::controller($dir);
 
 		if (file_exists($file)) {
