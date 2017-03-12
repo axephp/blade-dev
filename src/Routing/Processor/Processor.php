@@ -124,15 +124,9 @@ class Processor implements IProcessor
 			$output = "Custom TODO";
 		}
 		
-		var_dump($output);
+		$this->axe->register(\Blade\Templating\Compiler::class);
+		return $this->axe->resolve(\Blade\Templating\Compiler::class)->compile($output);
 
-		$response = new SymfonyResponse();
-
-		$response->setContent($output);
-
-		$response->headers->set('Content-Type', "text/html");
-
-		return $response;
 	}
 
 
