@@ -9,10 +9,7 @@ use Blade\Interfaces\AxE\IManager;
 use Blade\Container\Container;
 
 
-class Manager implements IManager
+class Manager
 {
-	public function run(AxE $axe)
-	{
-		
-	}
+
 }

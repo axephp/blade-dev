@@ -18,7 +18,8 @@ class Configurer // implements ICore
 
 	public function run(AxE $axe)
 	{
-		
+
+		$axeConfig = 
 		$config = New Config($axe);
 
 		foreach ($this->confs as $file) {
