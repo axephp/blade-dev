@@ -479,7 +479,7 @@ class AxE extends Container implements IAxE
      */
     public function configFile()
     {
-        return $this->configPath().DIRECTORY_SEPARATOR.$this->configFile ?: $this->configPath().DIRECTORY_SEPARATOR.'axe.php';
+        return $this->configsPath().DIRECTORY_SEPARATOR.$this->configFile ?: $this->configPath().DIRECTORY_SEPARATOR.'axe.php';
     }
 
 
