@@ -215,11 +215,20 @@ class AxE extends Container implements IAxE
         $eventer->fire($event, $args);
     }
 
+
+    /**
+     * Log Information of each request in file
+     *
+     * @param string
+     * @param array
+     * @return void
+     */
     public function log($log, $args = [])
     {
         $eventer = $this->resolve('log');
         $eventer->log($log, $args);
     }
+
 
     /**
      * Set the base path
@@ -274,7 +283,7 @@ class AxE extends Container implements IAxE
      */
     public function managersPath()
     {
-        return $this->path().DIRECTORY_SEPARATOR.'Managers';
+        return $this->appPath().DIRECTORY_SEPARATOR.'Managers';
     }
 
 
