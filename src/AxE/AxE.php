@@ -129,14 +129,14 @@ class AxE extends Container implements IAxE
      */
     protected function attendManagers()
     {   
-        if (class_exists(AxE\Managers\EventManager::class)) {
-            $this->register(new AxE\Managers\EventManager($this));
+        if (class_exists(\AxE\Managers\EventManager::class)) {
+            $this->register(new \AxE\Managers\EventManager($this));
         }else{
             throw new Exception("Manager 'EventManager' not found.", 1);
         }
 
-        if (class_exists(AxE\Managers\RouteManager::class)) {
-            $this->register(new AxE\Managers\RouteManager($this));
+        if (class_exists(\AxE\Managers\RouteManager::class)) {
+            $this->register(new \AxE\Managers\RouteManager($this));
         }else{
             throw new Exception("Manager 'RouteManager' not found.", 1);
         }
