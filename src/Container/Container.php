@@ -204,7 +204,9 @@ class Container implements IContainer
 	public function register($provider, string $content = null, bool $singleton = true)
 	{
 		
-		$provider = $this->trim($provider);
+		if (!is_array($provider)) {
+			$provider = $this->trim($provider);
+		}
 
 		$content = $this->trim($content);
 
@@ -218,7 +220,7 @@ class Container implements IContainer
 
 			list($alias, $provider) = [key($provider) , current($provider)];
 
-			$this->alias($alias, $provider);
+			$this->alias($alias, $this->trim($provider));
 
 		}
 
@@ -228,7 +230,7 @@ class Container implements IContainer
 			$content = $provider;
 		}
 
-		$this->binds[$provider] = ['class' => $content, 'singleton' => $singleton];
+		$this->binds[$this->trim($provider)] = ['class' => $content, 'singleton' => $singleton];
 
 	}
 
