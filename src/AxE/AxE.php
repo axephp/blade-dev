@@ -157,7 +157,7 @@ class AxE extends Container implements IAxE
     {
         $this->executed = true;
 
-        foreach (array_merge($managers, $this->managers) as $manager) {
+        foreach (array_merge_recursive($managers, $this->managers) as $manager) {
 
             $this->handle("executing->".$manager, [$this]);
             $this->resolve($manager)->run($this);
@@ -167,6 +167,11 @@ class AxE extends Container implements IAxE
         }
     }
 
+
+    public function addManager($manager)
+    {
+        $this->managers[] = $this->trim($manager);
+    }
 
 
     public function process($route)

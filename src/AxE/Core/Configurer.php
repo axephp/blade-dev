@@ -20,9 +20,10 @@ class Configurer // implements ICore
 	{
 
 		$axeConfig = require_once($axe->configFile());
+		$axe->addManager($axeConfig['managers']);
 
 		var_dump($axeConfig);
-		
+
 		$config = New Config($axe);
 
 		foreach ($this->confs as $file) {
