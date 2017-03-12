@@ -215,11 +215,20 @@ class AxE extends Container implements IAxE
         $eventer->fire($event, $args);
     }
 
+
+    /**
+     * Log Information of each request in file
+     *
+     * @param string
+     * @param array
+     * @return void
+     */
     public function log($log, $args = [])
     {
         $eventer = $this->resolve('log');
         $eventer->log($log, $args);
     }
+
 
     /**
      * Set the base path
