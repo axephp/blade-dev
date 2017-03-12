@@ -6,7 +6,7 @@ use Exception;
 use ReflectionClass;
 
 use Blade\Interfaces\AxE\AxE;
-use Blade\Interfaces\Routing\Processor\Processor as Processor;
+use Blade\Interfaces\Routing\Processor\Processor as IProcessor;
 
 use Blade\Routing\CompiledRoute;
 
