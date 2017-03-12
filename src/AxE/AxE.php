@@ -251,7 +251,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function path()
+    public function appPath()
     {
         return $this->systemPath().DIRECTORY_SEPARATOR.'axe';
     }
@@ -273,7 +273,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function bootstrapPath()
+    public function managersPath()
     {
         return $this->path().DIRECTORY_SEPARATOR.'Managers';
     }
@@ -284,7 +284,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function configPath()
+    public function configsPath()
     {
         return $this->systemPath().DIRECTORY_SEPARATOR.'configs';
     }
@@ -295,7 +295,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function logPath()
+    public function logsPath()
     {
         return $this->storagePath().DIRECTORY_SEPARATOR.'logs';
     }
@@ -387,7 +387,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function eventPath()
+    public function eventsPath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'events';
     }
@@ -398,7 +398,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function middlewarePath()
+    public function middlewaresPath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'middlewares';
     }
@@ -409,7 +409,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function modelPath()
+    public function modelsPath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'models';
     }
@@ -420,7 +420,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function pagePath()
+    public function pagesPath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'pages';
     }
@@ -431,7 +431,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function resourcePath()
+    public function resourcesPath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'resources';
     }
@@ -442,7 +442,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function themePath()
+    public function themesPath()
     {
         return $this->userPath().DIRECTORY_SEPARATOR.'themes';
     }
@@ -453,7 +453,7 @@ class AxE extends Container implements IAxE
      *
      * @return string
      */
-    public function testPath()
+    public function testsPath()
     {
         return $this->basePath.DIRECTORY_SEPARATOR.'tests';
     }
