@@ -125,7 +125,7 @@ class Container implements IContainer
      * Get the alias assigned to a provider.
      *
      * @param  string  $provider
-     * @return string
+     * @return string|array
      */
 	public function getAlias(string $provider)
 	{
@@ -133,7 +133,13 @@ class Container implements IContainer
 		if(!in_array($provider, $this->aliases))
 			return $provider;
 
-		return array_search($provider, $this->aliases);
+		$output = array_keys($provider, $this->aliases);
+
+		if (is_string($output)) {
+			return $output;
+		}
+
+		return $output;
 
 	}
 
@@ -236,6 +242,7 @@ class Container implements IContainer
 		$provider = $this->trim($provider);
 
 		$this->binds[$provider] = null;
+		$this->resolved[$provider] = null;
 
 	}
 
