@@ -71,7 +71,7 @@ class Trigger
         	}
 
         	$item = new EventLogItem();
-        	$item->datetime = date();
+        	$item->datetime = date("F j, Y, g:i a");
         	$item->action = $action;
         	$item->sender = $sender;
 
