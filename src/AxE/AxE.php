@@ -277,7 +277,7 @@ class AxE extends Container implements IAxE
      * @param  string  $path
      * @return $this
      */
-    public function useDatabasePath($path)
+    public function setDatabasePath($path)
     {
         $this->databasePath = $path;
         return $this;
@@ -323,7 +323,7 @@ class AxE extends Container implements IAxE
      * @param  string  $path
      * @return $this
      */
-    public function useStoragePath($path)
+    public function setStoragePath($path)
     {
         $this->storagePath = $path;
         return $this;
