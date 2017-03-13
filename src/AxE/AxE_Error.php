@@ -21,7 +21,7 @@ class AxE_Error extends Exception implements Throwable
 		$backtrace = '';
 		$array = $ex->getTrace();
 
-		var_dump($array);
+		var_dump($ex);
 
 		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
