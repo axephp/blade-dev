@@ -48,7 +48,7 @@ class Templater
 				throw new Exception("Invalid theme file.", 902);
 			}
 
-			$struct = (isset($tmp['structure'])) ? Path::process($this->axe->themesPath(), $theme, $tmp['structure']) : $struct;
+			$struct = (isset($tmp['structure']) && !empty($tmp['structure'])) ? Path::process($this->axe->themesPath(), $theme, $tmp['structure']) : $struct;
 
 			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
 				return false;
