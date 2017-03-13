@@ -23,13 +23,12 @@ class AxE_Error extends Exception implements Throwable
 		foreach (debug_backtrace() as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
-								<h3><span class="backtrace-count">'.$key.'</span> Axe\Manager\Manager</h3>
-								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 20</strong></span></p>
+								<h3><span class="backtrace-count">'.$key.'</span> '.$item['class'].'</h3>
+								<p>'.$item['file'].' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>
 							</div>
 						</a>';
 		}
 
-		var_dump(debug_backtrace());
 		$base_url = $request->uri();
 
 
