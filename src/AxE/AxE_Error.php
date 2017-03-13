@@ -89,7 +89,7 @@ $output =
 				background: #eeeeee;
 				overflow-y: scroll;				
 				font-family: 'Titillium Web', sans-serif;				
-				font-size: 12px;
+				font-size: 15px;
 				line-height: 30px;
 			}
 
