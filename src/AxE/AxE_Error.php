@@ -31,15 +31,18 @@ class AxE_Error extends Exception implements Throwable
 		}
 
 		$base_url = $request->uri();
-		$lines = file($ex->getFile());
-
+		/*$lines = file($ex->getFile());
 		$errored_code = '';
 		for ($i=$error_line - 5; $i <= $error_line + 3; $i++) { 
 			$errored_code .= $lines[$i];
-		}
+		}*/
 		
-		$errored_code = highlight_string($errored_code);
+		ob_start();
+		highlight_file($ex->getFile());
+		$coded = ob_get_contents();
+		ob_end_clean();
 
+		$errored_code = $coded;
 
 $output = 
 <<<EOT
