@@ -26,7 +26,7 @@ class AxE_Error extends Exception implements Throwable
 								<h3><span class="backtrace-count">$key</span> Axe\Manager\Manager</h3>
 								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 20</strong></span></p>
 							</div>
-						</a>'
+						</a>';
 		}
 
 		$base_url = $request->uri();
