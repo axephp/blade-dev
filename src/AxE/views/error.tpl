@@ -20,7 +20,7 @@
 			}
 
 			.header{
-				padding-top: 10px;
+				padding-top: 15px;
 				background: #558B2F;
 				border-top: 5px solid #FF3333;
 				min-height: 120px;
