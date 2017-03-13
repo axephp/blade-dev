@@ -27,7 +27,6 @@ class Templater
 		$struct = $this->theme($data['return']['theme']);
 		$html = $this->struct($struct, $data);
 
-
 		$response->setContent($html);
 		$response->headers->set('Content-Type', $data['mime']);
 		return $response;
@@ -37,7 +36,7 @@ class Templater
 
 	protected function theme($theme = 'default')
 	{
-		$file = Path::process($this->themesPath(), $theme, 'theme.php');
+		$file = Path::process($this->axe->themesPath(), $theme, 'theme.php');
 		$struct = Path::process($this->axe->appPath(), 'Framework', 'Template.tpl');
 
 		if (file_exists($file)) {
