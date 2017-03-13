@@ -63,6 +63,7 @@ class Templater
 			
 			$structContent = file_get_contents($struct);
 			$structCompiled = $this->varer($structContent, ['pageBody'=>$tplCompiled]);
+			echo "string1";
 		}else{
 			
 			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
@@ -70,6 +71,8 @@ class Templater
 			}
 
 			$structCompiled = file_get_contents($struct);
+			echo "s2";
+
 		}
 
 		return $structCompiled;
