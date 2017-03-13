@@ -16,7 +16,7 @@ class AxE_Error extends Exception implements Throwable
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
 		$error_file =  str_replace($axe->basePath(), strtoupper("AXE")."://", str_replace("\\", "/", $ex->getFile()));
-		$error_msg  = ." - [ line ".$ex->getLine()."]";
+		$error_msg  = " - [ line ".$ex->getLine()."]";
 		$base_url = $request->uri();
 
 
