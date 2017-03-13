@@ -16,7 +16,14 @@ class AxE_Error extends Exception implements Throwable
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
 		$error_file =  str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $ex->getFile()));
-		$error_msg  = " - [ line ".$ex->getLine()."]";
+		$error_line  = $ex->getLine();
+
+		$backtrace = '';
+
+		foreach (debug_backtrace() as $item) {
+			# code...
+		}
+
 		$base_url = $request->uri();
 
 
@@ -236,7 +243,8 @@ $output =
 
 					<div class="content">
 						<pre>
-
+EOT.
+highlight_string(<<<EOT
 namespace App\Managers;
 
 use Blade\Events\EventManager as Manager;
@@ -256,6 +264,7 @@ class EventManager extends Manager
 		
 	}
 }
+EOT). <<<EOT
 						</pre>
 					</div>
 
