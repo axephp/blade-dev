@@ -46,7 +46,8 @@ class Templater
 				throw new Exception("Invalid theme file.", 902);
 			}
 
-			$struct = (isset($tmp['structure']) && !empty($tmp['structure'])) ? Path::process($this->axe->themesPath(), $theme, $tmp['structure']) : $struct;
+			$struct = (isset($tmp['structure']) && !empty($tmp['structure'])) ?
+			 Path::process($this->axe->themesPath(), $theme, $tmp['structure']) : $struct;
 
 			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
 				return false;
@@ -71,7 +72,6 @@ class Templater
 			$structCompiled = file_get_contents($struct);
 
 		}
-
 		return $structCompiled;
 		
 	}
@@ -95,6 +95,7 @@ class Templater
 		return $var;
 	}
 
+
 	protected function varer($code, $vars)
 	{
 		if (strpos($code, '@element') !== false) {
@@ -116,6 +117,7 @@ class Templater
 
 		return $compiled;
 	}
+
 
 	protected function prepareHead($dir, $data)
 	{
@@ -146,6 +148,7 @@ class Templater
 		return $return;
 	}
 
+
 	protected function getHead($key)
 	{
 		$type = [];
@@ -169,19 +172,17 @@ class Templater
 		return $type;
 	}
 
+
 	protected function prepareBody($dir, $data, $vars)
 	{
-		$return = "";
 
 		$viewFile = Path::process($dir, $data.'.tpl');
-
 		$code = file_get_contents($viewFile);
 
-		//$this->compile COMPILING TEMPLATE SCRIPT LEFT
+		//COMPILING TEMPLATE SCRIPT LEFT
 
 		return $code;
 	}
-
 
 
 	function array_flatten($array) { 
@@ -198,6 +199,6 @@ class Templater
 		    } 
 		  } 
 		  return $result; 
-} 
+	} 
 
 }
