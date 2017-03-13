@@ -21,7 +21,7 @@ class Compiler
 
 	public function compile($output = "")
 	{
-		var_dump($output);
+
 		# [struct, mime, vars]
 		
 		$response = new SymfonyResponse();
