@@ -63,7 +63,7 @@ class Templater
 			
 			$structContent = file_get_contents($struct);
 
-			var_dump($structContent);
+			var_dump($struct); 
 
 			$structCompiled = $this->varer($structContent, ['pageBody'=>$tplCompiled]);
 			
