@@ -104,6 +104,8 @@ class Templater
 
 		            	if (isset($vars[$var])) {
 		            		return $vars[$var];
+		            	}else{
+		            		return $match[0];
 		            	}
 		                
 		            }, $code
