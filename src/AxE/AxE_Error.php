@@ -23,7 +23,7 @@ class AxE_Error extends Exception implements Throwable
 
 		// Rendered
 		$error_backtrace = static::prepareBacktrace($axe->basePath(), $error_trace);
-		$errored_code = static::extractCode($ex->getFile(), $error_line);
+		$errored_code = static::extractCode($ex->getFile(), $error_line, $error_type, $error_file, $error_title);
 		$request_stats = static::prepareStats($request);
 
 		// Loading Views
@@ -65,7 +65,7 @@ class AxE_Error extends Exception implements Throwable
     private static function prepareStats($request)
     {
     		$required = [''];
-    		var_dump($request->get('server'));
+    		var_dump($request->server());
     		$stat = '<div class="stats-item">
 				<div class="title">Request Type &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</div>
 				<div class="value">HTTP Request</div>
@@ -74,7 +74,7 @@ class AxE_Error extends Exception implements Throwable
     }
 
 
-    private static function makeView($error_backtrace, $errored_code, $request_stats)
+    private static function makeView($error_backtrace, $errored_code, $request_stats, $error_type, $error_file, $error_title)
     {	
     		$view = __DIR__.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'error.tpl';
     		ob_start();
