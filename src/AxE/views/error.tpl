@@ -202,6 +202,7 @@
 			<div class="header">
 				<h4><?=$error_file?></h4>
 				<p><?=$error_title?></p>
+				<div style="clear:both;"></div>
 			</div>
 
 			<div class="primary">
