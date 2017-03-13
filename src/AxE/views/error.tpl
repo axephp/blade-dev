@@ -17,7 +17,7 @@
 			.header{
 				background: #558B2F;
 				border-top: 5px solid #FF3333;
-				min-height: 130px;
+				min-height: 120px;
 				color: #FFFFFF;
 				font-family: 'Poiret One', cursive;
 				font-weight: normal;
@@ -28,10 +28,11 @@
 			}
 
 			.header p{
-				margin-top: -10px;
+				margin-top: 0px;
 				font-size: 250%;
 				line-height: 0.8em;
 				color: #FFFF33;
+				display: block;
 			}
 
 			.primary{
