@@ -100,7 +100,7 @@
 				border-top: 5px solid #558B2F;
 				float: left;
 				overflow-y: scroll;
-				font-size: 18px;
+				font-size: 16px;
 			}
 
 			.stats h3{
