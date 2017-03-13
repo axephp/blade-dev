@@ -5,11 +5,6 @@
 		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 		<style>
-			*{
-				margin: 0px;
-				padding: 0px;
-				list-style: none;
-			}
 			body{
 				margin: 0px;
 				min-width: 1000px;
@@ -20,7 +15,7 @@
 			}
 
 			.header{
-				padding-top: 15px;
+				
 				background: #558B2F;
 				border-top: 5px solid #FF3333;
 				min-height: 100px;
