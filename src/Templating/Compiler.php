@@ -54,10 +54,9 @@ class Compiler
 		}
 
 		
-
 		$response->setContent($compiled);
 
-		$response->headers->set('Content-Type', $output['mime'] ?? 'text/html');
+		$response->headers->set('Content-Type', 'text/html');
 
 		return $response;
 		

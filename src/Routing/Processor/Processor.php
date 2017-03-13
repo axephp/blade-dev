@@ -163,6 +163,8 @@ class Processor implements IProcessor
 			return $this->suber($output);
 		}
 
+		var_dump($object);
+
 		return $output;
 	}
 
