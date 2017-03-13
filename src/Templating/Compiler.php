@@ -88,7 +88,7 @@ class Compiler
 		return $return;
 	}
 
-	protected function prepareHead($dir, $data)
+	protected function prepareBody($dir, $data)
 	{
 		$return = "";
 		return "Tried loading '$data'";
