@@ -326,7 +326,7 @@ EOT;
             if ($lineNumber == $error_line ) {
             	echo sprintf('<br><div style="background-color: red;"><span style="color: #999999">%s | </span>%s</div>', $lineNumber, $line);
             }else{
-            	echo sprintf('%s<span style="color: #999999">%s | </span>%s', ($lineNumber = $error_line + 1) ? '' : '<br>', $lineNumber, $line);
+            	echo sprintf('%s<span style="color: #999999">%s | </span>%s', ($lineNumber == $error_line + 1) ? '' : '<br>', $lineNumber, $line);
             }
         }
        
