@@ -8,6 +8,7 @@
 			*{
 				margin: 0px;
 				padding: 0px;
+				list-style: none;
 			}
 			body{
 				margin: 0px;
@@ -19,6 +20,7 @@
 			}
 
 			.header{
+				padding-top: 10px;
 				background: #558B2F;
 				border-top: 5px solid #FF3333;
 				min-height: 120px;
