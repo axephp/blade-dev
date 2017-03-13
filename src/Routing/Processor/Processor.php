@@ -152,7 +152,7 @@ class Processor implements IProcessor
 		$object = $reflection->newInstanceWithoutConstructor();
 		$output = $action->invokeArgs($object, $args);
 		
-		$output = $reflection->getMethod('prepare')->invokeArgs($parent, [$output]);
+		$output = $reflection->getMethod('prepare')->invokeArgs($parent, [[$compiled->getRequest(), $compiled->getPath()], $output]);
 
 		if ($output instanceof CompiledRoute) {
 			return $this->suber($output);
