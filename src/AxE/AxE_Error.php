@@ -12,8 +12,9 @@ class AxE_Error extends Exception implements Throwable
 	
 	static function render($axe, $request, $ex)
 	{
-		var_dump(error_get_last());
 
+		var_dump($ex);
+		
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
 		$error_file =  str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $ex->getFile()));
