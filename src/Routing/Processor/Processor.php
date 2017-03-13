@@ -63,9 +63,7 @@ class Processor implements IProcessor
 
 		$request = array_shift($this->requests);
 
-		var_dump($request);
-		
-		$compiled = $this->inside("User\\Pages", $request);
+		$compiled = $this->inside("User\\Pages", [$request]);
 
 		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
 			$route->getRouter()->middleware($key, $value);
