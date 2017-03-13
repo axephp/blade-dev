@@ -433,11 +433,13 @@ class Router implements IRouter
     		if (!in_array($uri, $this->blocked)) {
 
                 if (in_array('axeasset', $request->requests())) {
-                        //echo "Asset";
-                        $asset = new AssetRoute($request);
-                        $asset->setRouter($this);
+                        
+                        $route = new AssetRoute($request);
+                        $route->setRouter($this);
 
-                        return $asset->compile();
+                        $processor = $this->axe->resolve(Processor::class);
+                
+                        return $processor->asset($route);
 
                 }else{
 

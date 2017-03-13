@@ -13,7 +13,7 @@ class AssetRoute extends Route
 {
 	function __construct($request)
 	{
-		$this->request = $request;
+		parent::__construct(['GET'], $request);
 	}
 
 

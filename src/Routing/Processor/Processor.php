@@ -9,6 +9,7 @@ use Blade\Interfaces\AxE\AxE;
 use Blade\Interfaces\Routing\Processor\Processor as IProcessor;
 
 use Blade\Routing\CompiledRoute;
+use Blade\Routing\CompiledAsset;
 
 class Processor implements IProcessor
 {
@@ -37,6 +38,30 @@ class Processor implements IProcessor
 		if (empty($request)) {
 			$request = explode('/', $this->axe->config('site')->home_page) ?: ["home"];
 		}
+
+		$compiled = $this->inside("User\\Pages", $request);
+
+		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
+			$route->getRouter()->middleware($key, $value);
+		}
+
+		$compiled->setMethod($route->method()[0]);
+		return $compiled;
+	}
+
+
+	/**
+	 * Asset compilation
+	 *
+	 * @param AssetRoute
+	 * @return CompiledAsset
+	 */
+	public function asset($route)
+	{
+		$this->requests = $route->requests();
+		array_shift($this->requests);
+
+		$request = array_shift($this->requests);
 
 		$compiled = $this->inside("User\\Pages", $request);
 
@@ -113,12 +138,16 @@ class Processor implements IProcessor
 	public function blend($route)
 	{	
 		$this->axe->register(\Blade\Templating\Templater::class);
-		if ($route instanceof CompiledRoute) {
+		if ($route instanceof CompiledAsset) {
+			
+			var_dump($route);
+
+		}elseif ($route instanceof CompiledRoute) {
 			$output = $this->suber($route);
 
 			return $this->axe->resolve(\Blade\Templating\Templater::class)->template($output);
-
-		}else{
+		}
+		else{
 			$output = "Custom TODO";
 		}	
 
