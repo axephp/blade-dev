@@ -61,13 +61,9 @@ class Processor implements IProcessor
 		$this->requests = $route->requests();
 		array_shift($this->requests);
 
-		$request = array_shift($this->requests);
+		$path = implode('/', $this->requests);
 
-		$compiled = $this->inside("User\\Pages", [$request]);
-
-		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
-			$route->getRouter()->middleware($key, $value);
-		}
+		echo $path;		
 
 		$compiled->setMethod($route->method()[0]);
 		return $compiled;
