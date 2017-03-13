@@ -42,7 +42,7 @@ class Compiler
 		if (strpos($code, '@element') !== false) {
 
 			$head = $this->prepareHead($data['dir'], $data['bag']);
-			$body = $this->prepareBody($data['dir'], $data['return']['file']);
+			$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
 
 			  $vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
 			  $compiled =  preg_replace_callback(
@@ -130,14 +130,15 @@ class Compiler
 		return $type;
 	}
 
-	protected function prepareBody($dir, $data)
+	protected function prepareBody($dir, $data, $vars)
 	{
 		$return = "";
 
 		$viewFile = Path::process($dir, $data.'.tpl');
 
-		$code = file_get_contents($tplFile);
+		$code = file_get_contents($viewFile);
 
+		//$this->compile
 
 		return $code;
 	}
