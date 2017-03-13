@@ -15,14 +15,15 @@ class AxE_Error extends Exception implements Throwable
 
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
-		$error_msg  = str_replace($axe->basePath(), strtoupper(("SITE"))."://", str_replace("\\", "/", $ex->getFile())). " - [ line ".$ex->getLine()."]";
+		$error_file = strtoupper(("AXE"))."://", str_replace("\\", "/", $ex->getFile());
+		//$error_msg  = str_replace($axe->basePath(), . " - [ line ".$ex->getLine()."]";
 		$base_url = $request->uri();
 
 $output = <<<PHP
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Error : 100</title>
+		<title>Error : $error_type</title>
 		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 		<style>
@@ -220,8 +221,8 @@ $output = <<<PHP
 	<body>
 		<div class="container">
 			<div class="header">
-				<h4>Axe\Manager\Manager</h4>
-				<p>Unable to load file!</p>
+				<h4>$error_file</h4>
+				<p>$error_title</p>
 			</div>
 
 			<div class="primary">
