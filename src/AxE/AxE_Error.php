@@ -19,11 +19,13 @@ class AxE_Error extends Exception implements Throwable
 		$error_line  = $ex->getLine();
 
 		$backtrace = '';
+		$array = debug_backtrace();
+		array_shift($array);
 
-		foreach (debug_backtrace() as $key=>$item) {
+		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
-								<h3><span class="backtrace-count">'.$key.'</span> '.$item['class'].'</h3>
+								<h3><span class="backtrace-count">'.count($array) - $key.'</span> '.$item['class'].'</h3>
 								<p>'.$item['file'].' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>
 							</div>
 						</a>';
