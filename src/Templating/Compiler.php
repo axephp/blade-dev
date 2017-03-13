@@ -82,11 +82,12 @@ class Compiler
 	{
 		$return = "";
 
-		foreach ($data as $key => $value) {
+		foreach ($data as $key => $this->array_flatten($value)) {
 			$info = $this->getHead($dir, $key);
 			if ($info['folder']) {
 				$file = "/axeasset/kaambaaki.css";
 			}else{
+				var_dump($value);
 				$file = $value;
 			}
 
@@ -127,4 +128,21 @@ class Compiler
 		$return = "";
 		return "Tried loading '$data'";
 	}
+
+	function array_flatten($array) { 
+  if (!is_array($array)) { 
+    return FALSE; 
+  } 
+  $result = array(); 
+  foreach ($array as $key => $value) { 
+    if (is_array($value)) { 
+      $result = array_merge($result, array_flatten($value)); 
+    } 
+    else { 
+      $result[$key] = $value; 
+    } 
+  } 
+  return $result; 
+} 
+
 }
