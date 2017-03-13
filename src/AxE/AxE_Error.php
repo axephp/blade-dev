@@ -7,9 +7,6 @@ use Throwable;
 
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
-
 class AxE_Error extends Exception implements Throwable
 {
 	
@@ -24,13 +21,6 @@ class AxE_Error extends Exception implements Throwable
 		$backtrace = '';
 		$array = $ex->getTrace();
 
-		$e = FlattenException::create($ex);
-
-        $handler = new SymfonyExceptionHandler(config('app.debug'));
-
-        return SymfonyResponse::create($handler->getHtml($e), $e->getStatusCode(), $e->getHeaders());
-
-        /*
 		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
@@ -45,14 +35,14 @@ class AxE_Error extends Exception implements Throwable
 		$errored_code = '';
 		for ($i=$error_line - 5; $i <= $error_line + 3; $i++) { 
 			$errored_code .= $lines[$i];
-		}
+		}*/
 		
 		ob_start();
 		static::highlight_file_with_line_numbers($ex->getFile(), $error_line - 5, $error_line + 4);
 		$coded = ob_get_contents();
 		ob_end_clean();
 
-		$errored_code = $coded;*/
+		$errored_code = $coded;
 
 $output = 
 <<<EOT
@@ -298,7 +288,7 @@ $output =
 	</body>
 </html>
 EOT;
-/*
+
 		$response = new SymfonyResponse();
 
 		$response->setContent($output);
@@ -306,7 +296,6 @@ EOT;
 		$response->headers->set('Content-Type', "text/html");
 
 		return $response;
-*/
 	}
 
 	 public static function highlight_file_with_line_numbers($file, $from, $to) {
