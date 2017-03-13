@@ -28,7 +28,7 @@ class Templater
 		$html = $this->struct($struct, $data);
 
 		$response->setContent($html);
-		$response->headers->set('Content-Type', $data['mime']);
+		$response->headers->set('Content-Type', 'text/html');
 		return $response;
 		
 	}
@@ -60,7 +60,7 @@ class Templater
 
 			
 			$structContent = file_get_contents($struct);
-			$structCompiled = $this->varer($structCompiled, ['pageBody'=>$tplCompiled]);
+			$structCompiled = $this->varer($structContent, ['pageBody'=>$tplCompiled]);
 		}else{
 			
 			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
