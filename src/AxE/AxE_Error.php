@@ -38,7 +38,7 @@ class AxE_Error extends Exception implements Throwable
 		}*/
 		
 		ob_start();
-		highlight_file($ex->getFile());
+		static::highlight_file_with_line_numbers($ex->getFile());
 		$coded = ob_get_contents();
 		ob_end_clean();
 
@@ -253,11 +253,6 @@ $output =
 
 			<div class="primary">
 				<div class="code">
-					<div class="line">
-						<p>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br><span class="highlight-line">20.</span><br>21.<br>22.<br>23.<br>24.<br>25.<br>26.<br>27.<br>28.<br>29.<br>30.<br>31.<br><br>
-						<p>
-					</div>
-
 					<div class="content">
 						<pre>
 						$errored_code
