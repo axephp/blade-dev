@@ -62,12 +62,6 @@ class Log implements ILog
 		return file_put_contents($this->logFile, json_encode($this->data));
 	}
 
-	protected function make($log, $args = [])
-	{
-
-
-	}
-
 }
 
 
