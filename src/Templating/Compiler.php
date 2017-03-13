@@ -92,7 +92,7 @@ class Compiler
 
 					$file = "/axeasset/kaambaaki.file";
 					//TODO : WORK LEFT
-					
+
 				}else{
 					$file = $rawFile;
 				}
@@ -133,7 +133,10 @@ class Compiler
 	protected function prepareBody($dir, $data)
 	{
 		$return = "";
-		return "Tried loading '$data'";
+
+		$viewFile = Path::process($dir, $data);
+
+		return "Tried loading '$viewFile'";
 	}
 
 	function array_flatten($array) { 
