@@ -64,7 +64,7 @@ class AxE_Error extends Exception implements Throwable
 
     private static function prepareStats($request)
     {
-    		$required = ['']
+    		$required = [''];
     		var_dump($request->get('server'));
     		$stat = '<div class="stats-item">
 				<div class="title">Request Type &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</div>
