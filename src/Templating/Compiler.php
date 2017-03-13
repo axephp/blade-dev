@@ -99,7 +99,7 @@ class Compiler
 		return $return;
 	}
 
-	protected function getHeadFolder($dir, $key)
+	protected function getHead($dir, $key)
 	{
 		$type = [];
 		switch ($key) {
