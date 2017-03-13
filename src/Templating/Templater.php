@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 use Blade\Routing\Processor\Path;
 
-class Compiler
+class Templater
 {
 
 	protected $axe;
@@ -19,28 +19,54 @@ class Compiler
 	}
 
 
-	public function compile($data)
+	public function template($data)
 	{
 
-	
 		$response = new SymfonyResponse();
 
-		// THEMING NEEDS TO BE REDONE
-		$tplFile = Path::process($this->axe->appPath(), 'Framework', 
-		          isset($data['return']['theme']) && $data['return']['theme'] != 'default' ? $data['return']['theme'] : 'Template.tpl');
+		$theme = $this->theme($data['return']['theme']);
 
-		if (!file_exists($tplFile) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
-			$response->setContent(serialize($data));
-			return $response;
+		// THEMING NEEDS TO BE REDONE | NEXT
+
+		if (!file_exists($tplFile)) {
+			
 		}
 		// END THEMING
 
 		$code = file_get_contents($tplFile);
-		$compiled = $this->syntax($code);
+		$compiled = $this->varer($code);
 		$response->setContent($compiled);
 		$response->headers->set('Content-Type', $data['mime']);
 		return $response;
 		
+	}
+
+
+	protected function theme($theme = 'default')
+	{
+		$file = Path::process($this->themesPath(), $theme, 'theme.php');
+		if (file_exists($file)) {
+			
+			$tmp = require $file;
+			$struct = Path::process($this->themesPath(), $theme, $tmp['structure']);
+			$tpl = Path::process($this->themesPath(), $theme, $tmp['template']);
+
+			// First, we need to templify(:P) the tpl first.
+			$tplContent = file_get_contents($tpl);
+			$tplCompiled = $this->varer($tplContent, ['pageBody'=>$tpl]);
+
+			// All Done, Now Structure blending
+			$structContent = file_get_contents(filename)
+			$structCompiled = $this->varer()
+		}else{
+			$struct = Path::process($this->axe->appPath(), 'Framework', 'Template.tpl');
+
+			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
+				return false;
+			}
+
+			return $struct;
+		}
 	}
 
 
@@ -50,23 +76,20 @@ class Compiler
 		return $var;
 	}
 
-	protected function syntax($code)
+	protected function varer($code, $vars)
 	{
 		if (strpos($code, '@element') !== false) {
 
-			$head = $this->prepareHead($data['dir'], $data['bag']);
-			$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
+			//$head = $this->prepareHead($data['dir'], $data['bag']);
+			//$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
 
-			  $vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
+			  //$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
 			  $compiled =  preg_replace_callback(
-		            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?;/x', function ($match) use($vars, $tplFile) {
-
+		            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?;/x', function ($match) use($vars) {
 		            	$var = $this->runElement($match);
 
 		            	if (isset($vars[$var])) {
 		            		return $vars[$var];
-		            	}else{
-		            		return "<strong>Theming Error: </strong> Element '$var' not found in <strong>$tplFile</strong>. <br>";
 		            	}
 		                
 		            }, $code

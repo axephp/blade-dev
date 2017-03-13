@@ -112,11 +112,11 @@ class Processor implements IProcessor
 	 */
 	public function blend($route)
 	{	
-		$this->axe->register(\Blade\Templating\Compiler::class);
+		$this->axe->register(\Blade\Templating\Templater::class);
 		if ($route instanceof CompiledRoute) {
 			$output = $this->suber($route);
 
-			return $this->axe->resolve(\Blade\Templating\Compiler::class)->compile($output);
+			return $this->axe->resolve(\Blade\Templating\Templater::class)->template($output);
 
 		}else{
 			$output = "Custom TODO";
