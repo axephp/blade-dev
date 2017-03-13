@@ -23,11 +23,11 @@ class AxE_Error extends Exception implements Throwable
 
 		// Rendered
 		$error_backtrace = static::prepareBacktrace($axe->basePath(), $error_trace);
-		$errored_code = static::extractCode($ex->getFile(), $error_line, $error_type, $error_file, $error_title);
+		$errored_code = static::extractCode($ex->getFile(), $error_line);
 		$request_stats = static::prepareStats($request);
 
 		// Loading Views
-		$html = static::makeView($error_backtrace, $errored_code, $request_stats);
+		$html = static::makeView($error_backtrace, $errored_code, $request_stats, $error_type, $error_file, $error_title);
 
 		// Response of error
 		return static::toResponse($html);
