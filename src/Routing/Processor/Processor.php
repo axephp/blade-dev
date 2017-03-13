@@ -10,8 +10,6 @@ use Blade\Interfaces\Routing\Processor\Processor as IProcessor;
 
 use Blade\Routing\CompiledRoute;
 
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
-
 class Processor implements IProcessor
 {
 	
@@ -118,14 +116,16 @@ class Processor implements IProcessor
 	 */
 	public function blend($route)
 	{	
+		$this->axe->register(\Blade\Templating\Compiler::class);
+
 		if ($route instanceof CompiledRoute) {
 			$output = $this->suber($route);
+
+			return $this->axe->resolve(\Blade\Templating\Compiler::class)->compile($output);
+
 		}else{
 			$output = "Custom TODO";
-		}
-		
-		$this->axe->register(\Blade\Templating\Compiler::class);
-		return $this->axe->resolve(\Blade\Templating\Compiler::class)->compile($output);
+		}	
 
 	}
 
@@ -150,6 +150,8 @@ class Processor implements IProcessor
 
 		$reflection->getParentClass()->getConstructor()->invoke($reflection->newInstanceWithoutConstructor());
 		$object = $reflection->newInstanceWithoutConstructor();
+		$reflection->getMethod('prepare')->invoke($object);
+		
 		$output = $action->invokeArgs($object, $args);
 		
 		if ($output instanceof CompiledRoute) {
