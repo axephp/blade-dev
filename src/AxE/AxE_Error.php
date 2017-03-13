@@ -65,9 +65,9 @@ class AxE_Error extends Exception implements Throwable
     private static function prepareStats($request)
     {
     		$params = ($request->server->all());
-
+    		$stat = '';
     		foreach ($params as $key => $value) {
-    			$stat = '<div class="stats-item">
+    			$stat .= '<div class="stats-item">
 				<div class="title">'.$key.'&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</div>
 				<div class="value">'.$value.'</div>
 			</div>';
