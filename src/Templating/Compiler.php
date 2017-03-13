@@ -83,9 +83,43 @@ class Compiler
 		$return = "";
 
 		foreach ($data as $key => $value) {
-			echo $key;
+			$info = $this->getHead($dir, $key);
+			if ($info['folder']) {
+				$file = "/axeasset/kaambaaki.css";
+			}else{
+				$file = $value;
+			}
+
+			if ($info['type'] == "css") {
+				$return .= "<link rel=\"stylesheet\" href=\"$file\" type=\"text/css\" />";
+			}else{
+				$return .= "<script type=\"text/javascript\" src=\"$file\"></script>";
+			}
 		}
 		return $return;
+	}
+
+	protected function getHeadFolder($dir, $key)
+	{
+		$type = [];
+		switch ($key) {
+			case 'css':
+			case 'js':
+				$type['folder'] = $dir;
+				$type['type'] = $key;
+				break;
+
+			case 'jsFromPublic':
+			case 'cssFromPublic':
+				$type['folder'] = '';
+				$type['type'] = str_replace("FromPublic", "", $key);
+				break;
+			default:
+				$type['folder'] = $dir;
+				break;
+		}
+
+		return $type;
 	}
 
 	protected function prepareBody($dir, $data)
