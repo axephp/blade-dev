@@ -19,6 +19,7 @@ class AxE_Error extends Exception implements Throwable
 		//$error_msg  = . " - [ line ".$ex->getLine()."]";
 		$base_url = $request->uri();
 
+
 $output = <<<PHP 
 <!DOCTYPE html>
 <html lang="en">
