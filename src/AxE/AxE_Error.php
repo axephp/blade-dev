@@ -324,10 +324,10 @@ EOT;
             $lineNumber = str_pad($i + 1,  $padLength, '0', STR_PAD_LEFT);
             //Print line
             if ($lineNumber == $error_line ) {
-            	$line = '<span style="background-color: #606060">'.$line.'</span>';
+            	echo sprintf('<br><span class="highlight"><span style="color: #999999">%s | </span>%s</span>', $lineNumber, $line);
+            }else{
+            	echo sprintf('<br><span style="color: #999999">%s | </span>%s', $lineNumber, $line);
             }
-            echo sprintf('<br><span style="color: #999999">%s | </span>%s', $lineNumber, $line);
-
         }
        
         //Close span
