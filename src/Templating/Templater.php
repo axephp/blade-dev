@@ -48,16 +48,20 @@ class Templater
 		if (file_exists($file)) {
 			
 			$tmp = require $file;
-			$struct = Path::process($this->themesPath(), $theme, $tmp['structure']);
+			if (!array_key_exists('template', $tmp)) {
+				throw new Exception("Invalid theme file.", 902);
+			}
+
+			//$struct = Path::process($this->themesPath(), $theme, $tmp['structure']);
 			$tpl = Path::process($this->themesPath(), $theme, $tmp['template']);
 
 			// First, we need to templify(:P) the tpl first.
 			$tplContent = file_get_contents($tpl);
-			$tplCompiled = $this->varer($tplContent, ['pageBody'=>$tpl]);
+			
 
 			// All Done, Now Structure blending
-			$structContent = file_get_contents(filename)
-			$structCompiled = $this->varer()
+			$structContent = file_get_contents($struct);
+			$structCompiled = $this->varer();
 		}else{
 			$struct = Path::process($this->axe->appPath(), 'Framework', 'Template.tpl');
 

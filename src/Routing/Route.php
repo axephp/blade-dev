@@ -20,15 +20,6 @@ class Route implements IRoute
 	 */
 	protected $request;
 
-
-	/**
-	 * Processing path of current route
-	 *
-	 * @var Path
-	 */
-	protected $path;
-
-
 	/**
 	 * The router instance
 	 *
@@ -119,42 +110,6 @@ class Route implements IRoute
 	public function uri()
 	{
 		return $this->getUri();
-	}
-
-
-	/**
-	 * Set path for this route
-	 *
-	 * @param Path
-	 * @return void
-	 */
-	public function setPath(Path $path)
-	{
-		$this->path = $path;
-	}
-
-
-	/**
-	 * Return path for this route
-	 *
-	 * @param null
-	 * @return Path
-	 */
-	public function getPath()
-	{
-		return $this->path;
-	}
-
-
-	/**
-	 * Return path for this route (alias)
-	 *
-	 * @param null
-	 * @return Path
-	 */
-	public function path()
-	{
-		return $this->getPath();
 	}
 
 
