@@ -432,10 +432,10 @@ class Router implements IRouter
 
     		if (!in_array($uri, $this->blocked)) {
 
-                if (in_array('axeasset', $uri)) {
+                if (in_array('axeasset', $request->requests())) {
                         echo "Asset";
                 }
-                
+
     			$route =  (new Route([$request->method()], $request));
 	    		$route->setRouter($this);
 
