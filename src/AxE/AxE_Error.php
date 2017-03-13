@@ -25,7 +25,7 @@ class AxE_Error extends Exception implements Throwable
 		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
-								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '. ($item['class'] ?? $error_file) .'</h3>
+								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '. ($item['class'] ?? "Class Unavailable") .'</h3>
 								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", ($item['file'] ?? $error_file))).' <span class="backtrace-line"><strong> - Line '. ($item['line'] ?? $error_line) .'</strong></span></p>
 							</div>
 						</a>';
@@ -318,7 +318,7 @@ EOT;
         $colors = ['#AAA', '#DDD'];
 
         //Loop lines
-        for ($i=$from; $i < $to ; $i++) { 
+        for ($i=$from; $i <= $to ; $i++) { 
         	 //Create line number
         	$line = $lines[$i];
             $lineNumber = str_pad($i + 1,  $padLength, '0', STR_PAD_LEFT);
