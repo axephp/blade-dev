@@ -17,7 +17,7 @@
 			.header{
 				background: #558B2F;
 				border-top: 5px solid #FF3333;
-				min-height: 120px;
+				min-height: 130px;
 				color: #FFFFFF;
 				font-family: 'Poiret One', cursive;
 				font-weight: normal;
