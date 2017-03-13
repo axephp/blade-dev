@@ -138,7 +138,7 @@ class Compiler
 
 		$code = file_get_contents($viewFile);
 
-		//$this->compile
+		//$this->compile COMPILING TEMPLATE SCRIPT LEFT
 
 		return $code;
 	}

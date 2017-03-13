@@ -21,42 +21,293 @@ class AxE_Error extends Exception implements Throwable
 $output = <<<PHP
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <base href="$base_url" />
-    	<title>AxE Error Occured</title>
-    	<style type="text/css">
-    	*{
-		padding: 0px;
-		margin: 0px;
-		text-align: center;
-	}
+	<head>
+		<title>Error : 100</title>
+		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+		<style>
+			body{
+				margin: 0px;
+				min-width: 880px;
+			}
 
-	body{
-		background-color: #ECF0F5;
-	}
+			.container{
+				font-family: 'Titillium Web', sans-serif;
+			}
 
-	h1{
-		font-family: Consolas;
-		margin-top: 100px;
-		margin-bottom: 20px;
-		font-size: 58px;
-		color: #ff3300;
-	}
+			.header{
+				background: #558B2F;
+				border-top: 5px solid #FF3333;
+				height: 120px;
+				color: #FFFFFF;
+				font-family: 'Poiret One', cursive;
+				font-weight: normal;
+			}
 
-	h3{
-		font-family: Tahoma;
-		color: #0099ff;
-		margin-bottom: 50px;
-	}
-    	</style>
-  </head>
-  <body>
-  		<h1>$error_title</h1>
-  		<h3>$error_msg</h3>
+			.header h4, .header p{
+				text-align: center;
+			}
 
-  </body>
+			.header p{
+				margin-top: 0px;
+				font-size: 250%;
+				line-height: 0.5em;
+				color: #FFFF33;
+			}
+
+			.primary{
+				height: 380px;
+				background: #333333;
+				overflow-y: scroll;				
+				font-family: 'Titillium Web', sans-serif;				
+				font-size: 20px;
+				line-height: 30px;
+			}
+
+			.code{
+				width: 55%;
+				margin: auto;
+				margin-top: -30px;
+				margin-bottom: -30px;
+				color: #FFFFFF;
+			}
+
+			.line{
+				background: #555555;
+				border-right: 7px solid #222222;
+				float: left;
+				text-align: right;
+				color: #222222;
+				margin-top: 9px; /* use to adjust sync of line and code */
+			}
+
+			.content{
+				margin-left: 80px;
+				color: #CCCCCC;
+			}
+
+			.highlight, .highlight-line{
+				background: #FF3333;
+				color: #FFFF33;
+			}
+
+			.highlight{
+				margin-left: -70px;
+				padding-left: 170px; /* use to sync highlighted code with other code indentation */ 
+			}
+
+			.secondary{
+				height: 402px;
+			}
+
+			.secondary ul{
+				padding: none;
+				margin: none;
+			}
+
+			.secondary li{
+				list-style: none;
+				text-align: left;
+				padding: none;
+			}
+
+			.secondary p, h3, h4{
+				text-align: left;
+			}
+
+			.stats{
+				width: 40%;
+				height: 100%;
+				border-top: 5px solid #558B2F;
+				float: left;
+				overflow-y: scroll;
+				font-size: 18px;
+			}
+
+			.stats h3{
+				width: 100%;
+				padding-bottom: 15px;
+				border-bottom: 1px solid #DDDDDD;
+				text-align: center;
+				color: #558B2F;
+			}
+
+			.stats-item{
+				width: 90%;
+				margin: auto;
+				text-align: right
+			}
+
+			.title{
+				width: 50%;
+				float: left;
+				font-weight: bold;
+			}
+
+			.value{
+				width: 50%;
+				float: right;
+				text-align: left;
+				color: #FF3333;
+			}
+
+			.backtrace{
+				width: 60%;
+				height: 100%;
+				background: #EEEEEE;
+				border-top: 5px solid #FF3333;
+				float: right;
+				overflow-y: scroll;
+			}
+
+			.backtrace-list a{
+				text-decoration: none;
+				color: #000000;
+			}
+
+			.backtrace-item{				
+				padding: 5px;
+				border-bottom: 1px solid #DDDDDD;
+			}
+
+			.backtrace-item:hover{
+				text-decoration: none;
+				background: #CCCCCC;
+				color: #000000;
+			}
+
+			.backtrace-item h3, .backtrace-item p{
+				padding: 5px 10px 5px 10px;
+			}
+
+			.backtrace-count{
+				background: #FFFFFF;
+				border: 2px solid #FF3333;
+				border-radius: 15px;
+				padding: 0px 8px;
+				width: 10px;
+				color: #777777;
+			}
+
+			.backtrace-line{
+				color: #AAAAAA;
+			}
+
+			.current{
+				background: #558B2F;
+				color: #FFF;
+				padding: 5px;
+			}
+
+			.current:hover{
+				background: #558B2F;
+				color: #FFF;
+				padding: 5px;
+			}
+
+			.footer{
+				width: 100%;
+				background: #558B2F;
+				margin: 5px 0px;
+				padding: 1px 10px;
+				color: #EEEEEE;
+				bottom: 0;
+				position: fixed;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="header">
+				<h4>Axe\Manager\Manager</h4>
+				<p>Unable to load file!</p>
+			</div>
+
+			<div class="primary">
+				<div class="code">
+					<div class="line">
+						<p>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br><span class="highlight-line">20.</span><br>21.<br>22.<br>23.<br>24.<br>25.<br>26.<br>27.<br>28.<br>29.<br>30.<br>31.<br><br>
+						<p>
+					</div>
+
+					<div class="content">
+						<pre>
+
+namespace App\Managers;
+
+use Blade\Events\EventManager as Manager;
+use Blade\Interfaces\AxE\AxE;
+
+class EventManager extends Manager
+{
+	
+	<div class="highlight">public $events = [</div>
+		//Some events
+	];
+
+	function run(AxE $axe)
+	{
+
+		parent::run($axe);
+		
+	}
+}
+						</pre>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="secondary">
+
+				<div class="stats">
+
+					<h3>Request Statistics</h3>
+					<div class="stats-item">
+						<div class="title">Request Type &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</div>
+						<div class="value">HTTP Request</div>
+					</div>
+				</div>
+				<div class="backtrace">
+					<div class="backtrace-list">
+						<a href="#">
+							<div class="backtrace-item current">
+								<h3><span class="backtrace-count">4</span> Axe\Manager\Manager</h3>
+								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 20</strong></span></p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="backtrace-item">
+								<h3><span class="backtrace-count">3</span> Axe\Manager\Manager</h3>
+								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 54</strong></span></p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="backtrace-item">
+								<h3><span class="backtrace-count">2</span> Axe\Manager\Manager</h3>
+								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 54</strong></span></p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="backtrace-item">
+								<h3><span class="backtrace-count">1</span> Axe\Manager\Manager</h3>
+								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 54</strong></span></p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="footer">
+			<p>&copy; Copyright 2017 AxE PHP</p>
+			</div>
+			
+		</div>
+	</body>
 </html>
+
 PHP
 	;
 
