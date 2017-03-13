@@ -242,14 +242,14 @@ use Blade\Interfaces\AxE\AxE;
 class EventManager extends Manager
 {
 	
-	<div class="highlight">public $events = [</div>
+	<div class="highlight">public \$events = [</div>
 		//Some events
 	];
 
-	function run(AxE $axe)
+	function run(AxE \$axe)
 	{
 
-		parent::run($axe);
+		parent::run(\$axe);
 		
 	}
 }
