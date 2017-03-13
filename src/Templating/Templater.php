@@ -27,8 +27,6 @@ class Templater
 		$struct = $this->theme($data['return']['theme']);
 		$html = $this->struct($struct, $data);
 
-		var_dump($struct);
-
 		$response->setContent($html);
 		$response->headers->set('Content-Type', 'text/html');
 		return $response;
@@ -62,9 +60,6 @@ class Templater
 
 			
 			$structContent = file_get_contents($struct);
-
-			var_dump($struct); 
-
 			$structCompiled = $this->varer($structContent, ['pageBody'=>$tplCompiled]);
 			
 		}else{
