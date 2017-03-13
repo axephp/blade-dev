@@ -13,8 +13,6 @@ class AxE_Error extends Exception implements Throwable
 	static function render($axe, $request, $ex)
 	{
 
-		var_dump($ex);
-
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
 		$error_file =  str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $ex->getFile()));
@@ -27,12 +25,19 @@ class AxE_Error extends Exception implements Throwable
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
 								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '.$item['class'].'</h3>
-								<p>'.$item['file'].' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>
+								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $item['file'])).' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>
 							</div>
 						</a>';
 		}
 
 		$base_url = $request->uri();
+		$lines = file($ex->getFile());
+
+		$errored_code = '';
+		for ($i=$error_line - 3; $i < $error_line + 3; $i++) { 
+			$errored_code .= $lines[$i];
+		}
+		
 
 
 $output = 
@@ -251,27 +256,7 @@ $output =
 
 					<div class="content">
 						<pre>
-
-namespace App\Managers;
-
-use Blade\Events\EventManager as Manager;
-use Blade\Interfaces\AxE\AxE;
-
-class EventManager extends Manager
-{
-	
-	<div class="highlight">public \$events = [</div>
-		//Some events
-	];
-
-	function run(AxE \$axe)
-	{
-
-		parent::run(\$axe);
-		
-	}
-}
-
+						$errored_code
 						</pre>
 					</div>
 
