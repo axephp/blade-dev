@@ -19,17 +19,18 @@ class Compiler
 	}
 
 
-	public function compile($output = "")
+	public function compile($data)
 	{
 
 		# [struct, mime, vars]
 		
 		$response = new SymfonyResponse();
 
-		$tplFile = Path::process($this->axe->appPath(), 'Framework', $output['struct'] ?? 'Template.tpl');
+		$tplFile = Path::process($this->axe->appPath(), 'Framework', 
+		          isset($data['return']['theme']) && $data['return']['theme'] != 'default' ? $data['return']['theme'] : 'Template.tpl');
 
 		if (!file_exists($tplFile) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
-			$response->setContent($output);
+			$response->setContent(serialize($data));
 			return $response;
 		}
 
@@ -37,8 +38,9 @@ class Compiler
 
 		if (strpos($code, '@element') !== false) {
 
+			  $vars = ['pageTitle'=>$data['title'], 'pageBody'=>'', 'pageBody'=> ''];
 			  $compiled =  preg_replace_callback(
-		            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?;/x', function ($match) use($output, $tplFile) {
+		            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?;/x', function ($match) use($vars, $tplFile) {
 
 		            	$var = $this->runElement($match);
 
