@@ -14,4 +14,10 @@ class AssetRoute extends Route
 	{
 		$this->request = $request;
 	}
+
+
+	public function compile()
+	{
+		# code...
+	}
 }
