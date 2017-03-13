@@ -21,14 +21,14 @@ class AxE_Error extends Exception implements Throwable
 		$backtrace = '';
 		$array = $ex->getTrace();
 
+		var_dump($ex);
+
 		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
-								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '.$item['class'].'</h3>';
-
-			$backtrace .= (isset($item['file']) && isset($item['line'])) ? '<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $item['file'])).' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>' : '';
-
-			$backtrace .= 		'</div>
+								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '.$item['class'].'</h3>
+								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $item['file'] ?? $error_file)).' <span class="backtrace-line"><strong> - Line '.$item['line'] ?? error_line.'</strong></span></p>
+							</div>
 						</a>';
 		}
 
@@ -89,7 +89,7 @@ $output =
 				background: #eeeeee;
 				overflow-y: scroll;				
 				font-family: 'Titillium Web', sans-serif;				
-				font-size: 15px;
+				font-size: 12px;
 				line-height: 30px;
 			}
 
