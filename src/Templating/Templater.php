@@ -24,18 +24,11 @@ class Templater
 
 		$response = new SymfonyResponse();
 
-		$theme = $this->theme($data['return']['theme']);
+		$struct = $this->theme($data['return']['theme']);
+		$html = $this->struct($struct, $data);
 
-		// THEMING NEEDS TO BE REDONE | NEXT
 
-		if (!file_exists($tplFile)) {
-			
-		}
-		// END THEMING
-
-		$code = file_get_contents($tplFile);
-		$compiled = $this->varer($code);
-		$response->setContent($compiled);
+		$response->setContent($html);
 		$response->headers->set('Content-Type', $data['mime']);
 		return $response;
 		
@@ -45,6 +38,8 @@ class Templater
 	protected function theme($theme = 'default')
 	{
 		$file = Path::process($this->themesPath(), $theme, 'theme.php');
+		$struct = Path::process($this->axe->appPath(), 'Framework', 'Template.tpl');
+
 		if (file_exists($file)) {
 			
 			$tmp = require $file;
@@ -52,25 +47,44 @@ class Templater
 				throw new Exception("Invalid theme file.", 902);
 			}
 
-			//$struct = Path::process($this->themesPath(), $theme, $tmp['structure']);
-			$tpl = Path::process($this->themesPath(), $theme, $tmp['template']);
-
-			// First, we need to templify(:P) the tpl first.
-			$tplContent = file_get_contents($tpl);
-			
-
-			// All Done, Now Structure blending
-			$structContent = file_get_contents($struct);
-			$structCompiled = $this->varer();
-		}else{
-			$struct = Path::process($this->axe->appPath(), 'Framework', 'Template.tpl');
+			$struct = (isset($tmp['structure'])) ? Path::process($this->themesPath(), $theme, $tmp['structure']) : $struct;
 
 			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
 				return false;
 			}
 
-			return $struct;
+			$tpl = Path::process($this->themesPath(), $theme, $tmp['template']);
+			
+			// First, we need to templify(:P) the tpl first.
+			$tplContent = file_get_contents($tpl);
+			$tplCompiled = $this->varer($tplContent, $tmp);
+
+			
+			$structContent = file_get_contents($struct);
+			$structCompiled = $this->varer($structCompiled, ['pageBody'=>$tplCompiled]);
+		}else{
+			
+			if (!file_exists($struct) || $this->axe->isConsole() == true || $this->axe->isUnitTests() == true) {
+				return false;
+			}
+
+			$structCompiled = file_get_contents($struct);
 		}
+
+		return $structCompiled;
+		
+	}
+
+
+	protected function struct($struct, $data)
+	{
+		$head = $this->prepareHead($data['dir'], $data['bag']);
+		$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
+
+		$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
+		$structCompiled = $this->varer($struct, $vars);
+
+		return $structCompiled;
 	}
 
 
@@ -83,11 +97,6 @@ class Templater
 	protected function varer($code, $vars)
 	{
 		if (strpos($code, '@element') !== false) {
-
-			//$head = $this->prepareHead($data['dir'], $data['bag']);
-			//$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
-
-			  //$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
 			  $compiled =  preg_replace_callback(
 		            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?;/x', function ($match) use($vars) {
 		            	$var = $this->runElement($match);
