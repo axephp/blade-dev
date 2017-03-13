@@ -36,7 +36,7 @@
 			.header p{
 				margin-top: 0px;
 				font-size: 250%;
-				line-height: 0.8em;
+				line-height: 0.9em;
 				color: #FFFF33;
 				display: block;
 			}
