@@ -38,7 +38,7 @@ class AxE_Error extends Exception implements Throwable
 		}*/
 		
 		ob_start();
-		static::highlight_file_with_line_numbers($ex->getFile());
+		static::highlight_file_with_line_numbers($ex->getFile(), $error_line - 5, $error_line + 4);
 		$coded = ob_get_contents();
 		ob_end_clean();
 
