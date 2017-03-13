@@ -26,9 +26,11 @@ class AxE_Error extends Exception implements Throwable
 		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
-								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '.$item['class'].'</h3>
-								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $item['file'])).' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>
-							</div>
+								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '.$item['class'].'</h3>';
+
+			$backtrace .= (isset($item['file']) && isset($item['line'])) ? '<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $item['file'])).' <span class="backtrace-line"><strong> - Line '.$item['line'].'</strong></span></p>' : '';
+
+			$backtrace .= 		'</div>
 						</a>';
 		}
 
@@ -86,7 +88,7 @@ $output =
 
 			.primary{
 				height: 380px;
-				background: #333333;
+				background: #eeeeee;
 				overflow-y: scroll;				
 				font-family: 'Titillium Web', sans-serif;				
 				font-size: 12px;
