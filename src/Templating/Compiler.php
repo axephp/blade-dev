@@ -134,7 +134,7 @@ class Compiler
 	{
 		$return = "";
 
-		$viewFile = Path::process($dir, $data);
+		$viewFile = Path::process($dir, $data.'.tpl');
 
 		return "Tried loading '$viewFile'";
 	}
