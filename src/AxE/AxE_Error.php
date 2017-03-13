@@ -41,7 +41,7 @@ class AxE_Error extends Exception implements Throwable
 		foreach ($error_trace as $key=>$item) {
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
-								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '. ($item['class'] ?? "Class Unavailable") .'</h3>
+								<h3><span class="backtrace-count">'.(count($error_trace) - $key).'</span> '. ($item['class'] ?? "Class Unavailable") .'</h3>
 								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", ($item['file'] ?? "File Unavailable"))).' <span class="backtrace-line"><strong> - Line '. ($item['line'] ?? "Unavailable") .'</strong></span></p>
 							</div>
 						</a>';
