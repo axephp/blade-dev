@@ -434,14 +434,16 @@ class Router implements IRouter
 
                 if (in_array('axeasset', $request->requests())) {
                         echo "Asset";
-                }
+                }else{
 
-    			$route =  (new Route([$request->method()], $request));
-	    		$route->setRouter($this);
+                    $route =  (new Route([$request->method()], $request));
+                    $route->setRouter($this);
 
-                $processor = $this->axe->resolve(Processor::class);
+                    $processor = $this->axe->resolve(Processor::class);
                 
-	    		return $processor->compile($route);
+                    return $processor->compile($route);
+
+                }
 
     		}else{
     			throw new Exception("Blocked route detected.", 1);
