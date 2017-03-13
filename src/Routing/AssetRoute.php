@@ -10,8 +10,5 @@ use Blade\Interfaces\Routing\CompiledRoute as ICompiledRoute;
 
 class AssetRoute extends Route
 {
-	function __construct($request)
-	{
-		$this->request = $request;
-	}
+	
 }
