@@ -69,7 +69,7 @@ class AxE_Error extends Exception implements Throwable
     		foreach ($params as $key => $value) {
     			$stat .= '<div class="stats-item">
 				<div class="title">'.$key.'&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</div>
-				<div class="value">'.$value.'</div><br>
+				<div class="value"> &nbsp; '.$value.'</div><br>
 			</div>';
     		}
     		
