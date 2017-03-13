@@ -28,7 +28,7 @@
 			}
 
 			.header p{
-				margin-top: 0px;
+				margin-top: -10px;
 				font-size: 250%;
 				line-height: 0.8em;
 				color: #FFFF33;
