@@ -32,11 +32,9 @@ class Processor implements IProcessor
 	public function compile($route)
 	{
 		$this->requests = $route->requests();
-
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
-
 			$request = explode('/', $this->axe->config('site')->home_page) ?: ["home"];
 		}
 
@@ -47,9 +45,7 @@ class Processor implements IProcessor
 		}
 
 		$compiled->setMethod($route->method()[0]);
-
 		return $compiled;
-
 	}
 
 
@@ -77,6 +73,7 @@ class Processor implements IProcessor
 				$current = $request;
 				$params = $this->requests;
 
+				// Compiled Route
 				$compiled = new CompiledRoute($this->axe);
 				$compiled->setRequest($current);
 				$compiled->setParameters($params);
@@ -92,7 +89,6 @@ class Processor implements IProcessor
 		}elseif (is_dir($dir)) {
 			
 			$new = array_shift($this->requests);
-
 			if (!is_null($new)) {
 				$request = [$request, $new];
 				return $this->inside($class, $request);
@@ -117,7 +113,6 @@ class Processor implements IProcessor
 	public function blend($route)
 	{	
 		$this->axe->register(\Blade\Templating\Compiler::class);
-
 		if ($route instanceof CompiledRoute) {
 			$output = $this->suber($route);
 

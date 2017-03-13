@@ -22,10 +22,8 @@ class Compiler
 	public function compile($data)
 	{
 
-		# [struct, mime, vars]
-		
+	
 		$response = new SymfonyResponse();
-
 
 		// THEMING NEEDS TO BE REDONE
 		$tplFile = Path::process($this->axe->appPath(), 'Framework', 
@@ -38,7 +36,22 @@ class Compiler
 		// END THEMING
 
 		$code = file_get_contents($tplFile);
+		$compiled = $this->syntax($code);
+		$response->setContent($compiled);
+		$response->headers->set('Content-Type', $data['mime']);
+		return $response;
+		
+	}
 
+
+	protected function runElement($match)
+	{
+		$var = explode("'", $match[4])[1];
+		return $var;
+	}
+
+	protected function syntax($code)
+	{
 		if (strpos($code, '@element') !== false) {
 
 			$head = $this->prepareHead($data['dir'], $data['bag']);
@@ -62,20 +75,7 @@ class Compiler
 			$compiled = $code;
 		}
 
-		
-		$response->setContent($compiled);
-
-		$response->headers->set('Content-Type', 'text/html');
-
-		return $response;
-		
-	}
-
-
-	protected function runElement($match)
-	{
-		$var = explode("'", $match[4])[1];
-		return $var;
+		return $compiled;
 	}
 
 	protected function prepareHead($dir, $data)
@@ -146,19 +146,19 @@ class Compiler
 
 
 	function array_flatten($array) { 
-  if (!is_array($array)) { 
-    return FALSE; 
-  } 
-  $result = array(); 
-  foreach ($array as $key => $value) { 
-    if (is_array($value)) { 
-      $result = array_merge($result, array_flatten($value)); 
-    } 
-    else { 
-      $result[$key] = $value; 
-    } 
-  } 
-  return $result; 
+		  if (!is_array($array)) { 
+		    return FALSE; 
+		  } 
+		  $result = array(); 
+		  foreach ($array as $key => $value) { 
+		    if (is_array($value)) { 
+		      $result = array_merge($result, array_flatten($value)); 
+		    } 
+		    else { 
+		      $result[$key] = $value; 
+		    } 
+		  } 
+		  return $result; 
 } 
 
 }
