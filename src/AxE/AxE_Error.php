@@ -312,10 +312,10 @@ EOT;
         echo "<code><span style=\"color: #000000\">";
        
         $from = ($from  < 0) ? 0 : $from ;
-        $to = ($to > $lineCount) ? $lineCount - 1 : $to ;
+        $to = ($to >= $lineCount) ? $lineCount - 1 : $to ;
 
         //Loop lines
-        for ($i=$from; $i <= $to ; $i++) { 
+        for ($i=$from; $i < $to ; $i++) { 
         	 //Create line number
         	$line = $lines[$i];
             $lineNumber = str_pad($i + 1,  $padLength, '0', STR_PAD_LEFT);
