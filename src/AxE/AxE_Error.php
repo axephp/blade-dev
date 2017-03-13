@@ -20,8 +20,13 @@ class AxE_Error extends Exception implements Throwable
 
 		$backtrace = '';
 
-		foreach (debug_backtrace() as $item) {
-			# code...
+		foreach (debug_backtrace() as $key=>$item) {
+			$backtrace .= '<a href="#">
+							<div class="backtrace-item">
+								<h3><span class="backtrace-count">$key</span> Axe\Manager\Manager</h3>
+								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 20</strong></span></p>
+							</div>
+						</a>'
 		}
 
 		$base_url = $request->uri();
@@ -243,9 +248,7 @@ $output =
 
 					<div class="content">
 						<pre>
-EOT
-.
-highlight_string('
+
 namespace App\Managers;
 
 use Blade\Events\EventManager as Manager;
@@ -265,7 +268,7 @@ class EventManager extends Manager
 		
 	}
 }
-'). <<<EOT
+
 						</pre>
 					</div>
 
@@ -284,30 +287,7 @@ class EventManager extends Manager
 				</div>
 				<div class="backtrace">
 					<div class="backtrace-list">
-						<a href="#">
-							<div class="backtrace-item current">
-								<h3><span class="backtrace-count">4</span> Axe\Manager\Manager</h3>
-								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 20</strong></span></p>
-							</div>
-						</a>
-						<a href="#">
-							<div class="backtrace-item">
-								<h3><span class="backtrace-count">3</span> Axe\Manager\Manager</h3>
-								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 54</strong></span></p>
-							</div>
-						</a>
-						<a href="#">
-							<div class="backtrace-item">
-								<h3><span class="backtrace-count">2</span> Axe\Manager\Manager</h3>
-								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 54</strong></span></p>
-							</div>
-						</a>
-						<a href="#">
-							<div class="backtrace-item">
-								<h3><span class="backtrace-count">1</span> Axe\Manager\Manager</h3>
-								<p>\Blade\Location\That\Error.php <span class="backtrace-line"><strong> - Line 54</strong></span></p>
-							</div>
-						</a>
+						$backtrace
 					</div>
 				</div>
 
