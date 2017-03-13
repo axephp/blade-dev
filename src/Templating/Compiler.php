@@ -44,8 +44,8 @@ class Compiler
 
 		            	$var = $this->runElement($match);
 
-		            	if (isset($output['vars'][$var])) {
-		            		return $output['vars'][$var];
+		            	if (isset($vars[$var])) {
+		            		return $vars[$var];
 		            	}else{
 		            		return "<strong>Theming Error: </strong> Element '$var' not found in <strong>$tplFile</strong>. <br>";
 		            	}
