@@ -19,7 +19,9 @@ class AssetRoute extends Route
 
 	public function compile()
 	{	
-		var_dump($this->request);
+		$response = new SymfonyResponse();
+
+		var_dump($this->requests());
 
 		$response->setContent($html);
 		$response->headers->set('Content-Type', 'text/html');
