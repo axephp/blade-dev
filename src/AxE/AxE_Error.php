@@ -314,13 +314,15 @@ EOT;
         $from = ($from  < 0) ? 0 : $from ;
         $to = ($to >= $lineCount) ? $lineCount - 1 : $to ;
 
+        $colors = ['#AAA', '#DDD'];
+
         //Loop lines
         for ($i=$from; $i < $to ; $i++) { 
         	 //Create line number
         	$line = $lines[$i];
             $lineNumber = str_pad($i + 1,  $padLength, '0', STR_PAD_LEFT);
             //Print line
-            echo sprintf('<br><span style="color: #999999">%s | </span>%s', $lineNumber, $line);
+            echo sprintf('<br><span style="background-color:%s; color: #999999">%s | </span>%s', $colors[$i % 2], $lineNumber, $line);
 
         }
        
