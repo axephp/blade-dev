@@ -82,41 +82,48 @@ class Compiler
 	{
 		$return = "";
 
-		foreach ($data as $key => $this->array_flatten($value)) {
-			$info = $this->getHead($dir, $key);
-			if ($info['folder']) {
-				$file = "/axeasset/kaambaaki.css";
-			}else{
-				var_dump($value);
-				$file = $value;
-			}
+		foreach ($data as $key => $value) {
+			$info = $this->getHead($key);
+			$files = $this->array_flatten($value);
 
-			if ($info['type'] == "css") {
-				$return .= "<link rel=\"stylesheet\" href=\"$file\" type=\"text/css\" />";
-			}else{
-				$return .= "<script type=\"text/javascript\" src=\"$file\"></script>";
+			foreach ($files as $rawFile) {
+
+				if ($info['inside']) {
+
+					$file = "/axeasset/kaambaaki.file";
+					//TODO : WORK LEFT
+					
+				}else{
+					$file = $rawFile;
+				}
+
+				if ($info['type'] == "css") {
+					$return .= "<link rel=\"stylesheet\" href=\"$file\" type=\"text/css\" />";
+				}else{
+					$return .= "<script type=\"text/javascript\" src=\"$file\"></script>";
+				}
 			}
 		}
 		return $return;
 	}
 
-	protected function getHead($dir, $key)
+	protected function getHead($key)
 	{
 		$type = [];
 		switch ($key) {
 			case 'css':
 			case 'js':
-				$type['folder'] = $dir;
+				$type['inside'] = true;
 				$type['type'] = $key;
 				break;
 
 			case 'jsFromPublic':
 			case 'cssFromPublic':
-				$type['folder'] = '';
+				$type['inside'] = false;
 				$type['type'] = str_replace("FromPublic", "", $key);
 				break;
 			default:
-				$type['folder'] = $dir;
+				$type['inside'] = true;
 				break;
 		}
 
