@@ -26,6 +26,8 @@ class Compiler
 		
 		$response = new SymfonyResponse();
 
+
+		// THEMING NEEDS TO BE REDONE
 		$tplFile = Path::process($this->axe->appPath(), 'Framework', 
 		          isset($data['return']['theme']) && $data['return']['theme'] != 'default' ? $data['return']['theme'] : 'Template.tpl');
 
@@ -33,12 +35,16 @@ class Compiler
 			$response->setContent(serialize($data));
 			return $response;
 		}
+		// END THEMING
 
 		$code = file_get_contents($tplFile);
 
 		if (strpos($code, '@element') !== false) {
 
-			  $vars = ['pageTitle'=>$data['title'], 'pageBody'=>'', 'pageBody'=> ''];
+			$head = $this->prepareHead($data['dir'], $data['bag']);
+			$body = $this->prepareBody($data['dir'], $data['return']['file']);
+
+			  $vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
 			  $compiled =  preg_replace_callback(
 		            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?;/x', function ($match) use($vars, $tplFile) {
 
@@ -70,5 +76,21 @@ class Compiler
 	{
 		$var = explode("'", $match[4])[1];
 		return $var;
+	}
+
+	protected function prepareHead($dir, $data)
+	{
+		$return = "";
+
+		foreach ($data as $key => $value) {
+			echo $key;
+		}
+		return $return;
+	}
+
+	protected function prepareHead($dir, $data)
+	{
+		$return = "";
+		return "Tried loading '$data'";
 	}
 }
