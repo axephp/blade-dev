@@ -243,8 +243,9 @@ $output =
 
 					<div class="content">
 						<pre>
-EOT.
-highlight_string(<<<EOT
+EOT
+.
+highlight_string('
 namespace App\Managers;
 
 use Blade\Events\EventManager as Manager;
@@ -264,7 +265,7 @@ class EventManager extends Manager
 		
 	}
 }
-EOT). <<<EOT
+'). <<<EOT
 						</pre>
 					</div>
 
