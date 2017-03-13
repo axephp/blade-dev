@@ -50,7 +50,7 @@ class Compiler
 		            }, $code
 		        );
 		}else{
-			$compiled = code;
+			$compiled = $code;
 		}
 
 		
