@@ -18,7 +18,7 @@
 				
 				background: #558B2F;
 				border-top: 5px solid #FF3333;
-				min-height: 100px;
+				min-height: 120px;
 				color: #FFFFFF;
 				font-family: 'Poiret One', cursive;
 				font-weight: normal;
