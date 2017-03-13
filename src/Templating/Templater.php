@@ -27,7 +27,7 @@ class Templater
 		$struct = $this->theme($data['return']['theme']);
 		$html = $this->struct($struct, $data);
 
-		var_dump($html);
+		var_dump($struct);
 
 		$response->setContent($html);
 		$response->headers->set('Content-Type', 'text/html');
