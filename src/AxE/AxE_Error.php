@@ -25,7 +25,7 @@ class AxE_Error extends Exception implements Throwable
 			$backtrace .= '<a href="#">
 							<div class="backtrace-item">
 								<h3><span class="backtrace-count">'.(count($array) - $key).'</span> '.$item['class'].'</h3>
-								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $item['file'] ?? $error_file)).' <span class="backtrace-line"><strong> - Line '.$item['line'] ?? error_line.'</strong></span></p>
+								<p>'.str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", ($item['file'] ?? $error_file))).' <span class="backtrace-line"><strong> - Line '. ($item['line'] ?? error_line) .'</strong></span></p>
 							</div>
 						</a>';
 		}
