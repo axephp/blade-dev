@@ -120,12 +120,13 @@
 			.title{
 				width: 50%;
 				float: left;
+				text-align: right;
 				font-weight: bold;
 			}
 
 			.value{
 				width: 50%;
-				float: right;
+				float: left;
 				text-align: left;
 				color: #FF3333;
 			}
