@@ -7,7 +7,7 @@
 		<style>
 			body{
 				margin: 0px;
-				min-width: 880px;
+				min-width: 1000px;
 			}
 
 			.container{
