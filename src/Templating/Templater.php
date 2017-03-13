@@ -56,7 +56,7 @@ class Templater
 			
 			// First, we need to templify(:P) the tpl first.
 			$tplContent = file_get_contents($tpl);
-			$tplCompiled = $this->varer($tplContent, $tmp);
+			$tplCompiled = $this->varer($tplContent, $tmp['elements']);
 
 			
 			$structContent = file_get_contents($struct);
