@@ -136,8 +136,13 @@ class Compiler
 
 		$viewFile = Path::process($dir, $data.'.tpl');
 
-		return "Tried loading '$viewFile'";
+		$code = file_get_contents($tplFile);
+
+
+		return $code;
 	}
+
+
 
 	function array_flatten($array) { 
   if (!is_array($array)) { 
