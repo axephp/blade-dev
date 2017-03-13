@@ -52,7 +52,7 @@ class Templater
 				return false;
 			}
 
-			$tpl = Path::process($this->themesPath(), $theme, $tmp['template']);
+			$tpl = Path::process($this->axe->themesPath(), $theme, $tmp['template']);
 			
 			// First, we need to templify(:P) the tpl first.
 			$tplContent = file_get_contents($tpl);
