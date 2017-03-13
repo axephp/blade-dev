@@ -63,6 +63,10 @@ class Processor implements IProcessor
 
 		$path = implode('/', $this->requests);
 
+		if (!file_exists($path)) {
+			throw new Exception("Error Processing Asset", 1012);
+		}
+		
 		echo $path;		
 
 		$compiled->setMethod($route->method()[0]);
