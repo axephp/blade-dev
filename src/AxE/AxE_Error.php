@@ -311,6 +311,9 @@ EOT;
         //Re-Print the code and span again
         echo "<code><span style=\"color: #000000\">";
        
+        $from = ($from  < 0) ? 0 : $from ;
+        $to = ($to > $lineCount) ? $lineCount - 1 : $to ;
+
         //Loop lines
         for ($i=$from; $i <= $to ; $i++) { 
         	 //Create line number
