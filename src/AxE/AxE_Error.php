@@ -54,7 +54,7 @@ class AxE_Error extends Exception implements Throwable
     private static function extractCode($file, $errorLine)
     {
     		ob_start();
-		static::highlight_file_with_line_numbers($ex->getFile(), $error_line - 8, $error_line + 8, $error_line);
+		static::highlight_file_with_line_numbers($file, $errorLine - 8, $errorLine + 8, $errorLine);
 		$coded = ob_get_contents();
 		ob_end_clean();
 
