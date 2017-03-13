@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Error : <?=$error_type;></title>
+		<title>Error : <?=$error_type?></title>
 		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 		<style>
