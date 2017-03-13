@@ -299,7 +299,7 @@ EOT;
 		return $response;
 	}
 
-	 public static function highlight_file_with_line_numbers($file, $from, $to) {
+	 public static function highlight_file_with_line_numbers($file, $from, $to, $error_line) {
           //Strip code and first span
         $code = substr(highlight_file($file, true), 36, -15);
         //Split lines
@@ -323,6 +323,9 @@ EOT;
         	$line = $lines[$i];
             $lineNumber = str_pad($i + 1,  $padLength, '0', STR_PAD_LEFT);
             //Print line
+            if ($lineNumber == $error_line ) {
+            	$line = '<span style="background-color: #606060">'.$line.'</span>';
+            }
             echo sprintf('<br><span style="color: #999999">%s | </span>%s', $lineNumber, $line);
 
         }
