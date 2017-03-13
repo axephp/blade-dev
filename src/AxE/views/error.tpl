@@ -34,9 +34,13 @@
 				line-height: 1em;
 				color: #FFFF33;
 				display: block;
+				margin: 0px;
+				padding: 0px;
 			}
 
 			.primary{
+				margin: 0px;
+				padding: 0px;
 				height: 380px;
 				background: #eeeeee;
 				overflow-y: scroll;				
