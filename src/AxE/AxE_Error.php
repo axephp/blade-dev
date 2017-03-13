@@ -14,15 +14,14 @@ class AxE_Error extends Exception implements Throwable
 	{
 
 		var_dump($ex);
-		
+
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
 		$error_file =  str_replace($axe->basePath(), strtoupper("AXE").":/", str_replace("\\", "/", $ex->getFile()));
 		$error_line  = $ex->getLine();
 
 		$backtrace = '';
-		$array = debug_backtrace();
-		array_shift($array);
+		$array = $ex->getTrace();
 
 		foreach ($array as $key=>$item) {
 			$backtrace .= '<a href="#">
