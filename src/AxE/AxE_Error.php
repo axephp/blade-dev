@@ -34,10 +34,11 @@ class AxE_Error extends Exception implements Throwable
 		$lines = file($ex->getFile());
 
 		$errored_code = '';
-		for ($i=$error_line - 3; $i < $error_line + 3; $i++) { 
+		for ($i=$error_line - 5; $i <= $error_line + 3; $i++) { 
 			$errored_code .= $lines[$i];
 		}
 		
+		$errored_code = highlight_string($errored_code);
 
 
 $output = 
