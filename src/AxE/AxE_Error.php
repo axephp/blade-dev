@@ -13,11 +13,7 @@ class AxE_Error extends Exception implements Throwable
 	static function render($axe, $request, $ex)
 	{
 
-		$error_type = $ex->getCode();
-		$error_title = $ex->getMessage();
-		//$error_file =  str_replace($axe->basePath(), strtoupper("AXE")."://", str_replace("\\", "/", $ex->getFile()));
-		//$error_msg  = . " - [ line ".$ex->getLine()."]";
-		$base_url = $request->uri();
+		
 
 
 $output = <<<PHP 
