@@ -12,6 +12,7 @@ class AxE_Error extends Exception implements Throwable
 	
 	static function render($axe, $request, $ex)
 	{
+		var_dump(error_get_last());
 
 		$error_type = $ex->getCode();
 		$error_title = $ex->getMessage();
