@@ -121,7 +121,7 @@ class Processor implements IProcessor
 				throw new Exception("Error Processing Class '$class' ", 1);
 			}
 
-		}elseif (is_dir($dir)) {
+		}elseif (is_dir($dir) && !is_file(file)) {
 			
 			$new = array_shift($this->requests);
 			if (!is_null($new)) {
