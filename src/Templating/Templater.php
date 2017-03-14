@@ -131,8 +131,8 @@ class Templater
 
 				if ($info['inside']) {
 
-					var_dump($this->axe->resolve('route')->getRequest());
-					$file = "/axeasset/".$rawFile;
+					$page = Path::process($this->axe->resolve('route')->getRequest(), $rawFile);
+					$file = "/axeasset/".$page;
 					//TODO : WORK LEFT
 
 				}else{
