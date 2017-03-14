@@ -24,7 +24,7 @@ class Templater
 
 		$response = new SymfonyResponse();
 
-		$struct = $this->theme($data['return']['theme']);
+		$struct = $this->theme($data['action']['theme']);
 		$html = $this->struct($struct, $data);
 
 		$response->setContent($html);
@@ -80,9 +80,9 @@ class Templater
 	protected function struct($struct, $data)
 	{
 		$head = $this->prepareHead($data['dir'], $data['bag']);
-		$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
+		$body = $this->prepareBody($data['dir'], $data['action']['file'], $data['vars']);
 
-		$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $data['dump'].$body];
+		$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $data['content'].$body];
 		$structCompiled = $this->varer($struct, $vars);
 
 		return $structCompiled;
@@ -125,7 +125,7 @@ class Templater
 
 		foreach ($data as $key => $value) {
 			$info = $this->getHead($key);
-			$files = $this->array_flatten($value);
+			$files = array_flatten($value);
 
 			foreach ($files as $rawFile) {
 
@@ -202,21 +202,5 @@ class Templater
 		
 	}
 
-
-	function array_flatten($array) { 
-		  if (!is_array($array)) { 
-		    return FALSE; 
-		  } 
-		  $result = array(); 
-		  foreach ($array as $key => $value) { 
-		    if (is_array($value)) { 
-		      $result = array_merge($result, $this->array_flatten($value)); 
-		    } 
-		    else { 
-		      $result[$key] = $value; 
-		    } 
-		  } 
-		  return $result; 
-	} 
 
 }

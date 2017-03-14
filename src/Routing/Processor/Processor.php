@@ -212,15 +212,15 @@ class Processor implements IProcessor
 		$content = ob_get_contents();
 		ob_clean();
 
-		$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
-
-		if ($output instanceof CompiledRoute) {
-			return $this->suber($output);
-		}
-
-		return $output;
-	
-		
+		if ($actionReturn['type'] == "route") {
+			$new = $reflection->getMethod('router')->invokeArgs($object, [$compiled, $actionReturn['path']]);
+			
+			// TODO : Inside redirection
+			// return $this->inside($new);
+		}else{
+			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
+			return $output;
+		}		
 	}
 
 

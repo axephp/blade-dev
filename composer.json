@@ -10,10 +10,14 @@
         }
     ],
     "autoload": {
+        "files": [
+            "src/AxE/Framework/supporter.php"
+        ],
         "psr-4": { "Blade\\": "src/" }
     },
     "minimum-stability": "dev",
     "require": {
+        "php": ">=7.0",
         "symfony/http-foundation": "^3.2"
     }
 }
