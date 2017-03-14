@@ -132,7 +132,7 @@ class Templater
 				if ($info['inside']) {
 
 					$page = Path::process($this->axe->resolve('route')->getRequest(), $rawFile);
-					$file = "/axeasset/".$page;
+					$file = "axeasset/".$page;
 					//TODO : WORK LEFT
 
 				}else{
