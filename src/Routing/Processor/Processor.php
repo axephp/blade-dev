@@ -88,7 +88,7 @@ class Processor implements IProcessor
 	 */
 	public function inside($class, $request)
 	{	
-		var_dump($request);
+		
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
