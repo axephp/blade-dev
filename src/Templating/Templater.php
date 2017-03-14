@@ -194,8 +194,10 @@ class Templater
 			return $code;
 		}
 		
+		if(!empty($data) && !is_null($data)) {
+			return "<strong>View</strong> not found.";
+		}
 		
-		return "<strong>View</strong> not found.";
 		//throw new Exception("View '$data' not found.", 129);
 		
 	}
