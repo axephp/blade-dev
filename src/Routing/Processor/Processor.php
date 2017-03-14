@@ -65,6 +65,7 @@ class Processor implements IProcessor
 		$this->requests = Path::array_flatten($route->requests());
 		array_shift($this->requests);
 
+		$this->axe->map('asset', $route);
 
 		$this->asset = true;
 
@@ -151,7 +152,7 @@ class Processor implements IProcessor
 			$output = $this->suber($route);
 
 			if ($this->asset) {
-				$this->axe->resolve('route')->compile($output);
+				$this->axe->resolve('asset')->compile($output);
 			}
 
 			return $this->axe->resolve(\Blade\Templating\Templater::class)->template($output);
