@@ -25,8 +25,19 @@ class AssetRoute extends Route
     		$mime = finfo_file($finfo, $file);
 		finfo_close($finfo);
 
-		$response->setContent($mime);
-		$response->headers->set('Content-Type', 'text/html');
+		if (strpos($mime, 'php')) {
+			throw new Exception("File not found", 165);
+		}
+
+		$vmime = mime_content_type($file);
+
+		ob_start();
+			include $file;
+		$data = ob_get_contents();
+		ob_end_clean();
+
+		$response->setContent($data);
+		$response->headers->set('Content-Type', $vmime);
 		return $response;
 
 	}
