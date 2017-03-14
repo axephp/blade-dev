@@ -29,7 +29,13 @@ class AssetRoute extends Route
 			throw new Exception("File not found", 165);
 		}
 
-		$vmime = mime_content_type($file);
+		$normal = ['css', 'js'];
+		$ext = pathinfo($file, PATHINFO_EXTENSION);
+		if(in_array($ext, $normal)){
+			$vmime = "text/$ext";
+		}else{
+			$vmime = mime_content_type($file);
+		}
 
 		ob_start();
 			include $file;
