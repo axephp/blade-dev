@@ -197,7 +197,7 @@ class Processor implements IProcessor
 				
 			$path = $compiled->getPath();
 
-			$file = Path::process($path, $this->request);
+			$file = Path::process($path, $this->requests);
 			var_dump($file);
 		}
 		
