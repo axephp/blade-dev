@@ -176,13 +176,19 @@ class Templater
 
 	protected function prepareBody($dir, $data, $vars)
 	{
-
 		$viewFile = Path::process($dir, $data.'.tpl');
-		$code = file_get_contents($viewFile);
+
+		if (file_exists($)) {
+			$code = file_get_contents($viewFile);
+			return $code;
+		}
+		
+		
 
 		//COMPILING TEMPLATE SCRIPT LEFT
 
-		return $code;
+		throw new Exception("View '$data' not found.", 129);
+		;
 	}
 
 
