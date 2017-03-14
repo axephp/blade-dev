@@ -132,7 +132,7 @@ class Processor implements IProcessor
 			} 
 			
 		}else{
-			$request = ["home"];
+			$request = ["home", $request];
 			return $this->inside($class, $request);
 			throw new Exception("Error Processing Request", 1);
 		}
