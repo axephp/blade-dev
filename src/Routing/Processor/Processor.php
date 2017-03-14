@@ -194,8 +194,10 @@ class Processor implements IProcessor
 
 			return $output;
 		}elseif ($this->asset) {
-			
-			var_dump($compiled);
+				
+			$path = $compiled->getPath();
+			$file = Path::process($path, $compiled->getRequest());
+			var_dump($file);
 		}
 		
 	}
