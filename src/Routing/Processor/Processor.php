@@ -100,7 +100,7 @@ class Processor implements IProcessor
 		if (file_exists($file)) {
 
 			include_once $file;
-			$class .= "\\".(implode("\\", $request));
+			$class .= "\\".(implode("\\", Path::array_flatten($request)));
 
 			if (class_exists($class)) {
 				
