@@ -184,7 +184,7 @@ class Processor implements IProcessor
 				throw new Exception("Error Processing Request", 191);
 			}
 
-			var_dump($file);
+			return $file;
 		}
 
 		$action = $reflection->getMethod($name);
