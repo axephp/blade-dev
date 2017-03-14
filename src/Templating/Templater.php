@@ -82,7 +82,7 @@ class Templater
 		$head = $this->prepareHead($data['dir'], $data['bag']);
 		$body = $this->prepareBody($data['dir'], $data['return']['file'], $data['vars']);
 
-		$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $body];
+		$vars = ['pageTitle'=>$data['title'], 'pageHead'=>$head, 'pageBody'=> $data['dump'].$body];
 		$structCompiled = $this->varer($struct, $vars);
 
 		return $structCompiled;
