@@ -212,6 +212,8 @@ class CompiledRoute implements ICompiledRoute
 				return $action;
 			}elseif ($this->reflection->hasMethod('__arg_'.strtolower($this->method))) {
 				return '__arg_'.strtolower($this->method);
+			}else{
+				return 'index_'.strtolower($this->method);
 			}
 		}else {
 			return 'index_'.strtolower($this->method);

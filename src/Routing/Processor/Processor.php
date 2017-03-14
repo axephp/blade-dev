@@ -97,8 +97,6 @@ class Processor implements IProcessor
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
-		var_dump($class);
-
 		if (file_exists($file)) {
 
 			include_once $file;
@@ -134,7 +132,6 @@ class Processor implements IProcessor
 			} 
 			
 		}else{
-			var_dump($request);
 			$request = ["home"];
 			return $this->inside($class, $request);
 			throw new Exception("Error Processing Request", 1);
