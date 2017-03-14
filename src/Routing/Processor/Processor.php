@@ -18,6 +18,9 @@ class Processor implements IProcessor
 
 	protected $requests;
 
+	protected $asset = false;
+
+
 	public function __construct(AxE $axe)
 	{
 		$this->axe = $axe;
@@ -60,6 +63,9 @@ class Processor implements IProcessor
 	{
 		$this->requests = $route->requests();
 		array_shift($this->requests);
+
+
+		$this->asset = true;
 
 		$request = array_shift($this->requests);
 		$compiled = $this->inside("User\\Pages", [$request]);
@@ -137,12 +143,12 @@ class Processor implements IProcessor
 	public function blend($route)
 	{	
 		$this->axe->register(\Blade\Templating\Templater::class);
-		if ($route instanceof CompiledAsset) {
-			
-			var_dump($route);
-
-		}elseif ($route instanceof CompiledRoute) {
+		if ($route instanceof CompiledRoute) {
 			$output = $this->suber($route);
+
+			if ($this->asset) {
+				return $output;
+			}
 
 			return $this->axe->resolve(\Blade\Templating\Templater::class)->template($output);
 		}
@@ -187,7 +193,8 @@ class Processor implements IProcessor
 			}
 
 			return $output;
-		}else{
+		}elseif ($this->asset) {
+			
 			echo ":D";
 		}
 		
