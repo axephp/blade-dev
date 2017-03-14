@@ -94,6 +94,7 @@ class Processor implements IProcessor
 		$file = Path::controller($dir);
 
 		var_dump($request);
+		echo "<br>";
 
 		if (file_exists($file)) {
 
