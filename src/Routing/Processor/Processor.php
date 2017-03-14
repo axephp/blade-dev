@@ -127,11 +127,11 @@ class Processor implements IProcessor
 				$request = [$request, $new];
 				return $this->inside($class, $request);
 			}else{
-				throw new Exception("Error Processing Request of '$new'", 1);
+				throw new Exception("Error Processing Request", 12);
 			} 
 			
 		}else{
-			throw new Exception("Error Processing Request on '$file'", 1);
+			throw new Exception("Error Processing Request", 1);
 		}
 
 
@@ -151,7 +151,7 @@ class Processor implements IProcessor
 			$output = $this->suber($route);
 
 			if ($this->asset) {
-				return $output;
+				$this->axe->resolve('route')->compile($output);
 			}
 
 			return $this->axe->resolve(\Blade\Templating\Templater::class)->template($output);

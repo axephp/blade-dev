@@ -21,8 +21,6 @@ class AssetRoute extends Route
 	{	
 		$response = new SymfonyResponse();
 
-		var_dump($this->requests());
-
 		$response->setContent($html);
 		$response->headers->set('Content-Type', 'text/html');
 		return $response;
