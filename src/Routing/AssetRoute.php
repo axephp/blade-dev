@@ -21,9 +21,11 @@ class AssetRoute extends Route
 	{	
 		$response = new SymfonyResponse();
 
-		var_dump($file);
+		$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+    		$mime = finfo_file($finfo, $file);
+		finfo_close($finfo);
 
-		$response->setContent($file);
+		$response->setContent($mime);
 		$response->headers->set('Content-Type', 'text/html');
 		return $response;
 
