@@ -35,7 +35,8 @@ class Processor implements IProcessor
 	 */
 	public function compile($route)
 	{
-		$this->requests = $route->requests();
+		$this->requests = Path::array_flatten($route->requests());
+
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
@@ -61,7 +62,7 @@ class Processor implements IProcessor
 	 */
 	public function asset($route)
 	{
-		$this->requests = $route->requests();
+		$this->requests = Path::array_flatten($route->requests());
 		array_shift($this->requests);
 
 
@@ -88,7 +89,7 @@ class Processor implements IProcessor
 	 */
 	public function inside($class, $request)
 	{	
-		
+
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 

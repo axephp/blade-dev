@@ -27,7 +27,7 @@ class Path
 	}
 
 
-	private static function array_flatten($array) { 
+	public static function array_flatten($array) { 
 		  if (!is_array($array)) { 
 		    return FALSE; 
 		  } 
