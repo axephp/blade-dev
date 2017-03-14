@@ -42,7 +42,7 @@ class AssetRoute extends Route
 		$data = ob_get_contents();
 		ob_end_clean();
 
-		$response->setContent($vmime.$data);
+		$response->setContent($data);
 		$response->headers->set('Content-Type', $vmime);
 		return $response;
 
