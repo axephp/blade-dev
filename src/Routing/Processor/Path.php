@@ -34,7 +34,7 @@ class Path
 		  $result = array(); 
 		  foreach ($array as $key => $value) { 
 		    if (is_array($value)) { 
-		      $result = array_merge($result, self::array_flatten($value)); 
+		      $result = array_merge($result, static::array_flatten($value)); 
 		    } 
 		    else { 
 		      $result[$key] = $value; 
