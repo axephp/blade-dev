@@ -179,16 +179,25 @@ class Templater
 		$viewFile = Path::process($dir, $data.'.tpl');
 
 		if (file_exists($viewFile)) {
-			$code = file_get_contents($viewFile);
+
+			//$code = file_get_contents($viewFile);
+			//COMPILING TEMPLATE SCRIPT LEFT
+
+
+			#TEMPORARY SOLUTION
+			ob_start();
+			extract($vars);
+			include $viewFile;
+			$code = ob_get_contents();
+			ob_end_clean();
+			
 			return $code;
 		}
 		
 		
-
-		//COMPILING TEMPLATE SCRIPT LEFT
-
+		return "<strong>View</strong> not found.";
 		//throw new Exception("View '$data' not found.", 129);
-		;
+		
 	}
 
 
