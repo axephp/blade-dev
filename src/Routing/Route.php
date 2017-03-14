@@ -152,8 +152,7 @@ class Route implements IRoute
 	/**
      * Get middlewares.
      *
-     * @param  string  $name
-     * @param  string  $class
+     * @param  null
      * @return $this
      */
 	public function gatherMiddleware()
@@ -165,8 +164,7 @@ class Route implements IRoute
 	/**
      * Get middlewares
      *
-     * @param  string  $name
-     * @param  string  $class
+     * @param  null
      * @return $this
      */
 	public function middleware()
