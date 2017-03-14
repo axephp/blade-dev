@@ -131,7 +131,7 @@ class Templater
 
 				if ($info['inside']) {
 
-					$file = "/axeasset/kaambaaki.file";
+					$file = "/axeasset/".$rawFile;
 					//TODO : WORK LEFT
 
 				}else{
