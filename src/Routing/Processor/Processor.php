@@ -93,6 +93,8 @@ class Processor implements IProcessor
 		$dir = Path::process($this->axe->pagesPath(), $request);
 		$file = Path::controller($dir);
 
+		var_dump($request);
+
 		if (file_exists($file)) {
 
 			include_once $file;
