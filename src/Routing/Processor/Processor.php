@@ -127,7 +127,7 @@ class Processor implements IProcessor
 			} 
 			
 		}else{
-			throw new Exception("Error Processing Request", 1);
+			throw new Exception("Error Processing Request on '$file'", 1);
 		}
 
 
