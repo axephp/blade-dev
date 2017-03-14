@@ -17,13 +17,13 @@ class AssetRoute extends Route
 	}
 
 
-	public function compile()
+	public function compile($file)
 	{	
 		$response = new SymfonyResponse();
 
-		var_dump($output);
+		var_dump($file);
 
-		$response->setContent();
+		$response->setContent($file);
 		$response->headers->set('Content-Type', 'text/html');
 		return $response;
 
