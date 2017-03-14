@@ -123,8 +123,8 @@ class Processor implements IProcessor
 				$request = [$request, $new];
 				return $this->inside($class, $request);
 			}else{
-				throw new Exception("Error Processing Request", 1);
-			}
+				throw new Exception("Error Processing Request of '$new'", 1);
+			} 
 			
 		}else{
 			throw new Exception("Error Processing Request", 1);
