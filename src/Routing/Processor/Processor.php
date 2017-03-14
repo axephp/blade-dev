@@ -195,7 +195,7 @@ class Processor implements IProcessor
 			return $output;
 		}elseif ($this->asset) {
 			
-			echo ":D";
+			var_dump($compiled);
 		}
 		
 	}
