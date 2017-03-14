@@ -152,7 +152,7 @@ class Processor implements IProcessor
 			$output = $this->suber($route);
 
 			if ($this->asset) {
-				$this->axe->resolve('asset')->compile($output);
+				return $this->axe->resolve('asset')->compile($output);
 			}
 
 			return $this->axe->resolve(\Blade\Templating\Templater::class)->template($output);
