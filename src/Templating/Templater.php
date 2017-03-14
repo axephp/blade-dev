@@ -140,7 +140,7 @@ class Templater
 				}
 
 				if ($info['type'] == "css") {
-					$return .= "<link rel=\"stylesheet\" href=\"$file\" type=\"text/css\" />";
+					$return .= "<link rel=\"stylesheet\" href=\"/$file\" type=\"text/css\" />";
 				}else{
 					$return .= "<script type=\"text/javascript\" src=\"$file\"></script>";
 				}
