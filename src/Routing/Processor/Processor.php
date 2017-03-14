@@ -164,28 +164,33 @@ class Processor implements IProcessor
 		$name = $compiled->action();
 		$reflection = $compiled->getReflection();
 
-		$action = $reflection->getMethod($name);
+		if ($name) {
+			$action = $reflection->getMethod($name);
 
-		$parameters = $action->getParameters();
-		$values = $compiled->getParameters();
+			$parameters = $action->getParameters();
+			$values = $compiled->getParameters();
 
-		$args = $this->prepareParams($parameters, $values);
+			$args = $this->prepareParams($parameters, $values);
 
-		$object = $reflection->newInstanceArgs([$this->axe]);
+			$object = $reflection->newInstanceArgs([$this->axe]);
 
-		ob_start();
-		$actionReturn = $action->invokeArgs($object, $args);
-		
-		$content = ob_get_contents();
-		ob_clean();
+			ob_start();
+			$actionReturn = $action->invokeArgs($object, $args);
+			
+			$content = ob_get_contents();
+			ob_clean();
 
-		$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
+			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
 
-		if ($output instanceof CompiledRoute) {
-			return $this->suber($output);
+			if ($output instanceof CompiledRoute) {
+				return $this->suber($output);
+			}
+
+			return $output;
+		}else{
+			echo ":D";
 		}
-
-		return $output;
+		
 	}
 
 
