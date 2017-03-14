@@ -180,11 +180,10 @@ class Processor implements IProcessor
 			$path = $compiled->getPath();
 			$file = Path::process($path, $this->requests);
 
-			if (!file_exists($file) && is_dir($file)) {
+			if (!file_exists($file) || is_dir($file)) {
 				throw new Exception("Error Processing Request", 191);
-				
 			}
-			
+
 			var_dump($file);
 		}
 
