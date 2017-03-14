@@ -132,9 +132,17 @@ class Processor implements IProcessor
 			} 
 			
 		}else{
-			$request = ["home", $request];
-			return $this->inside($class, $request);
-			throw new Exception("Error Processing Request", 1);
+			array_unshift($this->requests, $request);
+			$request = ["home"];
+			$dir = Path::process($this->axe->pagesPath(), $request);
+			$file = Path::controller($dir);
+			if (file_exists($file)) {
+				return $this->inside($class, $request);
+			}else{
+				throw new Exception("Error Processing Request", 1936);
+				
+			}
+			
 		}
 
 
