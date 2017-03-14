@@ -178,7 +178,7 @@ class Templater
 	{
 		$viewFile = Path::process($dir, $data.'.tpl');
 
-		if (file_exists($)) {
+		if (file_exists($viewFile)) {
 			$code = file_get_contents($viewFile);
 			return $code;
 		}
@@ -187,7 +187,7 @@ class Templater
 
 		//COMPILING TEMPLATE SCRIPT LEFT
 
-		throw new Exception("View '$data' not found.", 129);
+		//throw new Exception("View '$data' not found.", 129);
 		;
 	}
 
