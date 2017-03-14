@@ -69,6 +69,9 @@ class Processor implements IProcessor
 		$this->asset = true;
 
 		$request = array_shift($this->requests);
+		if (!is_array($request)) {
+			$request = [$request];
+		}
 		$compiled = $this->inside("User\\Pages", $request);
 
 		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
