@@ -61,13 +61,12 @@ class Processor implements IProcessor
 		$this->requests = $route->requests();
 		array_shift($this->requests);
 
-		$path = implode('/', $this->requests);
+		$request = array_shift($this->requests);
+		$compiled = $this->inside("User\\Pages", $request);
 
-		if (!file_exists($path)) {
-			throw new Exception("Error Processing Asset", 1012);
+		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
+			$route->getRouter()->middleware($key, $value);
 		}
-		
-		echo $path;		
 
 		$compiled->setMethod($route->method()[0]);
 		return $compiled;
