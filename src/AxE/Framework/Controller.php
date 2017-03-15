@@ -27,7 +27,10 @@ class Controller
 
 	public function __get($key)
 	{
-		return $this->axe->resolve($key);
+		if ($this->axe->isBound($key) || $this->axe->isAlias($key) || $this->axe->isMapped($key)) {
+			return $this->axe->resolve($key);
+		}
+		
 	}
 
 	public function router($compiled, $path){
