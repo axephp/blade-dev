@@ -10,7 +10,7 @@ function js(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
 
 
 # IMG Functions #
-function img($file, $class = "", $caption = ""){ return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::makeImg($file, $class, $caption); }
+function img($file, $attribs = []){ return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::makeImg($file, $attribs); }
 
 # VIEW Functions #
 function view($viewName, $theme = 'default'){ 
@@ -72,7 +72,7 @@ static function redirect($path)
 	}
 }
 
-static function makeImg($file, $class, $caption)
+static function makeImg($file, $attribs)
 {
 	$class_name = debug_backtrace()[2]['class'];
 	$method_name = debug_backtrace()[1]['function'];
@@ -81,9 +81,14 @@ static function makeImg($file, $class, $caption)
 
 	if ($check) {
 
-		$realFile = "";
+		$path = implode('/', axe()->resolve('route')->getRequest());
+		$realFile = "/axeasset/$path/$file";
 
-		$tag = "<img src=\"$realFile\" class=\"$class\" alt=\"$caption\" >";
+		$tag = "<img src=\"$realFile\" ";
+		foreach ($attribs as $key => $value) {
+			$tag .= "$key=\"$class\" ";
+		}
+		$tag .= "/>";
 		return $tag;
 
 	}else{
@@ -108,4 +113,9 @@ function array_flatten($array) {
 	    } 
 	  } 
 	  return $result; 
-} 
+}
+
+
+function axe(){
+	return \Blade\AxE\AxE::getInstance();
+}

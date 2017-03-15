@@ -83,6 +83,14 @@ class AxE extends Container implements IAxE
 
 
     /**
+     * Self instance
+     *
+     * @var AxE
+     */
+    protected static $instance;
+
+
+    /**
      * Create a new AxE application
      *
      * @param  string|null  $basePath
@@ -96,6 +104,8 @@ class AxE extends Container implements IAxE
         if ($basePath) {
             $this->setBasePath($basePath);
         }
+
+        self::setInstance($this);
     }
 
 
@@ -539,6 +549,28 @@ class AxE extends Container implements IAxE
     public function isUnitTests()
     {
         return $this->config('site')->environment == 'testing';
+    }
+
+
+     /**
+     * Store self instance
+     *
+     * @return void
+     */
+    public function setInstance($instance)
+    {
+        self::$instance = $instance;
+    }
+
+
+     /**
+     * Returns the self instance
+     *
+     * @return AxE
+     */
+    public function getInstance()
+    {
+        return self::$instance;
     }
 
 }
