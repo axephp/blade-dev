@@ -11,7 +11,7 @@ class Controller
 
 	private $axe;
 
-	private $vars = [];
+	protected $vars = [];
 
 	function __construct(\Blade\AxE\AxE $axe)
 	{
