@@ -28,7 +28,7 @@ class Controller
 	public function __get($key)
 	{
 		if ($this->axe->isBound($key) || $this->axe->isAlias($key) || $this->axe->isMapped($key)) {
-			return $this->axe->resolve($key);
+			//return $this->axe->resolve($key);
 		}
 		
 	}
