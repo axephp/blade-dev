@@ -35,8 +35,20 @@ if (!function_exists('breakpoint')) {
 
 	function breakpoint()
 	{
-		var_dump(func_get_args());
+		dump(func_get_args());
 		die(1);
+	}
+
+}
+
+if (!function_exists('dump')) {
+
+	function dump()
+	{
+		echo "<pre style='font-size:16px;'>";
+		var_dump(func_get_args());
+		echo "</pre>";
+
 	}
 
 }
