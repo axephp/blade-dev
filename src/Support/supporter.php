@@ -32,11 +32,11 @@ if (!function_exists('array_random')) {
 }
 
 if (!function_exists('breakpoint')) {
-	
-	function breakpoint(...$args)
+
+	function breakpoint()
 	{
+		var_dump(func_get_args());
 		die(1);
-		var_dump($args);
 	}
 
 }
