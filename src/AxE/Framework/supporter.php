@@ -81,7 +81,7 @@ static function makeImg($file, $attribs)
 
 	if ($check) {
 
-		$path = implode('/', axe()->resolve('route')->getRequest());
+		$path = implode('/', \Blade\AxE\AxE::getInstance()->resolve('route')->getRequest());
 		$realFile = "/axeasset/$path/$file";
 
 		$tag = "<img src=\"$realFile\" ";
@@ -96,26 +96,4 @@ static function makeImg($file, $attribs)
 	}
 }
 
-}
-
-
-function array_flatten($array) { 
-	  if (!is_array($array)) { 
-	    return FALSE; 
-	  } 
-	  $result = array(); 
-	  foreach ($array as $key => $value) { 
-	    if (is_array($value)) { 
-	      $result = array_merge($result, array_flatten($value)); 
-	    } 
-	    else { 
-	      $result[$key] = $value; 
-	    } 
-	  } 
-	  return $result; 
-}
-
-
-function axe(){
-	return \Blade\AxE\AxE::getInstance();
 }
