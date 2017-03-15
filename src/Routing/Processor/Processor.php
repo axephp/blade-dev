@@ -233,6 +233,7 @@ class Processor implements IProcessor
 	 */
 	protected function prepareParams($params, $values)
 	{
+		var_dump(func_get_args());
 		$args = [];
 		$i = 0;
 		foreach ($params as $key=>$param) {
