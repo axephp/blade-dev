@@ -262,7 +262,7 @@ class Processor implements IProcessor
 				if ($key == count($params) - 1) {
 					$args[] = array_slice($values, $i);
 				}else{
-					$args[] = $values[$i];
+					$args[] = $values[$i] ?? null;
 					$i++;
 				}
 			}
