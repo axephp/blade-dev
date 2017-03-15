@@ -86,7 +86,7 @@ static function makeImg($file, $attribs)
 
 		$tag = "<img src=\"$realFile\" ";
 		foreach ($attribs as $key => $value) {
-			$tag .= "$key=\"$class\" ";
+			$tag .= "$key=\"$value\" ";
 		}
 		$tag .= "/>";
 		return $tag;
