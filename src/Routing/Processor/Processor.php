@@ -35,7 +35,7 @@ class Processor implements IProcessor
 	 */
 	public function compile($route)
 	{
-		$this->requests = Path::array_flatten($route->requests());
+		$this->requests = array_flatten($route->requests());
 
 		$request = array_shift($this->requests);
 
@@ -62,7 +62,7 @@ class Processor implements IProcessor
 	 */
 	public function asset($route)
 	{
-		$this->requests = Path::array_flatten($route->requests());
+		$this->requests = array_flatten($route->requests());
 		array_shift($this->requests);
 
 		$this->axe->map('asset', $route);
@@ -100,7 +100,7 @@ class Processor implements IProcessor
 		if (file_exists($file)) {
 
 			include_once $file;
-			$class .= "\\".(implode("\\", Path::array_flatten($request)));
+			$class .= "\\".(implode("\\", array_flatten($request)));
 
 			if (class_exists($class)) {
 				
