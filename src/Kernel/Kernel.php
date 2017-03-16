@@ -157,7 +157,7 @@ class Kernel implements IKernel
 		if ($notices) {
 			$response = $notices.$response;
 		}
-		
+
 		return $response;
 	}
 
@@ -201,7 +201,7 @@ class Kernel implements IKernel
 
 		$message = $error['message'];
 		$file = $error['file'];
-		$line = $error['line']
+		$line = $error['line'];
 		
 		$design = <<<EOT 
 <div class="notice">
