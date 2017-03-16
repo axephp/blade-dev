@@ -203,12 +203,11 @@ class Kernel implements IKernel
 		$file = $error['file'];
 		$line = $error['line'];
 		
-		$design = <<<EOT 
-<div class="notice">
+		$design = "
+<div class=\"notice\">
 $message in $file on $line :D
 </div>
-EOT
-		;
+"		;
 
 		return $design;
 
