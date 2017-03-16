@@ -23,6 +23,10 @@ class Shutter
 	{
 		//Things to do when shutting down
 
+		$error = error_get_last();
+
+		var_dump($error);
+
 		
 	}
 
