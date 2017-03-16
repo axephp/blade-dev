@@ -142,6 +142,7 @@ class Kernel implements IKernel
 			$route = $this->router->route($request, $this->middlewares);
 
 			$response = $this->axe->process($route);
+
 			$this->axe->trigger("kernel_booted", [ $request, $response ]);
 
 		}catch(Throwable $ex){
@@ -151,6 +152,12 @@ class Kernel implements IKernel
 
 		}
 
+		$notices = $this->notice();
+
+		if ($notices) {
+			$response = $notices.$response;
+		}
+		
 		return $response;
 	}
 
@@ -175,6 +182,36 @@ class Kernel implements IKernel
 		$this->axe->resolve(\Blade\Log\Log::class)->save($request);
 
 		// For Caching $response can be used
+	}
+
+
+	public function notice()
+	{
+		$error = error_get_last();
+
+		if (is_null($error)) {
+			return false;
+		}
+
+		if ($error['type'] == 2) {
+			$type = "WARNING";
+		}elseif ($error['type'] == 8) {
+			$type = "NOTICE";
+		}
+
+		$message = $error['message'];
+		$file = $error['file'];
+		$line = $error['line']
+		
+		$design = <<<EOT 
+<div class="notice">
+$message in $file on $line :D
+</div>
+EOT
+		;
+
+		return $design;
+
 	}
 
 
