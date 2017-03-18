@@ -13,7 +13,8 @@ class Configurer
 	protected $confs = [
 		'site.conf',
 		'database.conf',
-		'auth.conf'
+		'auth.conf',
+		'session.conf'
 	];
 
 	public function run(AxE $axe)
