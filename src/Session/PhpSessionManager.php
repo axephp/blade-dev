@@ -19,7 +19,7 @@ class PhpSessionManager extends SymfonySession
 
 	protected $cookie;
 
-	protected $encrypt;
+	protected $encrypt = false;
 
 
 	function __construct(AxE $axe)

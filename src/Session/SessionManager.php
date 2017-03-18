@@ -25,6 +25,6 @@ class SessionManager extends Manager implements IManager
 
 		$session->setCookieName($config->cookie);
 
-		$session->start();
+		//$session->start();
 	}
 }
