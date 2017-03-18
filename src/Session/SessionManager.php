@@ -16,7 +16,8 @@ class SessionManager extends Manager implements IManager
 
 		$driverName = $config->driver;
 		$method = $driverName.'SessionDriver';
-		$session = $axe->resolve(\Blade\Session\Session::class);
+
+		$session = $axe->resolve(\Blade\Session\Session::class)->$method($axe);
 
 		$session->checkForExpiry($config->lifetime);
 		

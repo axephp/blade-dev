@@ -116,7 +116,7 @@ class PHPSessionManager extends SymfonySession
 	}
 
 
-	function checkForExpiry($maxIdleTime)
+	public function checkForExpiry($maxIdleTime)
 	{
 		if (time() - $this->getMetadataBag()->getLastUsed() > $maxIdleTime) {
 		    $this->invalidate();
