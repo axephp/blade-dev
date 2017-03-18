@@ -2,21 +2,14 @@
 
 if (!function_exists('array_flatten')) {
 
-	function array_flatten($array) { 
+	function array_flatten($array, $depth = INF) { 
 
-		if (!is_array($array)) { 
-			return false; 
-		} 
-		$result = []; 
-		foreach ($array as $key => $value) { 
-			if (is_array($value)) { 
-		     	$result = array_merge($result, array_flatten($value)); 
-			} 
-			else { 
-		     	$result[$key] = $value; 
-			} 
-		} 
-		return $result; 
+		$objTmp = (object) array('aFlat' => array());
+
+		array_walk_recursive($array, create_function('&$v, $k, &$t', '$t->aFlat[] = $v;'), $objTmp);
+
+		return ($objTmp->aFlat);
+
 
 	}
 
@@ -46,7 +39,9 @@ if (!function_exists('dump')) {
 	function dump()
 	{
 		echo "<pre style='font-size:16px;'>";
-		var_dump(func_get_args());
+		foreach (func_get_args() as $value) {
+			var_dump($value);
+		}
 		echo "</pre>";
 
 	}
