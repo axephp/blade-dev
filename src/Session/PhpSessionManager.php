@@ -36,7 +36,7 @@ class PhpSessionManager extends SymfonySession
 
 
 		$this->axe = $axe;
-		$this->request = Blade\Http\Request::request();
+		$this->request = \Blade\Http\Request::request();
 		$this->request->cookies->set($this->getName(), 1); 
 
 		$this->sanitize();
