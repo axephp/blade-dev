@@ -10,7 +10,7 @@ class Session
 
 	public function phpSessionDriver(AxE $axe)
 	{
-		return (new PhpSessionManager(axe));
+		return (new PhpSessionManager($axe));
 	}
 
 }
