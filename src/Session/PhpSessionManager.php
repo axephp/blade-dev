@@ -129,23 +129,23 @@ class PHPSessionManager extends SymfonySession
 	public function get($key, $default = NULL)
 	{
 		$name = $this->prefix.'_'.$key;
-		return parent::get($this->encrypt ? decrypt($name) : $name, $this->encrypt ? decrypt($default) : $default);
+		return parent::get($this->encrypt ? $this->decryptV($name) : $name, $this->encrypt ? $this->decryptV($default) : $default);
 	}
 
 
 	public function set($key, $value)
 	{	
 		$name = $this->prefix.'_'.$key;
-		return parent::set($this->encrypt ? encrypt($name) : $name, $this->encrypt ? encrypt($value) : $value);
+		return parent::set($this->encrypt ? $this->encryptV($name) : $name, $this->encrypt ? $this->encryptV($value) : $value);
 	}
 
 
-	protected function encrypt($value='')
+	protected function encryptV($value='')
 	{
 		return base64_encode($value);
 	}
 
-	protected function decrypt($value='')
+	protected function decryptV($value='')
 	{
 		return base64_decode($value);
 	}
