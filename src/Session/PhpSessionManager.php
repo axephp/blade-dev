@@ -29,18 +29,21 @@ class PhpSessionManager extends SymfonySession
 
 		$this->prefix = $axe->config('site')->site_prefix;
 
+		$this->axe = $axe;
+		$this->request = \Blade\Http\Request::request();		
+
+	}
+
+
+	public function start()
+	{
 		# set session name
 		$this->setName($this->cookie);
 		$this->start();
 
-
-
-		$this->axe = $axe;
-		$this->request = \Blade\Http\Request::request();
 		$this->request->cookies->set($this->getName(), 1); 
 
 		$this->sanitize();
-
 	}
 
 
