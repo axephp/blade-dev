@@ -49,6 +49,21 @@ if (!function_exists('dump')) {
 }
 
 
+if (!function_exists('escape')) {
+
+	function escape($str)
+	{
+
+		$str = strip_tags($str);
+          $str = htmlentities($str);
+          $str = htmlspecialchars($str, ENT_QUOTES);
+          return addslashes($str);
+
+	}
+
+}
+
+
 /*
 
 if (!function_exists('axe')) {
