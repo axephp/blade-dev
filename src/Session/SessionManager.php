@@ -23,8 +23,5 @@ class SessionManager extends Manager implements IManager
 		
 		$session->encrypt($config->encrypt);
 
-		$session->setCookieName($config->cookie);
-
-		//$session->start();
 	}
 }

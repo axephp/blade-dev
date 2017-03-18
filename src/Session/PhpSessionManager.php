@@ -17,8 +17,6 @@ class PhpSessionManager extends SymfonySession
 
 	protected $prefix;
 
-	protected $cookie;
-
 	protected $encrypt;
 
 
@@ -30,7 +28,8 @@ class PhpSessionManager extends SymfonySession
 		$this->prefix = $axe->config('site')->site_prefix;
 
 		# set session name
-		$this->setName($this->prefix.'_session');
+		$sessionName = $this->prefix.'_'.$axe->config('session')->cookie;
+		$this->setName($sessionName);
 		$this->start();
 
 
@@ -47,11 +46,6 @@ class PhpSessionManager extends SymfonySession
 	public function encrypt(bool $value = false)
 	{
 		$this->encrypt = $value;
-	}
-
-	public function setCookieName($value='')
-	{
-		$this->cookie = $this->prefix.'_'.$value;
 	}
 
 
