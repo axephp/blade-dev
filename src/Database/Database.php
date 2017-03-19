@@ -5,7 +5,7 @@ namespace Blade\Database;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 
-class Database extends AnotherClass
+class Database
 {
 	
 	protected $axe;
