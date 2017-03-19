@@ -22,7 +22,7 @@ function to($url){
 
 
 # TO Function
-function model($class, $args){ 
+function model($class, $args = []){ 
   return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::model($class, $args); }
 
 

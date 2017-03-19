@@ -78,9 +78,9 @@ class Database extends AnotherClass
 			return $this->instance->connection($connection);
 
 		}elseif (in_array($connection, (array)$this->connections)) {
-			$this->add($this->connections->$connection, $connection)
+			$this->add($this->connections->$connection, $connection);
 			return $this->use($connection);
-			
+
 		}else{
 			return $this->instance;
 		}
