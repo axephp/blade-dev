@@ -116,7 +116,7 @@ static function model($class, $args)
 			$libs = (array)$axe->resolve('libs');
 
 			$reflection = new ReflectionClass($class);
-			$ar = is_array($args) ? $args : ...$args;
+			$ar = is_array($args) ? $args : (...$args);
 			$modo = $reflection->newInstanceArgs($ar);
 			
 			foreach ($libs as $key => $value) {
