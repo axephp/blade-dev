@@ -20,6 +20,12 @@ function view($viewName, $theme = 'default'){
 function to($url){ 
   return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::redirect($to); }
 
+
+# TO Function
+function model($class, $args){ 
+  return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::model($class, $args); }
+
+
 class func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg{
 static function res(){
 	$class_name = debug_backtrace()[2]['class'];
@@ -90,6 +96,43 @@ static function makeImg($file, $attribs)
 		}
 		$tag .= "/>";
 		return $tag;
+
+	}else{
+		throw new Exception("Invalid call to function", 1);	
+	}
+}
+
+static function model($class, $args)
+{
+	$class_name = debug_backtrace()[2]['class'];
+
+	$check = (strpos($class_name, 'User\\Pages') !== false);
+
+	if ($check) {
+		
+		if (class_exists($class)) {
+
+			$axe = \Blade\AxE\AxE::getInstance();
+			$libs = (array)$axe->resolve('libs');
+
+			$reflection = new ReflectionClass($class);
+			$ar = is_array($args) ? $args : ...$args;
+			$modo = $reflection->newInstanceArgs($ar);
+			
+			foreach ($libs as $key => $value) {
+
+				if ($axe->isBound($key) || $axe->isMapped($key) || $axe->isAlias($value)) {
+					$lib = is_numeric($key) ? $value : $key;
+					$obj = $axe->resolve($lib);
+								
+					$modo->$lib = $obj;
+				}
+			}
+
+			return $modo;
+		}else{
+			trigger_error("Model not found");
+		}
 
 	}else{
 		throw new Exception("Invalid call to function", 1);	
