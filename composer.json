@@ -19,6 +19,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
-        "symfony/http-foundation": "^3.2"
+        "symfony/http-foundation": "^3.2",
+        "illuminate/database": "^5.4"
     }
 }
