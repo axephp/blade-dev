@@ -116,9 +116,8 @@ static function model($class, $args)
 			$libs = (array)$axe->resolve('libs');
 
 			$reflection = new ReflectionClass($class);
-			$ar = is_array($args) ? $args : (...$args);
-			$modo = $reflection->newInstanceArgs($ar);
-			
+			$modo = is_array($args) ? $reflection->newInstanceArgs($ar) : $reflection->newInstanceArgs(...$args);
+
 			foreach ($libs as $key => $value) {
 
 				if ($axe->isBound($key) || $axe->isMapped($key) || $axe->isAlias($value)) {
