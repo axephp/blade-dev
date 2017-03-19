@@ -3,6 +3,7 @@
 namespace Blade\Database;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Blade\Interfaces\AxE\AxE;
 
 
 class Database
