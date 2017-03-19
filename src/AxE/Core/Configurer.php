@@ -37,12 +37,12 @@ class Configurer
 						$axe->alias($key, $value);
 					}
 					if (!$axe->isAlias($value)) {
-						$axe-bind($key, $value);
+						$axe->bind($key, $value);
 					}	
 				}
 
 				if (!$axe->isAlias($value)) {
-					$axe-bind($value);
+					$axe->bind($value);
 				}
 				
 			}
