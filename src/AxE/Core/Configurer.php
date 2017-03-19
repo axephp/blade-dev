@@ -37,19 +37,19 @@ class Configurer
 						$axe->alias($key, $value);
 					}
 					if (!$axe->isAlias($value)) {
-						$this-bind($key, $value);
+						$axe-bind($key, $value);
 					}	
 				}
 
 				if (!$axe->isAlias($value)) {
-					$this-bind($value);
+					$axe-bind($value);
 				}
 				
 			}
 		}
 
 		$this->axe->map('libs', (object) $axeConfig['libs']);
-		
+
 		foreach ($this->confs as $file) {
 			$config->loadConf($file);
 		}
