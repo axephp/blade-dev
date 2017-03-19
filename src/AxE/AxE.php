@@ -120,7 +120,7 @@ class AxE extends Container implements IAxE
         $this->map('axe', $this);
         $this->map(\Blade\Container\Container::class, $this);
 
-        $this->register(['event' => \Blade\Events\Trigger::class]);
+        $this->register(['events' => \Blade\Events\Trigger::class]);
 
     }
 
@@ -221,7 +221,7 @@ class AxE extends Container implements IAxE
      */
     public function trigger($event, $args = [])
     {
-        $eventer = $this->resolve('event');
+        $eventer = $this->resolve('events');
         $eventer->fire($event, $args);
     }
 
@@ -235,7 +235,7 @@ class AxE extends Container implements IAxE
      */
     public function log($log, $args = [])
     {
-        $eventer = $this->resolve('log');
+        $eventer = $this->resolve('logs');
         $eventer->log($log, $args);
     }
 
