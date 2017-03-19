@@ -48,7 +48,7 @@ class Configurer
 			}
 		}
 
-		$this->axe->map('libs', (object) $axeConfig['libs']);
+		$axe->map('libs', (object) $axeConfig['libs']);
 
 		foreach ($this->confs as $file) {
 			$config->loadConf($file);
