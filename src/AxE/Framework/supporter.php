@@ -127,7 +127,7 @@ static function model($class, $args)
 								
 					$modo->$lib = $obj;
 
-					dump($key, $value;
+					dump($key, $value);
 				}
 			}
 
