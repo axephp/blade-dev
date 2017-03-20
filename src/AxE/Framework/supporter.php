@@ -120,13 +120,14 @@ static function model($class, $args)
 
 			foreach ($libs as $key => $value) {
 
-				breakpoint($axe->isBound($key));
-				if ($axe->isBound($key) || $axe->isMapped($key) || $axe->isAlias($value)) {
+				if ($axe->isBound($key) || $axe->isMapped($key) || $axe->isAlias($value) || isMapped($value)) {
 
 					$lib = is_numeric($key) ? $value : $key;
 					$obj = $axe->resolve($lib);
 								
 					$modo->$lib = $obj;
+
+					dump($key, $value;
 				}
 			}
 
