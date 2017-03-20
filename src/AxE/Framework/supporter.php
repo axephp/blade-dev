@@ -122,7 +122,7 @@ static function model($class, $args)
 
 				if ($axe->isBound($key) || $axe->isMapped($key) || $axe->isAlias($value)) {
 
-					breakpoint($key, $value);
+					dump($key, $value);
 
 					$lib = is_numeric($key) ? $value : $key;
 					$obj = $axe->resolve($lib);
