@@ -12,7 +12,7 @@ class Logger
 	{
 
 		// TODO: Logging tasks
-		$axe->register(['log' => \Blade\Log\Log::class]);
+		$axe->register(['logs' => \Blade\Log\Log::class]);
 	}
 
 }

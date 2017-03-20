@@ -100,12 +100,12 @@ class Processor implements IProcessor
 			include_once $file;
 
 			$class .= "\\".(implode("\\", $request));
-			
+
 			if (class_exists($class)) {
 				
 				$reflection = new ReflectionClass($class);
 				$current = $request;
-				$params = $this->requests;
+				$params = array_flatten($this->requests);
 
 				// Compiled Route
 				$compiled = new CompiledRoute($this->axe);
@@ -258,8 +258,10 @@ class Processor implements IProcessor
 				}
 
 			}else{
-				if ($key == count($params) - 1) {
+				if ($key == count($params) - 1 && $key > 0) {
 					$args[] = array_slice($values, $i);
+				}elseif ($key == 0 && $param->getName() !== "args") {
+					$args[] = $values[0] ?? null;
 				}else{
 					$args[] = $values[$i] ?? null;
 					$i++;

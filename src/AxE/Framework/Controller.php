@@ -27,8 +27,12 @@ class Controller
 
 	public function __get($key)
 	{
-		if ($this->axe->isBound($key) || $this->axe->isAlias($key) || $this->axe->isMapped($key)) {
-			//return $this->axe->resolve($key);
+		if ($this->axe->isBound($key) || $this->axe->isMapped($key)) {
+
+			$libs = (array)$this->axe->resolve('libs');
+			if (in_array($key, array_merge($libs, array_keys($libs)))) {
+				return $this->resolve($key);
+			}
 		}
 		
 	}
