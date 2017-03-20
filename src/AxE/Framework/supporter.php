@@ -118,6 +118,8 @@ static function model($class, $args)
 			$reflection = new ReflectionClass($class);
 			$modo = is_array($args) ? $reflection->newInstanceArgs($args) : $reflection->newInstanceArgs(...$args);
 
+			breakpoint($libs);
+			
 			foreach ($libs as $key => $value) {
 
 				if ($axe->isBound($key) || $axe->isMapped($key) || $axe->isAlias($value)) {
