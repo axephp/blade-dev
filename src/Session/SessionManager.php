@@ -18,8 +18,11 @@ class SessionManager extends Manager implements IManager
 		$method = $driverName.'SessionDriver';
 
 		$session = $axe->resolve(\Blade\Session\Session::class)->$method($axe);
+
+		breakpoint($session);
+
 		$axe->map('session', $session);
-		
+
 		$session->checkForExpiry($config->lifetime);
 		
 		$session->encrypt($config->encrypt);
