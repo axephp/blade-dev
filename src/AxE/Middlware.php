@@ -5,7 +5,7 @@ namespace Blade\AxE;
 use ReflectionClass;
 use Exception;
 
-class Manager
+class Middleware
 {
 
 	// Peaceful in here.

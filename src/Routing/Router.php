@@ -13,17 +13,17 @@ use Blade\Routing\RouteList;
 
 class Router implements IRouter
 {
-	
+    
 
-	/**
-	 * The AxE instance
-	 *
-	 * @var AxE
-	 */
-	protected $axe;
+    /**
+     * The AxE instance
+     *
+     * @var AxE
+     */
+    protected $axe;
 
 
-	/**
+    /**
      * The route collection instance.
      *
      * @var RouteList
@@ -31,7 +31,7 @@ class Router implements IRouter
     protected $routes;
 
 
- 	/**
+    /**
      * The currently processing route instance.
      *
      * @var CompiledRoute
@@ -79,15 +79,15 @@ class Router implements IRouter
      * @param  Processor  $processor
      * @return void
      */
-	public function __construct(AxE $axe)
-	{
+    public function __construct(AxE $axe)
+    {
 
-		$this->axe = $axe;
+        $this->axe = $axe;
 
-	}
+    }
 
 
-	/**
+    /**
      * Register a new GET route with the router.
      *
      * @param  string  $uri
@@ -229,7 +229,7 @@ class Router implements IRouter
 
         $route = $this->passThroughMiddlewares($route, $request);
         return $route;
-    }	
+    }   
 
 
     /**
@@ -362,10 +362,10 @@ class Router implements IRouter
         $route = $this->routes->match($request);
 
         if ($route) {
-        	$this->disableFetch($route);
+            $this->disableFetch($route);
             $route = $this->listCompile($route);
         }else{
-        	$route = $this->fetch($request);
+            $route = $this->fetch($request);
         }
 
         $this->current = $route;
@@ -401,7 +401,7 @@ class Router implements IRouter
      */
     public function disableFetch($route)
     {
-    		$route->fetachable(false);
+            $route->fetachable(false);
     }
 
 
@@ -413,8 +413,8 @@ class Router implements IRouter
      */
     public function block(string $route)
     {
-    		// Block folder URL
-    		$this->blocked[] = $route;
+            // Block folder URL
+            $this->blocked[] = $route;
     }
 
 
@@ -430,7 +430,7 @@ class Router implements IRouter
     {
             $uri = $request->uri();
 
-    		if (!in_array($uri, $this->blocked)) {
+            if (!in_array($uri, $this->blocked)) {
 
                 if (in_array('axeasset', $request->requests())) {
                         
@@ -452,17 +452,27 @@ class Router implements IRouter
 
                 }
 
-    		}else{
-    			throw new Exception("Blocked route detected.", 1);
-    			
-    		}
-    		
+            }else{
+                throw new Exception("Blocked route detected.", 1);
+                
+            }
+            
     }
 
 
     protected function passThroughMiddlewares($route, $response)
     {
-        //var_dump($this->middlewares);
+        var_dump($this->middlewares);
+
+        foreach ($this->middlewares as $middleware) {
+            if (class_exists($middleware)) {
+                echo "Yup";
+            }else{
+                echo "None";
+            }
+
+            $class = new $middleware;
+        }
 
         return $route;
 

@@ -80,13 +80,3 @@ class Trigger implements ITrigger
         	return $item;
 	}
 }
-
-
-class EventLogItem
-{
-	
-	public $datetime;
-	public $action;
-	public $sender;
-
-}
