@@ -469,9 +469,12 @@ class Router implements IRouter
                 $class = new $middleware($this->axe);
                 $class->run($route);
             }else{
-                throw new Exception("Middleware '$middleware' not found.", 1);
+                
+                //throw new Exception("Middleware '$middleware' not found.", 1);
             }
         }
+
+        var_dump($this->middlewares);
 
         return $route;
 
