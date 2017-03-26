@@ -68,7 +68,7 @@ if (!function_exists('redirect')) {
 
 	function redirect($url)
 	{
-		header('Location: ' . filter_var($url, FILTER_SANITIZE_URL));
+		header('Location: ' . $url);
 	}
 
 }
