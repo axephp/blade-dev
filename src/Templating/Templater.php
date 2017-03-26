@@ -102,7 +102,15 @@ class Templater
 
 	protected function buffered($file, $vars = [])
 	{
+
+		
 		ob_start();
+
+		$libs = (array)$this->axe->resolve('libs');
+		foreach ($libs as $value) {
+			$$value = $this->resolve($key);
+		}
+		
 		extract($vars);
 		include $file;
 		$code = ob_get_contents();
