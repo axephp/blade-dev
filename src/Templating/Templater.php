@@ -64,7 +64,7 @@ class Templater
 			$content = $this->buffered(Path::process($this->axe->storagePath(), "cache/theme-$theme.php"));
 			
 			$structContent = file_get_contents($struct);
-			$structCompiled = $this->varer($structContent, ['pageBody'=>$tplCompiled]);
+			$structCompiled = $this->varer($structContent, ['pageBody'=>$content]);
 			
 		}else{
 			
