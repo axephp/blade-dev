@@ -54,15 +54,15 @@ class Templater
 			}
 
 			$tpl = Path::process($this->axe->themesPath(), $theme, $tmp['template']);
+
+			//file_put_contents(Path::process($this->axe->storagePath(), "cache/theme-$theme.php"), $tplCompiled);
+
+			$tplContent = $this->buffered($tpl, $tmp['elements']);
 			
 			// First, we need to templify(:P) the tpl first.
-			$tplContent = file_get_contents($tpl);
 			$tplCompiled = $this->varer($tplContent, $tmp['elements']);
 
-			file_put_contents(Path::process($this->axe->storagePath(), "cache/theme-$theme.php"), $tplCompiled);
 
-			$content = $this->buffered(Path::process($this->axe->storagePath(), "cache/theme-$theme.php"));
-			
 			$structContent = file_get_contents($struct);
 			$structCompiled = $this->varer($structContent, ['pageBody'=>$content]);
 			
@@ -100,10 +100,10 @@ class Templater
 	}
 
 
-	protected function buffered($file)
+	protected function buffered($file, $vars = [])
 	{
 		ob_start();
-		//extract($vars);
+		extract($vars);
 		include $file;
 		$code = ob_get_contents();
 		ob_end_clean();
