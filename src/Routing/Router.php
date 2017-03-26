@@ -463,18 +463,15 @@ class Router implements IRouter
     protected function passThroughMiddlewares($route, $response)
     {
 
-        foreach ($this->middlewares as $middleware) {
+        foreach (array_flatten($this->middlewares) as $middleware) {
             if (class_exists($middleware)) {
-                dump($middleware);
                 $class = new $middleware($this->axe);
                 $class->run($route);
             }else{
                 
-                //throw new Exception("Middleware '$middleware' not found.", 1);
+                throw new Exception("Middleware '$middleware' not found.", 1);
             }
         }
-
-        var_dump($this->middlewares);
 
         return $route;
 
