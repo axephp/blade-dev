@@ -462,7 +462,6 @@ class Router implements IRouter
 
     protected function passThroughMiddlewares($route, $response)
     {
-        var_dump($this->middlewares);
 
         foreach ($this->middlewares as $middleware) {
             if (class_exists($middleware)) {
