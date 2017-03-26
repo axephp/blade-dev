@@ -106,15 +106,15 @@ class Templater
 		
 		ob_start();
 
+		extract($vars);
 		$libs = (array)$this->axe->resolve('libs');
-
+		$objs = [];
 		foreach ($libs as $value) {
-			$$value = $this->axe->resolve($value);
-
-			dump($$value);
+			$objs[$value] = $this->axe->resolve($value);
 		}
 
-		extract($vars);
+		extract($objs);
+		
 		include $file;
 		$code = ob_get_contents();
 		ob_end_clean();
