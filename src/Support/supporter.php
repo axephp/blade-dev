@@ -66,9 +66,10 @@ if (!function_exists('escape')) {
 
 if (!function_exists('redirect')) {
 
-	function redirect($url)
+	function redirect($url, $statusCode = 303)
 	{
-		header('Location: ' . $url);
+	   header('Location: ' . $url, true, $statusCode);
+	   die();
 	}
 
 }
