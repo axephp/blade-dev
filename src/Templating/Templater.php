@@ -59,6 +59,9 @@ class Templater
 			$tplContent = file_get_contents($tpl);
 			$tplCompiled = $this->varer($tplContent, $tmp['elements']);
 
+			file_put_contents(Path::process($this->axe->storagePath(), "cache/theme-$theme.php"), $tplCompiled);
+
+			$content = $this->buffered(Path::process($this->axe->storagePath(), "cache/theme-$theme.php"));
 			
 			$structContent = file_get_contents($struct);
 			$structCompiled = $this->varer($structContent, ['pageBody'=>$tplCompiled]);
@@ -94,6 +97,18 @@ class Templater
 	{
 		$var = explode("'", $match[4])[1];
 		return $var;
+	}
+
+
+	protected function buffered($file)
+	{
+		ob_start();
+		//extract($vars);
+		include $file;
+		$code = ob_get_contents();
+		ob_end_clean();
+		
+		return $code;
 	}
 
 
