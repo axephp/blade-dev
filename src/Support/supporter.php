@@ -64,6 +64,16 @@ if (!function_exists('escape')) {
 }
 
 
+if (!function_exists('redirect')) {
+
+	function redirect($url)
+	{
+		header('Location: ' . filter_var($url, FILTER_SANITIZE_URL));
+	}
+
+}
+
+
 /*
 
 if (!function_exists('axe')) {

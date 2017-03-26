@@ -3,9 +3,10 @@
 namespace Blade\Database;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Blade\Interfaces\AxE\AxE;
 
 
-class Database extends AnotherClass
+class Database
 {
 	
 	protected $axe;
@@ -78,9 +79,9 @@ class Database extends AnotherClass
 			return $this->instance->connection($connection);
 
 		}elseif (in_array($connection, (array)$this->connections)) {
-			$this->add($this->connections->$connection, $connection)
+			$this->add($this->connections->$connection, $connection);
 			return $this->use($connection);
-			
+
 		}else{
 			return $this->instance;
 		}

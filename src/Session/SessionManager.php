@@ -19,6 +19,8 @@ class SessionManager extends Manager implements IManager
 
 		$session = $axe->resolve(\Blade\Session\Session::class)->$method($axe);
 
+		$axe->map('session', $session);
+
 		$session->checkForExpiry($config->lifetime);
 		
 		$session->encrypt($config->encrypt);

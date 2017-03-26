@@ -131,6 +131,12 @@ class PhpSessionManager extends SymfonySession
 		return parent::set($this->encrypt ? $this->encryptV($name) : $name, $this->encrypt ? $this->encryptV($value) : $value);
 	}
 
+	public function remove($key)
+	{
+		$name = $this->prefix.'_'.$key;
+		return parent::unset($this->encrypt ? $this->decryptV($name) : $name);
+	}
+
 
 	protected function encryptV($value='')
 	{

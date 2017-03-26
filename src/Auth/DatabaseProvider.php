@@ -1,11 +1,11 @@
 <?php
 
-namespace Blade\AxE;
+namespace Blade\Auth;
 
 use ReflectionClass;
 use Exception;
 
-class Manager
+class DatabaseProvider
 {
 
 	// Peaceful in here.

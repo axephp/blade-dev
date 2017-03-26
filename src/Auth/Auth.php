@@ -1,11 +1,11 @@
-<?php
+s<?php
 
-namespace Blade\AxE;
+namespace Blade\Auth;
 
 use ReflectionClass;
 use Exception;
 
-class Manager
+class Auth
 {
 
 	// Peaceful in here.
