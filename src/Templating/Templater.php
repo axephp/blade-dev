@@ -109,9 +109,9 @@ class Templater
 		$libs = (array)$this->axe->resolve('libs');
 
 		var_dump($libs);
-		
+
 		foreach ($libs as $value) {
-			$$value = $this->resolve($value);
+			$$value = $this->axe->resolve($value);
 		}
 
 		extract($vars);
