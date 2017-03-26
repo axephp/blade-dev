@@ -108,9 +108,9 @@ class Templater
 
 		$libs = (array)$this->axe->resolve('libs');
 		foreach ($libs as $value) {
-			$$value = $this->resolve($key);
+			$$value = $this->resolve($value);
 		}
-		
+
 		extract($vars);
 		include $file;
 		$code = ob_get_contents();
