@@ -111,7 +111,7 @@ class Templater
 		foreach ($libs as $value) {
 			$$value = $this->axe->resolve($value);
 
-			echo $$value;
+			dump($$value);
 		}
 
 		extract($vars);
