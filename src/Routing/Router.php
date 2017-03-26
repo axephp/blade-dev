@@ -465,6 +465,7 @@ class Router implements IRouter
 
         foreach ($this->middlewares as $middleware) {
             if (class_exists($middleware)) {
+                dump($middleware);
                 $class = new $middleware($this->axe);
                 $class->run($route);
             }else{

@@ -11,7 +11,7 @@ class DatabaseProvider
 	/**
 	 * Database Connection
 	 *
-	 * @var Connection
+	 * @var ConnectionInterface
 	 */
 	protected $connection;
 
@@ -19,7 +19,7 @@ class DatabaseProvider
 	/**
 	 * Table Requested
 	 *
-	 * @var Table
+	 * @var string
 	 */
 	protected $table;
 
@@ -30,6 +30,7 @@ class DatabaseProvider
 	 * @var Hasher
 	 */
 	protected $haser;
+
 
 	/**
 	 * New DatabaseProvider Instance
@@ -42,7 +43,7 @@ class DatabaseProvider
 	{
 		$this->connection 	= $connection;
 		$this->table 		= $table;
-		$this->hasher
+		$this->hasher 		= $hasher;
 	}
 
 
@@ -61,7 +62,7 @@ class DatabaseProvider
 	/**
 	 * set Table
 	 *
-	 * @param Table
+	 * @param string
 	 * @return void
 	 */
 	public function setTable($table)
@@ -86,9 +87,9 @@ class DatabaseProvider
 	 * Return Connection
 	 *
 	 * @param null
-	 * @return Connection
+	 * @return ConnectionInterface
 	 */
-	public function getConnection($connection)
+	public function getConnection()
 	{
 		return $this->connection;
 	}
@@ -100,7 +101,7 @@ class DatabaseProvider
 	 * @param null
 	 * @return Table
 	 */
-	public function getTable($table)
+	public function getTable()
 	{
 		return $this->table;
 	}
@@ -112,7 +113,7 @@ class DatabaseProvider
 	 * @param null
 	 * @return Hasher
 	 */
-	public function getHasher($hasher)
+	public function getHasher()
 	{
 		return $this->hasher;
 	}
@@ -126,7 +127,8 @@ class DatabaseProvider
 	 */
 	public function retrieveById($id)
 	{
-
+		$user = $this->connection->table($this->table)->find($identifier);
+        	return $this->getGenericUser($user);
 	}
 
 
@@ -138,7 +140,11 @@ class DatabaseProvider
 	 */
 	public function retrieveByToken($id, $token)
 	{
-
+        	$user = $this->connection->table($this->table)
+            	->where('id', $identifier)
+            	->where('remember_token', $token)
+            	->first();
+        	return $this->getGenericUser($user);
 	}
 
 
@@ -151,7 +157,9 @@ class DatabaseProvider
 	 */
 	public function updateToken($user, $token)
 	{
-
+        $this->conn->table($this->table)
+                ->where('id', $user->getAuthIdentifier())
+                ->update(['remember_token' => $token]);
 	}
 
 
@@ -164,6 +172,15 @@ class DatabaseProvider
 	public function retrieveByCredentials($credentials)
 	{
 
+        	$query = $this->conn->table($this->table);
+        	foreach ($credentials as $key => $value) {
+            	if (! Str::contains($key, 'password')) {
+                	$query->where($key, $value);
+            	}
+        	}
+
+        $user = $query->first();
+        return $this->getGenericUser($user);
 	}
 
 
@@ -174,9 +191,10 @@ class DatabaseProvider
 	 * @param array
 	 * @return
 	 */
-	public function retrieveByToken($user, $credentials)
+	public function validate($user, $credentials)
 	{
-
+		$plain = $credentials['password'];
+        	return $this->hasher->check($plain, $user->getAuthPassword());
 	}
 
 
@@ -188,7 +206,9 @@ class DatabaseProvider
 	 */
 	public function genericUser($user)
 	{
-
+ 		if (! is_null($user)) {
+            	return new GenericUser((array) $user);
+        	}
 	}
 
 }

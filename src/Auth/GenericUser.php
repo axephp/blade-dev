@@ -31,11 +31,11 @@ class GenericUser
 	 * Return ID of Generic User
 	 *
 	 * @param null
-	 * @return void
+	 * @return string
 	 */
 	public function getId()
 	{
-
+		return 'id';
 	}
 
 
@@ -43,11 +43,12 @@ class GenericUser
 	 * Return ID Name of Generic User
 	 *
 	 * @param null
-	 * @return void
+	 * @return mixed
 	 */
 	public function getIdName()
 	{
-
+		$name = $this->getAuthIdentifierName();
+        	return $this->attributes[$name];
 	}
 
 
@@ -55,11 +56,11 @@ class GenericUser
 	 * Return Password of Generic User
 	 *
 	 * @param null
-	 * @return void
+	 * @return string
 	 */
 	public function getPassword()
 	{
-
+		return $this->attributes['password'];
 	}
 
 
@@ -67,12 +68,24 @@ class GenericUser
 	 * Return ID of Generic User
 	 *
 	 * @param null
-	 * @return void
+	 * @return string
 	 */
 	public function getToken()
 	{
-
+		return $this->attributes[$this->getRememberTokenName()];
 	}
+
+
+	/**
+     * Set the "remember me" token value.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    	public function setRememberToken($value)
+    	{
+        	$this->attributes[$this->getRememberTokenName()] = $value;
+    	}
 
 
 	/**
@@ -83,31 +96,32 @@ class GenericUser
 	 */
 	public function getTokenName()
 	{
-
+		return 'remember_token';
 	}
 
 
 	/**
 	 * Magic Get
 	 *
-	 * @param null
-	 * @return void
+	 * @param string
+	 * @return mixed
 	 */
 	public function __get()
 	{
-
+		return $this->attributes[$key];
 	}
 
 
 	/**
 	 * Magic SET
 	 *
-	 * @param null
+	 * @param string
+	 * @param mixed
 	 * @return void
 	 */
-	public function __set()
+	public function __set($key, $value)
 	{
-
+		$this->attributes[$key] = $value;
 	}
 
 
@@ -117,9 +131,9 @@ class GenericUser
 	 * @param null
 	 * @return void
 	 */
-	public function __isset()
+	public function __isset($key)
 	{
-
+		return isset($this->attributes[$key]);
 	}
 
 
@@ -129,8 +143,8 @@ class GenericUser
 	 * @param null
 	 * @return void
 	 */
-	public function __unset()
+	public function __unset($key)
 	{
-
+		unset($this->attributes[$key]);
 	}
 }
