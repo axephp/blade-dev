@@ -109,6 +109,7 @@ class Templater
 		$libs = (array)$this->axe->resolve('libs');
 
 		foreach ($libs as $value) {
+			echo $value;
 			$$value = $this->axe->resolve($value);
 		}
 
