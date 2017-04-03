@@ -100,7 +100,7 @@ class Container implements IContainer
      * @param  bool   $shared
      * @return void
      */
-	public function bind($provider, string $content = null, bool $singleton = true)
+	public function bind($provider, string $content = null, $singleton = true)
 	{
 		return $this->register($provider, $content, $singleton);
 	}
@@ -201,7 +201,7 @@ class Container implements IContainer
      * @param  bool   $shared
      * @return void
      */
-	public function register($provider, string $content = null, bool $singleton = true)
+	public function register($provider, string $content = null, $singleton = true)
 	{
 		
 		if (!is_array($provider)) {

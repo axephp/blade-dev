@@ -96,7 +96,7 @@ class AxE extends Container implements IAxE
      * @param  string|null  $basePath
      * @return void
      */
-    public function __construct(string $basePath = null)
+    public function __construct($basePath = null)
     {
         $this->attendance();
         $this->attendImportantManagers();
