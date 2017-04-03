@@ -46,9 +46,8 @@ class Templater
 			foreach ($libs as $value) {
 				$objs[$value] = $this->axe->resolve($value);
 			}
-
 			extract($objs);
-			
+
 			$tmp = require $file;
 			if (!array_key_exists('template', $tmp)) {
 				throw new Exception("Invalid theme file.", 902);
