@@ -43,7 +43,7 @@ class PhpSessionManager extends SymfonySession
 	}
 
 
-	public function encrypt(bool $value = false)
+	public function encrypt($value = false)
 	{
 		$this->encrypt = $value;
 	}

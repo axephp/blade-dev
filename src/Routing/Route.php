@@ -59,7 +59,7 @@ class Route implements IRoute
 	 * @param string
 	 * @return void
 	 */
-	public function __construct(array $methods, $request)
+	public function __construct($methods, $request)
 	{
 		$this->setMethod($methods);
 		$this->request = $request;
@@ -119,7 +119,7 @@ class Route implements IRoute
 	 * @param array
 	 * @return void
 	 */
-	public function setMethod(array $method)
+	public function setMethod($method)
 	{
 		$this->method = $method;
 	}
@@ -179,7 +179,7 @@ class Route implements IRoute
 	 * @param bool
 	 * @return void
 	 */
-	public function setFetchable(string $fetchable)
+	public function setFetchable($fetchable)
 	{
 		$this->fetchable = $fetchable;
 	}
@@ -191,7 +191,7 @@ class Route implements IRoute
 	 * @param bool
 	 * @return void
 	 */
-	public function fetchable(string $fetchable)
+	public function fetchable($fetchable)
 	{
 		$this->setFetchable($fetchable);
 	}

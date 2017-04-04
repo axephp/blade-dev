@@ -260,9 +260,11 @@ class Processor implements IProcessor
 				if ($key == count($params) - 1 && $key > 0) {
 					$args[] = array_slice($values, $i);
 				}elseif ($key == 0 && $param->getName() !== "args") {
-					$args[] = $values[0] ?? null;
+					// $args[] = $values[0] ?? null; // PHP 7.0
+					$args[] = isset($values[0]) ? $values[0] : null;
 				}else{
-					$args[] = $values[$i] ?? null;
+					//$args[] = $values[$i] ?? null; // PHP 7.0
+					$args[] = isset($values[$i]) ? $values[$i] : null;
 					$i++;
 				}
 			}
