@@ -49,7 +49,7 @@ class Container implements IContainer
      * @param  string  $provider
      * @return bool
      */
-	public function isResolved(string $provider)
+	public function isResolved($provider)
 	{
 		
 		$provider = $this->trim($provider);
@@ -64,7 +64,7 @@ class Container implements IContainer
      * @param  string  $provider
      * @return bool
      */
-	public function isBound(string $provider)
+	public function isBound($provider)
 	{
 
 		$provider = $this->trim($provider);
@@ -79,7 +79,7 @@ class Container implements IContainer
      * @param  string  $name
      * @return bool
      */
-	public function isMapped(string $name)
+	public function isMapped($name)
 	{
 
 		/**
@@ -100,7 +100,7 @@ class Container implements IContainer
      * @param  bool   $shared
      * @return void
      */
-	public function bind($provider, string $content = null, $singleton = true)
+	public function bind($provider, $content = null, $singleton = true)
 	{
 		return $this->register($provider, $content, $singleton);
 	}
@@ -112,7 +112,7 @@ class Container implements IContainer
      * @param  string  $provider
      * @return bool
      */
-	public function isAlias(string $alias)
+	public function isAlias($alias)
 	{
 
 		$alias = $this->trim($alias);
@@ -127,7 +127,7 @@ class Container implements IContainer
      * @param  string  $provider
      * @return string|array
      */
-	public function getAlias(string $provider)
+	public function getAlias($provider)
 	{
 
 		if(!in_array($provider, $this->aliases))
@@ -152,7 +152,7 @@ class Container implements IContainer
      * @param  string  $name
      * @return string
      */
-	protected function resolveProvider(string $name)
+	protected function resolveProvider($name)
 	{
 
 		if (!$this->isAlias($name))
@@ -170,7 +170,7 @@ class Container implements IContainer
      * @param  string  $provider
      * @return void
      */
-	public function alias(string $alias, string $provider)
+	public function alias($alias, $provider)
 	{
 
 		$provider = $this->trim($provider);
@@ -187,7 +187,7 @@ class Container implements IContainer
      * @param  string  $name
      * @return string
      */
-	protected function trim(string $name)
+	protected function trim($name)
 	{
 		return is_string($name) ? ltrim($name, "\\") : $name;
 	}
@@ -201,7 +201,7 @@ class Container implements IContainer
      * @param  bool   $shared
      * @return void
      */
-	public function register($provider, string $content = null, $singleton = true)
+	public function register($provider, $content = null, $singleton = true)
 	{
 		
 		if (!is_array($provider)) {
@@ -310,7 +310,7 @@ class Container implements IContainer
      * @param  array  $parameters
      * @return object
      */
-	public function resolve(string $name, $parameters = [])
+	public function resolve($name, $parameters = [])
 	{
 		
 		/**
@@ -414,7 +414,7 @@ class Container implements IContainer
      * @param  string  $provider
      * @return string
      */
-	protected function getClass(string $provider)
+	protected function getClass($provider)
 	{
 
 		if (!isset($this->binds[$provider])) {
