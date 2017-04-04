@@ -205,7 +205,7 @@ class Router implements IRouter
      * @param  Request  $request
      * @return Route
      */
-    public function route(Request $request, array $middlewares)
+    public function route(Request $request, $middlewares)
     {
         $this->currentRequest = $request;
         $this->middlewares[] = $middlewares;
@@ -411,7 +411,7 @@ class Router implements IRouter
      * @param  string  $route
      * @return void
      */
-    public function block(string $route)
+    public function block($route)
     {
             // Block folder URL
             $this->blocked[] = $route;
