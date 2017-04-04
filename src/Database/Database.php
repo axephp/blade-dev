@@ -73,14 +73,14 @@ class Database
 		$this->instance->addConnection($connection, $name);
 	}
 
-	public function use($connection = 'default')
+	public function using($connection = 'default')
 	{
 		if (!is_null($this->instance->connection($connection))) {
 			return $this->instance->connection($connection);
 
 		}elseif (in_array($connection, (array)$this->connections)) {
 			$this->add($this->connections->$connection, $connection);
-			return $this->use($connection);
+			return $this->using($connection);
 
 		}else{
 			return $this->instance;

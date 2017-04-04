@@ -557,7 +557,7 @@ class AxE extends Container implements IAxE
      *
      * @return void
      */
-    public function setInstance($instance)
+    public static function setInstance($instance)
     {
         self::$instance = $instance;
     }
@@ -568,7 +568,7 @@ class AxE extends Container implements IAxE
      *
      * @return AxE
      */
-    public function getInstance()
+    public static function getInstance()
     {
         return self::$instance;
     }
