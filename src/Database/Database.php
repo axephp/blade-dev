@@ -49,7 +49,7 @@ class Database
 			throw new Exception("Specified default connection '$default' not found.", 516);	
 		}
 
-		$this->add($this->default, 'default');
+		$this->add($this->default[1], 'default');
 		
 	}
 
