@@ -31,7 +31,7 @@ class Controller
 
 			$libs = (array)$this->axe->resolve('libs');
 			if (in_array($key, array_merge($libs, array_keys($libs)))) {
-				return $this->resolve($key);
+				return $this->axe->resolve($key);
 			}
 		}
 		
