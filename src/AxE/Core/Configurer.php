@@ -28,6 +28,9 @@ class Configurer
 			if (!$axe->isAlias($alias)) {
 				$axe->alias($alias, $provider);
 			}
+			if (!$axe->isBound($provider) && !$axe->isMapped($provider)) {
+				$axe->bind($alias, $provider);
+			}
 		}
 
 		foreach ($axeConfig['libs'] as $key => $value) {
