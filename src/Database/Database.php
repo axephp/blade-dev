@@ -25,6 +25,8 @@ class Database
 		// Setup the Eloquent ORM
 		$capsule->bootEloquent();
 
+		$capsule->setAsGlobal();
+
 		$this->instance = $capsule;
 		$this->axe = $axe;
 
@@ -40,12 +42,12 @@ class Database
 		$this->connections = $conns;
 
 		if (isset($conns->$default)) {
-			$this->default = [$default, $conns->$default];
+			$this->default = [$default, (array)$conns->$default];
 		}else{
 			throw new Exception("Specified default connection '$default' not found.", 516);	
 		}
 
-		$this->add((array)$this->default, 'default');
+		$this->add($this->default, 'default');
 		
 	}
 
@@ -79,7 +81,7 @@ class Database
 			return $this->instance->connection($connection);
 
 		}elseif (in_array($connection, (array)$this->connections)) {
-			$this->add($this->connections->$connection, $connection);
+			$this->add((array)$this->connections->$connection, $connection);
 			return $this->using($connection);
 
 		}else{
