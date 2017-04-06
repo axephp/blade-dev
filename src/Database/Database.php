@@ -30,6 +30,8 @@ class Database
 		$this->instance = $capsule;
 		$this->axe = $axe;
 
+		$this->boot();
+
 	}
 
 	public function boot()
