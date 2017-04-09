@@ -82,7 +82,7 @@ class Database
 		if (!is_null($this->instance->connection($connection))) {
 			return $this->instance->connection($connection);
 
-		}elseif (in_array($connection, (array)$this->connections)) {
+		}elseif (array_key_exists($connection, (array)$this->connections)) {
 			$this->add((array)$this->connections->$connection, $connection);
 			return $this->using($connection);
 

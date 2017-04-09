@@ -67,7 +67,7 @@ class Auth
 		if (isset($this->guard[$authentication])) {
 			return $this->guard[$authentication];
 
-		}elseif (in_array($authentication, $this->auths)) {
+		}elseif (array_key_exists($authentication, $this->auths)) {
 			return $this->setup($authentication);
 
 		}else{
