@@ -46,7 +46,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $managers = [
-		Configurer::class, Shutter::class, Logger::class, Session::class , Auther::class
+		Configurer::class, Shutter::class, Logger::class, Session::class //, Auther::class
 	]; 
 
 
@@ -55,7 +55,7 @@ class Kernel implements IKernel
 	 *
 	 * @var AxE
 	 */
-	protected $middlewares = [];
+	protected $middlewares = [ Auther::class ];
 
 
 	/**
