@@ -65,11 +65,9 @@ class AuthElement
 	 * @param string
 	 * @param string
 	 */
-	public function __construct($driver, $user, $password, $loginPage, $postLoginPage, $userRoute)
+	public function __construct($driver, $loginPage, $postLoginPage, $userRoute)
 	{
 		$this->driver 			= $driver;
-		$this->user 			= $user;
-		$this->password 		= $password;
 		$this->loginPage 		= $loginPage;
 		$this->postLoginPage 	= $postLoginPage;
 		$this->userRoute 		= $userRoute;
@@ -98,19 +96,6 @@ class AuthElement
 	{
 		return $this->user;
 	}
-
-
-	/**
-	 * Return password of Authentication Element
-	 *
-	 * @param null
-	 * @return PasswordProvider
-	 */
-	public function getPassword()
-	{
-		return $this->password;
-	}
-
 
 
 	/**
@@ -157,6 +142,8 @@ class AuthElement
 	 */
 	public function prepare()
 	{
+
+		//
 
 	}
 
