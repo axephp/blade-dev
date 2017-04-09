@@ -52,7 +52,7 @@ class AuthElement
 	 *
 	 * @var string
 	 */
-	protected $userRoute;;
+	protected $userRoute;
 
 
 	/**

@@ -71,8 +71,7 @@ class Auth
 			return $this->setup($authentication);
 
 		}else{
-			//return false;
-			dump($this->auths);
+			return false;
 		}
 	}	
 
