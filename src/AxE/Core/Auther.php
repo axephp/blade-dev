@@ -8,12 +8,22 @@ use Blade\Interfaces\AxE\AxE;
 use Blade\Config\Config;
 
 class Auther
-{
+{	
 
-	public function run(AxE $axe)
+
+	protected $axe;
+
+
+	function __construct(AxE $axe)
+	{
+		$this->axe = $axe;
+	}
+
+
+	public function run($route)
 	{
 
-		$auth = $axe->resolve(\Blade\Auth\Auth::class);
+		$auth = $this->axe->resolve(\Blade\Auth\Auth::class);
 
 		$conf = $auth->getDefaultAuth()[1];
 
@@ -21,9 +31,7 @@ class Auther
 
 		$user = $auth->using()->getUser();
 
-		$request = (new \Blade\Http\Request())->requests();
-
-		dump($request);
+		dump($route);
 
 		if (!$user) {
 			if ($onload) {
