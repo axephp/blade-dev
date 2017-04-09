@@ -15,14 +15,16 @@ class Auther
 
 		$configs = $axe->config('auth');
 
-		$auth = $configs->authentications->{$configs->default};
+		$conf = $configs->authentications->{$configs->default};
 
-		$onload = $auth->login_compulsory;
+		$onload = $conf->login_compulsory;
+
+		$auth = $axe->resolve(\Blade\Auth\Auth::class);
 
 		if ($onload) {
-			echo "You will be redirected to : ". $auth->login_page;
+			echo "You will be redirected to : ". $conf->login_page;
 		}
-		
+
 		dump($auth);
 
 	}
