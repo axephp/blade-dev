@@ -23,15 +23,9 @@ class Auther
 
 		if (!$user) {
 			if ($onload) {
-				echo "You will be redirected to : ". $conf->login_page;
+				redirect($conf->login_page);
 			}
-
-			var_dump($axe->resolve('current'));
-		}else{
-
 		}
-
-		dump($user);
 
 	}
 
