@@ -31,7 +31,7 @@ class Auther
 
 		$user = $auth->using()->getUser();
 
-		dump($route->getRequest());
+		dump($route->getRequest()[0]);
 
 		if (!$user) {
 			if ($onload) {
