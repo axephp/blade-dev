@@ -21,6 +21,10 @@ class Auther
 
 		$user = $auth->using()->getUser();
 
+		$request = Blade\Http\Request::request();
+
+		dump($request);
+
 		if (!$user) {
 			if ($onload) {
 				redirect($conf->login_page);
