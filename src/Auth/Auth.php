@@ -61,7 +61,7 @@ class Auth
 	}
 
 
-	public function using($authentication = 'default')
+	public function using($authentication)
 	{
 		if (!is_null($this->guard[$authentication])) {
 			return $this->guard[$authentication];
@@ -71,7 +71,7 @@ class Auth
 			return $this->using($authentication);
 
 		}else{
-			return $this->using($default[0]);
+			return false;
 		}
 	}
 
