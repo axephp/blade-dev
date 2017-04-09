@@ -27,7 +27,7 @@ class Auther
 
 		if (!$user) {
 			if ($onload) {
-				redirect($conf->login_page);
+				//redirect($conf->login_page);
 			}
 		}
 
