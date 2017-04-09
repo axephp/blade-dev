@@ -36,7 +36,7 @@ class Auth
 		$default = $config->default;
 		$conns = $config->authentications;
 
-		$this->auths = $conns;
+		$this->auths = (array)$conns;
 
 		if (isset($conns->$default)) {
 			$this->default = [$default, (array)$conns->$default];
@@ -56,7 +56,7 @@ class Auth
 
 	public function getDefaultAuth()
 	{
-		return $this->getAuth($this->default);
+		return $this->default;
 	}
 
 
@@ -70,7 +70,7 @@ class Auth
 			return $this->using($authentication);
 
 		}else{
-			return $this->default;
+			return $this->guard[$default[0]];
 		}
 	}
 
