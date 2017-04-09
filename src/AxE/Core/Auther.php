@@ -16,6 +16,13 @@ class Auther
 		$configs = $axe->config('auth');
 
 		$auth = $configs->authentications->{$configs->default};
+
+		$onload = $auth->login_compulsory;
+
+		if ($onload) {
+			echo "You will be redirected to : ". $auth->login_page;
+		}
+		
 		dump($auth);
 
 	}
