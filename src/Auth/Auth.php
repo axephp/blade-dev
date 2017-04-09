@@ -38,8 +38,9 @@ class Auth
 
 		$this->auths = (array)$conns;
 
+
 		if (isset($conns->$default)) {
-			$this->default = [$default, (array)$conns->$default];
+			$this->default = [$default, $conns->$default];
 		}else{
 			throw new Exception("Specified default authentication '$default' not found.", 516);	
 		}
