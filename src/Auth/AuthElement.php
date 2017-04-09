@@ -128,7 +128,7 @@ class AuthElement
 
 
 	/**
-	 * prepare()
+	 * Prepare user
 	 *
 	 * @param 
 	 * @return
