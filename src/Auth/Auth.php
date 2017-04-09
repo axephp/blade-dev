@@ -64,7 +64,7 @@ class Auth
 
 	public function using($authentication = 'default')
 	{
-		if (!is_null($this->guard[$authentication])) {
+		if (isset($this->guard[$authentication])) {
 			return $this->guard[$authentication];
 
 		}elseif (in_array($authentication, (array)$this->auths)) {
