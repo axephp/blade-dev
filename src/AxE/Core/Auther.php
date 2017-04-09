@@ -13,7 +13,7 @@ class Auther
 	public function run(AxE $axe)
 	{
 
-		$configs = $axe->config('auths');
+		$configs = $axe->config('auth');
 
 		dump($configs);
 
