@@ -19,7 +19,7 @@ class Auther
 
 		$onload = $conf->login_compulsory;
 
-		$user = $auth->using('main');
+		$user = $auth->using();
 
 		if ($onload) {
 			echo "You will be redirected to : ". $conf->login_page;
