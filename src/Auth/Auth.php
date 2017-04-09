@@ -71,7 +71,7 @@ class Auth
 			return $this->using($authentication);
 
 		}else{
-			return $this->guard[$default[0]];
+			return $this->using($default[0]);
 		}
 	}
 
