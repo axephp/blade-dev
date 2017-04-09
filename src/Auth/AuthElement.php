@@ -25,13 +25,6 @@ class AuthElement
 
 
 	/**
-	 * password for authentication 
-	 *
-	 * @var PasswordProvider
-	 */
-	protected $password;
-
-	/**
 	 * login page
 	 *
 	 * @var string
