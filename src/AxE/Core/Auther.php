@@ -21,7 +21,7 @@ class Auther
 
 		$user = $auth->using()->getUser();
 
-		$request = \Blade\Http\Request::requests();
+		$request = {new \Blade\Http\Request()}->requests();
 
 		dump($request);
 
