@@ -68,7 +68,7 @@ class Auth
 			return $this->guard[$authentication];
 
 		}elseif (in_array($authentication, (array)$this->auths)) {
-			return $this->using($authentication);
+			return $this->setup($authentication);
 
 		}else{
 			return false;
