@@ -70,6 +70,9 @@ class Auth
 		}elseif (in_array($authentication, $this->auths)) {
 			return $this->setup($authentication);
 
+		}else{
+			//return false;
+			//dump($authentication);
 		}
 	}	
 
