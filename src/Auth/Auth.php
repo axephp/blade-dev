@@ -45,6 +45,7 @@ class Auth
 			throw new Exception("Specified default authentication '$default' not found.", 516);	
 		}
 
+		$this->auths['default'] = $conns->$default;
 
 	}
 
@@ -61,7 +62,7 @@ class Auth
 	}
 
 
-	public function using($authentication)
+	public function using($authentication = 'default')
 	{
 		if (!is_null($this->guard[$authentication])) {
 			return $this->guard[$authentication];
