@@ -72,7 +72,7 @@ class Auth
 
 		}else{
 			//return false;
-			//dump($authentication);
+			dump($this->auths);
 		}
 	}	
 
