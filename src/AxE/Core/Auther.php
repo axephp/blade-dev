@@ -31,11 +31,11 @@ class Auther
 
 		$user = $auth->using()->getUser();
 
-		dump($route->getRequest()[0]);
+		$page = ($route->getRequest()[0]);
 
 		if (!$user) {
-			if ($onload) {
-				//redirect($conf->login_page);
+			if ($onload && $page !== $conf->login_page) {
+				redirect($conf->login_page);
 			}
 		}
 
