@@ -13,14 +13,12 @@ class Auther
 	public function run(AxE $axe)
 	{
 
-		$configs = $axe->config('auth');
-
-		$conf = $configs->authentications->{$configs->default};
-
-		$onload = $conf->login_compulsory;
-
 		$auth = $axe->resolve(\Blade\Auth\Auth::class);
 
+		$conf = $auth->getDefaultAuth();
+
+		$onload = $conf->login_compulsory;
+		
 		if ($onload) {
 			echo "You will be redirected to : ". $conf->login_page;
 		}

@@ -48,6 +48,18 @@ class Auth
 	}
 
 
+	public function getAuth($auth)
+	{
+		return $this->auths[$auth];
+	}
+
+
+	public function getDefaultAuth()
+	{
+		return $this->getAuth($this->default);
+	}
+
+
 	public function using($authentication = 'default')
 	{
 		if (!is_null($this->guard[$authentication])) {
