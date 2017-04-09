@@ -15,6 +15,7 @@ use Blade\AxE\AxE_Error;
 use Blade\AxE\Core\Configurer;
 use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
+use Blade\AxE\Core\Auther;
 
 use Blade\Session\SessionManager as Session;
 
@@ -45,7 +46,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $managers = [
-		Configurer::class, Shutter::class, Logger::class, Session::class //, Authentication::class, Authorization::class
+		Configurer::class, Shutter::class, Logger::class, Session::class , Auther::class
 	]; 
 
 
