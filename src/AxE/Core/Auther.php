@@ -15,7 +15,7 @@ class Auther
 
 		$configs = $axe->config('auth');
 
-		$auth = $config->authentications->{$config->default};
+		$auth = $configs->authentications->{$configs->default};
 		dump($auth);
 
 	}
