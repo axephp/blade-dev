@@ -68,7 +68,6 @@ class Auth
 			return $this->guard[$authentication];
 
 		}elseif (in_array($authentication, (array)$this->auths)) {
-			$this->setup($authentication);
 			return $this->using($authentication);
 
 		}else{
@@ -87,6 +86,8 @@ class Auth
 		$element->prepare();
 
 		$this->guard[$auth] = $element;
+
+		return $element;
 	}
 
 
