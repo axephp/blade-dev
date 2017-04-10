@@ -13,7 +13,7 @@ trait AuthenticationPage{
 	public function index_post($args)
 	{
 
-		dump($args);
+		dump($_POST);
 
 	}
 
