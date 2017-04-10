@@ -81,7 +81,7 @@ class Auth
 	{
 		$conf = $this->auths[$auth];
 
-		$class = ucfirst($conf->driver).'Driver';
+		$class = 'Blade\Auth\\'.ucfirst($conf->driver).'Driver';
 
 		$pro = 'make'.ucfirst($conf->provider).'Provider';
 
