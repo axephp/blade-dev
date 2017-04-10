@@ -56,6 +56,11 @@ class SessionDriver
 	protected $logged;
 
 
+	protected $user;
+
+	protected $provider;
+
+
 	/**
 	 * New SessionDriver Instance
 	 *
