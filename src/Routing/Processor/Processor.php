@@ -302,7 +302,7 @@ class Processor implements IProcessor
 
 				}
 
-				dump($$type);
+				echo($type.'='.$$type.'<br>');
 				$$type++;
 
 				
