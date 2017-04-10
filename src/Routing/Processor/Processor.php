@@ -248,7 +248,7 @@ class Processor implements IProcessor
 
 		$args = [];
 		$i = [];
-		$i['arg'] 0;
+		$i['arg'] = 0;
 		foreach ($params as $key=>$param) {
 			
 			if (!is_null($param->getClass())) {
