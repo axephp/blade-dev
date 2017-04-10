@@ -104,7 +104,7 @@ class SessionDriver
 	 * @param bool
 	 * @return void
 	 */
-	public function setFromRemember($fromRemember = true);
+	public function setFromRemember($fromRemember = true)
 	{
 		$this->fromRemember = $fromRemember;
 	}
