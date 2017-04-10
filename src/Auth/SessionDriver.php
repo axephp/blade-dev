@@ -306,7 +306,7 @@ class SessionDriver
 	 */
 	public function authenticate($credentials, $remember = false, $login = false)
 	{
-		$this->fireAttemptEvent($credentials, $remember, $login);
+		//$this->fireAttemptEvent($credentials, $remember, $login);
         	$this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
 
         	if ($this->hasValidCredentials($user, $credentials)) {
@@ -317,7 +317,7 @@ class SessionDriver
         	}
 
         	if ($login) {
-            	$this->fireFailedEvent($user, $credentials);
+            	//$this->fireFailedEvent($user, $credentials);
         	}
         	return false;
 	}
@@ -335,11 +335,11 @@ class SessionDriver
 		$this->updateSession($user->getId());
 
         	if ($remember) {
-            	$this->createRememberTokenIfDoesntExist($user);
-            	$this->queueRecallerCookie($user);
+            	//$this->createRememberTokenIfDoesntExist($user);
+            	//$this->queueRecallerCookie($user);
         	}
 
-        	$this->fireLoginEvent($user, $remember);
+        	//$this->fireLoginEvent($user, $remember);
         	$this->setUser($user);
 	}
 
