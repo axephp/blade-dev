@@ -248,7 +248,8 @@ class Processor implements IProcessor
 
 		$args = [];
 		$i = [];
-		$i['arg'] = 0;
+		$i['args'] = 0;
+
 		foreach ($params as $key=>$param) {
 			
 			if (!is_null($param->getClass())) {
@@ -300,12 +301,13 @@ class Processor implements IProcessor
 					}else{
 						//$args[] = $values[$i] ?? null; // PHP 7.0
 						$args[] = isset($values['requests'][$i[$type]]) ? $values['requests'][$i[$type]] : null;
+						$i[$type]++;
 					}
 
 				}
 
 				echo($type.'='.$i[$type].'<br>');
-				$i[$type]++;
+				
 
 				
 			}
