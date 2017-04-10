@@ -204,7 +204,7 @@ class DatabaseProvider
 	 * @param string
 	 * @return
 	 */
-	public function genericUser($user)
+	public function getGenericUser($user)
 	{
  		if (! is_null($user)) {
             	return new GenericUser((array) $user);
