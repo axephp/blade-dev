@@ -284,10 +284,12 @@ class Processor implements IProcessor
 
 					if (isset($values[$parts[0]][$parts[1]])) {
 						$args[] = $values[$parts[0]][$parts[1]];
+						$i[$type]++;
 					}elseif ($parts[1] == "args") {
 						$args[] = array_slice($values[$parts[0]], $i[$type]);
 					}else{
 						$args[] = null;
+						$i[$type]++;
 					}
 
 
@@ -301,7 +303,7 @@ class Processor implements IProcessor
 					}else{
 						//$args[] = $values[$i] ?? null; // PHP 7.0
 						$args[] = isset($values['requests'][$i[$type]]) ? $values['requests'][$i[$type]] : null;
-						$i[$type]++;
+						$i['args']++;
 					}
 
 				}
