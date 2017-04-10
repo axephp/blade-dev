@@ -23,6 +23,8 @@ trait AuthenticationPage{
 			$this->message =  "Incorrect login entered!";
 		}
 
+		css('login.css');
+		
 		return view('login', 'login');
 
 	}
