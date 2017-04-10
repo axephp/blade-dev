@@ -13,8 +13,9 @@ trait AuthenticationPage{
 	public function index_post($post_username, $post_password)
 	{
 
+		$credentials = ['username' => $post_password, 'password' => $post_password ];
 
-		dump($this->auth->using());
+		dump($this->auth->using()->authenticate($credentials));
 
 
 	}

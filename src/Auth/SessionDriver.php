@@ -332,7 +332,7 @@ class SessionDriver
 	 */
 	public function login($user, $remember = false)
 	{
-		$this->updateSession($user->getAuthIdentifier());
+		$this->updateSession($user->getId());
 
         	if ($remember) {
             	$this->createRememberTokenIfDoesntExist($user);
