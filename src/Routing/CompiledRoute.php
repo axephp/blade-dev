@@ -42,7 +42,7 @@ class CompiledRoute implements ICompiledRoute
 	 *
 	 * @var array
 	 */
-	protected $params;
+	protected $paramsBag;
 
 
 	/**
@@ -133,14 +133,14 @@ class CompiledRoute implements ICompiledRoute
 
 
 	/**
-	 * Set parameters of the compiled route
+	 * Add parameters of the compiled route
 	 *
 	 * @param array
 	 * @return void
 	 */
-	public function setParameters($params)
+	public function addParameters($type, $params)
 	{
-		$this->params = $params;
+		$this->paramsBag[$type] = $params;
 	}
 
 
@@ -152,7 +152,7 @@ class CompiledRoute implements ICompiledRoute
 	 */
 	public function getParameters()
 	{
-		return $this->params;
+		return $this->paramsBag;
 	}
 
 

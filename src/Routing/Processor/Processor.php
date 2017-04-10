@@ -20,18 +20,6 @@ class Processor implements IProcessor
 
 	protected $asset = false;
 
-	protected $posts;
-
-	protected $gets;
-
-	protected $cookies;
-
-	protected $files;
-
-	protected $server;
-
-	protected $headers;
-
 
 	public function __construct(AxE $axe)
 	{
@@ -47,13 +35,6 @@ class Processor implements IProcessor
 	 */
 	public function compile($route)
 	{
-
-		$this->posts = $route->posts();
-		$this->gets = $route->queries();
-		$this->cookies = $route->cookies();
-		$this->files = $route->files();
-		$this->server = $route->server();
-		$this->headers = $route->headers();
 
 		$this->requests = array_flatten($route->requests());
 
@@ -129,9 +110,18 @@ class Processor implements IProcessor
 				// Compiled Route
 				$compiled = new CompiledRoute($this->axe);
 				$compiled->setRequest($current);
-				$compiled->setParameters($params);
 				$compiled->setPath($dir);
 				$compiled->setReflection($reflection);
+
+				// Filling ParameterBag
+				$compiled->addParameters('requests', $params);
+				$compiled->addParameters('posts', $route->posts());
+				$compiled->addParameters('queries', $route->queries());
+				$compiled->addParameters('cookies', $route->cookies());
+				$compiled->addParameters('files', $route->files());
+				$compiled->addParameters('server', $route->server());
+				$compiled->addParameters('headers', $route->headers());
+
 
 				return $compiled;
 				
