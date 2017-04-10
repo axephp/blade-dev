@@ -306,10 +306,7 @@ class Processor implements IProcessor
 						$i['args']++;
 					}
 
-				}
-
-				echo($type.'='.$i[$type].'<br>');
-				
+				}				
 
 				
 			}
