@@ -67,6 +67,10 @@ class Processor implements IProcessor
 	 */
 	public function asset($route)
 	{
+
+		$this->route = $route;
+
+
 		$this->requests = array_flatten($route->requests());
 		array_shift($this->requests);
 
