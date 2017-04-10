@@ -106,7 +106,7 @@ class GenericUser
 	 * @param string
 	 * @return mixed
 	 */
-	public function __get()
+	public function __get($key)
 	{
 		return $this->attributes[$key];
 	}
