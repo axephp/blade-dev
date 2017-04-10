@@ -355,8 +355,6 @@ class SessionDriver
         	$this->session->set($this->getName(), $id);
         	$this->session->migrate(true);
 
-        	dump($this->session);
-
     	}
 
 
@@ -454,6 +452,21 @@ class SessionDriver
         if (empty($user->getRememberToken())) {
             $this->refreshRememberToken($user);
         }
+    }
+
+
+    /**
+     * Set the current user.
+     *
+     * @param  Authenticatable  $user
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $this->loggedOut = false;
+        //$this->fireAuthenticatedEvent($user);
+        return $this;
     }
 
 }
