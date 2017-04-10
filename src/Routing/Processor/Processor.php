@@ -247,6 +247,8 @@ class Processor implements IProcessor
 	{
 
 		$args = [];
+		$i = [];
+		$i['arg'] 0;
 		foreach ($params as $key=>$param) {
 			
 			if (!is_null($param->getClass())) {
@@ -273,16 +275,14 @@ class Processor implements IProcessor
 
 				$parts = explode("_", $param->getName());
 
-				$type = $parts[0] == "args" ? "_args" : $parts[0];
-
-				$$type = !isset($$type) ? '0' : $$type;
+				$i[$type] = !isset($i[$type]) ? '0' : $i[$type];
 
 				if (isset($values[$parts[0]])){
 
 					if (isset($values[$parts[0]][$parts[1]])) {
 						$args[] = $values[$parts[0]][$parts[1]];
 					}elseif ($parts[1] == "args") {
-						$args[] = array_slice($values[$parts[0]], $$type);
+						$args[] = array_slice($values[$parts[0]], $i[$type]);
 					}else{
 						$args[] = null;
 					}
@@ -291,19 +291,19 @@ class Processor implements IProcessor
 				}else{
 
 					if ($key == count($params) - 1 && $key > 0) {
-						$args[] = array_slice($values['requests'], $$type);
+						$args[] = array_slice($values['requests'], $i[$type]);
 					}elseif ($key == 0 && $param->getName() !== "args") {
 						// $args[] = $values[0] ?? null; // PHP 7.0
 						$args[] = isset($values['requests'][0]) ? $values['requests'][0] : null;
 					}else{
 						//$args[] = $values[$i] ?? null; // PHP 7.0
-						$args[] = isset($values['requests'][$$type]) ? $values['requests'][$$type] : null;
+						$args[] = isset($values['requests'][$i[$type]]) ? $values['requests'][$i[$type]] : null;
 					}
 
 				}
 
-				echo($type.'='.$$type.'<br>');
-				$$type++;
+				echo($type.'='.$i[$type].'<br>');
+				$i[$type]++;
 
 				
 			}
