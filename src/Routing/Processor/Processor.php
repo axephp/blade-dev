@@ -247,7 +247,6 @@ class Processor implements IProcessor
 	{
 
 		$args = [];
-		$i = 0;
 		foreach ($params as $key=>$param) {
 			
 			if (!is_null($param->getClass())) {
@@ -273,6 +272,8 @@ class Processor implements IProcessor
 			}else{
 
 				$parts = explode("_", $param->getName());
+
+				${$parts[0]} = !isset(${$parts[0]}) ? 0 : ${$parts[0]};
 
 				if (isset($values[$parts[0]])){
 
