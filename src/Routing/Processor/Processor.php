@@ -119,12 +119,12 @@ class Processor implements IProcessor
 
 				// Filling ParameterBag
 				$compiled->addParameters('requests', $params);
-				$compiled->addParameters('posts', $this->route->posts());
-				$compiled->addParameters('queries', $this->route->queries());
-				$compiled->addParameters('cookies', $this->route->cookies());
-				$compiled->addParameters('files', $this->route->files());
+				$compiled->addParameters('post', $this->route->posts());
+				$compiled->addParameters('query', $this->route->queries());
+				$compiled->addParameters('cookie', $this->route->cookies());
+				$compiled->addParameters('file', $this->route->files());
 				$compiled->addParameters('server', $this->route->server());
-				$compiled->addParameters('headers', $this->route->headers());
+				$compiled->addParameters('header', $this->route->headers());
 
 
 				return $compiled;
