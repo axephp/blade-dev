@@ -10,10 +10,10 @@ trait AuthenticationPage{
 	/**
 	 *  Gets called on POST request to auth page
 	 */
-	public function index_post($postArgs)
+	public function index_post($post_args)
 	{
 
-		dump($postArgs);
+		dump($post_args);
 
 	}
 
