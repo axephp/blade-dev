@@ -210,6 +210,8 @@ class Processor implements IProcessor
 		$content = ob_get_contents();
 		ob_clean();
 
+		var_dump($this->axe->resolve('route')->posts());
+
 		if ($actionReturn['type'] == "route") {
 			$new = $reflection->getMethod('router')->invokeArgs($object, [$compiled, $actionReturn['path']]);
 			

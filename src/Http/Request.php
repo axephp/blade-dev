@@ -68,8 +68,14 @@ class Request extends SymfonyRequest implements IRequest
 		parent::getClientIP();
 	}
 
-	public function post()
+
+	public function posts()
 	{
-		
+		dump(parent::all());
+	}
+
+	public function queries()
+	{
+
 	}
 }

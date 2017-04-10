@@ -246,6 +246,20 @@ class Route implements IRoute
 	}
 
 
+	public function queries()
+	
+		return $this->request->queries();
+
+	}
+
+
+	public function posts()
+	{
+		return $this->request->posts();
+
+	}
+
+
 	/**
 	 * Return request array (alias)
 	 *
