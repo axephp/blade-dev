@@ -43,9 +43,11 @@ class Templater
 			
 			$libs = (array)$this->axe->resolve('libs');
 			$objs = [];
+			
 			foreach ($libs as $value) {
 				$objs[$value] = $this->axe->resolve($value);
 			}
+
 			extract($objs);
 
 			$tmp = require $file;
