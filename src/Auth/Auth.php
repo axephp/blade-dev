@@ -33,8 +33,6 @@ class Auth
 		
 		$config = $this->axe->config('auth');
 
-		breakpoint($config);
-
 		$default = $config->default;
 		$conns = $config->authentications;
 
