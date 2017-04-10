@@ -157,7 +157,7 @@ class DatabaseProvider
 	 */
 	public function updateToken($user, $token)
 	{
-        $this->conn->table($this->table)
+        $this->connection->table($this->table)
                 ->where('id', $user->getAuthIdentifier())
                 ->update(['remember_token' => $token]);
 	}
@@ -172,7 +172,7 @@ class DatabaseProvider
 	public function retrieveByCredentials($credentials)
 	{
 
-        	$query = $this->conn->table($this->table);
+        	$query = $this->connection->table($this->table);
         	foreach ($credentials as $key => $value) {
             	if (! Str::contains($key, 'password')) {
                 	$query->where($key, $value);
