@@ -260,6 +260,34 @@ class Route implements IRoute
 	}
 
 
+	public function cookies()
+	{
+		return $this->request->cookies();
+
+	}
+
+
+	public function files()
+	{
+		return $this->request->files();
+
+	}
+
+
+	public function server()
+	{
+		return $this->request->server();
+
+	}
+
+
+	public function headers()
+	{
+		return $this->request->headers();
+
+	}
+
+
 	/**
 	 * Return request array (alias)
 	 *

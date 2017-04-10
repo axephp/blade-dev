@@ -71,11 +71,40 @@ class Request extends SymfonyRequest implements IRequest
 
 	public function posts()
 	{
-		dump($this->request->all());
+		return ($this->request->all());
 	}
+
 
 	public function queries()
 	{
+		return ($this->query->all());
+	}
+
+		public function cookies()
+	{
+		return ($this->cookies->all());
 
 	}
+
+
+	public function files()
+	{
+		return ($this->files->all());
+
+	}
+
+
+	public function server()
+	{
+		return ($this->server->all());
+
+	}
+
+
+	public function headers()
+	{
+		return ($this->headers->all());
+
+	}
+	
 }
