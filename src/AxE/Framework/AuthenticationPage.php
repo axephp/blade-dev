@@ -13,7 +13,7 @@ trait AuthenticationPage{
 	public function index_post($post_username, $post_password)
 	{
 
-		$credentials = ['username' => $post_password, 'password' => $post_password ];
+		$credentials = ['username' => $post_username, 'password' => $post_password ];
 
 		$login = ($this->auth->using()->authenticate($credentials));
 
@@ -24,7 +24,7 @@ trait AuthenticationPage{
 		}
 
 		css('login.css');
-		
+
 		return view('login', 'login');
 
 	}

@@ -181,8 +181,6 @@ class DatabaseProvider
 
         $user = $query->first();
 
-        dump($credentials);
-
         return $this->genericUser($user);
 	}
 
