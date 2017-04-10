@@ -275,6 +275,8 @@ class Processor implements IProcessor
 
 				$parts = explode("_", $param->getName());
 
+				$type = $parts[0];
+
 				$i[$type] = !isset($i[$type]) ? '0' : $i[$type];
 
 				if (isset($values[$parts[0]])){
