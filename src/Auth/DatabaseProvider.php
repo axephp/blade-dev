@@ -127,8 +127,8 @@ class DatabaseProvider
 	 */
 	public function retrieveById($id)
 	{
-		$user = $this->connection->table($this->table)->find($identifier);
-        	return $this->getGenericUser($user);
+		$user = $this->connection->table($this->table)->find($id);
+        	return $this->genericUser($user);
 	}
 
 
@@ -141,10 +141,10 @@ class DatabaseProvider
 	public function retrieveByToken($id, $token)
 	{
         	$user = $this->connection->table($this->table)
-            	->where('id', $identifier)
+            	->where('id', $id)
             	->where('remember_token', $token)
             	->first();
-        	return $this->getGenericUser($user);
+        	return $this->genericUser($user);
 	}
 
 
@@ -158,7 +158,7 @@ class DatabaseProvider
 	public function updateToken($user, $token)
 	{
         $this->connection->table($this->table)
-                ->where('id', $user->getAuthIdentifier())
+                ->where('id', $user->getId())
                 ->update(['remember_token' => $token]);
 	}
 
@@ -195,7 +195,7 @@ class DatabaseProvider
 	public function validate($user, $credentials)
 	{
 		$plain = $credentials['password'];
-        	return $this->hasher->check($plain, $user->getAuthPassword());
+        	return $this->hasher->compare($plain, $user->getAuthPassword());
 	}
 
 
