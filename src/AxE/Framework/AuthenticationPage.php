@@ -13,7 +13,7 @@ trait AuthenticationPage{
 	public function index_post($post_username, $query_code, $arg, $args)
 	{
 
-		dump($post_args);
+		dump(func_get_args());
 
 	}
 
