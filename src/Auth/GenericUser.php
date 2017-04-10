@@ -35,7 +35,7 @@ class GenericUser
 	 */
 	public function getId()
 	{
-		return 'id';
+		return $this->id;
 	}
 
 
