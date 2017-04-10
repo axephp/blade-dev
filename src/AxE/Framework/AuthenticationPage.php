@@ -19,6 +19,9 @@ trait AuthenticationPage{
 
 		if ($login) {
 			echo "Success";
+
+			dump($this->auth->using()->user());
+
 		}else{
 			$this->message =  "Incorrect login entered!";
 		}

@@ -354,6 +354,9 @@ class SessionDriver
     	{
         	$this->session->set($this->getName(), $id);
         	$this->session->migrate(true);
+
+        	dump($this->session);
+
     	}
 
 
