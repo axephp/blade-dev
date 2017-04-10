@@ -71,7 +71,7 @@ class Request extends SymfonyRequest implements IRequest
 
 	public function posts()
 	{
-		dump(parent::$request->all());
+		dump($this->request->all());
 	}
 
 	public function queries()
