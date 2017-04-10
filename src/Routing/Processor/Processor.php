@@ -295,7 +295,7 @@ class Processor implements IProcessor
 
 					if ($key == count($params) - 1 && $key > 0) {
 						$args[] = array_slice($values['requests'], $$type);
-						dump($$type);
+						dump($type);
 					}elseif ($key == 0 && $param->getName() !== "args") {
 						// $args[] = $values[0] ?? null; // PHP 7.0
 						$args[] = isset($values['requests'][0]) ? $values['requests'][0] : null;
