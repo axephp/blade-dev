@@ -174,7 +174,7 @@ class DatabaseProvider
 
         	$query = $this->connection->table($this->table);
         	foreach ($credentials as $key => $value) {
-            	if (! Str::contains($key, 'password')) {
+            	if (! string_contains($key, 'password')) {
                 	$query->where($key, $value);
             	}
         	}

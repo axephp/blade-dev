@@ -75,6 +75,16 @@ if (!function_exists('redirect')) {
 }
 
 
+if (!function_exists('string_contains')) {
+
+	function string_contains($container, $data)
+	{
+	   return strpos($container, $data) !== false;
+	}
+
+}
+
+
 if (!function_exists('time_elapsed_string')) {
 	
 	function time_elapsed_string($datetime, $full = false) {
