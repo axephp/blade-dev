@@ -273,7 +273,7 @@ class Processor implements IProcessor
 
 				$parts = explode("_", $param->getName());
 
-				$type = $parts[0];
+				$type = $parts[0] == "args" ? "_args" : $parts[0];
 
 				$$type = !isset($$type) ? '0' : $$type;
 
@@ -294,7 +294,7 @@ class Processor implements IProcessor
 				}else{
 
 					if ($key == count($params) - 1 && $key > 0) {
-						$args[] = array_slice($values['requests'], $$type);
+						$args[] = array_slice($values['requests'], $_args);
 						dump($type);
 					}elseif ($key == 0 && $param->getName() !== "args") {
 						// $args[] = $values[0] ?? null; // PHP 7.0
@@ -302,7 +302,7 @@ class Processor implements IProcessor
 						echo "here5";
 					}else{
 						//$args[] = $values[$i] ?? null; // PHP 7.0
-						$args[] = isset($values['requests'][$$type]) ? $values['requests'][$$type] : null;
+						$args[] = isset($values['requests'][$_args]) ? $values['requests'][$_args] : null;
 						echo "here6";
 					}
 
