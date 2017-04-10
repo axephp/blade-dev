@@ -136,7 +136,7 @@ class AuthElement
 	public function prepare()
 	{
 
-		//
+		
 
 	}
 

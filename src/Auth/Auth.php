@@ -81,13 +81,31 @@ class Auth
 	{
 		$conf = $this->auths[$auth];
 
-		$element = new AuthElement($conf->driver, $conf->login_page, $conf->post_login_page, $conf->user);
+		$class = ucfirst($conf->driver).'Driver';
+
+		$pro = 'make'.ucfirst($conf->provider).'Provider';
+
+		$provider = $this->$pro($conf);
+
+		$driver = new $class($this->default[0].'Auth', $provider, $this->axe->resolve('session'), $this->axe->resolve('route'));
+
+		$element = new AuthElement($driver, $conf->login_page, $conf->post_login_page, $conf->user);
 
 		$element->prepare();
 
 		$this->guard[$auth] = $element;
 
 		return $element;
+	}
+
+
+	protected function makeDatabaseProvider($conf)
+	{
+		$pro = ucfirst($conf->provider).'Provider';
+
+		$provider = new $pro($this->axe->resolve('db')->using($conf->connection), $conf->table, $this->axe->resolve('hash'));
+
+		return $provider;
 	}
 
 
