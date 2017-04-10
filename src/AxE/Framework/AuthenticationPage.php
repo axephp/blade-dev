@@ -15,7 +15,7 @@ trait AuthenticationPage{
 
 		$credentials = ['username' => $post_username, 'password' => $post_password ];
 
-		$login = ($this->auth->using()->authenticate($credentials));
+		$login = ($this->auth->using()->authenticate($credentials, false, true));
 
 		if ($login) {
 			echo "Success";
