@@ -35,6 +35,9 @@ class Processor implements IProcessor
 	 */
 	public function compile($route)
 	{
+
+		dump($route->posts());
+
 		$this->requests = array_flatten($route->requests());
 
 		$request = array_shift($this->requests);
