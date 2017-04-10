@@ -15,8 +15,15 @@ trait AuthenticationPage{
 
 		$credentials = ['username' => $post_password, 'password' => $post_password ];
 
-		dump($this->auth->using()->authenticate($credentials));
+		$login = ($this->auth->using()->authenticate($credentials));
 
+		if ($login) {
+			echo "Success";
+		}else{
+			$this->message =  "Incorrect login entered!";
+		}
+
+		return view('login', 'login');
 
 	}
 
