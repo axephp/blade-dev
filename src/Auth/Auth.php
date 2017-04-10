@@ -101,7 +101,7 @@ class Auth
 
 	protected function makeDatabaseProvider($conf)
 	{
-		$pro = ucfirst($conf->provider).'Provider';
+		$pro = 'Blade\Auth\\'.ucfirst($conf->provider).'Provider';
 
 		$provider = new $pro($this->axe->resolve('db')->using($conf->connection), $conf->table, $this->axe->resolve('hash'));
 
