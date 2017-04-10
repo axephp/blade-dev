@@ -309,8 +309,6 @@ class SessionDriver
 		//$this->fireAttemptEvent($credentials, $remember, $login);
         	$this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
 
-        	dump($user);
-
         	if ($this->isValid($user, $credentials)) {
             	if ($login) {
                 	$this->login($user, $remember);

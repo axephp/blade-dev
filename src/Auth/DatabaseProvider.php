@@ -180,6 +180,9 @@ class DatabaseProvider
         	}
 
         $user = $query->first();
+
+        dump($user);
+        
         return $this->genericUser($user);
 	}
 
