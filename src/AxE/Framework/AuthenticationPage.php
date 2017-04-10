@@ -14,9 +14,9 @@ trait AuthenticationPage{
 	{
 
 
-		dump($this->auth);
+		dump($this->auth->);
 
-		
+
 	}
 
 }

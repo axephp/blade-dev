@@ -89,13 +89,13 @@ class Auth
 
 		$driver = new $class($this->default[0].'Auth', $provider, $this->axe->resolve('session'), $this->axe->resolve('route'));
 
-		$element = new AuthElement($driver, $conf->login_page, $conf->post_login_page, $conf->user);
+		//$element = new AuthElement($driver, $conf->login_page, $conf->post_login_page, $conf->user);
 
-		$element->prepare();
+		//$element->prepare();
 
-		$this->guard[$auth] = $element;
+		$this->guard[$auth] = $driver;
 
-		return $element;
+		return $driver;
 	}
 
 
