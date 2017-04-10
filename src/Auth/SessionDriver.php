@@ -292,7 +292,7 @@ class SessionDriver
 	 */
 	public function isValid($user, $credentials)
 	{
- 		return ! is_null($user) && $this->provider->validateCredentials($user, $credentials);
+ 		return ! is_null($user) && $this->provider->validate($user, $credentials);
 	}
 
 
@@ -309,7 +309,7 @@ class SessionDriver
 		//$this->fireAttemptEvent($credentials, $remember, $login);
         	$this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
 
-        	if ($this->hasValidCredentials($user, $credentials)) {
+        	if ($this->isValid($user, $credentials)) {
             	if ($login) {
                 	$this->login($user, $remember);
             	}

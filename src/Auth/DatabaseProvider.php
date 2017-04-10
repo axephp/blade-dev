@@ -180,7 +180,7 @@ class DatabaseProvider
         	}
 
         $user = $query->first();
-        return $this->getGenericUser($user);
+        return $this->genericUser($user);
 	}
 
 
@@ -204,7 +204,7 @@ class DatabaseProvider
 	 * @param string
 	 * @return
 	 */
-	public function getGenericUser($user)
+	public function genericUser($user)
 	{
  		if (! is_null($user)) {
             	return new GenericUser((array) $user);
