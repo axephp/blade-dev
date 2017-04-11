@@ -53,7 +53,7 @@ class SessionDriver
 	 *
 	 * @var bool
 	 */
-	protected $logged;
+	protected $logged = false;
 
 
 	protected $user;
@@ -232,7 +232,7 @@ class SessionDriver
 	{
 
 		dump($this->logged);
-		
+
 
      	if (!$this->logged) {
           	return;
