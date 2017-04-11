@@ -474,10 +474,10 @@ class SessionDriver
     public function setUser($user)
     {
 
-    	dump($user);
-    	
         $this->user = $user;
         $this->logged = true;
+
+        dump($this->logged);
         //$this->fireAuthenticatedEvent($user);
         return $this;
     }
