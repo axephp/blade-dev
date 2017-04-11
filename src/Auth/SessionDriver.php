@@ -231,6 +231,8 @@ class SessionDriver
 	public function user()
 	{
 
+		echo "called";
+
      	if (!$this->logged) {
           	return;
      	}
