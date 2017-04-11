@@ -61,7 +61,7 @@ class Auther
 
 		$this->axe->map('auth', $auth);
 
-		dump($auth->using());
+		return $route;
 
 	}
 
