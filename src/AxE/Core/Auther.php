@@ -46,6 +46,8 @@ class Auther
 
 				$auth->using($authC)->logout();
 
+				redirect($conf->login_page);
+
 			}
 
 		}
