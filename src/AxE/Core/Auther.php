@@ -44,7 +44,7 @@ class Auther
 
 				$authC = (isset($param[1])) ? $param[1] : $auth->getDefaultAuth()[0];
 
-				dump($authC);
+				$auth->using($authC)->logout();
 
 			}
 
