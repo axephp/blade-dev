@@ -204,11 +204,11 @@ class CompiledRoute implements ICompiledRoute
 	 */
 	public function action()
 	{	
-		if (isset($this->params[0])) {
-			$action = $this->params[0].'_'.strtolower($this->method);
+		if (isset($this->paramsBag['requests'][0])) {
+			$action = $this->paramsBag['requests'][0].'_'.strtolower($this->method);
 
 			if ($this->reflection->hasMethod($action)) {
-				$this->request[] = array_shift($this->params);
+				$this->request[] = array_shift($this->paramsBag['requests']);
 				return $action;
 			}elseif ($this->reflection->hasMethod('__arg_'.strtolower($this->method))) {
 				return '__arg_'.strtolower($this->method);
