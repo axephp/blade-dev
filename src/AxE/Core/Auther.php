@@ -31,8 +31,10 @@ class Auther
 		$onload = $conf->login_compulsory;
 		$user = $auth->using()->loginWithIdOnce($auth->using()->getSession()->get($auth->using()->getName()));
 
-		if (!$user && $onload && $page !== $conf->login_page) {
-			redirect($conf->login_page);
+		if (!$user) {
+			if ($onload && $page !== $conf->login_page) {
+				redirect($conf->login_page);
+			}
 		}
 
 		# End For Default Auth
