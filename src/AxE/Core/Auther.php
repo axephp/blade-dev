@@ -29,7 +29,7 @@ class Auther
 
 		$onload = $conf->login_compulsory;
 
-		$user = $auth->using()->loginWithId($auth->using()->getSession()->get($auth->using()->getName()));
+		$user = $auth->using()->loginWithIdOnce($auth->using()->getSession()->get($auth->using()->getName()));
 
 		$page = ($route->getRequest()[0]);
 
@@ -37,6 +37,10 @@ class Auther
 			if ($onload && $page !== $conf->login_page) {
 				redirect($conf->login_page);
 			}
+		}else{
+
+			dump($route);
+
 		}
 
 	}
