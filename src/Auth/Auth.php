@@ -65,14 +65,14 @@ class Auth
 	public function using($authentication = 'default')
 	{	
 
+		dump($this->guard);
+
 		if (isset($this->guard[$authentication])) {
 
-			echo "exists";
 			return $this->guard[$authentication];
 
 		}elseif (array_key_exists($authentication, $this->auths)) {
 
-			echo "making";
 			return $this->setup($authentication);
 
 		}else{

@@ -31,6 +31,8 @@ class Auther
 		$onload = $conf->login_compulsory;
 		$user = $auth->using()->loginWithIdOnce($auth->using()->getSession()->get($auth->using()->getName()));
 
+		
+		
 		$page = ($route->getRequest()[0]);
 
 		// MULTI-LOGIN ISSUE HERE, SESSION BASED ISSUE AND LOGGING MULTIPLE SESSIONS : TODO : Later
