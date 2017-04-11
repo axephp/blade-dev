@@ -270,7 +270,6 @@ class Processor implements IProcessor
 					}else{
 						$object = $class->newInstanceArgs($tmp);
 						$args[] = $object;
-						$i += $count;
 					}
 					
 				}
