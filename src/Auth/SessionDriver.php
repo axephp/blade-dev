@@ -473,6 +473,9 @@ class SessionDriver
      */
     public function setUser($user)
     {
+
+    	dump($user);
+    	
         $this->user = $user;
         $this->logged = true;
         //$this->fireAuthenticatedEvent($user);
