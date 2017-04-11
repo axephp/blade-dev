@@ -231,6 +231,9 @@ class SessionDriver
 	public function user()
 	{
 
+		dump($this->logged);
+		
+
      	if (!$this->logged) {
           	return;
      	}
