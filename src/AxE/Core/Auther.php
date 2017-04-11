@@ -31,9 +31,11 @@ class Auther
 		$onload = $conf->login_compulsory;
 		$user = $auth->using()->loginWithIdOnce($auth->using()->getSession()->get($auth->using()->getName()));
 
-		if (!$user) {
+		$page = ($route->getRequest()[0]);
+
+		if (!$user){
 			if ($onload && $page !== $conf->login_page) {
-				//redirect($conf->login_page);
+				redirect($conf->login_page);
 			}
 		}
 
@@ -41,13 +43,13 @@ class Auther
 
 		$param = $route->getParameters()['requests'];
 
-		if ($param[0] == 'logout'){
+		if (isset($param[0]) && $param[0] == 'logout'){
 
 			$authC = (isset($param[1])) ? $param[1] : $auth->getDefaultAuth()[0];
 
 			$auth->using($authC)->logout();
 
-			//redirect($conf->login_page);
+			redirect($conf->login_page);
 
 		}
 
