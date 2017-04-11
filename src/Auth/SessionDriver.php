@@ -399,9 +399,6 @@ class SessionDriver
         	if (! is_null($user)) {
             	$this->setUser($user);
 
-
-        		dump($this->logged);
-
             	return $user;
         	}
         	return false;

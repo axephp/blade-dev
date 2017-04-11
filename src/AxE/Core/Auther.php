@@ -59,6 +59,9 @@ class Auther
 
 		}
 
+
+		dump($auth->using()->user());
+
 	}
 
 }
