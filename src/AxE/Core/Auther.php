@@ -14,7 +14,7 @@ class Auther
 	protected $axe;
 
 
-	function __construct(AxE $axe)
+	function __construct(AxE &$axe)
 	{
 		$this->axe = $axe;
 	}
