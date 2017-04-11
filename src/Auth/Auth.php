@@ -109,6 +109,12 @@ class Auth
 	}
 
 
+	public function __call($method, $args = [])
+	{
+		return call_user_method_array($method, $this->using(), $args);
+	}
+
+
 	public function loginPage()
 	{
 		//
