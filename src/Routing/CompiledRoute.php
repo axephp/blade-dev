@@ -231,7 +231,9 @@ class CompiledRoute implements ICompiledRoute
 				return 'index_'.strtolower($this->method);
 			}
 		}else {
-			return 'index_'.strtolower($this->method);
+			throw new Exception("Appropriate HTTP Method function not found.", 1389);
+			
+			//return 'index_'.strtolower($this->method);
 		}
 
 	}
