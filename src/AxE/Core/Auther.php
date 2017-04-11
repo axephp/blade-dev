@@ -33,7 +33,7 @@ class Auther
 
 		if (!$user) {
 			if ($onload && $page !== $conf->login_page) {
-				redirect($conf->login_page);
+				//redirect($conf->login_page);
 			}
 		}
 
