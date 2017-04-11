@@ -374,6 +374,8 @@ class SessionDriver
 	{
 		$user = $this->provider->retrieveById($id);
 
+		dump($user);
+
         	if (! is_null($user)) {
             	$this->login($user, $remember);
             	return $user;
