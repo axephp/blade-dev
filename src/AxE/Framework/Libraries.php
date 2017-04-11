@@ -5,20 +5,13 @@ namespace Blade\AxE\Framework;
 trait Libraries
 {
 
-	private $axe;
-
-	function __construct(\Blade\AxE\AxE $axe)
-	{
-		$this->axe = $axe;
-	}
-
 	public function __get($key)
 	{
-		if ($this->axe->isBound($key) || $this->axe->isMapped($key)) {
+		if (axe()->isBound($key) || axe()->isMapped($key)) {
 
-			$libs = (array)$this->axe->resolve('libs');
+			$libs = (array)axe()->resolve('libs');
 			if (in_array($key, array_merge($libs, array_keys($libs)))) {
-				return $this->axe->resolve($key);
+				return axe()->resolve($key);
 			}
 		}
 		

@@ -141,3 +141,25 @@ static function model($class, $args)
 }
 
 }
+
+
+
+if (!function_exists('axe')) {
+
+	function axe(){
+		$class_name = debug_backtrace()[2]['class'];
+
+		$check = (strpos($class_name, 'Blade\\AxE\\Framework\\Controller') !== false) or 
+						(strpos($class_name, 'Blade\\AxE\\Framework\\Libraries') !== false);
+
+		if ($check) {
+
+			return \Blade\AxE\AxE::getInstance();
+
+		}else{
+			throw new Exception("Invalid call to function", 1);	
+		}
+		
+	}
+
+}
