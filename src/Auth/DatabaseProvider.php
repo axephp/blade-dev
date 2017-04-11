@@ -29,7 +29,7 @@ class DatabaseProvider
 	 *
 	 * @var Hasher
 	 */
-	protected $haser;
+	protected $hasher;
 
 
 	/**
