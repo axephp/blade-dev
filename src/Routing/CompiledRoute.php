@@ -61,6 +61,9 @@ class CompiledRoute implements ICompiledRoute
 	protected $method;
 
 
+	protected $route;
+
+
 	/**
 	 * New CompiledRoute Instance
 	 *
@@ -112,6 +115,18 @@ class CompiledRoute implements ICompiledRoute
 	public function getRequest()
 	{
 		return $this->request;
+	}
+
+
+	public function setRoute($route)
+	{
+		$this->route = $route;
+	}
+
+
+	public function getRoute()
+	{
+		return $this->route;
 	}
 
 

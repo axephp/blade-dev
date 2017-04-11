@@ -120,6 +120,7 @@ class Processor implements IProcessor
 				$compiled->setRequest($current);
 				$compiled->setPath($dir);
 				$compiled->setReflection($reflection);
+				$compiled->setRoute($request);
 
 				// Filling ParameterBag
 				$compiled->addParameters('requests', $params);
