@@ -236,6 +236,8 @@ class SessionDriver
      	}
 
 
+     	dump($this->user);
+
      	if (!is_null($this->user)) {
      		return $this->user;
      	}
@@ -248,8 +250,6 @@ class SessionDriver
                	$this->triggerAuthenticated($user);
           	}
      	}
-
-     	dump($user);
 
 
      	// TODO: Cookie remember 
