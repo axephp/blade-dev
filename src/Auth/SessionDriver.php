@@ -267,7 +267,7 @@ class SessionDriver
 	 */
 	public function id()
 	{
-		if ($this->loggedOut) {
+		if (!$this->logged) {
           	return;
         	}
         	if ($this->user()) {
@@ -421,7 +421,7 @@ class SessionDriver
         	}
 
        	$this->user = null;
-        	$this->loggedOut = true;
+        	$this->logged = false;
 	}
 
 	/**
@@ -471,7 +471,7 @@ class SessionDriver
     public function setUser($user)
     {
         $this->user = $user;
-        $this->loggedOut = false;
+        $this->logged = true;
         //$this->fireAuthenticatedEvent($user);
         return $this;
     }
