@@ -398,6 +398,10 @@ class SessionDriver
 		$user = $this->provider->retrieveById($id);
         	if (! is_null($user)) {
             	$this->setUser($user);
+
+
+        		dump($this->logged);
+
             	return $user;
         	}
         	return false;
@@ -477,7 +481,6 @@ class SessionDriver
         $this->user = $user;
         $this->logged = true;
 
-        dump($this->logged);
         //$this->fireAuthenticatedEvent($user);
         return $this;
     }
