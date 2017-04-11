@@ -231,8 +231,6 @@ class SessionDriver
 	public function user()
 	{
 
-		echo "called";
-
      	if (!$this->logged) {
           	return;
      	}
@@ -250,6 +248,8 @@ class SessionDriver
                	$this->triggerAuthenticated($user);
           	}
      	}
+
+     	dump($user);
 
 
      	// TODO: Cookie remember 
