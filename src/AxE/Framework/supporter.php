@@ -158,7 +158,7 @@ if (!function_exists('axe')) {
 
 		}else{
 
-			dump(debug_backtrace());
+			dump(get_class());
 			//throw new Exception("Invalid call to function", 1);	
 		}
 		
