@@ -66,9 +66,13 @@ class Auth
 	{	
 
 		if (isset($this->guard[$authentication])) {
+
+			echo "exists";
 			return $this->guard[$authentication];
 
 		}elseif (array_key_exists($authentication, $this->auths)) {
+
+			echo "making";
 			return $this->setup($authentication);
 
 		}else{
@@ -89,10 +93,6 @@ class Auth
 		$provider = $this->$pro($conf);
 
 		$driver = new $class($this->default[0].'Auth', $provider, $this->axe->resolve('session'), $this->axe->resolve('route'));
-
-		//$element = new AuthElement($driver, $conf->login_page, $conf->post_login_page, $conf->user);
-
-		//$element->prepare();
 
 		$this->guard[$auth] = $driver;
 
