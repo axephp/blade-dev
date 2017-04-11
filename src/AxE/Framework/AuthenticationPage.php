@@ -18,9 +18,8 @@ trait AuthenticationPage{
 		$login = ($this->auth->using()->authenticate($credentials, false, true));
 
 		if ($login) {
-			echo "Success";
-
-			dump($this->auth->using()->user());
+			
+			redirect($this->auth->getAuth($this->authenticaion)->post_login_page);
 
 		}else{
 			$this->message =  "Incorrect login entered!";

@@ -25,30 +25,27 @@ class Auther
 
 		$auth = $this->axe->resolve(\Blade\Auth\Auth::class);
 
+
+		# For Default Auth
 		$conf = $auth->getDefaultAuth()[1];
-
 		$onload = $conf->login_compulsory;
-
 		$user = $auth->using()->loginWithIdOnce($auth->using()->getSession()->get($auth->using()->getName()));
 
-		$page = ($route->getRequest()[0]);
+		if (!$user && $onload && $page !== $conf->login_page) {
+			redirect($conf->login_page);
+		}
 
-		if (!$user) {
-			if ($onload && $page !== $conf->login_page) {
-				redirect($conf->login_page);
-			}
-		}else{
+		# End For Default Auth
 
-			$param = $route->getParameters()['requests'];
-			if ($param[0] == 'logout'){
+		$param = $route->getParameters()['requests'];
 
-				$authC = (isset($param[1])) ? $param[1] : $auth->getDefaultAuth()[0];
+		if ($param[0] == 'logout'){
 
-				$auth->using($authC)->logout();
+			$authC = (isset($param[1])) ? $param[1] : $auth->getDefaultAuth()[0];
 
-				redirect($conf->login_page);
+			$auth->using($authC)->logout();
 
-			}
+			redirect($conf->login_page);
 
 		}
 
