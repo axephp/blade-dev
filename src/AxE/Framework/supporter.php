@@ -149,8 +149,7 @@ if (!function_exists('axe')) {
 	function axe(){
 		$class_name = debug_backtrace()[2]['class'];
 
-		$check = (strpos($class_name, 'Blade\\AxE\\Framework\\Controller') !== false) or 
-						(strpos($class_name, 'User\\') !== false);
+		$check = (strpos($class_name, 'User\\') !== false);
 
 		if ($check) {
 
