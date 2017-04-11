@@ -39,7 +39,14 @@ class Auther
 			}
 		}else{
 
-			dump($route->getParameters());
+			$param = $route->getParameters();
+			if ($param[0] == 'logout'){
+
+				$authC = (isset($param[1])) ? $param[1] : $auth->getDefaultAuth()[0];
+
+				dump($authC);
+
+			}
 
 		}
 
