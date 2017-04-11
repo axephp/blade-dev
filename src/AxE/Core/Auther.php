@@ -33,8 +33,14 @@ class Auther
 
 		$page = ($route->getRequest()[0]);
 
+		// MULTI-LOGIN ISSUE HERE, SESSION BASED ISSUE AND LOGGING MULTIPLE SESSIONS : TODO : Later
+
 		if (!$user){
 			if ($onload && $page !== $conf->login_page) {
+				redirect($conf->login_page);
+			}
+		}else{
+			if ($page !== $conf->login_page) {
 				redirect($conf->login_page);
 			}
 		}

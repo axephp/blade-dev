@@ -19,7 +19,7 @@ trait AuthenticationPage{
 
 		if ($login) {
 			
-			//redirect($this->auth->getAuth($this->authenticaion)->post_login_page);
+			redirect($this->auth->getAuth($this->authenticaion)->post_login_page);
 
 		}else{
 			$this->message =  "Incorrect login entered!";
