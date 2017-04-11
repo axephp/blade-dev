@@ -262,7 +262,8 @@ class Processor implements IProcessor
 				try {
 					$class = $param->getClass();
 					$count = $class->getConstructor()->getNumberOfParameters();
-					$tmp = array_slice($values, $i, $count - $i);
+					$tpars = $class->getConstructor()->getParameters();
+					$tmp = $this->prepareParams($tpars, $values);
 					if ($count != count($tmp)) {
 						$args[] = $class->newInstanceWithoutConstructor();
 						//throw new Exception("Error Processing Request", 1);
@@ -322,4 +323,7 @@ class Processor implements IProcessor
 
 		return $args;
 	}
+
+
+
 }
