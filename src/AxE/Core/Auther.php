@@ -40,8 +40,8 @@ class Auther
 				redirect($conf->login_page);
 			}
 		}else{
-			if ($page !== $conf->login_page) {
-				redirect($conf->login_page);
+			if ($page == $conf->login_page) {
+				redirect($conf->post_login_page);
 			}
 		}
 
