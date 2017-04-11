@@ -29,11 +29,7 @@ class Auther
 
 		$onload = $conf->login_compulsory;
 
-		dump($auth->using()->getSession()->get($auth->using()->getName()));
-
-		$auth->using()->loginWithId($auth->using()->getSession()->get($auth->using()->getName()));
-
-		$user = $auth->using()->user();
+		$user = $auth->using()->loginWithId($auth->using()->getSession()->get($auth->using()->getName()));
 
 		$page = ($route->getRequest()[0]);
 
