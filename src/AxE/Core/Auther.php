@@ -14,13 +14,13 @@ class Auther
 	protected $axe;
 
 
-	function __construct(AxE &$axe)
+	function __construct(AxE $axe)
 	{
 		$this->axe = $axe;
 	}
 
 
-	public function run($route)
+	public function run($route, $response)
 	{
 
 		$auth = $this->axe->resolve('auth');
