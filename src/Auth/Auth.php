@@ -111,8 +111,8 @@ class Auth
 
 	public function __call($method, $args = [])
 	{
-		dump(func_get_args());
-		
+		dump($this->using());
+
 		return call_user_func_array([$this->using(), $method], $args);
 	}
 
