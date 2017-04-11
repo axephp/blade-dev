@@ -221,7 +221,7 @@ class Processor implements IProcessor
 
 		$args = $this->prepareParams($parameters, $values);
 
-		$object = $reflection->newInstanceArgs([$this->axe]);
+		$object = $reflection->newInstance();
 
 		ob_start();
 		$actionReturn = $action->invokeArgs($object, $args);
