@@ -231,15 +231,10 @@ class SessionDriver
 	public function user()
 	{
 
-		dump($this->logged);
-
 
      	if (!$this->logged) {
           	return;
      	}
-
-
-     	dump($this->user);
 
      	if (!is_null($this->user)) {
      		return $this->user;
