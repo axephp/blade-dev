@@ -23,7 +23,7 @@ class Auther
 	public function run($route, $response)
 	{
 
-		$auth = $this->axe->resolve('auth');
+		$auth = $this->axe->resolve(\Blade\Auth\Auth::class);
 
 
 		# For Default Auth
