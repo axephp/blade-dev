@@ -59,6 +59,10 @@ class Auther
 
 		}
 
+		$this->map('auth');
+
+		//dump($auth->using()->user());
+
 	}
 
 }
