@@ -158,7 +158,7 @@ if (!function_exists('axe')) {
 
 		}else{
 
-			throw new Exception("Invalid call to function", 1);	
+			throw new Exception("Invalid call to function $class_name", 1);	
 		}
 		
 	}
