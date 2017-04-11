@@ -59,7 +59,7 @@ class Auther
 
 		}
 
-		$axe->map('auth');
+		$this->axe->map('auth');
 
 		//dump($auth->using()->user());
 
