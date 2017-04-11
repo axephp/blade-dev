@@ -112,10 +112,8 @@ class Auth
 	public function __call($method, $args = [])
 	{
 		echo "calling...";
-		(call_user_func_array([$this->using(), $method], $args));
+		return (call_user_func_array([$this->using(), $method], $args));
 		echo 'called';
-
-		return ;
 	}
 
 
