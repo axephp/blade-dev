@@ -157,7 +157,9 @@ if (!function_exists('axe')) {
 			return \Blade\AxE\AxE::getInstance();
 
 		}else{
-			throw new Exception("Invalid call to function", 1);	
+
+			dump(debug_backtrace());
+			//throw new Exception("Invalid call to function", 1);	
 		}
 		
 	}
