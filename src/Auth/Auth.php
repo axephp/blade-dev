@@ -74,7 +74,7 @@ class Auth
 			return $this->setup($authentication);
 
 		}else{
-			return false;
+			return null;
 		}
 	}	
 
