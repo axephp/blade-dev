@@ -65,8 +65,6 @@ class Auth
 	public function using($authentication = 'default')
 	{	
 
-		dump(isset($this->guard[$authentication]));
-
 		if (isset($this->guard[$authentication])) {
 			return $this->guard[$authentication];
 
