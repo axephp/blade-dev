@@ -150,7 +150,7 @@ if (!function_exists('axe')) {
 		$class_name = debug_backtrace()[2]['class'];
 
 		$check = (strpos($class_name, 'Blade\\AxE\\Framework\\Controller') !== false) or 
-						(strpos($class_name, 'Blade\\AxE\\Framework\\Libraries') !== false);
+						(strpos($class_name, 'User\\') !== false);
 
 		if ($check) {
 
@@ -158,8 +158,7 @@ if (!function_exists('axe')) {
 
 		}else{
 
-			dump(get_class());
-			//throw new Exception("Invalid call to function", 1);	
+			throw new Exception("Invalid call to function", 1);	
 		}
 		
 	}
