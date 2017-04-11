@@ -39,7 +39,7 @@ class Auther
 			}
 		}else{
 
-			dump($route->getRequest());
+			dump($route->getParameters());
 
 		}
 
