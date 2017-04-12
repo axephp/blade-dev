@@ -217,17 +217,18 @@ class Processor implements IProcessor
 
 			if (file_exists($file)) {
 
-				$req = str_replace($compiled->getPath(), "", realpath($dir));
-
-				echo $compiled->getPath() . ' = '. realpath($dir);
-				$newcom = $this->makeCompiledRoute($dir, $file, explode("/", $req));
+				$req = explode("/", str_replace(".", '', $actionReturn['path']));
+				if (isset($req[0]) && empty($req[0])) {
+					array_shift($req);
+				}
+				$newcom = $this->makeCompiledRoute($dir, $file, [$req]);
 
 				foreach ($newcom->retrieveMiddlewares() as $key => $value) {
-					$route->getRouter()->middleware($key, $value);
+					$newcom->getRoute()->getRouter()->middleware($key, $value);
 				}
 
-				$compiled->setMethod($route->method()[0]);
-				return $compiled;
+				$newcom->setMethod($newcom->getRoute()->method()[0]);
+				return $newcom;
 
 			}else{
 				dump($file);
