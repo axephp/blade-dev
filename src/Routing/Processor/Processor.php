@@ -106,37 +106,7 @@ class Processor implements IProcessor
 
 		if (file_exists($file)) {
 
-			include_once $file;
-			$class .= "\\".(implode("\\", array_flatten($request)));
-
-			if (class_exists($class)) {
-				
-				$reflection = new ReflectionClass($class);
-				$current = $request;
-				$params = array_flatten($this->requests);
-
-				// Compiled Route
-				$compiled = new CompiledRoute($this->axe);
-				$compiled->setRequest($current);
-				$compiled->setPath($dir);
-				$compiled->setReflection($reflection);
-				$compiled->setRoute($request);
-
-				// Filling ParameterBag
-				$compiled->addParameters('requests', $params);
-				$compiled->addParameters('post', $this->route->posts());
-				$compiled->addParameters('query', $this->route->queries());
-				$compiled->addParameters('cookie', $this->route->cookies());
-				$compiled->addParameters('file', $this->route->files());
-				$compiled->addParameters('server', $this->route->server());
-				$compiled->addParameters('header', $this->route->headers());
-
-
-				return $compiled;
-				
-			}else{
-				throw new Exception("Error Processing Class '$class' ", 1);
-			}
+			$this->makeCompiledRoute($file, $request)
 
 		}elseif (is_dir($dir) && !is_file($file)) {
 			
@@ -242,8 +212,15 @@ class Processor implements IProcessor
 		if ($actionReturn['type'] == "route") {
 			$new = $reflection->getMethod('router')->invokeArgs($object, [$compiled, $actionReturn['path']]);
 			
-			$next = $this->suber($new);
-			dump($next);
+			$dir = $new->getPath();
+			$file = Path::controller($dir);
+
+			if (file_exists($file)) {
+
+				//$this->makeCompiledRoute($file, $request)
+
+			}
+			dump($file);
 			// TODO : Inside redirection
 			// return $this->inside($new);
 		}else{
@@ -334,6 +311,43 @@ class Processor implements IProcessor
 		return $args;
 	}
 
+
+
+	protected function makeCompiledRoute($file, $request)
+	{
+			include_once $file;
+			$class .= "\\".(implode("\\", array_flatten($request)));
+
+			if (class_exists($class)) {
+				
+				$reflection = new ReflectionClass($class);
+				$current = $request;
+				$params = array_flatten($this->requests);
+
+				// Compiled Route
+				$compiled = new CompiledRoute($this->axe);
+				$compiled->setRequest($current);
+				$compiled->setPath($dir);
+				$compiled->setReflection($reflection);
+				$compiled->setRoute($request);
+
+				// Filling ParameterBag
+				$compiled->addParameters('requests', $params);
+				$compiled->addParameters('post', $this->route->posts());
+				$compiled->addParameters('query', $this->route->queries());
+				$compiled->addParameters('cookie', $this->route->cookies());
+				$compiled->addParameters('file', $this->route->files());
+				$compiled->addParameters('server', $this->route->server());
+				$compiled->addParameters('header', $this->route->headers());
+
+
+				return $compiled;
+				
+			}else{
+				throw new Exception("Error Processing Class '$class' ", 1);
+			}
+
+	}
 
 
 }
