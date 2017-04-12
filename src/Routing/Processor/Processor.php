@@ -45,10 +45,10 @@ class Processor implements IProcessor
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
-			$request = isset(explode('/', $this->axe->config('site')->home_page)[0]) ? explode('/', $this->axe->config('site')->home_page)[0] 	: "home";
+			$request = isset(explode('/', $this->axe->config('site')->home_page)[0]) ? explode('/', $this->axe->config('site')->home_page) 	: ["home"];
 		}
 
-		$compiled = $this->inside("User\\Pages", [$request]);
+		$compiled = $this->inside("User\\Pages", $request);
 
 		foreach ($compiled->retrieveMiddlewares() as $key => $value) {
 			$route->getRouter()->middleware($key, $value);
@@ -146,7 +146,7 @@ class Processor implements IProcessor
 			array_pop($tmp);
 
 			if (empty($tmp)) {
-				$tmp = isset(explode('/', $this->axe->config('site')->home_page)[0]) ? explode('/', $this->axe->config('site')->home_page)[0] 	: "home";
+				$tmp = isset(explode('/', $this->axe->config('site')->home_page)[0]) ? explode('/', $this->axe->config('site')->home_page) 	: ["home"];
 			}
 
 			if (!is_null($new)) {
