@@ -227,11 +227,19 @@ class CompiledRoute implements ICompiledRoute
 				return $action;
 			}elseif ($this->reflection->hasMethod('__arg_'.strtolower($this->method))) {
 				return '__arg_'.strtolower($this->method);
-			}else{
+			}if ($this->reflection->hasMethod('index_'.strtolower($this->method))) {
 				return 'index_'.strtolower($this->method);
+			}else{
+				throw new Exception("No any matching action method found!", 11);
 			}
 		}else {
-			return 'index_'.strtolower($this->method);
+			if ($this->reflection->hasMethod('__arg_'.strtolower($this->method))){
+				return '__arg_'.strtolower($this->method);
+			}elseif ($this->reflection->hasMethod('index_'.strtolower($this->method))) {
+				return 'index_'.strtolower($this->method);
+			}else{
+				throw new Exception("No any matching action method found!", 12);
+			}
 		}
 
 	}
