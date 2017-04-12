@@ -32,8 +32,9 @@ class Controller
 	public function router($compiled, $path){
 
 		$old = $compiled->getPath();
-		$compiled->setPath($old.DIRECTORY_SEPARATOR.$path);
-		return $compiled;
+		$new = $compiled;
+		$new->setPath($old.DIRECTORY_SEPARATOR.$path);
+		return $new;
 
 	}
 
