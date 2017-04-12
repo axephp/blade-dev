@@ -106,7 +106,7 @@ class Processor implements IProcessor
 
 		if (file_exists($file)) {
 
-			$this->makeCompiledRoute($file, $request)
+			$this->makeCompiledRoute($file, $request);
 
 		}elseif (is_dir($dir) && !is_file($file)) {
 			
