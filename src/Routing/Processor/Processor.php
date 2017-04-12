@@ -144,9 +144,7 @@ class Processor implements IProcessor
 			if (!is_null($new)) {
 				$request = [$request, $new];
 				return $this->inside($class, $request);
-			}else{
-				throw new Exception("Error Processing Request", 12);
-			} 
+			}
 			
 		}else{
 			array_unshift($this->requests, $request);
