@@ -153,7 +153,6 @@ class Processor implements IProcessor
 				$request = [$request, $new];
 				return $this->inside($class, $request);
 			}elseif (file_exists(Path::controller(Path::process($this->axe->pagesPath(), $tmp)))) {
-				dump($tmp);
 				return $this->inside($class, $tmp);
 			}else{
 				throw new Exception("Error Processing Request ", 12);
