@@ -106,7 +106,7 @@ class Processor implements IProcessor
 
 		if (file_exists($file)) {
 
-			return $this->makeCompiledRoute($file, $request);
+			return $this->makeCompiledRoute($file, $request, $class);
 
 		}elseif (is_dir($dir) && !is_file($file)) {
 			
@@ -313,7 +313,7 @@ class Processor implements IProcessor
 
 
 
-	protected function makeCompiledRoute($file, $request)
+	protected function makeCompiledRoute($file, $request, $class = '')
 	{
 			include_once $file;
 			$class .= "\\".(implode("\\", array_flatten($request)));
