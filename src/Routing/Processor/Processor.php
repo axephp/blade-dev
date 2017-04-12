@@ -145,6 +145,10 @@ class Processor implements IProcessor
 			$tmp = $this->requests;
 			array_pop($tmp);
 
+			if (empty($tmp)) {
+				$tmp = isset(explode('/', $this->axe->config('site')->home_page)[0]) ? explode('/', $this->axe->config('site')->home_page)[0] 	: "home";
+			}
+
 			if (!is_null($new)) {
 				$request = [$request, $new];
 				return $this->inside($class, $request);
