@@ -217,7 +217,9 @@ class Processor implements IProcessor
 
 			if (file_exists($file)) {
 
-				$newcom = $this->makeCompiledRoute($dir, $file, $actionReturn['path']);
+				$req = str_replace($compiled->getPath(), "", realpath($dir));
+
+				$newcom = $this->makeCompiledRoute($dir, $file, explode("/", $req));
 
 				foreach ($newcom->retrieveMiddlewares() as $key => $value) {
 					$route->getRouter()->middleware($key, $value);
