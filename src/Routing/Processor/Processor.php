@@ -141,10 +141,18 @@ class Processor implements IProcessor
 		}elseif (is_dir($dir) && !is_file($file)) {
 			
 			$new = array_shift($this->requests);
+
+			$tmp = $this->requests;
+			array_pop($tmp);
+
 			if (!is_null($new)) {
 				$request = [$request, $new];
 				return $this->inside($class, $request);
-			}
+			}elseif (file_exists(Path::controller(Path::process($this->axe->pagesPath(), $tmp)))) {
+				return $this->inside($class, $tmp);
+			}else{
+				throw new Exception("Error Processing Request", 12);
+			} 
 			
 		}else{
 			array_unshift($this->requests, $request);
