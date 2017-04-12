@@ -242,6 +242,7 @@ class Processor implements IProcessor
 		if ($actionReturn['type'] == "route") {
 			$new = $reflection->getMethod('router')->invokeArgs($object, [$compiled, $actionReturn['path']]);
 			
+			dump($new);
 			// TODO : Inside redirection
 			// return $this->inside($new);
 		}else{
