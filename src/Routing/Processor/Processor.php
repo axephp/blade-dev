@@ -322,7 +322,7 @@ class Processor implements IProcessor
 
 
 
-	protected function makeCompiledRoute($dir, $file, $request, $class = '')
+	protected function makeCompiledRoute($dir, $file, $request, $class = "User\\Pages")
 	{
 			include_once $file;
 			$class .= "\\".(implode("\\", array_flatten($request)));
