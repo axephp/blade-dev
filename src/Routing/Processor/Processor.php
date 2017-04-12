@@ -45,7 +45,7 @@ class Processor implements IProcessor
 		$request = array_shift($this->requests);
 
 		if (empty($request)) {
-			$request = explode('/', $this->axe->config('site')->home_page)[0] ?: "home";
+			$request = explode('/', $this->axe->config('site')->home_page)[0] ? explode('/', $this->axe->config('site')->home_page)[0] : "home";
 		}
 
 		$compiled = $this->inside("User\\Pages", [$request]);
