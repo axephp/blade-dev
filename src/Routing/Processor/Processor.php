@@ -227,6 +227,8 @@ class Processor implements IProcessor
 					$this->route->getRouter()->middleware($key, $value);
 				}
 
+				$newcom->setMethod($this->route->method()[0]);
+
 				return $this->suber($newcom);
 
 			}else{
