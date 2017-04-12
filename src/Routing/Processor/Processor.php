@@ -227,16 +227,13 @@ class Processor implements IProcessor
 					$this->route->getRouter()->middleware($key, $value);
 				}
 
-				$newcom->setMethod($this->route->method()[0]);
-				return $newcom;
+				return $this->suber($newcom);
 
 			}else{
 				throw new Exception("Invalid sub-route location", 1);
 				
 			}
-			
-			// TODO : Inside redirection
-			// return $this->inside($new);
+
 		}else{
 			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
 			return $output;
