@@ -219,6 +219,7 @@ class Processor implements IProcessor
 
 				$req = str_replace($compiled->getPath(), "", realpath($dir));
 
+				echo $compiled->getPath() . ' = '. realpath($dir);
 				$newcom = $this->makeCompiledRoute($dir, $file, explode("/", $req));
 
 				foreach ($newcom->retrieveMiddlewares() as $key => $value) {
