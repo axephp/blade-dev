@@ -18,7 +18,7 @@ function view($viewName, $theme = 'default'){
 
 # TO Function
 function to($url){ 
-  return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::redirect($to); }
+  return func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::redirect($url); }
 
 
 # TO Function
