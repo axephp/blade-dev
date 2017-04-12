@@ -224,14 +224,15 @@ class Processor implements IProcessor
 				$newcom = $this->makeCompiledRoute($dir, $file, [$req]);
 
 				foreach ($newcom->retrieveMiddlewares() as $key => $value) {
-					$newcom->getRoute()->getRouter()->middleware($key, $value);
+					$this->route->getRouter()->middleware($key, $value);
 				}
 
-				$newcom->setMethod($newcom->getRoute()->method()[0]);
+				$newcom->setMethod($this->route->method()[0]);
 				return $newcom;
 
 			}else{
-				dump($file);
+				throw new Exception("Invalid sub-route location", 1);
+				
 			}
 			
 			// TODO : Inside redirection
