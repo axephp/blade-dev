@@ -305,9 +305,8 @@ class Processor implements IProcessor
 					}elseif ($key == 0 && $param->getName() !== "args") {
 						// $args[] = $values[0] ?? null; // PHP 7.0
 						$args[] = isset($values['requests'][0]) ? $values['requests'][0] : null;
-					elseif ($key == 0 && count($params) == 1 && $param->getName() == "args") {
+					}elseif ($key == 0 && count($params) == 1 && $param->getName() == "args") {
 						$args = $values;
-					}
 					}else{
 						//$args[] = $values[$i] ?? null; // PHP 7.0
 						$args[] = isset($values['requests'][$i[$type]]) ? $values['requests'][$i['args']] : null;
