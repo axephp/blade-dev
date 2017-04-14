@@ -6,6 +6,8 @@ use Exception;
 
 use Blade\Interfaces\AxE\AxE;
 
+use Blade\Routing\Processor\Path;
+
 class Locale
 {
 	
@@ -15,7 +17,7 @@ class Locale
 
 	protected $locales;
 
-	protected $current = [];
+	protected $current;
 
 
 	public function __construct(AxE $axe)
@@ -23,6 +25,8 @@ class Locale
 		$this->axe = $axe;
 
 		$this->default = isset($axe->config('site')->default_locale) ? $axe->config('site')->default_locale : null;
+
+		$this->current = $axe->resolve('session')->get('lang', $this->default);
 
 		$this->loadLang()
 	}
@@ -32,7 +36,7 @@ class Locale
 	{
 		if ($this->default) {
 
-			$this->locales = $this->loadFromFiles();
+			$this->locales = $this->loadFromFiles($this->current);
 			
 		}else{
 			throw new Exception("Default Locale not available.", 1);
@@ -41,13 +45,23 @@ class Locale
 	}
 
 
-	public function loadFromFiles()
+	public function loadFromFiles($lang)
 	{
 		$dir = $this->axe->langPath();
 
-		foreach(glob($dir) as $langs) 
-		{
-			echo "name: $file : filetype: " . filetype($file) . "<br />";
+		if ($lang) {
+			$folder = Path::process($dir, $lang);
+
+			if (is_dir($folder)) {
+
+				foreach (glob($folder.'/*') as $files) {
+					echo $file;
+				}
+				
+			}else{
+				throw new Exception("Language pack not found.", 1);
+				
+			}
 		}
 
 	}
