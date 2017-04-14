@@ -47,7 +47,7 @@ class Locale
 
 		foreach(glob($dir) as $langs) 
 		{
-			echo "filename: $file : filetype: " . filetype($file) . "<br />";
+			echo "name: $file : filetype: " . filetype($file) . "<br />";
 		}
 
 	}
