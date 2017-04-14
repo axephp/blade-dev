@@ -91,8 +91,11 @@ class Locale
 	}
 
 
-	public function get($pack, $key)
+	public function get($data)
 	{
+		$a = explode('->', $data);
+		$pack = $a[0];
+		$key = $a[1];
 		if (isset($this->components[$pack])) {
 			if (isset($this->components[$pack][$key])) { 
 				return $this->components[$pack][$key];
