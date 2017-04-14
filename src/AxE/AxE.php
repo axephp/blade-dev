@@ -344,17 +344,6 @@ class AxE extends Container implements IAxE
 
 
     /**
-     * Get the path to the language files
-     *
-     * @return string
-     */
-    public function langPath()
-    {
-        return $this->basePath.DIRECTORY_SEPARATOR.'lang';
-    }
-
-
-    /**
      * Get the path to the public_html directory
      *
      * @return string
@@ -397,6 +386,18 @@ class AxE extends Container implements IAxE
     public function userPath()
     {
         return $this->basePath.DIRECTORY_SEPARATOR.'user';
+    }
+
+
+
+    /**
+     * Get the path to the language files
+     *
+     * @return string
+     */
+    public function langPath()
+    {
+        return $this->userPath().DIRECTORY_SEPARATOR.'lang';
     }
 
 
