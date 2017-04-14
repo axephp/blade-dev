@@ -26,7 +26,7 @@ class Locale
 
 		$this->default = isset($axe->config('site')->default_locale) ? $axe->config('site')->default_locale : null;
 
-		$this->current = $axe->resolve('session')->get('lang', $this->default);
+		$this->current = $axe->resolve('session')->get('lang');
 
 		$this->loadLang();
 		
