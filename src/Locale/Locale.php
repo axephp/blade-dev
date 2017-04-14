@@ -33,7 +33,7 @@ class Locale
 	}
 
 
-	public function loadLang()
+	protected function loadLang()
 	{
 		if ($this->default) {
 
@@ -46,7 +46,7 @@ class Locale
 	}
 
 
-	public function loadFromFiles($lang)
+	protected function loadFromFiles($lang)
 	{
 		$dir = $this->axe->langPath();
 
@@ -56,10 +56,10 @@ class Locale
 
 				if (is_dir($folder)) {
 
-					foreach (glob($folder.'/*') as $file) {
+					foreach (glob($folder.'/*.php') as $file) {
 
 						$content = require $file;
-						$this->components[$lang] = $content;
+						$this->components[basename($file, '.php')] = $content;
 					}
 					
 				}else{
@@ -69,6 +69,13 @@ class Locale
 
 		}
 
+	}
+
+
+	public function set($lang)
+	{
+		$this->current = $lang;
+		$this->axe->resolve('session')->set('lang', $lang);
 	}
 
 	
@@ -84,9 +91,12 @@ class Locale
 	}
 
 
-	public function get($key, $default = "", $lang = null)
+	public function get($pack, $key)
 	{
-		$lang = !is_null($lang) ? $lang : $this->current;
-		return $this->components[$lang][$key];
+		return isset($this->components[$pack]) ? 
+					(isset($this->components[$pack][$key]) ? return $this->components[$pack][$key] : 
+						throw new Exception("Language key '$key' not found in pack '$pack'.", 1)) : 
+							throw new Exception("Language pack '$pack' not found.", 1);
+
 	}
 }
