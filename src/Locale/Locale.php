@@ -15,9 +15,9 @@ class Locale
 
 	protected $default;
 
-	protected $locales;
-
 	protected $current;
+
+	protected $components = [];
 
 
 	public function __construct(AxE $axe)
@@ -37,7 +37,7 @@ class Locale
 	{
 		if ($this->default) {
 
-			$this->locales = $this->loadFromFiles($this->current);
+			$this->loadFromFiles($this->current);
 			
 		}else{
 			throw new Exception("Default Locale not available.", 1);
@@ -57,9 +57,10 @@ class Locale
 				if (is_dir($folder)) {
 
 					foreach (glob($folder.'/*') as $file) {
-						echo $file;
+
+						$content = require $file;
+						$this->components[$lang] = $content;
 					}
-					
 					
 				}else{
 					throw new Exception("Language pack not found.", 1);
@@ -68,5 +69,24 @@ class Locale
 
 		}
 
+	}
+
+	
+	public function current()
+	{
+		return $this->current;
+	}
+
+
+	public function default()
+	{
+		return $this->default;
+	}
+
+
+	public function get($key, $default = "", $lang = null)
+	{
+		$lang = !is_null($lang) ? $lang : $this->current;
+		return $this->components[$lang][$key];
 	}
 }
