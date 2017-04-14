@@ -93,10 +93,15 @@ class Locale
 
 	public function get($pack, $key)
 	{
-		return isset($this->components[$pack]) ? 
-					(isset($this->components[$pack][$key]) ? $this->components[$pack][$key] : 
-						throw new Exception("Language key '$key' not found in pack '$pack'.", 1)) : 
-							throw new Exception("Language pack '$pack' not found.", 1);
+		if (isset($this->components[$pack])) {
+			if (isset($this->components[$pack][$key])) { 
+				return $this->components[$pack][$key];
+			}else{
+				throw new Exception("Language key '$key' not found in pack '$pack'.", 1);
+			}
+		}else{
+			throw new Exception("Language pack '$pack' not found.", 1);
+		}
 
 	}
 }
