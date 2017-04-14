@@ -50,20 +50,25 @@ class Locale
 	{
 		$dir = $this->axe->langPath();
 
-		if ($this->default && $lang) {
-			$folder = Path::process($dir, $lang);
+		if ($this->default) {
 
-			if (is_dir($folder)) {
+			if ($this->current) {
+				
+				$folder = Path::process($dir, $lang);
 
-				foreach (glob($folder.'/*') as $files) {
-					echo $file;
+				if (is_dir($folder)) {
+
+					foreach (glob($folder.'/*') as $files) {
+						echo $file;
+					}
+					
+					
+				}else{
+					throw new Exception("Language pack not found.", 1);
+					
 				}
-				
-				
-			}else{
-				throw new Exception("Language pack not found.", 1);
-				
 			}
+
 		}
 
 	}
