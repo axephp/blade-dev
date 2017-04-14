@@ -50,7 +50,7 @@ class Locale
 	{
 		$dir = $this->axe->langPath();
 
-		if ($lang) {
+		if ($this->default && $lang) {
 			$folder = Path::process($dir, $lang);
 
 			if (is_dir($folder)) {
