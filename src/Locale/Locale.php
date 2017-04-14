@@ -50,10 +50,8 @@ class Locale
 	{
 		$dir = $this->axe->langPath();
 
-		if ($this->default) {
+		if ($this->default && !is_null($lang)) {
 
-			if ($this->current) {
-				
 				$folder = Path::process($dir, $lang);
 
 				if (is_dir($folder)) {
@@ -63,12 +61,10 @@ class Locale
 					}
 					
 					
-					
 				}else{
 					throw new Exception("Language pack not found.", 1);
 					
 				}
-			}
 
 		}
 
