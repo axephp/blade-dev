@@ -56,7 +56,7 @@ class Locale
 
 				if (is_dir($folder)) {
 
-					foreach (glob($folder.'/*') as $files) {
+					foreach (glob($folder.'/*') as $file) {
 						echo $file;
 					}
 					
