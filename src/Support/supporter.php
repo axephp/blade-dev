@@ -74,6 +74,15 @@ if (!function_exists('redirect')) {
 
 }
 
+if (!function_exists('back')) {
+
+	function back()
+	{
+	   header('Location: ' . $_SERVER['HTTP_REFERER']);
+	}
+
+}
+
 
 if (!function_exists('string_contains')) {
 
