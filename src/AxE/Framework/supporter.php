@@ -7,6 +7,7 @@ function cssFromPublic(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::re
 
 # JS Functions #
 function js(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
+function jsFromPublic(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
 
 
 # IMG Functions #
