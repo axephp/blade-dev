@@ -36,7 +36,6 @@ class Locale
 	protected function loadLang()
 	{
 		if ($this->default) {
-
 			$this->loadFromFiles($this->current);
 			
 		}else{
@@ -85,7 +84,13 @@ class Locale
 	}
 
 
-	public function default()
+	public function getCurrent()
+	{
+		return $this->current;
+	}
+
+
+	public function getDefault()
 	{
 		return $this->default;
 	}
