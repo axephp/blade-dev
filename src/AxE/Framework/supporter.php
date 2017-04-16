@@ -115,7 +115,7 @@ if (!function_exists('error')) {
 
 	function error($msg)
 	{
-	   return ['type'=>'data', 'data'=>$msg];
+	   return ['type'=>'data', 'data'=>$msg, 'file'=>'', 'theme'=>''];
 	}
 
 }
