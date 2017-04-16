@@ -9,7 +9,7 @@ use Blade\Routing\Processor\Path;
 use Blade\Interfaces\Routing\CompiledRoute as ICompiledRoute;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
-class JSONRoute extends CompiledRoute
+class JsonOutput
 {
 
 	public function compile($output)

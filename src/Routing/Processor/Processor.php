@@ -10,7 +10,7 @@ use Blade\Interfaces\Routing\Processor\Processor as IProcessor;
 
 use Blade\Routing\CompiledRoute;
 use Blade\Routing\CompiledAsset;
-use Blade\Routing\JSONRoute;
+use Blade\Routing\JsonOutput;
 
 class Processor implements IProcessor
 {
@@ -239,7 +239,7 @@ class Processor implements IProcessor
 
 		}elseif ($actionReturn['type'] == "json") {
 		
-			return (new JSONRoute())->compile($actionReturn['data']);
+			return (new JsonOutput())->compile($actionReturn['data']);
 
 		}else{
 			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
