@@ -32,7 +32,7 @@ function model($class, $args = []){
 class func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg{
 static function res(){
 
-	$arr = explode('\\', debug_backtrace()[1]['function'])
+	$arr = explode('\\', debug_backtrace()[1]['function']);
 	$method_name = array_pop($arr);
 	$args = func_get_args();
 
