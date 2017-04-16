@@ -36,7 +36,7 @@ static function res(){
 	$args = debug_backtrace()[1]['args'];
 
 	$check = (strpos($class_name, 'User\\Pages') !== false);
-
+	dump(debug_backtrace());
 	if ($check) {
 
 		$object = debug_backtrace()[2]['object'];
