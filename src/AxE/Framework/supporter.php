@@ -1,5 +1,6 @@
 <?php
 
+namespace User\Pages;
 
 # CSS Functions #
 function css(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
