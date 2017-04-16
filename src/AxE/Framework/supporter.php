@@ -36,6 +36,8 @@ static function res(){
 	$method_name = array_pop($arr);
 	$args = func_get_args();
 
+	dump($args);
+
 	$object = debug_backtrace()[2]['object'];
 
 	$loadBag = (new \ReflectionObject($object))->getProperty('loadBag');
