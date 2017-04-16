@@ -18,7 +18,7 @@ class JsonOutput
 
 		$response->setContent($output);
 		$response->headers->set('Content-Type', 'text/json');
-		return $response;
+		$response->send();
 
 	}
 }
