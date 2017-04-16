@@ -3,13 +3,13 @@
 namespace User\Pages;
 
 # CSS Functions #
-function css(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
-function cssFromPublic(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
+function css(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(func_get_args()); }
+function cssFromPublic(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(func_get_args()); }
 
 
 # JS Functions #
-function js(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
-function jsFromPublic(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(); }
+function js(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(func_get_args()); }
+function jsFromPublic(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(func_get_args()); }
 
 
 # IMG Functions #
