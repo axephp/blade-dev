@@ -128,7 +128,7 @@ if (!function_exists('json')) {
 		if (!is_array($data)) {
 			return error('Invalid Array sent or JSON output.');
 		}
-	   return ['type'=>'data', 'data'=>json_encode($data)];
+	   return ['type'=>'json', 'data'=>json_encode($data)];
 	}
 
 }

@@ -236,7 +236,7 @@ class Processor implements IProcessor
 				
 			}
 
-		}elseif ($actionReturn['type'] == "data") {
+		}elseif ($actionReturn['type'] == "json") {
 		
 			$output = $actionReturn['data'];
 			return $output;
