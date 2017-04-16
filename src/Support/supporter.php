@@ -93,6 +93,14 @@ if (!function_exists('string_contains')) {
 
 }
 
+if (!function_exists('json')) {
+
+	function json($data)
+	{
+	   return json_encode($data);
+
+}
+
 
 if (!function_exists('time_elapsed_string')) {
 	
@@ -125,15 +133,3 @@ if (!function_exists('time_elapsed_string')) {
 	    return $string ? implode(', ', $string) . ' ago' : 'just now';
 	}
 }
-	
-/*
-
-if (!function_exists('axe')) {
-
-	function axe(){
-		return \Blade\AxE\AxE::getInstance();
-	}
-
-}
-
-*/
