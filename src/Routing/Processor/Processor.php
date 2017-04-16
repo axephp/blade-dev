@@ -238,9 +238,7 @@ class Processor implements IProcessor
 
 		}elseif ($actionReturn['type'] == "json") {
 		
-			echo $actionReturn['data'];
-			exit();
-			//return $output;
+			return {new JSONRoute()}->compile($actionReturn['data']);
 
 		}else{
 			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
