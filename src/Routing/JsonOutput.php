@@ -17,7 +17,7 @@ class JsonOutput
 		$response = new SymfonyResponse();
 
 		$response->setContent($output);
-		$response->headers->set('Content-Type', 'text/json');
+		$response->headers->set('Content-Type', 'application/json');
 		$response->send();
 
 	}
