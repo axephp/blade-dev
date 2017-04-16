@@ -97,7 +97,7 @@ if (!function_exists('json')) {
 
 	function json($data)
 	{
-	   return json_encode($data);
+	   return json_encode($data, true);
 	}
 
 }
