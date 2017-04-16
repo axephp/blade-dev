@@ -115,7 +115,7 @@ if (!function_exists('error')) {
 
 	function error($msg)
 	{
-	   return ['type'=>'data', 'file'=>$name, 'data'=>$msg];
+	   return ['type'=>'data', 'data'=>$msg];
 	}
 
 }
@@ -125,7 +125,7 @@ if (!function_exists('json')) {
 
 	function json($data)
 	{
-	   return ['type'=>'data', 'file'=>$name, 'data'=>json_encode($msg)];
+	   return ['type'=>'data', 'data'=>json_encode($data)];
 	}
 
 }
