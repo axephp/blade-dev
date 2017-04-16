@@ -112,7 +112,7 @@ static function model($class, $args)
 
 }
 
-namespace User{
+namespace Blade\AxE\Framework{
 
 	if (!function_exists('axe')) {
 
