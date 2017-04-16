@@ -103,6 +103,17 @@ if (!function_exists('json')) {
 }
 
 
+if (!function_exists('error')) {
+
+	function error($msg)
+	{
+	   echo $msg;
+	   return;
+	}
+
+}
+
+
 if (!function_exists('time_elapsed_string')) {
 	
 	function time_elapsed_string($datetime, $full = false) {
