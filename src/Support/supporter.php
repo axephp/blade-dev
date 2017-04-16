@@ -107,8 +107,7 @@ if (!function_exists('error')) {
 
 	function error($msg)
 	{
-	   echo "<h1>$msg</h1>";
-	   return;
+	   return "<h1>$msg</h1>";
 	}
 
 }
