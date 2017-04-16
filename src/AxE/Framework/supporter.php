@@ -110,6 +110,18 @@ static function model($class, $args)
 
 }
 
+
+if (!function_exists('error')) {
+
+	function error($msg)
+	{
+	   echo "<h1>$msg</h1>";
+	   return;
+	}
+
+}
+
+
 }
 
 namespace Blade\AxE\Framework{
