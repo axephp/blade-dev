@@ -110,7 +110,7 @@ static function model($class, $args)
 
 }
 
-
+namespace User;
 
 if (!function_exists('axe')) {
 
