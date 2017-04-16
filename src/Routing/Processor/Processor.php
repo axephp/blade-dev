@@ -240,6 +240,7 @@ class Processor implements IProcessor
 		}elseif ($actionReturn['type'] == "json") {
 		
 			(new JsonOutput())->compile($actionReturn['data']);
+			exit();
 
 		}else{
 			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $content]);
