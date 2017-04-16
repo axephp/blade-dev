@@ -238,7 +238,7 @@ class Processor implements IProcessor
 
 		}elseif ($actionReturn['type'] == "data") {
 		
-			$output = $reflection->getMethod('prepare')->invokeArgs($object, [$compiled, $actionReturn, $actionReturn['data']]);
+			$output = $actionReturn['data'];
 			return $output;
 
 		}else{
