@@ -10,6 +10,7 @@ use Blade\Interfaces\Routing\Processor\Processor as IProcessor;
 
 use Blade\Routing\CompiledRoute;
 use Blade\Routing\CompiledAsset;
+use Blade\Routing\JSONRoute;
 
 class Processor implements IProcessor
 {
