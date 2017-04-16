@@ -93,15 +93,6 @@ if (!function_exists('string_contains')) {
 
 }
 
-if (!function_exists('json')) {
-
-	function json($data)
-	{
-	   return json_encode($data, true);
-	}
-
-}
-
 
 if (!function_exists('error')) {
 

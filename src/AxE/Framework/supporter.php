@@ -53,7 +53,7 @@ static function res(){
 static function make($name, $theme)
 {
 
-		return ['type'=>'view', 'file'=>$name, 'theme'=>$theme];
+	return ['type'=>'view', 'file'=>$name, 'theme'=>$theme];
 
 }
 
@@ -115,8 +115,17 @@ if (!function_exists('error')) {
 
 	function error($msg)
 	{
-	   echo "<h1>$msg</h1>";
-	   return;
+	   return ['type'=>'data', 'file'=>$name, 'data'=>$msg];
+	}
+
+}
+
+
+if (!function_exists('json')) {
+
+	function json($data)
+	{
+	   return ['type'=>'data', 'file'=>$name, 'data'=>json_encode($msg)];
 	}
 
 }
