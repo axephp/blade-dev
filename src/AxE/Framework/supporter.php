@@ -31,64 +31,40 @@ function model($class, $args = []){
 
 class func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg{
 static function res(){
-	$class_name = debug_backtrace()[2]['class'];
-	$method_name = debug_backtrace()[1]['function'];
-	$args = debug_backtrace()[1]['args'];
 
-	$check = (strpos($class_name, 'User\\Pages') !== false);
-	dump(debug_backtrace());
-	if ($check) {
+	$method_name = array_pop(explode('\\', debug_backtrace()[1]['function']));
+	$args = func_get_args();
 
-		$object = debug_backtrace()[2]['object'];
-		$loadBag = (new \ReflectionObject($object))->getProperty('loadBag');
-		$loadBag->setAccessible(true);
-		$old = $loadBag->getValue($object);
+	$object = debug_backtrace()[2]['object'];
 
-		$new[$method_name] = $args;
-		$final = array_merge_recursive($old, $new);
+	$loadBag = (new \ReflectionObject($object))->getProperty('loadBag');
+	$loadBag->setAccessible(true);
+	$old = $loadBag->getValue($object);
 
-		$loadBag->setValue($object, $final);
-		$loadBag->setAccessible(false);
+	$new[$method_name] = $args;
+	$final = array_merge_recursive($old, $new);
 
-	}else{
-		throw new \Exception("Invalid call to function", 1);	
-	}
+	$loadBag->setValue($object, $final);
+	$loadBag->setAccessible(false);
+
 }
 
 static function make($name, $theme)
 {
-	$class_name = debug_backtrace()[2]['class'];
 
-	$check = (strpos($class_name, 'User\\Pages') !== false);
-
-	if ($check) {
 		return ['type'=>'view', 'file'=>$name, 'theme'=>$theme];
-	}else{
-		throw new \Exception("Invalid call to function", 1);	
-	}
+
 }
 
 static function redirect($path)
 {
-	$class_name = debug_backtrace()[2]['class'];
 
-	$check = (strpos($class_name, 'User\\Pages') !== false);
+	return ['type'=>'route', 'path'=>$path];
 
-	if ($check) {
-		return ['type'=>'route', 'path'=>$path];
-	}else{
-		throw new \Exception("Invalid call to function", 1);	
-	}
 }
 
 static function makeImg($file, $attribs)
 {
-	$class_name = debug_backtrace()[2]['class'];
-	$method_name = debug_backtrace()[1]['function'];
-
-	$check = (strpos($class_name, 'User\\Pages') !== false);
-
-	if ($check) {
 
 		$path = implode('/', \Blade\AxE\AxE::getInstance()->resolve('route')->getRequest());
 		$realFile = "/axeasset/$path/$file";
@@ -100,19 +76,11 @@ static function makeImg($file, $attribs)
 		$tag .= "/>";
 		return $tag;
 
-	}else{
-		throw new Exception("Invalid call to function", 1);	
-	}
 }
 
 static function model($class, $args)
 {
-	$class_name = debug_backtrace()[2]['class'];
 
-	$check = (strpos($class_name, 'User\\Pages') !== false);
-
-	if ($check) {
-		
 		if (class_exists($class)) {
 
 			$axe = \Blade\AxE\AxE::getInstance();
@@ -137,12 +105,6 @@ static function model($class, $args)
 		}else{
 			trigger_error("Model not found");
 		}
-
-	}else{
-		throw new Exception("Invalid call to function", 1);	
-	}
-}
-
 }
 
 
@@ -150,18 +112,8 @@ static function model($class, $args)
 if (!function_exists('axe')) {
 
 	function axe(){
-		$class_name = debug_backtrace()[2]['class'];
 
-		$check = (strpos($class_name, 'User\\') !== false);
-
-		if ($check) {
-
-			return \Blade\AxE\AxE::getInstance();
-
-		}else{
-
-			throw new Exception("Invalid call to function $class_name", 1);	
-		}
+		return \Blade\AxE\AxE::getInstance();
 		
 	}
 
