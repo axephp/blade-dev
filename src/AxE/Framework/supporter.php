@@ -40,7 +40,7 @@ static function res(){
 	if ($check) {
 
 		$object = debug_backtrace()[2]['object'];
-		$loadBag = (new ReflectionObject($object))->getProperty('loadBag');
+		$loadBag = (new \ReflectionObject($object))->getProperty('loadBag');
 		$loadBag->setAccessible(true);
 		$old = $loadBag->getValue($object);
 
@@ -51,7 +51,7 @@ static function res(){
 		$loadBag->setAccessible(false);
 
 	}else{
-		throw new Exception("Invalid call to function", 1);	
+		throw new \Exception("Invalid call to function", 1);	
 	}
 }
 
@@ -64,7 +64,7 @@ static function make($name, $theme)
 	if ($check) {
 		return ['type'=>'view', 'file'=>$name, 'theme'=>$theme];
 	}else{
-		throw new Exception("Invalid call to function", 1);	
+		throw new \Exception("Invalid call to function", 1);	
 	}
 }
 
@@ -77,7 +77,7 @@ static function redirect($path)
 	if ($check) {
 		return ['type'=>'route', 'path'=>$path];
 	}else{
-		throw new Exception("Invalid call to function", 1);	
+		throw new \Exception("Invalid call to function", 1);	
 	}
 }
 
@@ -118,7 +118,7 @@ static function model($class, $args)
 			$axe = \Blade\AxE\AxE::getInstance();
 			$libs = (array)$axe->resolve('libs');
 
-			$reflection = new ReflectionClass($class);
+			$reflection = new \ReflectionClass($class);
 			$modo = is_array($args) ? $reflection->newInstanceArgs($args) : $reflection->newInstanceArgs(...$args);
 
 			foreach ($libs as $key => $value) {
