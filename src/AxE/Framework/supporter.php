@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Pages;
+namespace User\Pages{
 
 # CSS Functions #
 function css(){ func80ef1db23134260821dc4893bf3b28c2ZnVuY3Rpb25lcg::res(func_get_args()); }
@@ -110,15 +110,18 @@ static function model($class, $args)
 
 }
 
-namespace User{
-	
 }
-if (!function_exists('axe')) {
 
-	function axe(){
+namespace User{
 
-		return \Blade\AxE\AxE::getInstance();
+	if (!function_exists('axe')) {
+
+		function axe(){
+
+			return \Blade\AxE\AxE::getInstance();
 		
+		}
+
 	}
 
 }
