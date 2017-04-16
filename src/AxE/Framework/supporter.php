@@ -107,6 +107,8 @@ static function model($class, $args)
 		}
 }
 
+}
+
 
 
 if (!function_exists('axe')) {
