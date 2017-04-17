@@ -293,8 +293,6 @@ class Processor implements IProcessor
 
 				$theVal = (is_array($parts)) ? implode('_', $parts) : $parts;
 
-				echo "$theVal";
-
 				$i[$type] = !isset($i[$type]) ? '0' : $i[$type];
 
 				if (isset($values[$type])){
