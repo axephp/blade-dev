@@ -289,17 +289,20 @@ class Processor implements IProcessor
 
 				$parts = explode("_", $param->getName());
 
-				$type = $parts[0];
+				$type = array_shift($parts);
+
+				$theVal = (is_array($parts)) ? implode('_', $parts) : $parts;
+
 
 				$i[$type] = !isset($i[$type]) ? '0' : $i[$type];
 
-				if (isset($values[$parts[0]])){
+				if (isset($values[$type])){
 
-					if (isset($values[$parts[0]][$parts[1]])) {
-						$args[] = $values[$parts[0]][$parts[1]];
+					if (isset($values[$type][$theVal])) {
+						$args[] = $values[$type][$theVal];
 						$i[$type]++;
-					}elseif ($parts[1] == "args") {
-						$args[] = array_slice($values[$parts[0]], $i[$type]);
+					}elseif ($theVal == "args") {
+						$args[] = array_slice($values[$type], $i[$type]);
 					}else{
 						$args[] = null;
 						$i[$type]++;
