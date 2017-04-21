@@ -189,7 +189,7 @@ class Processor implements IProcessor
 			$file = Path::process($path, $this->requests);
 
 			if (!file_exists($file) || is_dir($file)) {
-				throw new Exception("Error Processing Request", 191);
+				throw new Exception("Asset File not found at $file", 191);
 			}
 
 			return $file;
