@@ -135,3 +135,14 @@ if (!function_exists('time_elapsed_string')) {
 	    return $string ? implode(', ', $string) . ' ago' : 'just now';
 	}
 }
+
+
+if (!function_exists('axe')) {
+
+	function axe(){
+
+		return \Blade\AxE\AxE::getInstance();
+	
+	}
+
+}
