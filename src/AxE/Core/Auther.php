@@ -23,14 +23,14 @@ class Auther
 	public function run($route, $response)
 	{
 
-
-		if (!$this->axe->config('site')->uses_auth) {
-			return;
-		}
-		
 		$auth = $this->axe->resolve(\Blade\Auth\Auth::class);
 
+		if (!$this->axe->config('site')->uses_auth) {
+			$this->axe->map('auth', $auth);
+			return;
+		}
 
+		
 		# For Default Auth
 		$conf = $auth->getDefaultAuth()[1];
 		$onload = $conf->login_compulsory;
