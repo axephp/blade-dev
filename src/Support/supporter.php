@@ -49,6 +49,19 @@ if (!function_exists('dump')) {
 }
 
 
+if (!function_exists('clean_dump')) {
+
+	function clean_dump()
+	{
+		foreach (func_get_args() as $value) {
+			var_dump($value);
+		}
+		die(1);
+	}
+
+}
+
+
 if (!function_exists('escape')) {
 
 	function escape($str)
