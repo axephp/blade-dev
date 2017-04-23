@@ -15,8 +15,10 @@ class Numeric
 		$var = filter_var($validator->field[1], FILTER_VALIDATE_FLOAT);
 
 		$options = [];
-		
-		dump($var);
+
+		$ret = $var == $validator->field[1];
+
+		dump($ret);
 
 		return true;
 		
