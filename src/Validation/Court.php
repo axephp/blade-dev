@@ -28,8 +28,9 @@ class Court
 
 	function __construct($typeData)
 	{
-		$this->type = $type;
-		$this->args = $args;
+		$data = explode("|", $typeData);
+		$this->type = $data[0];
+		$this->args = isset($data[1]) ? $data[1] : "";
 	}
 
 	public function judgement(ValidationBuilder $validator)
