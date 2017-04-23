@@ -31,19 +31,16 @@ class Validator
 
 
 
-	public function validate($field)
+	public function validate(array $field)
 	{
-		if (!is_array($field)) {
-			return isset($this->rules[$field]) ? $this->rules[$field]->validate() :
-						(object)['type'=>'field-not-found', 'messsage'=>"Field '$field' not found."];
-		}
 
 		$ret = [];
 		foreach ($field as $fld) {
-			$ret[$fld] = $this->rules[$fld]->validate();
+			$ret[$fld] = isset($this->rules[$fld]) ? $this->rules[$fld]->validate() : 
+						(object)['type'=>'not-found', 'message'=>'Field not found!' ];
 		}
 
-		return (object)$ret;
+		return $ret;
 	}
 
 }
