@@ -40,9 +40,9 @@ class Court
 
 		$rule = new $ruleClass();
 
-		$var = $rule->execute($validator, $this->args);
+		$ret = $rule->execute($validator, $this->args);
 
-		$ret = (!is_bool($var) ? $var : "") == $validator->value;
+		$ret = (!is_bool($ret) && !is_object($ret) ? $ret : "" ) == $validator->value;
 
 		return $ret;
 	}
