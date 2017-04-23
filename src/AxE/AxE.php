@@ -81,15 +81,6 @@ class AxE extends Container implements IAxE
      */
     protected $configFile = 'axe.php';
 
-
-    /**
-     * Self instance
-     *
-     * @var AxE
-     */
-    protected static $instance;
-
-
     /**
      * Create a new AxE application
      *

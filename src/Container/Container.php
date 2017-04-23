@@ -41,6 +41,12 @@ class Container implements IContainer
 	 */
 	protected $aliases = [];
 
+    /**
+     * Self instance
+     *
+     * @var Container
+     */
+    protected static $instance;
 
 
 	/**
@@ -258,7 +264,7 @@ class Container implements IContainer
      * @param  mixed   $instance
      * @return void
      */
-	public function map($provider, $instance)
+	public function map($provider, &$instance)
 	{
 		
 		$provider = $this->trim($provider);
