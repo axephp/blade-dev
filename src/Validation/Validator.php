@@ -29,6 +29,7 @@ class Validator
 		return $validator;
 	}
 
+	
 
 	public function validate($field)
 	{
