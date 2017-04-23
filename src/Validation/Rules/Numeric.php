@@ -14,7 +14,7 @@ class Numeric
 
 		$options = [];
 		
-		$var = filter_var($validator->field[1], FILTER_VALIDATE_FLOAT);
+		$var = filter_var($validator->value, FILTER_VALIDATE_FLOAT);
 
 		if ($args == "between") {
 			if (!($var > $validator->minValue && $var < $validator->maxValue)) {
