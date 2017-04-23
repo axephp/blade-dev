@@ -36,7 +36,7 @@ class Court
 	{
 		
 		$ruleName = $this->rules[$this->type];
-		$ruleClass = "Rules\\{$ruleName}";
+		$ruleClass = "Blade\\Validation\\Rules\\{$ruleName}";
 
 		$rule = new $ruleClass();
 
