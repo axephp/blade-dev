@@ -42,6 +42,8 @@ class Court
 
 		$ret = $rule->execute($validator, $this->args);
 
+		dump($ret);
+
 		if (is_null($ret)) {
 			return (object)['status'=>'success'];
 		}else{
