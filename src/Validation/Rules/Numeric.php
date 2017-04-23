@@ -1,6 +1,6 @@
 <?php
 
-namespace Blade\Validation;
+namespace Blade\Validation\Rules;
 
 use Exception;
 
