@@ -26,7 +26,7 @@ class Court
 			'url'			=> 'Url'
 		];
 
-	function __construct($type, $argss)
+	function __construct($type, $args)
 	{
 		$this->type = $type;
 		$this->args = $args;
