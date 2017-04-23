@@ -363,7 +363,7 @@ class Container implements IContainer
 			$this->maps[$provider] = &$object;
 		}
 
-		return &$object;
+		return $object;
 	}
 
 
