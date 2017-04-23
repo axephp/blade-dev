@@ -154,7 +154,7 @@ class Kernel implements IKernel
 			if (!$this->axe->isConsole() && !$request->isAjax()) {
 				$response = AxE_Error::render($this->axe, $request, $ex);
 			}elseif ($request->isAjax()) {
-				$response = json($ex);
+				$response = json_encode($ex, JSON_PRETTY_PRINT);
 			}else{
 				$response = strip_tags($ex->getMessage());
 			}
