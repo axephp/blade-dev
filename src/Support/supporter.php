@@ -81,6 +81,7 @@ if (!function_exists('filter')) {
 
 	function filter() {
 	    if(filter_var(func_get_args()) === false){
+	    	dump(func_get_args());
 	        return false;
 	    }
 	    else{
