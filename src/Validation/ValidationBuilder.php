@@ -11,6 +11,7 @@ class ValidationBuilder
 
 	protected $field;
 	protected $value;
+	protected $args;
 
 
 	/* Checks | Must be in order */
@@ -272,7 +273,9 @@ class ValidationBuilder
 		$type = $typeArray[0];
 		$args = isset($typeArray[1]) ? $typeArray[1] : "";
 
-		$court = new Court($type, $args);
+		$this->args = $args;
+
+		$court = new Court($type);
 		return $court->judgement($this);
 
 	}

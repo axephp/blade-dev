@@ -26,10 +26,9 @@ class Court
 			'url'			=> 'Url'
 		];
 
-	function __construct($type, $args)
+	function __construct($type)
 	{
 		$this->type = $type;
-		$this->args = $args;
 	}
 
 	public function judgement(ValidationBuilder $validator)
@@ -40,7 +39,7 @@ class Court
 
 		$rule = new $ruleClass();
 
-		$ret = $rule->execute($validator, $this->args);
+		$ret = $rule->execute($validator);
 
 		if (is_null($ret)) {
 			return (object)['status'=>'success'];
