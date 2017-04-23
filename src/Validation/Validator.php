@@ -26,7 +26,7 @@ class Validator
 
 		$this->rules[$field] = $validator;
 
-		//dump($this->rules);
+		dump($this->rules);
 
 		//return $validator;
 	}
