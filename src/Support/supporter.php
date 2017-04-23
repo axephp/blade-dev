@@ -77,6 +77,20 @@ if (!function_exists('escape')) {
 }
 
 
+if (!function_exists('filter')) {
+
+	function filter() {
+	    if(filter_var(func_get_args()) === false){
+	        return false;
+	    }
+	    else{
+	        return true;
+	    }
+	}
+
+}
+
+
 if (!function_exists('redirect')) {
 
 	function redirect($url, $statusCode = 303)

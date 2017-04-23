@@ -42,11 +42,12 @@ class Court
 
 		$ret = $rule->execute($validator, $this->args);
 
-		dump($ret);
+		if (is_null($ret)) {
+			return (object)['status'=>'success'];
+		}else{
+			return (object)$ret;
+		}
 
-		$ret = (!is_bool($ret) && !is_object($ret) ? $ret : "" ) == $validator->value;
-
-		return $ret;
 	}
 
 }

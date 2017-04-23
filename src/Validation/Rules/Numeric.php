@@ -14,16 +14,25 @@ class Numeric
 
 		$options = [];
 		
-		$var = filter_var($validator->value, FILTER_VALIDATE_FLOAT);
+		$numeric = filter($validator->value, FILTER_VALIDATE_FLOAT);
+		if (!$numeric) {
+			return [
+					"status"	=> "error",
+					"type"		=> "not-numeric",
+					"message"	=> "The entered value is not a number."
+					];
+		}
 
 		if ($args == "between") {
 			if (!($var > $validator->minValue && $var < $validator->maxValue)) {
-				return (object)["type"=>"not-in-between", "message"=>"Not in between {$validator->minValue} & {$validator->maxValue}"];
+				return [
+					"status"	=> "error", 
+					"type"		=> "not-in-between",  
+					"message"	=> "Not in between {$validator->minValue} & {$validator->maxValue}"
+					];
 			}
 		}
 
-		return $var;
-		
 	}
 
 }
