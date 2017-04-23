@@ -18,17 +18,22 @@ class Characters
 		}
 
 		// START DATA TYPES
+		$regex = "/[a-zA-Z]/";
 
-		$characters = filter($validator->value, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z]/")));
+		// ARGS
+		if ($validator->args == "dash"){
+			$regex = "regexp"=>"/[a-zA-Z-_]/";
+		}
+
+
+		$characters = filter($validator->value, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>$regex)));
 		if (!$characters && $validator->value != '') {
 			return [
 					"status"	=> "error",
-					"type"		=> "not-characters",
-					"message"	=> "The entered value is not alphabets."
+					"type"		=> "not-valid",
+					"message"	=> "The entered value is not valid."
 					];
 		}
-
-		// ARGS
 
 		// END DATA TYPES
 
