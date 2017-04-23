@@ -12,11 +12,11 @@ class Numeric
 	public function execute($validator, $args)
 	{
 
-		$options = [];
+		$return = null;
 		
 		$numeric = filter($validator->value, FILTER_VALIDATE_FLOAT);
 		if (!$numeric) {
-			return [
+			$return = [
 					"status"	=> "error",
 					"type"		=> "not-numeric",
 					"message"	=> "The entered value is not a number."
@@ -25,7 +25,7 @@ class Numeric
 
 		if ($args == "between") {
 			if (!($validator->value > $validator->minValue && $validator->value < $validator->maxValue)) {
-				return [
+				$return = [
 					"status"	=> "error", 
 					"type"		=> "not-in-between",  
 					"message"	=> "Not in between {$validator->minValue} & {$validator->maxValue}"
@@ -33,6 +33,8 @@ class Numeric
 			}
 		}
 
+
+		return $return;
 	}
 
 }
