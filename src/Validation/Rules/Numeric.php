@@ -24,7 +24,7 @@ class Numeric
 		}
 
 		if ($args == "between") {
-			if (!($var > $validator->minValue && $var < $validator->maxValue)) {
+			if (!($validator->value > $validator->minValue && $validator->value < $validator->maxValue)) {
 				return [
 					"status"	=> "error", 
 					"type"		=> "not-in-between",  
