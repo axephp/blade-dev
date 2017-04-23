@@ -254,7 +254,7 @@ class ValidationBuilder
 
 	public function confirmed($confirmation_field)
 	{
-		dump($this->axe->resolve('route')->posts());
+		dump($this->axe->resolve('route')->getParameters());
 		return $this;
 	}
 
