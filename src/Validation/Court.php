@@ -26,11 +26,10 @@ class Court
 			'url'			=> 'Url'
 		];
 
-	function __construct($typeData)
+	function __construct($type, $argss)
 	{
-		$data = explode("|", $typeData);
-		$this->type = $data[0];
-		$this->args = isset($data[1]) ? $data[1] : "";
+		$this->type = $type;
+		$this->args = $args;
 	}
 
 	public function judgement(ValidationBuilder $validator)
