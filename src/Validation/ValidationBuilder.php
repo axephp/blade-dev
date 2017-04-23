@@ -10,6 +10,7 @@ class ValidationBuilder
 {
 
 	protected $field;
+	protected $value;
 
 	protected $required;
 	protected $filled;
@@ -261,8 +262,10 @@ class ValidationBuilder
 	}
 
 
-	public function validate()
+	public function validate($value = '')
 	{
+		$this->value = $value;
+
 		$typeData = (is_null($this->dataType) ? 'alpha-numeric' : $this->dataType); 
 		$typeArray = explode("|", $typeData);
 

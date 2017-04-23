@@ -20,9 +20,9 @@ class Validator
 		$this->axe = $axe;
 	}
 
-	public function field($field, $value='')
+	public function field($field)
 	{
-		$validator = new ValidationBuilder([$field, $value]);
+		$validator = new ValidationBuilder($field);
 
 		$this->rules[$field] = $validator;
 
@@ -36,7 +36,7 @@ class Validator
 
 		$ret = [];
 		foreach ($field as $key=>$value) {
-			$ret[$key] = isset($this->rules[$key]) ? $this->rules[$key]->validate() : 
+			$ret[$key] = isset($this->rules[$key]) ? $this->rules[$key]->validate($value) : 
 						(object)['type'=>'not-found', 'message'=>'Field not found!' ];
 		}
 

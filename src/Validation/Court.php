@@ -42,7 +42,7 @@ class Court
 
 		$var = $rule->execute($validator, $this->args);
 
-		$ret = (!is_bool($var) ? $var : "") == $validator->field[1];
+		$ret = (!is_bool($var) ? $var : "") == $validator->value;
 
 		return $ret;
 	}
