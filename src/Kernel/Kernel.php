@@ -151,7 +151,14 @@ class Kernel implements IKernel
 
 		}catch(Throwable $ex){
 
-			$response = AxE_Error::render($this->axe, $request, $ex);
+			if (!$this->axe->isConsole() && !$request->isAjax()) {
+				$response = AxE_Error::render($this->axe, $request, $ex);
+			}elseif ($request->isAjax()) {
+				$response = json($ex);
+			}else{
+				$response = $ex->getMessage();
+			}
+			
 			$this->axe->trigger("kernel_booted", [ $request, $response ]);
 
 		}

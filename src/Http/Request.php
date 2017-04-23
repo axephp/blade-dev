@@ -106,5 +106,15 @@ class Request extends SymfonyRequest implements IRequest
 		return ($this->headers->all());
 
 	}
+
+	/**
+     * Determine if AJAX
+     *
+     * @return bool
+     */
+    public function isAjax()
+    {
+        return $this->isXmlHttpRequest();
+    }
 	
 }
