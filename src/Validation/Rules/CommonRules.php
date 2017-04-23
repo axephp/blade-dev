@@ -11,7 +11,7 @@ trait CommonRules
 	protected function required($validator)
 	{
 		if ($validator->required == true){
-			if (empty($validator->value) || $validator->value == ''){
+			if ($validator->value == ''){
 				return [
 					"status"	=> "error",
 					"type"		=> "required",
