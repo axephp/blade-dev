@@ -142,8 +142,8 @@ class ValidationBuilder
 
 	public function sizeBetween($min, $max)
 	{
-		$this->min = ($min);
-		$this->max = ($max);
+		$this->minLength = ($min);
+		$this->maxLength = ($max);
 		return $this;
 	}
 

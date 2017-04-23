@@ -50,7 +50,7 @@ class Numeric
 
 		// END DATA TYPES
 
-		return $this->validateCommons();
+		return $this->validateCommons($validator);
 
 	}
 
