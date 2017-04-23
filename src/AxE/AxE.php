@@ -110,6 +110,7 @@ class AxE extends Container implements IAxE
 
         $this->map('axe', $this);
         $this->map(\Blade\Container\Container::class, $this);
+        $this->map(\Blade\Interfaces\Container\Container::class, $this);
 
         $this->register(['events' => \Blade\Events\Trigger::class]);
 
