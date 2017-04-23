@@ -105,7 +105,7 @@ class AxE extends Container implements IAxE
             $this->setBasePath($basePath);
         }
 
-        self::setInstance(&$this);
+        self::setInstance($this);
     }
 
 
