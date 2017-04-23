@@ -34,7 +34,8 @@ class Validator
 	public function validate($field)
 	{
 		if (!is_array($field)) {
-			return $this->rules[$field]->validate();
+			return isset($this->rules[$field]) ? $this->rules[$field]->validate() :
+						(object)['type'=>'field-not-found', 'messsage'=>"Field not found."];
 		}
 
 		$ret = [];
