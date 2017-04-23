@@ -12,7 +12,7 @@ class Validator
 
 	protected $axe;
 
-	protected $rules;
+	protected $rules = [];
 
 
 	function __construct(AxE $axe)
@@ -26,9 +26,9 @@ class Validator
 
 		$this->rules[$field] = $validator;
 
-		dump($this->rules);
+		//dump($this->rules);
 
-		return $validator;
+		//return $validator;
 	}
 
 
