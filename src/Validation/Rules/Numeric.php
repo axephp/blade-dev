@@ -15,7 +15,6 @@ class Numeric
 		$options = [];
 		
 		$numeric = filter($validator->value, FILTER_VALIDATE_FLOAT);
-		dump($numeric);
 		if (!$numeric) {
 			return [
 					"status"	=> "error",
