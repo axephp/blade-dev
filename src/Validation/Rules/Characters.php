@@ -22,7 +22,7 @@ class Characters
 
 		// ARGS
 		if ($validator->args == "dash"){
-			$regex = "regexp"=>"/[a-zA-Z-_]/";
+			$regex = "/[a-zA-Z-_]/";
 		}
 
 
