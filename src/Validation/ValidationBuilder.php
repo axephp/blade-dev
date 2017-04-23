@@ -256,8 +256,9 @@ class ValidationBuilder
 
 	public function validate()
 	{
-		dump($this->dataType);
-		
+		$type = (is_null($this->dataType) ? 'alpha-numeric' : $this->dataType); 
+		dump($type);
+
 	}
 
 
