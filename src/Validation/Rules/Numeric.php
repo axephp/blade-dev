@@ -14,7 +14,7 @@ class Numeric
 	{
 
 		//required
-		$this->required();
+		return $this->required();
 
 		// START DATA TYPES
 
@@ -29,7 +29,7 @@ class Numeric
 
 		//ARGS
 		if ($validator->args == "exactly"){
-			if (strlen($validator->value) != $this->length){
+			if (strlen($validator->value) != $validator->length){
 				return [
 					"status"	=> "error",
 					"type"		=> "not-exact-length",
@@ -50,7 +50,7 @@ class Numeric
 
 		// END DATA TYPES
 
-		$this->validateCommons();
+		return $this->validateCommons();
 
 	}
 
