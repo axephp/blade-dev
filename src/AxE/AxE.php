@@ -124,7 +124,7 @@ class AxE extends Container implements IAxE
     protected function attendImportantManagers()
     {   
         if (class_exists(\App\Managers\EventManager::class)) {
-            $this->map('eventManager', new \App\Managers\EventManager($this));
+            $this->map('eventManager', (new \App\Managers\EventManager($this)));
         }else{
             $this->map('eventManager', new \Blade\Events\EventManager($this));
         }
