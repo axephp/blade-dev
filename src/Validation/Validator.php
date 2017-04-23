@@ -36,7 +36,6 @@ class Validator
 
 		$ret = [];
 		foreach ($field as $key=>$value) {
-			dump($this->rules);
 			$ret[$key] = isset($this->rules[$key]) ? $this->rules[$key]->validate($value) : 
 						(object)['type'=>'not-found', 'message'=>'Field not found!' ];
 		}
