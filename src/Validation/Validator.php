@@ -29,7 +29,7 @@ class Validator
 		return $validator;
 	}
 
-	
+
 
 	public function validate($field)
 	{
@@ -37,7 +37,7 @@ class Validator
 			return $this->rules[$field]->validate();
 		}
 
-		$ret = []
+		$ret = [];
 		foreach ($field as $fld) {
 			$ret[$fld] = $this->rules[$fld]->validate();
 		}
