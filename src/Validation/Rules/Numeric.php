@@ -9,17 +9,10 @@ use Blade\Interfaces\AxE\AxE;
 class Numeric
 {
 
-	protected $validator;
-
-	function __construct($validator)
-	{
-		$this->validator = $validator;
-	}
-
-	public function execute($field, $args)
+	public function execute($validator)
 	{
 		
-		$var = filter_var($field[1], FILTER_VALIDATE_FLOAT);
+		$var = filter_var($validator->field[1], FILTER_VALIDATE_FLOAT);
 
 		$options = [];
 

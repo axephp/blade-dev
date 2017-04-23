@@ -11,7 +11,6 @@ class Court
 
 
 	protected $type;
-	protected $args;
 
 	protected $rules = [
 			'alpha-numeric' => 'AlphaNumeric',
@@ -30,7 +29,6 @@ class Court
 	{
 		$data = explode("|", $typeData);
 		$this->type = $data[0];
-		$this->args = isset($data[1]) ? $data[1] : "";
 	}
 
 	public function judgement(ValidationBuilder $validator)
@@ -39,9 +37,9 @@ class Court
 		$ruleName = $this->rules[$this->type];
 		$ruleClass = "Blade\\Validation\\Rules\\{$ruleName}";
 
-		$rule = new $ruleClass($validator);
+		$rule = new $ruleClass();
 
-		return $rule->execute($field, $this->args);
+		return $rule->execute($validator);
 
 	}
 
