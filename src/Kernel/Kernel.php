@@ -19,6 +19,7 @@ use Blade\AxE\Core\Auther;
 
 use Blade\Validation\ValidationManager as Validation;
 use Blade\Session\SessionManager as Session;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 
 class Kernel implements IKernel
