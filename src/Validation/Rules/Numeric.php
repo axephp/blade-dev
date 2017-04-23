@@ -11,16 +11,19 @@ class Numeric
 
 	public function execute($validator, $args)
 	{
+
+		$options = [];
 		
 		$var = filter_var($validator->field[1], FILTER_VALIDATE_FLOAT);
 
-		$options = [];
+		if ($args == "between") {
+			if (!($var > $validator->minValue && $var < $validator->maxValue)) {
+				$var = false;
+			}
+		}
 
-		$ret = $var == $validator->field[1];
 
-		dump($ret);
-
-		return true;
+		return $var;
 		
 	}
 
