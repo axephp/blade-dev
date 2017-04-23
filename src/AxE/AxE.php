@@ -105,7 +105,7 @@ class AxE extends Container implements IAxE
             $this->setBasePath($basePath);
         }
 
-        self::setInstance($this);
+        self::setInstance(&$this);
     }
 
 
@@ -117,7 +117,7 @@ class AxE extends Container implements IAxE
     protected function attendance()
     {
 
-        $this->map('axe', $this);
+        $this->map('axe', &$this);
         $this->map(\Blade\Container\Container::class, $this);
 
         $this->register(['events' => \Blade\Events\Trigger::class]);

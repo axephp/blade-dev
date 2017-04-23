@@ -321,7 +321,7 @@ class Container implements IContainer
 
 		// If Already exists, return that.
 		if (isset($this->maps[$provider]) && !is_null($this->maps[$provider])) {
-			return $this->maps[$provider];
+			return &$this->maps[$provider];
 		}
 
 
@@ -363,7 +363,7 @@ class Container implements IContainer
 			$this->maps[$provider] = $object;
 		}
 
-		return $object;
+		return &$object;
 	}
 
 
