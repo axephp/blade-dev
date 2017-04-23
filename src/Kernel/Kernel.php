@@ -154,9 +154,20 @@ class Kernel implements IKernel
 			if (!$this->axe->isConsole() && !$request->isAjax()) {
 				$response = AxE_Error::render($this->axe, $request, $ex);
 			}elseif ($request->isAjax()) {
-				$response = json_encode($ex, JSON_PRETTY_PRINT);
+				$response = new SymfonyResponse();
+
+				$response->setContent(json_encode($ex, JSON_PRETTY_PRINT));
+
+				$response->headers->set('Content-Type', "application/json");
+
 			}else{
-				$response = strip_tags($ex->getMessage());
+
+				$response = new SymfonyResponse();
+
+				$response->setContent(strip_tags($ex->getMessage()));
+
+				$response->headers->set('Content-Type', "text/plain");
+
 			}
 			
 			$this->axe->trigger("kernel_booted", [ $request, $response ]);

@@ -91,7 +91,7 @@ class AxE_Error extends Exception implements Throwable
 
     private static function toResponse($output)
     {
-    		$response = new SymfonyResponse();
+    	$response = new SymfonyResponse();
 
 		$response->setContent($output);
 
