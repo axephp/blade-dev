@@ -96,7 +96,7 @@ class AxE extends Container implements IAxE
             $this->setBasePath($basePath);
         }
 
-        self::setInstance($this);
+        parent::setInstance($this);
     }
 
 
@@ -544,25 +544,5 @@ class AxE extends Container implements IAxE
     }
 
 
-     /**
-     * Store self instance
-     *
-     * @return void
-     */
-    public static function setInstance($instance)
-    {
-        self::$instance = $instance;
-    }
-
-
-     /**
-     * Returns the self instance
-     *
-     * @return AxE
-     */
-    public static function getInstance()
-    {
-        return self::$instance;
-    }
 
 }

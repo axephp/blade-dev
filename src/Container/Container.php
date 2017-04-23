@@ -432,4 +432,30 @@ class Container implements IContainer
 	}
 
 
+
+     /**
+     * Store self instance
+     *
+     * @return void
+     */
+    public static function setInstance($instance)
+    {
+        return 	static::$instance = $instance;
+    }
+
+
+     /**
+     * Returns the self instance
+     *
+     * @return AxE
+     */
+    public static function getInstance()
+    {
+        if (is_null(static::$instance)) {
+            static::$instance = new static;
+        }
+        return static::$instance;
+    }
+
+
 }
