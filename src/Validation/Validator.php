@@ -12,9 +12,7 @@ class Validator
 
 	protected $axe;
 
-	protected $field;
-
-	protected $validator;
+	protected $rules;
 
 
 	function __construct(AxE $axe)
@@ -24,11 +22,26 @@ class Validator
 
 	public function field($field, $value='')
 	{
-		$this->field = [$field, $value];
+		$validator = new ValidationBuilder([$field, $value]);
 
-		$this->validator = new ValidationBuilder($this->field);
+		$this->rules[$field] = $validator;
 
-		return $this->validator;
+		return $validator;
+	}
+
+
+	public function validate($field)
+	{
+		if (!is_array($field)) {
+			return $this->rules[$field]->validate();
+		}
+
+		$ret = []
+		foreach ($field as $fld) {
+			$ret[$fld] = $this->rules[$fld]->validate();
+		}
+
+		return (object)$ret;
 	}
 
 }

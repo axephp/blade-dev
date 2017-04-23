@@ -18,11 +18,9 @@ class Numeric
 
 		if ($args == "between") {
 			if (!($var > $validator->minValue && $var < $validator->maxValue)) {
-				$var = false;
+				return (object)["type"=>"not-in-between", "message"=>"Not in between {$validator->minValue} & {$validator->maxValue}"];
 			}
 		}
-
-		dump($args);
 
 		return $var;
 		

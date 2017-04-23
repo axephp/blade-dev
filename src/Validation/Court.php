@@ -44,8 +44,6 @@ class Court
 
 		$ret = (!is_bool($var) ? $var : "") == $validator->field[1];
 
-		dump($ret);
-
 		return $ret;
 	}
 
