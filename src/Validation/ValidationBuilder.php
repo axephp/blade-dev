@@ -48,7 +48,7 @@ class ValidationBuilder
 	public function chars($length = null)
 	{
 		$this->dataType = 'characters';
-		$this->length = $length
+		$this->length = $length;
 		return $this;
 	}
 
