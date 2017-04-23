@@ -276,7 +276,7 @@ class Container implements IContainer
 
 		}
 
-		$this->maps[$provider] = $instance;
+		$this->maps[$provider] = &$instance;
 
 	}
 
