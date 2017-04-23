@@ -15,7 +15,7 @@ class ValidationBuilder
 
 
 	/* Checks | Must be in order */
-	protected $required;
+	protected $required = true;
 
 	protected $dataType;
 
