@@ -9,6 +9,8 @@ use Blade\Interfaces\AxE\AxE;
 class ValidationBuilder
 {
 
+	protected $field;
+
 	protected $required;
 	protected $filled;
 
@@ -34,6 +36,11 @@ class ValidationBuilder
 	protected $table;
 	protected $column;
 	protected $except;
+
+	function __construct($field = null)
+	{
+		$this->field = $field;
+	}
 
 
 	public function chars($length = null)
@@ -256,8 +263,14 @@ class ValidationBuilder
 
 	public function validate()
 	{
-		$type = (is_null($this->dataType) ? 'alpha-numeric' : $this->dataType); 
-		dump($type);
+		$typeData = (is_null($this->dataType) ? 'alpha-numeric' : $this->dataType); 
+		$typeArray = explode("|", $typeData);
+
+		$type = $typeArray[0];
+		$args = isset($typeArray[1]) ? $typeArray[1] : "";
+
+		$court = new Court($type, $args);
+		return $court->judgement($this->field);
 
 	}
 

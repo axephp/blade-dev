@@ -26,7 +26,7 @@ class Validator
 	{
 		$this->field = [$field, $value];
 
-		$this->validator = new ValidationBuilder();
+		$this->validator = new ValidationBuilder($this->field);
 
 		return $this->validator;
 	}
