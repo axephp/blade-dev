@@ -9,10 +9,6 @@ use Blade\Interfaces\AxE\AxE;
 class ValidationBuilder
 {
 
-	protected $axe;
-
-	protected $field;
-
 	protected $required;
 	protected $filled;
 
@@ -30,19 +26,14 @@ class ValidationBuilder
 
 	protected $different;
 
+	protected $same;
+
 	protected $imageDimensions;
 	protected $mimes;
 
-	function __construct(AxE $axe)
-	{
-		$this->axe = $axe;
-	}
-
-	public function field($field, $value='')
-	{
-		$this->field = [$field, $value];
-		return $this;
-	}
+	protected $table;
+	protected $column;
+	protected $except;
 
 
 	public function chars($length = null)
@@ -162,7 +153,7 @@ class ValidationBuilder
 
 	public function differentFrom($field)
 	{
-		$this->different = $field;
+		$this->different[] = $field;
 		return $this;
 	}
 
@@ -238,33 +229,35 @@ class ValidationBuilder
 
 	public function unique($table, $column, $except)
 	{
-		# code...
+		$this->table 	= $table;
+		$this->column 	= $column;
+		$this->except 	= $except;
+		return $this;
 	}
 
-	public function exists($table, $field)
+	public function exists($table)
 	{
-		# code...
+		$this->table 	= $table;
+		return $this;
 	}
 
 	public function same($fieldValue)
 	{
-		$this->field[1] = $fieldValue;
+		$this->same[] = $fieldValue;
 		return $this;
 	}
 
-	public function confirmed($confirmation_field)
+	public function confirmed($confirmation_fieldValue)
 	{
-		dump($this->axe->resolve('route')->getParameters());
+		$this->same[] = $confirmation_fieldValue;
 		return $this;
 	}
+
 
 	public function validate()
 	{
-		if ($this->onlyCharacters) {
-			preg_match(['a-zA-Z'], $this->field[1]);
-		}elseif ($this->onlyNumbers) {
-			preg_match(['0-9'], $this->field[1]);
-		}
+		dump($this->dataType);
+		
 	}
 
 
