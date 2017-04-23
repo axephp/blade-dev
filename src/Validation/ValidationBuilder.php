@@ -254,7 +254,7 @@ class ValidationBuilder
 
 	public function confirmed($confirmation_field)
 	{
-		dump($this->axe->resolve('route'));
+		dump($this->axe->resolve('route')->posts());
 		return $this;
 	}
 
