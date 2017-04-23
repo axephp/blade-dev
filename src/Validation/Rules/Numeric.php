@@ -10,7 +10,7 @@ class Numeric
 {
 	use CommonRules;
 
-	public function execute(\ValidationBuilder $validator)
+	public function execute(ValidationBuilder $validator)
 	{
 
 		//required
