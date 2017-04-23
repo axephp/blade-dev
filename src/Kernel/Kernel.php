@@ -17,6 +17,7 @@ use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
 use Blade\AxE\Core\Auther;
 
+use Blade\Validation\ValidationManager as Validation;
 use Blade\Session\SessionManager as Session;
 
 
@@ -46,7 +47,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $managers = [
-		Configurer::class, Shutter::class, Logger::class, Session::class //, Auther::class
+		Configurer::class, Shutter::class, Logger::class, Session::class, Validation::class //, Auther::class
 	]; 
 
 
