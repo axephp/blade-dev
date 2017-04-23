@@ -3,7 +3,7 @@
 namespace Blade\Validation\Rules;
 
 use Exception;
-
+use Blade\Validation\ValidationBuilder;
 use Blade\Validation\Rules\CommonRules;
 
 class Numeric
