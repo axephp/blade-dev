@@ -12,28 +12,34 @@ class ValidationBuilder
 	protected $field;
 	protected $value;
 
+
+	/* Checks | Must be in order */
 	protected $required;
-	protected $filled;
 
 	protected $dataType;
 
+	//for all
 	protected $length;
 	protected $minLenth;
 	protected $maxLength;
+
+	protected $different;
+	protected $same;
+
+	//for numerics
 	protected $minValue;
 	protected $maxValue;
 
+	//for dates
 	protected $dateFormat;
 	protected $before;
 	protected $after;
 
-	protected $different;
-
-	protected $same;
-
+	//for files
 	protected $imageDimensions;
 	protected $mimes;
 
+	// for db check & validation
 	protected $table;
 	protected $column;
 	protected $except;
@@ -195,12 +201,6 @@ class ValidationBuilder
 	public function file()
 	{
 		$this->dataType = 'file';
-		return $this;
-	}
-
-	public function filled()
-	{
-		$this->filled = true;
 		return $this;
 	}
 
