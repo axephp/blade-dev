@@ -270,8 +270,13 @@ class ValidationBuilder
 		$args = isset($typeArray[1]) ? $typeArray[1] : "";
 
 		$court = new Court($type, $args);
-		return $court->judgement($this->field);
+		return $court->judgement($this);
 
+	}
+
+	public function __get($key)
+	{
+		return $this->$key;
 	}
 
 

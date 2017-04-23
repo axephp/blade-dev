@@ -26,19 +26,19 @@ class Court
 			'url'			=> 'Url'
 		];
 
-	function __construct($type, $args)
+	function __construct($typeData)
 	{
 		$this->type = $type;
 		$this->args = $args;
 	}
 
-	public function judgement($field)
+	public function judgement(ValidationBuilder $validator)
 	{
 		
 		$ruleName = $this->rules[$this->type];
 		$ruleClass = "Blade\\Validation\\Rules\\{$ruleName}";
 
-		$rule = new $ruleClass();
+		$rule = new $ruleClass($validator);
 
 		return $rule->execute($field, $this->args);
 
