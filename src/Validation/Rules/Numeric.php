@@ -22,6 +22,7 @@ class Numeric
 			}
 		}
 
+		dump($args);
 
 		return $var;
 		
