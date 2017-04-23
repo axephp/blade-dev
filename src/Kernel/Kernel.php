@@ -156,7 +156,7 @@ class Kernel implements IKernel
 			}elseif ($request->isAjax()) {
 				$response = json($ex);
 			}else{
-				$response = $ex->getMessage();
+				$response = strip_tags($ex->getMessage());
 			}
 			
 			$this->axe->trigger("kernel_booted", [ $request, $response ]);
