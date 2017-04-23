@@ -80,7 +80,8 @@ if (!function_exists('escape')) {
 if (!function_exists('filter')) {
 
 	function filter() {
-	    if(call_user_func_array("filter_var", func_get_args()) === false){
+		$val = call_user_func_array("filter_var", func_get_args());
+	    if($val === false || $val != func_get_args()[0]){
 	        return false;
 	    }
 	    else{
