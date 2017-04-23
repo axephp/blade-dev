@@ -157,7 +157,7 @@ class Kernel implements IKernel
 			}elseif ($request->isAjax()) {
 				$response = new SymfonyResponse();
 
-				$response->setContent(json_encode($ex, JSON_PRETTY_PRINT));
+				$response->setContent(json_encode(['error'=>'phperror', 'message'=>strip_tags($ex->getMessage())], JSON_PRETTY_PRINT));
 
 				$response->headers->set('Content-Type', "application/json");
 
