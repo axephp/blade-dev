@@ -42,6 +42,8 @@ class Court
 
 		$ret = $rule->execute($validator, $this->args);
 
+		dump($ret);
+
 		$ret = (!is_bool($ret) && !is_object($ret) ? $ret : "" ) == $validator->value;
 
 		return $ret;
