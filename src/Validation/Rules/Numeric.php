@@ -19,7 +19,7 @@ class Numeric
 		// START DATA TYPES
 
 		$numeric = filter($validator->value, FILTER_VALIDATE_FLOAT);
-		if (!$numeric) {
+		if (!$numeric && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-numeric",
