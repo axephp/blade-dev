@@ -19,7 +19,7 @@ class Characters
 
 		// START DATA TYPES
 
-		$characters = filter($validator->value, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z]/"))));
+		$characters = filter($validator->value, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z]/")));
 		if (!$characters && $validator->value != '') {
 			return [
 					"status"	=> "error",
