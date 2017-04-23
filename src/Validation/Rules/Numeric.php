@@ -14,7 +14,7 @@ class Numeric
 	{
 
 		//required
-		if ($this->required()){ return $this->required; }
+		if ($this->required($validator)){ return $this->required; }
 
 		// START DATA TYPES
 

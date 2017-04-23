@@ -8,7 +8,7 @@ trait CommonRules
 {
 
 
-	protected function required()
+	protected function required($validator)
 	{
 		if ($validator->required == true){
 			if (empty($validator->value) || $validator->value == ''){
