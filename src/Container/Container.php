@@ -264,7 +264,7 @@ class Container implements IContainer
      * @param  mixed   $instance
      * @return void
      */
-	public function map($provider, &$instance)
+	public function map($provider, $instance)
 	{
 		
 		$provider = $this->trim($provider);
