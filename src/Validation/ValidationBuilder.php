@@ -116,7 +116,7 @@ class ValidationBuilder
 		return $this;
 	}
 
-	public function interval($before, $after)
+	public function interval($after, $before)
 	{
 		$this->before = $before;
 		$this->after = $after;
