@@ -17,6 +17,9 @@ class Date
 			return $this->required($validator);
 		}
 
+		// Common
+		return $this->validateLengths($validator);
+
 		// START DATA TYPES
 		$validDate = date_create($validator->value);
 
@@ -35,8 +38,5 @@ class Date
 		}
 
 		// END DATA TYPES
-
-		// Common
-		return $this->validateLengths($validator);
 	}
 }
