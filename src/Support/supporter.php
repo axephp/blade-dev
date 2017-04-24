@@ -99,7 +99,7 @@ if (!function_exists('match_date')) {
 		if (!$sep) {
 			throw new Exception("Invalid Format specified!", 1);
 		}else{
-			preg_match('/^([0-9]{1,4})'.$sep.'([0-9]{1,4})'.$sep.'([0-9]{1,4})$/', $date, $catches, PREG_OFFSET_CAPTURE);
+			preg_match('/^([0-9]{1,4})(\\'.$sep.')([0-9]{1,4})(\\'.$sep.')([0-9]{1,4})$/', $date, $catches, PREG_OFFSET_CAPTURE);
 			if (empty($catches)) {
 				return (false);
 			}else{
