@@ -23,7 +23,7 @@ class Boolean
 		// none
 
 		$boolean = filter($validator->value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-		if ($boolean === null && $validator->value != '') {
+		if (!$boolean === null && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-boolean",
