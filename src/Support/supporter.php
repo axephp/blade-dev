@@ -106,10 +106,8 @@ if (!function_exists('match_date')) {
 				$ret = true;
 				$checks = [];
 				foreach (explode($sep, $format) as $key => $value) {
-					//(str_repeat("0", strlen($value) - strlen($catches[$key+1][0])).$catches[$key+1][0]);
-					if (strlen($value) == 1) {
-						$ret = true;
-					}else{
+					//(str_repeat("0", strlen($value) - strlen($catches[$key+1][0])).$catches[$key+1][0])
+					if (strlen($value) != 1) {
 						$ret = (strlen($value) != strlen($catches[2*$key+1][0])) ? false : $ret;
 					}
 					
