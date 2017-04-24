@@ -115,7 +115,7 @@ if (!function_exists('match_date')) {
 					
 					$checks[substr($value, 0, 1)] = ($catches[2*$key + 1][0]);				
 				}
-				dump($catches, $checks);
+
 				$greg = checkdate($checks['M'], $checks['D'], $checks['Y']);
 				
 				return ($ret && $greg);
