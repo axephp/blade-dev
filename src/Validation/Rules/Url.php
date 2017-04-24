@@ -30,18 +30,6 @@ class Url
 					];
 		}
 
-
-		if($validator->args == "patsh"){
-			$urlPath = filter_var($validator->value, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED);
-			if (!$url && $validator->value != '') {
-				return [
-						"status"	=> "error",
-						"type"		=> "not-url-path",
-						"message"	=> "The entered value is not valid url."
-						];
-			}
-		}
-
 		// END DATA TYPES
 
 	}

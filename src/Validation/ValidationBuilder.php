@@ -172,12 +172,6 @@ class ValidationBuilder
 		return $this;
 	}
 
-	public function urlPath()
-	{
-		$this->dataType = 'url|path';
-		return $this;
-	}
-
 	public function image()
 	{
 		$this->dataType = 'image';
