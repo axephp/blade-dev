@@ -18,7 +18,7 @@ class AlphaNumeric
 		}
 
 		// START DATA TYPES
-		$regex = "/[!-~]/";
+		$regex = "/^[!-~]*$/";
 
 		// ARGS
 		// none
