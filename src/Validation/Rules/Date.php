@@ -18,7 +18,7 @@ class Date
 		}
 
 		// START DATA TYPES
-		$format = 'Y-n-j';
+		$format = 'Y-m-d';
 		// ARGS
 		if ($validator->args == "formatted"){
 				$format = $validator->dateFormat;

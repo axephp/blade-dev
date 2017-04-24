@@ -91,11 +91,24 @@ if (!function_exists('filter')) {
 
 }
 
-if (!function_exists('date_validity')) {
+if (!function_exists('match_date')) {
 
-	function date_validity($date, $format) {
-		$dateHandler = date($format, strtotime($date));
-		return ($dateHandler == $date);
+	function match_date($date, $format) {
+		preg_match('/^([YMD])\1{0,3}(.?)([YMD])\3{0,3}(.?)([YMD])\5{0,3}$/', $format, $matches, PREG_OFFSET_CAPTURE);
+		$sep = ($matches[2][0] == $matches[4][0]) ? $matches[2][0] : false;
+		if (!$sep) {
+			throw new Exception("Invalid Format specified!", 1);
+		}else{
+			preg_match('/^([0-9]{1,4})'.$sep.'([0-9]{1,4})'.$sep.'([0-9]{1,4})$/', $date, $catches, PREG_OFFSET_CAPTURE);
+			if (empty($catches)) {
+				return (false);
+			}else{
+				return true;
+				/*foreach (explode($sep, $format) as $key => $value) {
+					(str_repeat("0", strlen($value) - strlen($catches[$key+1][0])).$catches[$key+1][0]);
+				}*/
+			}
+		}
 	}
 
 }
