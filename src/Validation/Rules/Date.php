@@ -29,6 +29,8 @@ class Date
 
 		}
 
+		$validDate = date_parse($validDate);
+
 		if (!$validDate && $validator->value != '') {
 			return [
 					"status"	=> "error",
