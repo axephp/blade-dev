@@ -42,16 +42,16 @@ class Date
 
 			$afterstamp = match_date($validator->after, $format);
 			$after = new \DateTime("@$afterstamp");
-			$intervalAfter = $today->diff($before);
-			$signAfter = $interval->format('%R');
+			$intervalAfter = $today->diff($after);
+			$signAfter = $intervalAfter->format('%R');
 					
 		}
 
 		if ($validator->before) {
 			$beforestamp = match_date($validator->before, $format);
 			$before = new \DateTime("@$beforestamp");
-			$intervalBefore = $today->diff($after);
-			$signBefore = $interval->format('%R');
+			$intervalBefore = $today->diff($before);
+			$signBefore = $intervalBefore->format('%R');
 		}
 
 
