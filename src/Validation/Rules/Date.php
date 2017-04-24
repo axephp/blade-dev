@@ -18,13 +18,13 @@ class Date
 		}
 
 		// START DATA TYPES
-		$format = 'Y-m-d';
+		$format = 'YYYY-M-D';
 		// ARGS
 		if ($validator->args == "formatted"){
 				$format = $validator->dateFormat;
 		}
 
-		$valid = date_validity($validator->value, $format);
+		$valid = match_date($validator->value, $format);
 
 		if (!$valid && $validator->value != '') {
 			return [
