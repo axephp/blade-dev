@@ -23,6 +23,7 @@ class Date
 		// ARGS
 		if ($validator->args == "formatted"){
 			$validDate = date_format($validDate, $validator->dateFormat);
+
 		}
 
 		if (!$validDate && $validator->value != '') {
@@ -34,5 +35,8 @@ class Date
 		}
 
 		// END DATA TYPES
+
+		// Common
+		return $this->validateLengths($validator);
 	}
 }
