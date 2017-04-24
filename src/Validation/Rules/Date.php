@@ -26,7 +26,7 @@ class Date
 
 		$valid = match_date($validator->value, $format);
 
-		if (!$valid && $validator->value != '') {
+		if ($valid === false && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-valid",
