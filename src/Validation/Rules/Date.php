@@ -18,16 +18,16 @@ class Date
 		}
 
 		// START DATA TYPES
-		$validDate = date_create($validator->value);
+		$validDate = filter_date($validator->value);
 
 		// ARGS
-		if ($validator->args == "formatted"){
+		if ($validDate && $validator->args == "formatted"){
 			$validDate = date_format($validDate, $validator->dateFormat);
 
 		}
 
-		$validDate = strtotime($validDate);
-		$validDate = checkdate(date("m, d, Y", $validDate));
+		//$validDate = strtotime($validDate);
+		//$validDate = checkdate(date("m, d, Y", $validDate));
 
 		if (!$validDate && $validator->value != '') {
 			return [

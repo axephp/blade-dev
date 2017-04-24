@@ -91,6 +91,15 @@ if (!function_exists('filter')) {
 
 }
 
+if (!function_exists('date_validity')) {
+
+	function date_validity($date) {
+		$dateHandler = date("Y-n-j", strtotime($date));
+		return ($dateHandler == $date);
+	}
+
+}
+
 
 if (!function_exists('redirect')) {
 
