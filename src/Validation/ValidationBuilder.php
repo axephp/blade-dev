@@ -126,13 +126,6 @@ class ValidationBuilder
 		return $this;
 	}
 
-	public function beforeOrEqual($date)
-	{
-		$this->dataType = 'date|inclusive';
-		$this->before = $date;
-		return $this;
-	}
-
 	public function size($length)
 	{
 		$this->length = $length;
