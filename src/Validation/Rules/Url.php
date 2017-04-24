@@ -6,7 +6,7 @@ use Exception;
 use Blade\Validation\ValidationBuilder;
 use Blade\Validation\Rules\CommonRules;
 
-class Email
+class Url
 {
 	use CommonRules;
 
@@ -19,12 +19,12 @@ class Email
 
 		// START DATA TYPES
 
-		$mail = filter_var($validator->value, FILTER_VALIDATE_EMAIL);
-		if (!$mail && $validator->value != '') {
+		$url = filter_var($validator->value, FILTER_VALIDATE_URL);
+		if (!$url && $validator->value != '') {
 			return [
 					"status"	=> "error",
-					"type"		=> "not-email",
-					"message"	=> "The entered is not valid email."
+					"type"		=> "not-url",
+					"message"	=> "The entered value is not valid url."
 					];
 		}
 
