@@ -6,7 +6,7 @@ use Exception;
 use Blade\Validation\ValidationBuilder;
 use Blade\Validation\Rules\CommonRules;
 
-class Characters
+class Date
 {
 	use CommonRules;
 
@@ -18,26 +18,21 @@ class Characters
 		}
 
 		// START DATA TYPES
-		$regex = "/^[a-zA-Z]*$/";
+		$validDate = date_create($validator->value);
 
 		// ARGS
-		if ($validator->args == "dash"){
-			$regex = "/^[a-zA-Z-_]*$/";
+		if ($validator->args == "formatted"){
+			$validDate = date_format($validDate, $validator->dateFormat);
 		}
 
-
-		$characters = filter($validator->value, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>$regex)));
-		if (!$characters && $validator->value != '') {
+		if (!$validDate && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-valid",
-					"message"	=> "The entered value is not valid."
+					"message"	=> "The entered date is invalid."
 					];
 		}
 
 		// END DATA TYPES
-
-		// Common
-		return $this->validateLengths($validator);
 	}
 }

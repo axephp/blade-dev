@@ -35,6 +35,7 @@ class AlphaNumeric
 		// END DATA TYPES
 
 		// Common
+		return $this->validateLengths($validator);
 
 	}
 }

@@ -21,7 +21,7 @@ trait CommonRules
 		}
 	}
 
-	protected function validateCommons($validator)
+	protected function validateLengths($validator)
 	{
 		if ($validator->length) {
 			if (strlen($validator->value) != $validator->length){
