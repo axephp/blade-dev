@@ -154,15 +154,21 @@ class ValidationBuilder
 		return $this;
 	}
 
-	public function differentFrom($field)
+	public function accepted()
 	{
-		$this->different[] = $field;
+		$this->dataType = 'boolean|true';
 		return $this;
 	}
 
-	public function accepted()
+	public function email()
 	{
-		$this->dataType = 'boolean';
+		$this->dataType = 'email';
+		return $this;
+	}
+	
+	public function url()
+	{
+		$this->dataType = 'url';
 		return $this;
 	}
 
@@ -178,14 +184,6 @@ class ValidationBuilder
 		$this->minDimensions 	= [$minwidth, $minheight];
 		return $this;
 	}
-
-
-	public function email()
-	{
-		$this->dataType = 'email';
-		return $this;
-	}
-
 
 	public function file()
 	{
@@ -218,12 +216,6 @@ class ValidationBuilder
 		return $this;
 	}
 
-	public function url()
-	{
-		$this->dataType = 'url';
-		return $this;
-	}
-
 	public function unique($table, $column, $except)
 	{
 		$this->table 	= $table;
@@ -241,6 +233,12 @@ class ValidationBuilder
 	public function same($fieldValue)
 	{
 		$this->same[] = $fieldValue;
+		return $this;
+	}
+
+	public function differentFrom($field)
+	{
+		$this->different[] = $field;
 		return $this;
 	}
 
