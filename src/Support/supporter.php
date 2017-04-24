@@ -104,6 +104,7 @@ if (!function_exists('match_date')) {
 				return (false);
 			}else{
 				$ret = true;
+				$checks = [];
 				foreach (explode($sep, $format) as $key => $value) {
 					//(str_repeat("0", strlen($value) - strlen($catches[$key+1][0])).$catches[$key+1][0]);
 					if (strlen($value) == 1) {
@@ -111,8 +112,12 @@ if (!function_exists('match_date')) {
 					}else{
 						$ret = (strlen($value) != strlen($catches[$key+1][0])) ? false : true;
 					}
-			}
-				return $ret;
+					if ($ret) {
+						$checks[substr($value, 0, 1)] = strlen($catches[$key+1][0]);
+					}
+					
+				}
+				return checkdate($checks['M'], $checks['D'], $checks['Y']);
 			}
 		}
 	}
