@@ -20,7 +20,7 @@ class Email
 		// START DATA TYPES
 
 		$mail = filter_var($validator->value, FILTER_VALIDATE_EMAIL);
-		if (!$mail && $validator->value == '') {
+		if (!$mail && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-email",
