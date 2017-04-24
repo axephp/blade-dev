@@ -22,7 +22,7 @@ class Url
 		// ARGS
 
 		$url = filter_var($validator->value, FILTER_VALIDATE_URL);
-		if ($url === null && $validator->value != '') {
+		if (!$url && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-url",
@@ -31,8 +31,9 @@ class Url
 		}
 
 
-		if($validator->args == "path"){
-			if (filter_var($validator->value, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
+		if($validator->args == "patsh"){
+			$urlPath = filter_var($validator->value, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED);
+			if (!$url && $validator->value != '') {
 				return [
 						"status"	=> "error",
 						"type"		=> "not-url-path",
