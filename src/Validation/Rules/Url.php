@@ -19,13 +19,26 @@ class Url
 
 		// START DATA TYPES
 
+		// ARGS
+
 		$url = filter_var($validator->value, FILTER_VALIDATE_URL);
-		if (!$url && $validator->value != '') {
+		if ($url === null && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-url",
 					"message"	=> "The entered value is not valid url."
 					];
+		}
+
+
+		if($validator->args == "path"){
+			if (filter_var($validator->value, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
+				return [
+						"status"	=> "error",
+						"type"		=> "not-url-path",
+						"message"	=> "The entered value is not valid url."
+						];
+			}
 		}
 
 		// END DATA TYPES
