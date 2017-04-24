@@ -19,7 +19,7 @@ class Email
 
 		// START DATA TYPES
 
-		$mail = filter($validator->value, FILTER_VALIDATE_EMAIL);
+		$mail = filter_var($validator->value, FILTER_VALIDATE_EMAIL);
 		if (!$mail && $validator->value == '') {
 			return [
 					"status"	=> "error",
