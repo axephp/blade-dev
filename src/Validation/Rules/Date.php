@@ -20,7 +20,7 @@ class Date
 		// START DATA TYPES
 		$format = 'YYYY-M-D';
 		// ARGS
-		if ($validator->args == "formatted"){
+		if ($validator->dateFormat){
 				$format = $validator->dateFormat;
 		}
 
