@@ -29,7 +29,7 @@ class Date
 
 		}
 
-		$validDate = date_parse($validDate);
+		$validDate = checkdate($validDate);
 
 		if (!$validDate && $validator->value != '') {
 			return [
