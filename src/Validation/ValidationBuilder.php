@@ -93,6 +93,17 @@ class ValidationBuilder
 		return $this;
 	}
 
+	public function date()
+	{
+		$this->dataType = 'date';
+		return $this;
+	}
+
+	public function format($format)
+	{
+		$this->dateFormat = $format;
+		return $this;
+	}
 	public function after($date)
 	{
 		$this->dataType = 'date|after';
@@ -150,19 +161,6 @@ class ValidationBuilder
 	public function boolean()
 	{
 		$this->dataType = 'boolean';
-		return $this;
-	}
-
-	public function date()
-	{
-		$this->dataType = 'date';
-		return $this;
-	}
-
-	public function dateFormat($format)
-	{
-		$this->dataType = 'date|formatted';
-		$this->dateFormat = $format;
 		return $this;
 	}
 

@@ -34,6 +34,15 @@ class Date
 					];
 		}
 
+		if ($validator->args == "after") {
+			$datetime1 = date_create($valid);
+			$datetime2 = date_create($valid);
+			$interval = date_diff($datetime1, $datetime2);
+			
+		}
+
+		
+
 		// END DATA TYPES
 	}
 }

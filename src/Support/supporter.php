@@ -115,8 +115,8 @@ if (!function_exists('match_date')) {
 				}
 
 				$greg = checkdate($checks['M'], $checks['D'], $checks['Y']);
-				
-				return ($ret && $greg);
+				$final = ($ret && $greg);
+				return ($final ? strtotime("{$checks['Y']}-{$checks['M']}-{$checks['D']}") : false);
 			}
 		}
 	}
