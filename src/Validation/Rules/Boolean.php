@@ -22,8 +22,8 @@ class Boolean
 		// ARGS
 		// none
 
-		$characters = filter($validator->value, FILTER_VALIDATE_BOOLEAN);
-		if (!$characters && $validator->value != '') {
+		$boolean = filter($validator->value, FILTER_VALIDATE_BOOLEAN);
+		if (!$boolean && $validator->value != '') {
 			return [
 					"status"	=> "error",
 					"type"		=> "not-boolean",
