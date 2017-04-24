@@ -113,7 +113,7 @@ if (!function_exists('match_date')) {
 						$ret = (strlen($value) != strlen($catches[$key+1][0])) ? false : true;
 					}
 					
-					$checks[substr($value, 0, 1)] = strlen($catches[$key+1][0]);				
+					$checks[substr($value, 0, 1)] = ($catches[$key+1][0]);				
 				}
 				$greg = checkdate($checks['M'], $checks['D'], $checks['Y']);
 				dump($ret, $greg, $checks);
