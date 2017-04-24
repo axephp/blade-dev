@@ -93,8 +93,8 @@ if (!function_exists('filter')) {
 
 if (!function_exists('date_validity')) {
 
-	function date_validity($date) {
-		$dateHandler = date("Y-n-j", strtotime($date));
+	function date_validity($date, $format) {
+		$dateHandler = date($format, strtotime($date));
 		return ($dateHandler == $date);
 	}
 
