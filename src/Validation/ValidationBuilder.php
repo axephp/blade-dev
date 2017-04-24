@@ -106,21 +106,18 @@ class ValidationBuilder
 	}
 	public function after($date)
 	{
-		$this->dataType = 'date|after';
 		$this->after = $date;
 		return $this;
 	}
 
 	public function before($date)
 	{
-		$this->dataType = 'date|before';
-		$this->before = $before;
+		$this->before = $date;
 		return $this;
 	}
 
 	public function interval($before, $after)
 	{
-		$this->dataType = 'date|interval';
 		$this->before = $before;
 		$this->after = $after;
 		return $this;

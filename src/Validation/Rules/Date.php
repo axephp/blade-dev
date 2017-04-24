@@ -35,66 +35,43 @@ class Date
 		}
 
 		$today = new \DateTime("@$valid");
-
+		$signBefore = "";
+		$signAfter = "";
+		
 		if ($validator->after) {
 
 			$afterstamp = match_date($validator->after, $format);
 			$after = new \DateTime("@$afterstamp");
+			$intervalAfter = $today->diff($before);
+			$signAfter = $interval->format('%R');
 					
 		}
 
 		if ($validator->before) {
 			$beforestamp = match_date($validator->before, $format);
 			$before = new \DateTime("@$beforestamp");
+			$intervalBefore = $today->diff($after);
+			$signBefore = $interval->format('%R');
 		}
 
-		if ($validator->args != "") {
-			
-			switch ($validator->args) {
-				case 'before':
-					$interval = $today->diff($before);
-					$sign = $interval->format('%R');
-					if ($sign == "-") {
-						return [
-							"status"	=> "error",
-							"type"		=> "exceeds-before",
-							"message"	=> "The entered date exceeds maximum date."
-							];
-					}
-					break;
+
 				
-				case 'after':
-					$interval = $today->diff($after);
-					$sign = $interval->format('%R');	
-					if ($sign == "+") {
-						return [
-							"status"	=> "error",
-							"type"		=> "below-after",
-							"message"	=> "The entered date receeds mimimum date."
-							];
-					}
-					break;
-
-				case 'interval':
-					$interval1 = $today->diff($before);
-					$interval2 = $today->diff($after);
-					$sign1 = $interval1->format('%R');
-					$sign2 = $interval2->format('%R');
-					if ($sign1 == "-" || $sign2 == "+") {
-						return [
-							"status"	=> "error",
-							"type"		=> "below-after",
-							"message"	=> "The entered date doesn't fall in the allowed interval."
-							];
-					}
-
-					break;
-				default:
-					break;
-			}
+		if ($signBefore == "-") {
+			return [
+				"status"	=> "error",
+				"type"		=> "exceeds-before",
+				"message"	=> "The entered date exceeds maximum date."
+				];
 		}
-			
 
+		if ($signAfter == "+") {
+			return [
+				"status"	=> "error",
+				"type"		=> "below-after",
+				"message"	=> "The entered date receeds mimimum date."
+				];
+		}
+		
 		// END DATA TYPES
 	}
 }
