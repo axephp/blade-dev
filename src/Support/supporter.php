@@ -110,7 +110,7 @@ if (!function_exists('match_date')) {
 					if (strlen($value) == 1) {
 						$ret = true;
 					}else{
-						$ret = (strlen($value) != strlen($catches[$key+1][0])) ? false : true;
+						$ret = (strlen($value) != strlen($catches[$key+1][0])) ? false : $ret;
 					}
 					
 					$checks[substr($value, 0, 1)] = ($catches[2*$key + 1][0]);				
