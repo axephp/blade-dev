@@ -6,7 +6,7 @@ use Exception;
 use Blade\Validation\ValidationBuilder;
 use Blade\Validation\Rules\CommonRules;
 
-class Boolean
+class Email
 {
 	use CommonRules;
 
