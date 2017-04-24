@@ -112,12 +112,10 @@ if (!function_exists('match_date')) {
 					}else{
 						$ret = (strlen($value) != strlen($catches[$key+1][0])) ? false : true;
 					}
-					if ($ret) {
-						$checks[substr($value, 0, 1)] = strlen($catches[$key+1][0]);
-					}
 					
+					$checks[substr($value, 0, 1)] = strlen($catches[$key+1][0]);				
 				}
-				return checkdate($checks['M'], $checks['D'], $checks['Y']);
+				return ($ret && checkdate($checks['M'], $checks['D'], $checks['Y']));
 			}
 		}
 	}
