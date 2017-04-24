@@ -22,7 +22,7 @@ class Boolean
 		// ARGS
 		// none
 
-		$boolean = filter($validator->value, FILTER_VALIDATE_BOOLEAN);
+		$boolean = filter($validator->value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 		if (!$boolean && $validator->value != '') {
 			return [
 					"status"	=> "error",
