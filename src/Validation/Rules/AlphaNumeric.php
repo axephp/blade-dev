@@ -18,7 +18,7 @@ class AlphaNumeric
 		}
 
 		// START DATA TYPES
-		$regex = "/^(?=.*?[1-9])[0-9()-]/";
+		$regex = "/[!-~]/";
 
 		// ARGS
 		// none
