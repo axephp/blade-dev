@@ -18,7 +18,7 @@ class Characters
 		}
 
 		// START DATA TYPES
-		$regex = "/[a-zA-Z]/";
+		$regex = "/^[a-zA-Z]*$/";
 
 		// ARGS
 		if ($validator->args == "dash"){
