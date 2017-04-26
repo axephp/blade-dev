@@ -6,8 +6,6 @@ use Blade\Validation\Validatable;
 
 trait FormModel
 {
-
-	use Validatable;
 	
 	function fromForm($args = [])
 	{	
