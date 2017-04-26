@@ -21,7 +21,7 @@ class ValidationBuilder
 
 	//for all
 	protected $length;
-	protected $minLenth;
+	protected $minLength;
 	protected $maxLength;
 
 	protected $different;
