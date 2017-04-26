@@ -16,6 +16,8 @@ trait Validatable
 			parent::rules();
 		}
 
+		parent::rules();
+
 		$this->validated = true;
 		return $this->validator->validate($args);
 	}
