@@ -14,6 +14,8 @@ class Validator
 
 	protected $rules = [];
 
+	protected $last_message;
+
 
 	function __construct(AxE $axe)
 	{
@@ -35,12 +37,23 @@ class Validator
 	{
 
 		$ret = [];
+		$success = true;
 		foreach ($field as $key=>$value) {
-			$ret[$key] = isset($this->rules[$key]) ? $this->rules[$key]->validate($value) : 
-						(object)['type'=>'not-found', 'message'=>'Field not found!' ];
+			if (isset($this->rules[$key])){
+				$o = $this->rules[$key]->validate($value);
+				$success = ($success && $o->status == "success");
+				$ret[$key] = $o;
+			}
 		}
 
-		return $ret;
+		$this->last_message = $ret;
+
+		return $success;
+	}
+
+	public function message()
+	{
+		return $this->last_message;
 	}
 
 }
