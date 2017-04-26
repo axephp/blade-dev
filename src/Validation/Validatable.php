@@ -12,13 +12,11 @@ trait Validatable
 
 	public function validate($args)
 	{
-		if (method_exists(parent, "rules")) {
-			parent::rules();
-		}
 
 		parent::rules();
 
 		$this->validated = true;
+		
 		return $this->validator->validate($args);
 	}
 
