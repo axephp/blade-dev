@@ -7,13 +7,18 @@ use Blade\Validation\Validatable;
 trait FormModel
 {
 	
-	//use Validatable;
+	use Validatable;
 
 	function fromForm($args = [])
 	{	
-		if (Validatable::validate($args)) {
+
+		if (method_exists(__CLASS__, 'rules')) {
+			$this->rules();
+		}
+
+		if ($this->validate($args)) {
 			parent::__construct($args);
-		}		
+		}
 	}
 
 }
