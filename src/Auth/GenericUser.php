@@ -5,7 +5,7 @@ namespace Blade\Auth;
 use ReflectionClass;
 use Exception;
 
-class GenericUser
+class GenericUser implements Authenticatable
 {
 	/**
 	 * Attributes Array of Generic User
@@ -35,7 +35,8 @@ class GenericUser
 	 */
 	public function getId()
 	{
-		return $this->id;
+		$name = $this->getAuthIdentifierName();
+        return $this->attributes[$name];
 	}
 
 
@@ -47,8 +48,7 @@ class GenericUser
 	 */
 	public function getIdName()
 	{
-		$name = $this->getAuthIdentifierName();
-        	return $this->attributes[$name];
+		return 'id';
 	}
 
 
@@ -72,7 +72,7 @@ class GenericUser
 	 */
 	public function getToken()
 	{
-		return $this->attributes[$this->getRememberTokenName()];
+		return $this->attributes[$this->getTokenName()];
 	}
 
 
@@ -82,9 +82,9 @@ class GenericUser
      * @param  string  $value
      * @return void
      */
-    	public function setRememberToken($value)
+    	public function setToken($value)
     	{
-        	$this->attributes[$this->getRememberTokenName()] = $value;
+        	$this->attributes[$this->getTokenName()] = $value;
     	}
 
 

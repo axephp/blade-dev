@@ -108,6 +108,16 @@ class Auth
 	}
 
 
+	protected function makeModelProvider($conf)
+	{
+		$pro = 'Blade\Auth\\'.ucfirst($conf->provider).'Provider';
+
+		$provider = new $pro($this->axe->resolve('hash'), $conf->model);
+
+		return $provider;
+	}
+
+
 	public function __call($method, $args = [])
 	{
 		return $this->using()->$method(...$args);

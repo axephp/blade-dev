@@ -442,8 +442,8 @@ class SessionDriver
      */
     	protected function refreshRememberToken(Authenticatable $user)
     	{
-        	$user->setRememberToken($token = Str::random(60));
-        	$this->provider->updateRememberToken($user, $token);
+        	$user->setToken($token = Str::random(60));
+        	$this->provider->updateToken($user, $token);
     	}
     
 
@@ -455,7 +455,7 @@ class SessionDriver
      */
     protected function createRememberTokenIfDoesntExist(Authenticatable $user)
     {
-        if (empty($user->getRememberToken())) {
+        if (empty($user->getToken())) {
             $this->refreshRememberToken($user);
         }
     }
