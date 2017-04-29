@@ -2,7 +2,7 @@
 
 namespace Blade\Auth;
 
-trait Authenticatable
+trait AuthenticatableTrait
 {
     /**
      * The column name of the "remember me" token.
