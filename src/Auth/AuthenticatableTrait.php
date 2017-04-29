@@ -64,7 +64,7 @@ trait AuthenticatableTrait
      * @param  string  $value
      * @return void
      */
-    public function setRememberToken($value)
+    public function setToken($value)
     {
         if (! empty($this->getTokenName())) {
             $this->{$this->getTokenName()} = $value;
@@ -77,7 +77,7 @@ trait AuthenticatableTrait
      *
      * @return string
      */
-    public function getRememberTokenName()
+    public function getTokenName()
     {
         return $this->rememberTokenName;
     }

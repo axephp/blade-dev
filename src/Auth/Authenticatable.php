@@ -18,7 +18,7 @@ interface Authenticatable
      *
      * @return mixed
      */
-    public function getIdentifier();
+    public function getId();
 
 
     /**
