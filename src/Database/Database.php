@@ -22,10 +22,10 @@ class Database
 	{
 		$capsule = new Capsule;
 
+		$capsule->setAsGlobal();
+
 		// Setup the Eloquent ORM
 		$capsule->bootEloquent();
-
-		$capsule->setAsGlobal();
 
 		$this->instance = $capsule;
 		$this->axe = $axe;
