@@ -23,6 +23,8 @@ class Auther
 	public function run($route, $response)
 	{
 
+		$this->axe->resolve('db');
+
 		$auth = $this->axe->resolve(\Blade\Auth\Auth::class);
 
 		if (!$this->axe->config('site')->uses_auth) {
