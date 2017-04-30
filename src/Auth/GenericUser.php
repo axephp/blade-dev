@@ -35,7 +35,7 @@ class GenericUser implements Authenticatable
 	 */
 	public function getId()
 	{
-		$name = $this->getAuthIdentifierName();
+		$name = $this->getIdrName();
         return $this->attributes[$name];
 	}
 
