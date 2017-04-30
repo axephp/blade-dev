@@ -169,7 +169,7 @@ class ModelProvider
 	public function validate($user, $credentials)
 	{
 		$plain = $credentials['password'];
-        return $this->hasher->compare($plain, $user->getAuthPassword());
+        return $this->hasher->compare($plain, $user->getPassword());
 	}
 
 
