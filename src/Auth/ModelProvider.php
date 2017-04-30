@@ -154,6 +154,7 @@ class ModelProvider
                 $query->where($key, $value);
             }
         }
+        
         return $query->first();
 
 	}
