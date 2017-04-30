@@ -9,8 +9,6 @@ use Blade\AxE\Framework\Libraries;
 trait Validatable
 {
 
-	use Libraries;
-
 	private $validated = false;
 
 

@@ -199,7 +199,7 @@ if (!function_exists('time_elapsed_string')) {
 
 if (!function_exists('axe')) {
 
-	function &axe(){
+	function axe(){
 
 		return \Blade\AxE\AxE::getInstance();
 	
