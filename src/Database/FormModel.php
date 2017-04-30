@@ -16,9 +16,14 @@ trait FormModel
 			$this->rules();
 		}
 
-		if ($this->validate($args)) {
+		/*if (!empty($args)) {
+			if ($this->validate($args)) {
+				parent::__construct($args);
+			}
+		}else{ */
 			parent::__construct($args);
-		}
+		//}
+		
 	}
 
 }
