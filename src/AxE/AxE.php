@@ -7,6 +7,8 @@ use Exception;
 use Blade\Interfaces\AxE\AxE as IAxE;
 use Blade\Container\Container;
 
+use Blade\Validation\ValidationManager as Validation;
+
 class AxE extends Container implements IAxE
 {
 
@@ -47,7 +49,7 @@ class AxE extends Container implements IAxE
      *
      * @var array
      */
-    protected $managers = [ 'eventManager', 'routeManager'];
+    protected $managers = [ 'eventManager', 'routeManager', Validation::class];
 
 
     /**
@@ -170,6 +172,8 @@ class AxE extends Container implements IAxE
             $this->trigger("executed->".$manager, [$this]);
 
         }
+
+
     }
 
 

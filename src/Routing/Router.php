@@ -205,10 +205,12 @@ class Router implements IRouter
      * @param  Request  $request
      * @return Route
      */
-    public function route(Request $request, $middlewares)
+    public function route(Request $request, $middlewares, $default_middlewares)
     {
         $this->currentRequest = $request;
         $this->middlewares[] = $middlewares;
+
+        $this->default_middlewares = $default_middlewares;
 
         return $this->dispatch($request);
     }
@@ -463,7 +465,7 @@ class Router implements IRouter
     protected function passThroughMiddlewares($route, $response)
     {
 
-        foreach (array_flatten($this->middlewares) as $middleware) {
+        foreach (array_merge($this->default_middlewares, array_flatten($this->middlewares)) as $middleware) {
             if (class_exists($middleware)) {
                 $class = $this->axe->resolve($middleware);
                 $class->run($route, $response);

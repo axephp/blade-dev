@@ -17,7 +17,6 @@ use Blade\AxE\Core\Shutter;
 use Blade\AxE\Core\Logger;
 use Blade\AxE\Core\Auther;
 
-use Blade\Validation\ValidationManager as Validation;
 use Blade\Session\SessionManager as Session;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
@@ -48,7 +47,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $managers = [
-		Configurer::class, Shutter::class, Logger::class, Session::class, Validation::class //, Auther::class
+		Configurer::class, Shutter::class, Logger::class, Session::class
 	]; 
 
 
@@ -57,7 +56,7 @@ class Kernel implements IKernel
 	 *
 	 * @var AxE
 	 */
-	protected $middlewares = [ Auther::class ];
+	protected $middlewares = [ ];
 
 
 	/**
@@ -66,7 +65,7 @@ class Kernel implements IKernel
 	 * @var AxE
 	 */
 	protected $default_middlewares = [ 
-		
+		Auther::class
 	];
 
 
@@ -144,7 +143,7 @@ class Kernel implements IKernel
 
 			$this->execute();
 
-			$route = $this->router->route($request, $this->middlewares);
+			$route = $this->router->route($request, $this->middlewares, $this->default_middlewares);
 
 			$response = $this->axe->process($route);
 
