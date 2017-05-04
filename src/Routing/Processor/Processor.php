@@ -307,16 +307,16 @@ class Processor implements IProcessor
 						$i[$type]++;
 					}
 
-
 				}else{
 
-
-					if ($key == 0 && count($params) == 1 && $param->getName() == "params") {
+					if ($key == 0 && $param->getName() == "params") {
 						$args[] = $values;
 					}elseif ($param->getName() == "args") {
 						$args[] =  array_slice($values['requests'], $i['args']);
 					}else {
-						$args[] = isset($values['requests'][$i[$type]]) ? $values['requests'][$i['args']] : null;
+						$args[] = isset($values['requests'][$i['args']]) ? $values['requests'][$i['args']] : 
+											($param->isDefaultValueAvailable() ? $param->getDefaultValue() : null);
+
 						$i['args']++;
 					}
 
